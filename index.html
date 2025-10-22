@@ -1,0 +1,269 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Innovabogados - Asesoría Laboral en Chile</title>
+    
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/css/bootstrap.min.css" rel="stylesheet">
+    
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css">
+    
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Lora:wght@700&family=Montserrat:wght@400;500&display=swap" rel="stylesheet">
+
+    <style>
+        /* Estilos personalizados basados en el manual */
+        body {
+            font-family: 'Montserrat', sans-serif;
+        }
+        h1, h2, h3, h4, h5, h6, .navbar-brand {
+            font-family: 'Lora', serif;
+            font-weight: 700;
+        }
+        
+        /* Color primario (sobrio) y acento */
+        :root {
+            --bs-primary: #0d2c54; /* Azul legal sobrio */
+            --bs-primary-rgb: 13, 44, 84;
+            --bs-secondary: #f0a500; /* Acento llamativo */
+        }
+        .btn-primary {
+            background-color: var(--bs-primary);
+            border: none;
+        }
+        .btn-secondary {
+            background-color: var(--bs-secondary);
+            border: none;
+        }
+
+        /* Hero Section */
+        .hero-section {
+            background-color: var(--bs-primary);
+            color: white;
+        }
+        
+        /* Botón flotante de WhatsApp */
+        .whatsapp-float {
+            position: fixed;
+            bottom: 20px;
+            right: 20px;
+            background-color: #25D366;
+            color: white;
+            width: 60px;
+            height: 60px;
+            border-radius: 50%;
+            text-align: center;
+            font-size: 2.2rem;
+            line-height: 60px;
+            box-shadow: 0 2px 10px rgba(0,0,0,0.2);
+            z-index: 100;
+        }
+        .whatsapp-float:hover {
+            color: white;
+            background-color: #128C7E;
+        }
+    </style>
+</head>
+<body>
+
+    <nav class="navbar navbar-expand-lg navbar-light bg-white shadow-sm sticky-top">
+        <div class="container">
+            <a class="navbar-brand" href="index.html">INNOVABOGADOS</a>
+            <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#mainNav" aria-controls="mainNav" aria-expanded="false" aria-label="Toggle navigation">
+                <span class="navbar-toggler-icon"></span>
+            </button>
+            <div class="collapse navbar-collapse" id="mainNav">
+                <ul class="navbar-nav ms-auto mb-2 mb-lg-0">
+                    <li class="nav-item"><a class="nav-link active" href="index.html">Inicio</a></li>
+                    <li class="nav-item"><a class="nav-link" href="servicio-template.html">Trabajadores</a></li>
+                    <li class="nav-item"><a class="nav-link" href="#empleadores">Empleadores</a></li>
+                    <li class="nav-item"><a class="nav-link" href="#nosotros">Nosotros</a></li>
+                    <li class="nav-item"><a class="nav-link" href="#recursos">Recursos</a></li>
+                    <li class="nav-item"><a class="nav-link" href="#contacto">Contacto</a></li>
+                </ul>
+                <a href="#contacto" class="btn btn-primary ms-lg-3">Te asesoramos sin costo</a>
+            </div>
+        </div>
+    </nav>
+
+    <header class="hero-section py-5">
+        <div class="container text-center py-5">
+            <h1 class="display-4">Defensa y Asesoría Laboral en Chile</h1>
+            <p class="lead col-lg-8 mx-auto">Especialistas en despidos, autodespidos y cumplimiento normativo para trabajadores y empresas.</p>
+            <div class="d-grid gap-2 d-sm-flex justify-content-sm-center mt-4">
+                <a href="#contacto" class="btn btn-primary btn-lg px-4 gap-3">Te asesoramos sin costo alguno</a>
+                <a href="#agenda" class="btn btn-outline-light btn-lg px-4">Agendar</a>
+            </div>
+        </div>
+    </header>
+
+    <section class="py-5">
+        <div class="container">
+            <div class="row text-center g-4">
+                <div class="col-md-3 col-6">
+                    <i class="fas fa-gavel fa-3x text-primary mb-2"></i>
+                    <h3 class="h5">+15</h3>
+                    <p class="text-muted">Años de experiencia</p>
+                </div>
+                <div class="col-md-3 col-6">
+                    <i class="fas fa-briefcase fa-3x text-primary mb-2"></i>
+                    <h3 class="h5">+800</h3>
+                    <p class="text-muted">Casos gestionados</p>
+                </div>
+                <div class="col-md-3 col-6">
+                    <i class="fas fa-star fa-3x text-primary mb-2"></i>
+                    <h3 class="h5">4.9/5</h3>
+                    <p class="text-muted">Testimonios verificados</p>
+                </div>
+                <div class="col-md-3 col-6">
+                    <i class="fas fa-university fa-3x text-primary mb-2"></i>
+                    <h3 class="h5">Miembros</h3>
+                    <p class="text-muted">Colegio de Abogados</p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <section class="py-5 bg-light" id="servicios">
+        <div class="container">
+            <div class="row g-4">
+                <div class="col-lg-6">
+                    <div class="card h-100 shadow-sm border-0 p-4">
+                        <div class="card-body text-center">
+                            <i class="fas fa-user fa-3x text-primary mb-3"></i>
+                            <h2 class="h4">Para Trabajadores</h2>
+                            <p class="card-text">Defendemos tus derechos en casos de despido injustificado, autodespido, acoso laboral (Ley Karin) y más.</p>
+                            <a href="servicio-template.html" class="btn btn-outline-primary mt-3">Ver servicios de Trabajador</a>
+                        </div>
+                    </div>
+                </div>
+                <div class="col-lg-6" id="empleadores">
+                    <div class="card h-100 shadow-sm border-0 p-4">
+                        <div class="card-body text-center">
+                            <i class="fas fa-building fa-3x text-primary mb-3"></i>
+                            <h2 class="h4">Para Empleadores</h2>
+                            <p class="card-text">Asesoría en cumplimiento, auditorías, reglamentos internos, desvinculaciones y defensas ante la DT.</p>
+                            <a href="#" class="btn btn-outline-primary mt-3">Ver servicios de Empleador</a>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <section class="py-5" id="nosotros">
+        <div class="container">
+            <h2 class="text-center mb-5">Cómo Trabajamos</h2>
+            <div class="row text-center g-4">
+                <div class="col-md-3">
+                    <div class="p-3">
+                        <h3 class="h1 text-primary">1</h3>
+                        <h4 class="h5 mt-2">Evaluación Gratuita</h4>
+                        <p>Analizamos tu caso sin costo para definir la viabilidad.</p>
+                    </div>
+                </div>
+                <div class="col-md-3">
+                    <div class="p-3">
+                        <h3 class="h1 text-primary">2</h3>
+                        <h4 class="h5 mt-2">Estrategia Legal</h4>
+                        <p>Definimos el mejor camino a seguir (judicial o extrajudicial).</p>
+                    </div>
+                </div>
+                <div class="col-md-3">
+                    <div class="p-3">
+                        <h3 class="h1 text-primary">3</h3>
+                        <h4 class="h5 mt-2">Acción</h4>
+                        <p>Redactamos y presentamos demandas, defensas o mediaciones.</p>
+                    </div>
+                </div>
+                <div class="col-md-3">
+                    <div class="p-3">
+                        <h3 class="h1 text-primary">4</h3>
+                        <h4 class="h5 mt-2">Seguimiento</h4>
+                        <p>Te mantenemos informado en cada etapa del proceso.</p>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <section class="py-5 bg-light" id="recursos">
+        <div class="container col-lg-8">
+            <h2 class="text-center mb-4">Preguntas Frecuentes</h2>
+            <div class="accordion" id="faqAccordion">
+                <div class="accordion-item">
+                    <h2 class="accordion-header" id="headingOne">
+                        <button class="accordion-button" type="button" data-bs-toggle="collapse" data-bs-target="#collapseOne" aria-expanded="true" aria-controls="collapseOne">
+                            ¿La primera consulta tiene costo?
+                        </button>
+                    </h2>
+                    <div id="collapseOne" class="accordion-collapse collapse show" aria-labelledby="headingOne" data-bs-parent="#faqAccordion">
+                        <div class="accordion-body">
+                            No. Nuestra primera evaluación es <strong>totalmente gratuita</strong>. El objetivo es entender tu caso y explicarte con claridad si es viable y qué podemos conseguir.
+                        </div>
+                    </div>
+                </div>
+                <div class="accordion-item">
+                    <h2 class="accordion-header" id="headingTwo">
+                        <button class="accordion-button collapsed" type="button" data-bs-toggle="collapse" data-bs-target="#collapseTwo" aria-expanded="false" aria-controls="collapseTwo">
+                            ¿Qué plazo tengo para demandar un despido injustificado?
+                        </button>
+                    </h2>
+                    <div id="collapseTwo" class="accordion-collapse collapse" aria-labelledby="headingTwo" data-bs-parent="#faqAccordion">
+                        <div class="accordion-body">
+                            El plazo general es de <strong>60 días hábiles</strong> desde la fecha del despido. Este plazo puede extenderse si presentas un reclamo en la Dirección del Trabajo.
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <section class="py-5 hero-section" id="contacto">
+        <div class="container text-center col-lg-8">
+            <h2 class="h1">¿Tienes dudas sobre tu situación laboral?</h2>
+            <p class="lead my-4">No dejes pasar los plazos. Recibe una evaluación gratuita de nuestros abogados expertos hoy mismo.</p>
+            <a href="#" class="btn btn-light btn-lg px-5">Te asesoramos sin costo alguno</a>
+        </div>
+    </section>
+
+    <footer class="py-5">
+        <div class="container">
+            <div class="row">
+                <div class="col-lg-4 mb-3">
+                    <a class="navbar-brand fs-4" href="index.html">INNOVABOGADOS</a>
+                    <p class="text-muted mt-2">Asesoría laboral experta en Chile.</p>
+                    <p class="text-muted small">Datos de contacto: <br>
+                        Email: contacto@innovabogados.cl <br>
+                        Teléfono: +56 2 1234 5678
+                    </p>
+                </div>
+                <div class="col-6 col-lg-2 offset-lg-1 mb-3">
+                    <h5 class="h6">Servicios</h5>
+                    <ul class="list-unstyled">
+                        <li><a href="#" class="text-decoration-none text-muted">Trabajadores</a></li>
+                        <li><a href="#" class="text-decoration-none text-muted">Empleadores</a></li>
+                    </ul>
+                </div>
+                <div class="col-6 col-lg-2 mb-3">
+                    <h5 class="h6">Legal</h5>
+                    <ul class="list-unstyled">
+                        <li><a href="#" class="text-decoration-none text-muted">Términos y Condiciones</a></li>
+                        <li><a href="#" class="text-decoration-none text-muted">Privacidad</a></li>
+                    </ul>
+                </div>
+            </div>
+            <hr>
+            <p class="text-center text-muted small">&copy; 2025 Innovabogados. Todos los derechos reservados.</p>
+        </div>
+    </footer>
+
+    <a href="https://api.whatsapp.com/send?phone=569XXXXXXXX" target="_blank" class="whatsapp-float" aria-label="Contactar por WhatsApp">
+        <i class="fab fa-whatsapp"></i>
+    </a>
+
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/js/bootstrap.bundle.min.js"></script>
+</body>
+</html>

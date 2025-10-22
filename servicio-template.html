@@ -1,0 +1,274 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    
+    <title>Despido Injustificado: Abogados Laborales en Chile</title>
+    <meta name="description" content="¿Te despidieron injustificadamente? Revisa tu caso y calcula tu indemnización. Te asesoramos sin costo alguno. [cite: 80]">
+    
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/css/bootstrap.min.css" rel="stylesheet">
+    
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css">
+    
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Lora:wght@700&family=Montserrat:wght@400;500&display=swap" rel="stylesheet">
+
+    <style>
+        body { font-family: 'Montserrat', sans-serif; }
+        h1, h2, h3, h4, h5, h6, .navbar-brand { font-family: 'Lora', serif; font-weight: 700; }
+        :root {
+            --bs-primary: #0d2c54;
+            --bs-primary-rgb: 13, 44, 84;
+            --bs-secondary: #f0a500;
+        }
+        .btn-primary { background-color: var(--bs-primary); border: none; }
+        .btn-secondary { background-color: var(--bs-secondary); border: none; }
+        .text-primary { color: var(--bs-primary) !important; }
+        .bg-primary { background-color: var(--bs-primary) !important; }
+
+        /* Iconos para listas de "señales" */
+        .list-signals {
+            list-style: none;
+            padding-left: 0;
+        }
+        .list-signals li {
+            position: relative;
+            padding-left: 2.2rem;
+            margin-bottom: 0.8rem;
+        }
+        .list-signals li::before {
+            content: '\f058'; /* Icono de check [cite: 13] */
+            font-family: "Font Awesome 6 Free";
+            font-weight: 900;
+            color: var(--bs-secondary);
+            position: absolute;
+            left: 0;
+            top: 2px;
+            font-size: 1.2rem;
+        }
+        
+        /* Formulario "above the fold" [cite: 57] */
+        .form-card {
+            background: #f8f9fa;
+            border: none;
+            border-radius: 8px;
+        }
+
+        /* Botón flotante de WhatsApp [cite: 59] */
+        .whatsapp-float {
+            position: fixed;
+            bottom: 20px;
+            right: 20px;
+            background-color: #25D366;
+            color: white;
+            width: 60px;
+            height: 60px;
+            border-radius: 50%;
+            text-align: center;
+            font-size: 2.2rem;
+            line-height: 60px;
+            box-shadow: 0 2px 10px rgba(0,0,0,0.2);
+            z-index: 100;
+        }
+    </style>
+</head>
+<body>
+
+    <nav class="navbar navbar-expand-lg navbar-light bg-white shadow-sm sticky-top">
+        <div class="container">
+            <a class="navbar-brand" href="index.html">INNOVABOGADOS</a>
+            <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#mainNav" aria-controls="mainNav" aria-expanded="false" aria-label="Toggle navigation">
+                <span class="navbar-toggler-icon"></span>
+            </button>
+            <div class="collapse navbar-collapse" id="mainNav">
+                <ul class="navbar-nav ms-auto mb-2 mb-lg-0">
+                    <li class="nav-item"><a class="nav-link" href="index.html">Inicio</a></li>
+                    <li class="nav-item"><a class="nav-link active" href="servicio-template.html">Trabajadores</a></li>
+                    <li class="nav-item"><a class="nav-link" href="index.html#empleadores">Empleadores</a></li>
+                    <li class="nav-item"><a class="nav-link" href="index.html#nosotros">Nosotros</a></li>
+                    <li class="nav-item"><a class="nav-link" href="index.html#recursos">Recursos</a></li>
+                    <li class="nav-item"><a class="nav-link" href="#contacto-form">Contacto</a></li>
+                </ul>
+                <a href="#contacto-form" class="btn btn-primary ms-lg-3">Te asesoramos sin costo</a>
+            </div>
+        </div>
+    </nav>
+
+    <header class="py-5">
+        <div class="container">
+            <div class="row g-5 align-items-center">
+                
+                <div class="col-lg-7">
+                    <h1 class="display-5">Despido injustificado: defiende tus derechos laborales [cite: 79]</h1>
+                    <p class="lead text-muted mt-3">Revisión de tu caso y cálculo de indemnizaciones. Te asesoramos sin costo alguno. [cite: 80]</p>
+                    
+                    <div class="d-flex gap-3 mt-4">
+                        <div class="p-3 bg-light rounded w-100">
+                            <i class="fas fa-calendar-times fa-2x text-primary mb-2"></i>
+                            <h4 class="h6 mb-0">Plazo para demandar</h4>
+                            <p class="mb-0"><strong>60 días hábiles</strong> [cite: 32]</p>
+                        </div>
+                        <div class="p-3 bg-light rounded w-100">
+                            <i class="fas fa-gavel fa-2x text-primary mb-2"></i>
+                            <h4 class="h6 mb-0">Audiencia</h4>
+                            <p class="mb-0">Juicio Laboral (JLT) [cite: 34]</p>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="col-lg-5" id="contacto-form">
+                    <div class="card form-card p-4 shadow-sm">
+                        <h3 class="h4 text-center mb-3">Evalúa tu caso gratis [cite: 68]</h3>
+                        <form action="#" method="POST">
+                            <div class="mb-3">
+                                <label for="nombre" class="form-label visually-hidden">Nombre</label>
+                                <input type="text" class="form-control" id="nombre" placeholder="Nombre" required>
+                            </div>
+                            <div class="mb-3">
+                                <label for="email" class="form-label visually-hidden">Email</label>
+                                <input type="email" class="form-control" id="email" placeholder="Email" required>
+                            </div>
+                            <div class="mb-3">
+                                <label for="telefono" class="form-label visually-hidden">Teléfono</label>
+                                <input type="tel" class="form-control" id="telefono" placeholder="Teléfono" required>
+                            </div>
+                            <div class="mb-3">
+                                <label for="perfil" class="form-label visually-hidden">Perfil</label>
+                                <select id="perfil" class="form-select" required>
+                                    <option value="">Soy...</option>
+                                    <option value="trabajador" selected>Trabajador</option>
+                                    <option value="empleador">Empleador</option>
+                                </select>
+                            </div>
+                            <div class="mb-3">
+                                <label for="mensaje" class="form-label visually-hidden">Mensaje</label>
+                                <textarea id="mensaje" class="form-control" rows="3" placeholder="Cuéntanos brevemente tu caso..."></textarea>
+                            </div>
+                            <div class="form-check mb-3 small">
+                                <input class="form-check-input" type="checkbox" id="consentimiento" required>
+                                <label class="form-check-label text-muted" for="consentimiento">
+                                    Acepto la política de privacidad y términos[cite: 57, 70].
+                                </label>
+                            </div>
+                            <div class="d-grid">
+                                <button type="submit" class="btn btn-primary btn-lg">Evaluar mi caso ahora</button>
+                            </div>
+                        </form>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </header>
+
+    <section class="py-5 bg-light">
+        <div class="container col-lg-9">
+            <h2 class="text-center mb-4">¿Estás frente a un despido injustificado?</h2>
+            <p class="text-center lead text-muted col-lg-10 mx-auto">Si te desvincularon por alguna de estas causales, tu despido podría ser injustificado y podrías tener derecho a indemnizaciones adicionales:</p>
+            <div class="row mt-4">
+                <div class="col-md-6">
+                    <ul class="list-signals">
+                        <li>Necesidades de la empresa (Art. 161).</li>
+                        <li>Incumplimiento grave de obligaciones.</li>
+                        <li>Faltas injustificadas.</li>
+                    </ul>
+                </div>
+                <div class="col-md-6">
+                    <ul class="list-signals">
+                        <li>No te entregaron carta de aviso.</li>
+                        <li>Los hechos de la carta son falsos.</li>
+                        <li>La causal invocada es incorrecta.</li>
+                    </ul>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <section class="py-5">
+        <div class="container">
+            <div class="row align-items-center g-5">
+                <div class="col-lg-6">
+                    <img src="https://via.placeholder.com/600x400" alt="Abogado revisando documentos" class="img-fluid rounded shadow">
+                    </div>
+                <div class="col-lg-6">
+                    <h2 class="mb-3">Qué Hacemos por Ti</h2>
+                    <p>Nuestro servicio de defensa por despido injustificado cubre todo el proceso, desde la evaluación inicial hasta la obtención de tu pago.</p>
+                    <ul class="list-signals">
+                        <li><strong>Cálculo de indemnizaciones</strong> (años de servicio, mes de aviso, recargos legales).</li>
+                        <li><strong>Reclamo</strong> administrativo en la Dirección del Trabajo (DT).</li>
+                        <li><strong>Redacción y presentación de la demanda</strong> ante el Juzgado de Letras del Trabajo (JLT).</li>
+                        <li><strong>Representación y defensa</strong> en audiencias (preparatoria y de juicio).</li>
+                        <li><strong>Negociación</strong> y gestión de acuerdos o avenimientos.</li>
+                    </ul>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <section class="py-5 bg-light">
+        <div class="container col-lg-8">
+            <h2 class="text-center mb-4">Dudas Frecuentes sobre Despidos</h2>
+            <div class="accordion" id="faqServicio">
+                <div class="accordion-item">
+                    <h2 class="accordion-header" id="faq1-h">
+                        <button class="accordion-button" type="button" data-bs-toggle="collapse" data-bs-target="#faq1-c" aria-expanded="true" aria-controls="faq1-c">
+                            ¿Qué gano si demando y gano el juicio?
+                        </button>
+                    </h2>
+                    <div id="faq1-c" class="accordion-collapse collapse show" aria-labelledby="faq1-h" data-bs-parent="#faqServicio">
+                        <div class="accordion-body">
+                            Además de la indemnización por años de servicio y el mes de aviso (si corresponde), puedes obtener un <strong>recargo legal</strong> sobre la indemnización por años de servicio. Este recargo varía según la causal (ej. 30% por necesidades de la empresa, 50% o más por incumplimiento grave).
+                        </div>
+                    </div>
+                </div>
+                <div class="accordion-item">
+                    <h2 class="accordion-header" id="faq2-h">
+                        <button class="accordion-button collapsed" type="button" data-bs-toggle="collapse" data-bs-target="#faq2-c" aria-expanded="false" aria-controls="faq2-c">
+                            ¿Debo pagar algo si pierdo el juicio?
+                        </button>
+                    </h2>
+                    <div id="faq2-c" class="accordion-collapse collapse" aria-labelledby="faq2-h" data-bs-parent="#faqServicio">
+                        <div class="accordion-body">
+                            Trabajamos con modalidades de honorarios flexibles[cite: 42]. En muchos casos, nuestros honorarios están asociados al éxito (un porcentaje de lo que obtengamos)[cite: 42]. Si no ganamos, no pagas honorarios. Te explicaremos esto en detalle en la evaluación gratuita.
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <footer class="py-5">
+        <div class="container">
+            <div class="row">
+                <div class="col-lg-4 mb-3">
+                    <a class="navbar-brand fs-4" href="index.html">INNOVABOGADOS</a>
+                    <p class="text-muted mt-2">Asesoría laboral experta en Chile.</p>
+                </div>
+                <div class="col-6 col-lg-2 offset-lg-1 mb-3">
+                    <h5 class="h6">Servicios</h5>
+                    <ul class="list-unstyled">
+                        <li><a href="#" class="text-decoration-none text-muted">Trabajadores</a></li>
+                        <li><a href="#" class="text-decoration-none text-muted">Empleadores</a></li>
+                    </ul>
+                </div>
+                <div class="col-6 col-lg-2 mb-3">
+                    <h5 class="h6">Legal</h5>
+                    <ul class="list-unstyled">
+                        <li><a href="#" class="text-decoration-none text-muted">Términos y Condiciones</a></li>
+                        <li><a href="#" class="text-decoration-none text-muted">Privacidad</a></li>
+                    </ul>
+                </div>
+            </div>
+            <hr>
+            <p class="text-center text-muted small">&copy; 2025 Innovabogados. Todos los derechos reservados.</p>
+        </div>
+    </footer>
+
+    <a href="https://api.whatsapp.com/send?phone=569XXXXXXXX&text=Hola%2C%20necesito%20asesor%C3%ADa%20por%20un%20despido%20injustificado." target="_blank" class="whatsapp-float" aria-label="Contactar por WhatsApp">
+        <i class="fab fa-whatsapp"></i>
+    </a>
+
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/js/bootstrap.bundle.min.js"></script>
+</body>
+</html>
