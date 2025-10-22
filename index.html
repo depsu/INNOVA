@@ -1,38 +1,51 @@
 <!DOCTYPE html>
 <html lang="es">
+
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Innovabogados - Asesoría Laboral en Chile</title>
-    
+
     <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/css/bootstrap.min.css" rel="stylesheet">
-    
+
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css">
-    
+
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-    <link href="https://fonts.googleapis.com/css2?family=Lora:wght@700&family=Montserrat:wght@400;500&display=swap" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css2?family=Lora:wght@700&family=Montserrat:wght@400;500&display=swap"
+        rel="stylesheet">
 
     <style>
         /* Estilos personalizados basados en el manual */
         body {
             font-family: 'Montserrat', sans-serif;
         }
-        h1, h2, h3, h4, h5, h6, .navbar-brand {
+
+        h1,
+        h2,
+        h3,
+        h4,
+        h5,
+        h6,
+        .navbar-brand {
             font-family: 'Lora', serif;
             font-weight: 700;
         }
-        
+
         /* Color primario (sobrio) y acento */
         :root {
-            --bs-primary: #0d2c54; /* Azul legal sobrio */
+            --bs-primary: #0d2c54;
+            /* Azul legal sobrio */
             --bs-primary-rgb: 13, 44, 84;
-            --bs-secondary: #f0a500; /* Acento llamativo */
+            --bs-secondary: #f0a500;
+            /* Acento llamativo */
         }
+
         .btn-primary {
             background-color: var(--bs-primary);
             border: none;
         }
+
         .btn-secondary {
             background-color: var(--bs-secondary);
             border: none;
@@ -43,7 +56,7 @@
             background-color: var(--bs-primary);
             color: white;
         }
-        
+
         /* Botón flotante de WhatsApp */
         .whatsapp-float {
             position: fixed;
@@ -57,33 +70,106 @@
             text-align: center;
             font-size: 2.2rem;
             line-height: 60px;
-            box-shadow: 0 2px 10px rgba(0,0,0,0.2);
+            box-shadow: 0 2px 10px rgba(0, 0, 0, 0.2);
             z-index: 100;
         }
+
         .whatsapp-float:hover {
             color: white;
             background-color: #128C7E;
         }
     </style>
 </head>
+
 <body>
 
     <nav class="navbar navbar-expand-lg navbar-light bg-white shadow-sm sticky-top">
         <div class="container">
             <a class="navbar-brand" href="index.html">INNOVABOGADOS</a>
-            <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#mainNav" aria-controls="mainNav" aria-expanded="false" aria-label="Toggle navigation">
+
+            <button class="navbar-toggler" type="button" data-bs-toggle="offcanvas" data-bs-target="#mobileNav"
+                aria-controls="mobileNav" aria-label="Toggle navigation">
                 <span class="navbar-toggler-icon"></span>
             </button>
-            <div class="collapse navbar-collapse" id="mainNav">
-                <ul class="navbar-nav ms-auto mb-2 mb-lg-0">
-                    <li class="nav-item"><a class="nav-link active" href="index.html">Inicio</a></li>
-                    <li class="nav-item"><a class="nav-link" href="servicio-template.html">Trabajadores</a></li>
-                    <li class="nav-item"><a class="nav-link" href="#empleadores">Empleadores</a></li>
-                    <li class="nav-item"><a class="nav-link" href="#nosotros">Nosotros</a></li>
-                    <li class="nav-item"><a class="nav-link" href="#recursos">Recursos</a></li>
-                    <li class="nav-item"><a class="nav-link" href="#contacto">Contacto</a></li>
-                </ul>
-                <a href="#contacto" class="btn btn-primary ms-lg-3">Te asesoramos sin costo</a>
+
+            <div class="offcanvas offcanvas-end" tabindex="-1" id="mobileNav" aria-labelledby="mobileNavLabel">
+
+                <div class="offcanvas-header">
+                    <h5 class="offcanvas-title" id="mobileNavLabel">Menú</h5>
+                    <button type="button" class="btn-close" data-bs-dismiss="offcanvas" aria-label="Close"></button>
+                </div>
+
+                <div class="offcanvas-body">
+
+                    <ul class="navbar-nav ms-auto mb-2 mb-lg-0">
+                        <li class="nav-item">
+                            <a class="nav-link" href="index.html">Inicio</a>
+                        </li>
+
+                        <li class="nav-item dropdown">
+                            <a class="nav-link dropdown-toggle" href="hub-trabajadores.html" id="navTrabajadores"
+                                role="button" data-bs-toggle="dropdown" aria-expanded="false">
+                                Trabajadores
+                            </a>
+                            <ul class="dropdown-menu" aria-labelledby="navTrabajadores">
+                                <li><a class="dropdown-item" href="servicio-template.html">Despido Injustificado</a>
+                                </li>
+                                <li><a class="dropdown-item" href="autodespido.html">Autodespido</a></li>
+                                <li><a class="dropdown-item" href="#">Tutela (Ley Karin)</a></li>
+                                <li><a class="dropdown-item" href="#">Cobro de Finiquito</a></li>
+                                <li><a class="dropdown-item" href="#">Horas Extra</a></li>
+                                <li>
+                                    <hr class="dropdown-divider">
+                                </li>
+                                <li><a class="dropdown-item" href="hub-trabajadores.html">Ver todos...</a></li>
+                            </ul>
+                        </li>
+
+                        <li class="nav-item dropdown">
+                            <a class="nav-link dropdown-toggle" href="hub-empleadores.html" id="navEmpleadores"
+                                role="button" data-bs-toggle="dropdown" aria-expanded="false">
+                                Empleadores
+                            </a>
+                            <ul class="dropdown-menu" aria-labelledby="navEmpleadores">
+                                <li><a class="dropdown-item" href="#">Cumplimiento y Auditorías</a></li>
+                                <li><a class="dropdown-item" href="#">Reglamentos Internos</a></li>
+                                <li><a class="dropdown-item" href="#">Desvinculaciones y Defensas</a></li>
+                                <li><a class="dropdown-item" href="#">Mediaciones DT</a></li>
+                                <li><a class="dropdown-item" href="#">Capacitación Ley Karin</a></li>
+                                <li>
+                                    <hr class="dropdown-divider">
+                                </li>
+                                <li><a class="dropdown-item" href="hub-empleadores.html">Ver todos...</a></li>
+                            </ul>
+                        </li>
+
+                        <li class="nav-item">
+                            <a class="nav-link" href="nosotros.html">Nosotros</a>
+                        </li>
+
+                        <li class="nav-item">
+                            <a class="nav-link" href="casos-y-resultados.html">Casos de Éxito</a>
+                        </li>
+
+                        <li class="nav-item dropdown">
+                            <a class="nav-link dropdown-toggle" href="recursos-blog.html" id="navRecursos" role="button"
+                                data-bs-toggle="dropdown" aria-expanded="false">
+                                Recursos
+                            </a>
+                            <ul class="dropdown-menu" aria-labelledby="navRecursos">
+                                <li><a class="dropdown-item" href="recursos-blog.html">Blog y Artículos</a></li>
+                                <li><a class="dropdown-item" href="recursos-blog.html#descargables">Descargables</a>
+                                </li>
+                            </ul>
+                        </li>
+
+                        <li class="nav-item">
+                            <a class="nav-link" href="contacto.html">Contacto</a>
+                        </li>
+                    </ul>
+
+                    <a href="contacto.html" class="btn btn-primary ms-lg-3 mt-3 mt-lg-0">Te asesoramos sin costo</a>
+                </div>
             </div>
         </div>
     </nav>
@@ -91,7 +177,8 @@
     <header class="hero-section py-5">
         <div class="container text-center py-5">
             <h1 class="display-4">Defensa y Asesoría Laboral en Chile</h1>
-            <p class="lead col-lg-8 mx-auto">Especialistas en despidos, autodespidos y cumplimiento normativo para trabajadores y empresas.</p>
+            <p class="lead col-lg-8 mx-auto">Especialistas en despidos, autodespidos y cumplimiento normativo para
+                trabajadores y empresas.</p>
             <div class="d-grid gap-2 d-sm-flex justify-content-sm-center mt-4">
                 <a href="#contacto" class="btn btn-primary btn-lg px-4 gap-3">Te asesoramos sin costo alguno</a>
                 <a href="#agenda" class="btn btn-outline-light btn-lg px-4">Agendar</a>
@@ -134,8 +221,10 @@
                         <div class="card-body text-center">
                             <i class="fas fa-user fa-3x text-primary mb-3"></i>
                             <h2 class="h4">Para Trabajadores</h2>
-                            <p class="card-text">Defendemos tus derechos en casos de despido injustificado, autodespido, acoso laboral (Ley Karin) y más.</p>
-                            <a href="servicio-template.html" class="btn btn-outline-primary mt-3">Ver servicios de Trabajador</a>
+                            <p class="card-text">Defendemos tus derechos en casos de despido injustificado, autodespido,
+                                acoso laboral (Ley Karin) y más.</p>
+                            <a href="servicio-template.html" class="btn btn-outline-primary mt-3">Ver servicios de
+                                Trabajador</a>
                         </div>
                     </div>
                 </div>
@@ -144,7 +233,8 @@
                         <div class="card-body text-center">
                             <i class="fas fa-building fa-3x text-primary mb-3"></i>
                             <h2 class="h4">Para Empleadores</h2>
-                            <p class="card-text">Asesoría en cumplimiento, auditorías, reglamentos internos, desvinculaciones y defensas ante la DT.</p>
+                            <p class="card-text">Asesoría en cumplimiento, auditorías, reglamentos internos,
+                                desvinculaciones y defensas ante la DT.</p>
                             <a href="#" class="btn btn-outline-primary mt-3">Ver servicios de Empleador</a>
                         </div>
                     </div>
@@ -195,25 +285,31 @@
             <div class="accordion" id="faqAccordion">
                 <div class="accordion-item">
                     <h2 class="accordion-header" id="headingOne">
-                        <button class="accordion-button" type="button" data-bs-toggle="collapse" data-bs-target="#collapseOne" aria-expanded="true" aria-controls="collapseOne">
+                        <button class="accordion-button" type="button" data-bs-toggle="collapse"
+                            data-bs-target="#collapseOne" aria-expanded="true" aria-controls="collapseOne">
                             ¿La primera consulta tiene costo?
                         </button>
                     </h2>
-                    <div id="collapseOne" class="accordion-collapse collapse show" aria-labelledby="headingOne" data-bs-parent="#faqAccordion">
+                    <div id="collapseOne" class="accordion-collapse collapse show" aria-labelledby="headingOne"
+                        data-bs-parent="#faqAccordion">
                         <div class="accordion-body">
-                            No. Nuestra primera evaluación es <strong>totalmente gratuita</strong>. El objetivo es entender tu caso y explicarte con claridad si es viable y qué podemos conseguir.
+                            No. Nuestra primera evaluación es <strong>totalmente gratuita</strong>. El objetivo es
+                            entender tu caso y explicarte con claridad si es viable y qué podemos conseguir.
                         </div>
                     </div>
                 </div>
                 <div class="accordion-item">
                     <h2 class="accordion-header" id="headingTwo">
-                        <button class="accordion-button collapsed" type="button" data-bs-toggle="collapse" data-bs-target="#collapseTwo" aria-expanded="false" aria-controls="collapseTwo">
+                        <button class="accordion-button collapsed" type="button" data-bs-toggle="collapse"
+                            data-bs-target="#collapseTwo" aria-expanded="false" aria-controls="collapseTwo">
                             ¿Qué plazo tengo para demandar un despido injustificado?
                         </button>
                     </h2>
-                    <div id="collapseTwo" class="accordion-collapse collapse" aria-labelledby="headingTwo" data-bs-parent="#faqAccordion">
+                    <div id="collapseTwo" class="accordion-collapse collapse" aria-labelledby="headingTwo"
+                        data-bs-parent="#faqAccordion">
                         <div class="accordion-body">
-                            El plazo general es de <strong>60 días hábiles</strong> desde la fecha del despido. Este plazo puede extenderse si presentas un reclamo en la Dirección del Trabajo.
+                            El plazo general es de <strong>60 días hábiles</strong> desde la fecha del despido. Este
+                            plazo puede extenderse si presentas un reclamo en la Dirección del Trabajo.
                         </div>
                     </div>
                 </div>
@@ -224,7 +320,8 @@
     <section class="py-5 hero-section" id="contacto">
         <div class="container text-center col-lg-8">
             <h2 class="h1">¿Tienes dudas sobre tu situación laboral?</h2>
-            <p class="lead my-4">No dejes pasar los plazos. Recibe una evaluación gratuita de nuestros abogados expertos hoy mismo.</p>
+            <p class="lead my-4">No dejes pasar los plazos. Recibe una evaluación gratuita de nuestros abogados expertos
+                hoy mismo.</p>
             <a href="#" class="btn btn-light btn-lg px-5">Te asesoramos sin costo alguno</a>
         </div>
     </section>
@@ -260,10 +357,12 @@
         </div>
     </footer>
 
-    <a href="https://api.whatsapp.com/send?phone=569XXXXXXXX" target="_blank" class="whatsapp-float" aria-label="Contactar por WhatsApp">
+    <a href="https://api.whatsapp.com/send?phone=569XXXXXXXX" target="_blank" class="whatsapp-float"
+        aria-label="Contactar por WhatsApp">
         <i class="fab fa-whatsapp"></i>
     </a>
 
     <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/js/bootstrap.bundle.min.js"></script>
 </body>
+
 </html>

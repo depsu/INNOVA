@@ -3,7 +3,7 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Recursos y Blog - Innovabogados</title>
+    <title>Casos y Resultados - Innovabogados</title>
     
     <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/css/bootstrap.min.css" rel="stylesheet">
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css">
@@ -13,7 +13,6 @@
     <link href="https://fonts.googleapis.com/css2?family=Lora:wght@700&family=Montserrat:wght@400;500&display=swap" rel="stylesheet">
 
     <style>
-        /* Estilos consistentes con index.html */
         body { font-family: 'Montserrat', sans-serif; }
         h1, h2, h3, h4, h5, h6, .navbar-brand { font-family: 'Lora', serif; font-weight: 700; }
         :root {
@@ -25,10 +24,10 @@
         .text-primary { color: var(--bs-primary) !important; }
         .bg-primary-soft { background-color: rgba(var(--bs-primary-rgb), 0.05); }
 
-        .blog-card {
+        .case-card {
             transition: transform 0.2s ease, box-shadow 0.2s ease;
         }
-        .blog-card:hover {
+        .case-card:hover {
             transform: translateY(-5px);
             box-shadow: 0 .5rem 1rem rgba(0,0,0,.15)!important;
         }
@@ -64,7 +63,7 @@
                     <li class="nav-item"><a class="nav-link" href="hub-trabajadores.html">Trabajadores</a></li>
                     <li class="nav-item"><a class="nav-link" href="hub-empleadores.html">Empleadores</a></li>
                     <li class="nav-item"><a class="nav-link" href="nosotros.html">Nosotros</a></li>
-                    <li class="nav-item"><a class="nav-link active" aria-current="page" href="recursos-blog.html">Recursos</a></li>
+                    <li class="nav-item"><a class="nav-link" href="recursos-blog.html">Recursos</a></li>
                     <li class="nav-item"><a class="nav-link" href="contacto.html">Contacto</a></li>
                 </ul>
                 <a href="contacto.html" class="btn btn-primary ms-lg-3">Te asesoramos sin costo</a>
@@ -74,90 +73,71 @@
 
     <header class="py-5 bg-primary-soft">
         <div class="container text-center col-lg-8">
-            <h1 class="display-5">Recursos y Guías Laborales</h1>
-            <p class="lead text-muted">Artículos, guías y análisis sobre la legislación laboral en Chile.</p>
+            <h1 class="display-5">Casos y Resultados</h1>
+            <p class="lead text-muted">Enfoque en tipos de conflictos y soluciones, evitando datos identificatorios.</p>
         </div>
     </header>
 
     <section class="py-5">
         <div class="container">
-            <h2 class="text-center mb-4">Blog y Artículos Recientes</h2>
             <div class="row row-cols-1 row-cols-md-2 row-cols-lg-3 g-4">
                 
                 <div class="col">
-                    <div class="card h-100 shadow-sm border-0 blog-card">
-                        <img src="https://via.placeholder.com/600x400" class="card-img-top" alt="Blog post image">
+                    <div class="card h-100 shadow-sm border-0 case-card">
                         <div class="card-body p-4">
-                            <span class="badge bg-secondary mb-2">Guía Legal</span>
-                            <h3 class="h5 card-title">Guía Completa Ley Karin: ¿Qué es y cómo aplica?</h3>
-                            <p class="card-text">Analizamos los cambios de la nueva ley de acoso laboral y cómo deben prepararse las empresas.</p>
-                            <a href="#" class="btn btn-outline-primary stretched-link mt-3">Leer más</a>
+                            <span class="badge bg-secondary mb-2">Despido Injustificado</span>
+                            <h3 class="h5 card-title">Recargo del 30% por "Necesidades de la Empresa"</h3>
+                            <p class="card-text small text-muted"><strong>Situación:</strong> Cliente despedido por Art. 161, pero la empresa no pudo probar en juicio la reestructuración que alegaba.</p>
+                            <p class="card-text small text-muted"><strong>Resultado:</strong> Se obtuvo el pago de la indemnización por años de servicio más el recargo legal del 30%, además del mes de aviso.</p>
+                            <a href="servicio-template.html" class="btn btn-outline-primary btn-sm mt-3">Ver servicio</a>
                         </div>
                     </div>
                 </div>
 
                 <div class="col">
-                    <div class="card h-100 shadow-sm border-0 blog-card">
-                        <img src="https://via.placeholder.com/600x400" class="card-img-top" alt="Blog post image">
+                    <div class="card h-100 shadow-sm border-0 case-card">
                         <div class="card-body p-4">
-                            <span class="badge bg-secondary mb-2">Trabajadores</span>
-                            <h3 class="h5 card-title">Despido por "Necesidades de la Empresa": Cuándo es injustificado</h3>
-                            <p class="card-text">Revisa las señales clave para identificar si tu despido fue indebido y qué puedes hacer.</p>
-                            <a href="#" class="btn btn-outline-primary stretched-link mt-3">Leer más</a>
+                            <span class="badge bg-secondary mb-2">Autodespido</span>
+                            <h3 class="h5 card-title">No pago de cotizaciones previsionales</h3>
+                            <p class="card-text small text-muted"><strong>Situación:</strong> Empleador no pagó cotizaciones por 4 meses consecutivos. Trabajador se autodespidió.</p>
+                            <p class="card-text small text-muted"><strong>Resultado:</strong> Demanda acogida. Se pagaron todas las indemnizaciones (años de servicio, mes de aviso) más el recargo del 50% por incumplimiento grave.</p>
+                            <a href="autodespido.html" class="btn btn-outline-primary btn-sm mt-3">Ver servicio</a>
                         </div>
                     </div>
                 </div>
 
                 <div class="col">
-                    <div class="card h-100 shadow-sm border-0 blog-card">
-                        <img src="https://via.placeholder.com/600x400" class="card-img-top" alt="Blog post image">
+                    <div class="card h-100 shadow-sm border-0 case-card">
                         <div class="card-body p-4">
-                            <span class="badge bg-secondary mb-2">Finiquito</span>
-                            <h3 class="h5 card-title">Cómo calcular tu finiquito paso a paso</h3>
-                            <p class="card-text">Te explicamos qué conceptos debe incluir tu finiquito y cómo revisar que los montos sean correctos.</p>
-                            <a href="#" class="btn btn-outline-primary stretched-link mt-3">Leer más</a>
+                            <span class="badge bg-secondary mb-2">Defensa Empleador</span>
+                            <h3 class="h5 card-title">Rechazo de demanda de Tutela Laboral</h3>
+                            <p class="card-text small text-muted"><strong>Situación:</strong> Ex-trabajador demandó por tutela (acoso) y despido improcedente.</p>
+                            <p class="card-text small text-muted"><strong>Resultado:</strong> Se demostró que la empresa activó correctamente el protocolo de acoso (Reglamento Interno) y que el despido fue justificado. Demanda rechazada.</p>
+                            <a href="hub-empleadores.html" class="btn btn-outline-primary btn-sm mt-3">Ver servicios Empleador</a>
                         </div>
                     </div>
                 </div>
-                
-            </div>
-        </div>
-    </section>
 
-    <section class="py-5" style="background-color: #f8f9fa;">
-        <div class="container">
-            <h2 class="text-center mb-4">Descargables y Plantillas [cite: 22, 94]</h2>
-            <p class="text-center text-muted mb-4">Recursos útiles para tu gestión (Próximamente).</p>
-            <div class="row g-4">
-                <div class="col-md-4">
-                    <div class="card h-100 text-center p-3 shadow-sm border-0">
-                        <i class="fas fa-file-word fa-3x text-primary my-3"></i>
-                        <h4 class="h5">Plantilla de Carta de Autodespido</h4>
-                        <a href="#" class="btn btn-outline-primary stretched-link mt-3 disabled" aria-disabled="true">Próximamente</a>
+                <div class="col">
+                    <div class="card h-100 shadow-sm border-0 case-card">
+                        <div class="card-body p-4">
+                            <span class="badge bg-secondary mb-2">Tutela Laboral (Ley Karin)</span>
+                            <h3 class="h5 card-title">Acoso laboral y vulneración de derechos</h3>
+                            <p class="card-text small text-muted"><strong>Situación:</strong> Trabajadora sufrió acoso constante de superior directo. Empresa no activó protocolos.</p>
+                            <p class="card-text small text-muted"><strong>Resultado:</strong> Se interpuso demanda de tutela con autodespido. Se logró una indemnización adicional por daño moral y el recargo máximo de las indemnizaciones.</p>
+                            <a href="#" class="btn btn-outline-primary btn-sm mt-3">Ver servicio (Tutela)</a>
+                        </div>
                     </div>
                 </div>
-                <div class="col-md-4">
-                    <div class="card h-100 text-center p-3 shadow-sm border-0">
-                        <i class="fas fa-file-excel fa-3x text-primary my-3"></i>
-                        <h4 class="h5">Calculadora de Finiquito (Referencial) [cite: 93]</h4>
-                        <a href="#" class="btn btn-outline-primary stretched-link mt-3 disabled" aria-disabled="true">Próximamente</a>
-                    </div>
-                </div>
-                <div class="col-md-4">
-                    <div class="card h-100 text-center p-3 shadow-sm border-0">
-                        <i class="fas fa-file-pdf fa-3x text-primary my-3"></i>
-                        <h4 class="h5">Guía Rápida Ley Karin para Empresas</h4>
-                        <a href="#" class="btn btn-outline-primary stretched-link mt-3 disabled" aria-disabled="true">Próximamente</a>
-                    </div>
-                </div>
+
             </div>
         </div>
     </section>
 
     <section class="py-5" style="background-color: #0d2c54; color: white;">
         <div class="container text-center col-lg-8">
-            <h2 class="h1">¿Tienes dudas sobre tu situación?</h2>
-            <p class="lead my-4">Nuestros artículos resuelven dudas comunes, pero tu caso es único. Contáctanos para una evaluación gratuita.</p>
+            <h2 class="h1">¿Tu caso es similar?</h2>
+            <p class="lead my-4">Cada situación es única. Contáctanos para una evaluación gratuita y confidencial de tu caso.</p>
             <a href="contacto.html" class="btn btn-light btn-lg px-5">Te asesoramos sin costo alguno</a>
         </div>
     </section>
