@@ -53,32 +53,53 @@
 
     <nav class="navbar navbar-expand-lg navbar-light bg-white shadow-sm sticky-top">
         <div class="container">
-            <a class="navbar-brand fw-bold" href="index.html">INNOVABOGADOS</a>
-            <button class="navbar-toggler" type="button" data-bs-toggle="offcanvas" data-bs-target="#mobileNav" aria-controls="mobileNav">
+            <a class="navbar-brand fw-bold" href="/">INNOVABOGADOS</a>
+
+            <button class="navbar-toggler" type="button" data-bs-toggle="offcanvas" data-bs-target="#mobileNav"
+                aria-controls="mobileNav" aria-label="Toggle navigation">
                 <span class="navbar-toggler-icon"></span>
             </button>
+
             <div class="offcanvas offcanvas-end" tabindex="-1" id="mobileNav" aria-labelledby="mobileNavLabel">
+
                 <div class="offcanvas-header">
                     <h5 class="offcanvas-title fw-bold" id="mobileNavLabel">Menú</h5>
                     <button type="button" class="btn-close" data-bs-dismiss="offcanvas" aria-label="Close"></button>
                 </div>
+
                 <div class="offcanvas-body">
+
                     <ul class="navbar-nav ms-auto mb-2 mb-lg-0">
-                        <li class="nav-item"><a class="nav-link" href="index.html">Inicio</a></li>
+                        <li class="nav-item">
+                            <a class="nav-link" href="/">Inicio</a>
+                        </li>
+
                         <li class="nav-item dropdown">
-                            <a class="nav-link dropdown-toggle" href="trabajadores/index.html" id="navTrabajadores" role="button" data-bs-toggle="dropdown" aria-expanded="false">
+                            <a class="nav-link dropdown-toggle" href="trabajadores/index.html" id="navTrabajadores"
+                                role="button" data-bs-toggle="dropdown" aria-expanded="false">
                                 Trabajadores
                             </a>
                             <ul class="dropdown-menu" aria-labelledby="navTrabajadores">
-                                <li><a class="dropdown-item" href="trabajadores/despido-injustificado.html">Despido Injustificado</a></li>
+                                <li><a class="dropdown-item" href="trabajadores/despido-injustificado.html">Despido
+                                        Injustificado</a>
+                                </li>
                                 <li><a class="dropdown-item" href="trabajadores/autodespido.html">Autodespido</a></li>
-                                <li><a class="dropdown-item" href="trabajadores/tutela-ley-karin.html">Acoso Laboral (Ley Karin)</a></li>
-                                <li><a class="dropdown-item" href="trabajadores/cobro-finiquito.html">Cobro de Finiquito</a></li>
-                                <li><a class="dropdown-item" href="trabajadores/horas-extra.html">No pago de Horas Extra</a></li>
+                                <li><a class="dropdown-item" href="trabajadores/tutela-ley-karin.html">Tutela (Ley
+                                        Karin)</a></li>
+                                <li><a class="dropdown-item" href="trabajadores/cobro-finiquito.html">Cobro de
+                                        Finiquito</a></li>
+                                <li><a class="dropdown-item" href="trabajadores/horas-extra.html">Horas Extra</a></li>
+                                <li>
+                                    <hr class="dropdown-divider">
+                                </li>
+                                <li><a class="dropdown-item" href="trabajadores/index.html"><strong>Ver todos
+                                            →</strong></a></li>
                             </ul>
                         </li>
+
                         <li class="nav-item dropdown">
-                            <a class="nav-link dropdown-toggle" href="empleadores/index.html" id="navEmpleadores" role="button" data-bs-toggle="dropdown" aria-expanded="false">
+                            <a class="nav-link dropdown-toggle" href="empleadores/index.html" id="navEmpleadores"
+                                role="button" data-bs-toggle="dropdown" aria-expanded="false">
                                 Empleadores
                             </a>
                             <ul class="dropdown-menu" aria-labelledby="navEmpleadores">
@@ -86,15 +107,32 @@
                                 <li><a class="dropdown-item" href="empleadores/reglamentos-internos.html">Reglamentos Internos</a></li>
                                 <li><a class="dropdown-item" href="empleadores/defensas-judiciales.html">Defensas Judiciales</a></li>
                                 <li><a class="dropdown-item" href="empleadores/mediaciones-dt.html">Mediaciones en la DT</a></li>
-                                <li><a class="dropdown-item" href="empleadores/capacitacion-ley-karin.html">Capacitación Ley Karin</a></li>
+                                <li><a class="dropdown-item" href="empleadores/capacitacion-ley-karin.html">Capacitaciones Ley Karin</a></li>
+                                <li>
+                                    <hr class="dropdown-divider">
+                                </li>
+                                <li><a class="dropdown-item" href="empleadores/index.html"><strong>Ver todos →</strong></a></li>
                             </ul>
                         </li>
-                        <li class="nav-item"><a class="nav-link" href="nosotros.html">Nosotros</a></li>
-                        <li class="nav-item"><a class="nav-link" href="casos-y-resultados.html">Casos y Resultados</a></li>
-                        <li class="nav-item"><a class="nav-link" href="recursos/index.html">Recursos</a></li>
-                        <li class="nav-item"><a class="nav-link" href="contacto.html">Contacto</a></li>
+
+                        <li class="nav-item">
+                            <a class="nav-link" href="nosotros.html">Nosotros</a>
+                        </li>
+
+                        <li class="nav-item">
+                            <a class="nav-link active" href="casos-y-resultados.html">Casos de Éxito</a>
+                        </li>
+
+                        <li class="nav-item">
+                            <a class="nav-link" href="recursos/index.html">Recursos</a>
+                        </li>
+
+                        <li class="nav-item">
+                            <a class="nav-link" href="contacto.html">Contacto</a>
+                        </li>
                     </ul>
-                    <a href="contacto.html" class="btn btn-primary ms-lg-3 d-none d-lg-block">Te asesoramos sin costo</a>
+
+                    <a href="contacto.html" class="btn btn-primary ms-lg-3 mt-3 mt-lg-0">Evalúa tu caso</a>
                 </div>
             </div>
         </div>
@@ -128,8 +166,8 @@
                         <div class="card-body p-4">
                             <span class="badge bg-secondary mb-2">Autodespido</span>
                             <h3 class="h5 card-title">No pago de cotizaciones previsionales</h3>
-                            <p class="card-text small text-muted"><strong>Situación:</strong> Empleador no pagó cotizaciones por 4 meses consecutivos. Trabajador se autodespidió.</p>
-                            <p class="card-text small text-muted"><strong>Resultado:</strong> Demanda acogida. Se pagaron todas las indemnizaciones (años de servicio, mes de aviso) más el recargo del 50% por incumplimiento grave.</p>
+                            <p class="card-text small text-muted"><strong>Situación:</strong> Empleador no pagó cotizaciones por 4 meses consecutivos. Trabajador se autodespidió y solicitó el pago de sus cotizaciones.</p>
+                            <p class="card-text small text-muted"><strong>Resultado:</strong> Se logró el pago total de las cotizaciones adeudadas, evitando multas y recargos.</p>
                             <a href="autodespido.html" class="btn btn-outline-primary btn-sm mt-3">Ver servicio</a>
                         </div>
                     </div>
@@ -138,11 +176,11 @@
                 <div class="col">
                     <div class="card h-100 shadow-sm border-0 case-card">
                         <div class="card-body p-4">
-                            <span class="badge bg-secondary mb-2">Defensa Empleador</span>
-                            <h3 class="h5 card-title">Rechazo de demanda de Tutela Laboral</h3>
-                            <p class="card-text small text-muted"><strong>Situación:</strong> Ex-trabajador demandó por tutela (acoso) y despido improcedente.</p>
-                            <p class="card-text small text-muted"><strong>Resultado:</strong> Se demostró que la empresa activó correctamente el protocolo de acoso (Reglamento Interno) y que el despido fue justificado. Demanda rechazada.</p>
-                            <a href="empleadores/index.html" class="btn btn-outline-primary btn-sm mt-3">Ver servicios Empleador</a>
+                            <span class="badge bg-secondary mb-2">Tutela (Ley Karin)</span>
+                            <h3 class="h5 card-title">Acoso Laboral y Despido</h3>
+                            <p class="card-text small text-muted"><strong>Situación:</strong> Trabajador sufrió acoso laboral y fue despedido sin justificación. Se invocó la Ley Karin.</p>
+                            <p class="card-text small text-muted"><strong>Resultado:</strong> Se obtuvo la nulidad del despido, reintegración del trabajador y pago de indemnización por daño moral.</p>
+                            <a href="tutela-ley-karin.html" class="btn btn-outline-primary btn-sm mt-3">Ver servicio</a>
                         </div>
                     </div>
                 </div>
@@ -150,11 +188,23 @@
                 <div class="col">
                     <div class="card h-100 shadow-sm border-0 case-card">
                         <div class="card-body p-4">
-                            <span class="badge bg-secondary mb-2">Tutela Laboral (Ley Karin)</span>
-                            <h3 class="h5 card-title">Acoso laboral y vulneración de derechos</h3>
-                            <p class="card-text small text-muted"><strong>Situación:</strong> Trabajadora sufrió acoso constante de superior directo. Empresa no activó protocolos.</p>
-                            <p class="card-text small text-muted"><strong>Resultado:</strong> Se interpuso demanda de tutela con autodespido. Se logró una indemnización adicional por daño moral y el recargo máximo de las indemnizaciones.</p>
-                            <a href="#" class="btn btn-outline-primary btn-sm mt-3">Ver servicio (Tutela)</a>
+                            <span class="badge bg-secondary mb-2">Cobro de Finiquito</span>
+                            <h3 class="h5 card-title">Indemnización y Finiquito</h3>
+                            <p class="card-text small text-muted"><strong>Situación:</strong> Trabajador desvinculado sin pago de indemnización ni finiquito. Se reclamó el pago correspondiente.</p>
+                            <p class="card-text small text-muted"><strong>Resultado:</strong> Se logró el pago de la indemnización por años de servicio y el finiquito completo.</p>
+                            <a href="cobro-finiquito.html" class="btn btn-outline-primary btn-sm mt-3">Ver servicio</a>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="col">
+                    <div class="card h-100 shadow-sm border-0 case-card">
+                        <div class="card-body p-4">
+                            <span class="badge bg-secondary mb-2">Horas Extra</span>
+                            <h3 class="h5 card-title">No pago de horas extras</h3>
+                            <p class="card-text small text-muted"><strong>Situación:</strong> Trabajador realizaba horas extras que no fueron pagadas por el empleador.</p>
+                            <p class="card-text small text-muted"><strong>Resultado:</strong> Se obtuvo el pago de las horas extras con el recargo correspondiente.</p>
+                            <a href="horas-extra.html" class="btn btn-outline-primary btn-sm mt-3">Ver servicio</a>
                         </div>
                     </div>
                 </div>
@@ -163,37 +213,17 @@
         </div>
     </section>
 
-    <section class="py-5" style="background-color: #0d2c54; color: white;">
-        <div class="container text-center col-lg-8">
-            <h2 class="h1">¿Tu caso es similar?</h2>
-            <p class="lead my-4">Cada situación es única. Contáctanos para una evaluación gratuita y confidencial de tu caso.</p>
-            <a href="contacto.html" class="btn btn-light btn-lg px-5">Te asesoramos sin costo alguno</a>
-        </div>
-    </section>
-
-    <footer class="py-5">
-        <div class="container">
-            <div class="row">
-                <div class="col-lg-4 mb-3">
-                    <a class="navbar-brand fs-4" href="index.html">INNOVABOGADOS</a>
-                    <p class="text-muted mt-2">Asesoría laboral experta en Chile.</p>
-                </div>
-                <div class="col-6 col-lg-2 offset-lg-1 mb-3">
-                    <h5 class="h6">Legal</h5>
-                    <ul class="list-unstyled">
-                        <li><a href="terminos.html" class="text-decoration-none text-muted">Términos y Condiciones</a></li>
-                        <li><a href="privacidad.html" class="text-decoration-none text-muted">Privacidad</a></li>
-                    </ul>
-                </div>
-            </div>
-            <hr>
-            <p class="text-center text-muted small">&copy; 2025 Innovabogados. Todos los derechos reservados.</p>
+    <footer class="py-4 bg-light">
+        <div class="container text-center">
+            <p class="mb-0 text-muted">&copy; 2023 Innovabogados. Todos los derechos reservados.</p>
         </div>
     </footer>
 
-    <a href="https://api.whatsapp.com/send?phone=569XXXXXXXX" target="_blank" class="whatsapp-float" aria-label="Contactar por WhatsApp">
-        <i class="fab fa-whatsapp"></i>
-    </a>
+    <div class="whatsapp-float">
+        <a href="https://wa.me/56912345678" target="_blank">
+            <i class="fab fa-whatsapp"></i>
+        </a>
+    </div>
 
     <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/js/bootstrap.bundle.min.js"></script>
 </body>
