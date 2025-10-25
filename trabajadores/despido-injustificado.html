@@ -4,8 +4,8 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     
-    <title>Autodespido o Despido Indirecto - Abogados Laborales</title>
-    <meta name="description" content="Si tu empleador incumple el contrato (sueldo, cotizaciones), asesórate para un autodespido. Te asesoramos sin costo.">
+    <title>Despido Injustificado: Abogados Laborales en Chile</title>
+    <meta name="description" content="¿Te despidieron injustificadamente? Revisa tu caso y calcula tu indemnización. Te asesoramos sin costo alguno.">
     
     <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/css/bootstrap.min.css" rel="stylesheet">
     
@@ -63,51 +63,117 @@
 </head>
 <body>
 
-    <nav class="navbar navbar-expand-lg navbar-light bg-white shadow-sm sticky-top">
+
+
+      <nav class="navbar navbar-expand-lg navbar-light bg-white shadow-sm sticky-top">
         <div class="container">
             <a class="navbar-brand" href="index.html">INNOVABOGADOS</a>
-            <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#mainNav" aria-controls="mainNav" aria-expanded="false" aria-label="Toggle navigation">
+
+            <button class="navbar-toggler" type="button" data-bs-toggle="offcanvas" data-bs-target="#mobileNav"
+                aria-controls="mobileNav" aria-label="Toggle navigation">
                 <span class="navbar-toggler-icon"></span>
             </button>
-            <div class="collapse navbar-collapse" id="mainNav">
-                <ul class="navbar-nav ms-auto mb-2 mb-lg-0">
-                    <li class="nav-item"><a class="nav-link" href="index.html">Inicio</a></li>
-                    <li class="nav-item"><a class="nav-link active" href="hub-trabajadores.html">Trabajadores</a></li>
-                    <li class="nav-item"><a class="nav-link" href="hub-empleadores.html">Empleadores</a></li>
-                    <li class="nav-item"><a class="nav-link" href="nosotros.html">Nosotros</a></li>
-                    <li class="nav-item"><a class="nav-link" href="recursos-blog.html">Recursos</a></li>
-                    <li class="nav-item"><a class="nav-link" href="contacto.html">Contacto</a></li>
-                </ul>
-                <a href="contacto.html" class="btn btn-primary ms-lg-3">Te asesoramos sin costo</a>
+
+            <div class="offcanvas offcanvas-end" tabindex="-1" id="mobileNav" aria-labelledby="mobileNavLabel">
+
+                <div class="offcanvas-header">
+                    <h5 class="offcanvas-title" id="mobileNavLabel">Menú</h5>
+                    <button type="button" class="btn-close" data-bs-dismiss="offcanvas" aria-label="Close"></button>
+                </div>
+
+                <div class="offcanvas-body">
+
+                    <ul class="navbar-nav ms-auto mb-2 mb-lg-0">
+                        <li class="nav-item">
+                            <a class="nav-link" href="index.html">Inicio</a>
+                        </li>
+
+                        <li class="nav-item dropdown">
+                            <a class="nav-link dropdown-toggle" href="trabajadores/index.html" id="navTrabajadores"
+                                role="button" data-bs-toggle="dropdown" aria-expanded="false">
+                                Trabajadores
+                            </a>
+                            <ul class="dropdown-menu" aria-labelledby="navTrabajadores">
+                                <li><a class="dropdown-item" href="trabajadores/despido-injustificado.html">Despido Injustificado</a>
+                                </li>
+                                <li><a class="dropdown-item" href="trabajadores/autodespido.html">Autodespido</a></li>
+                                <li><a class="dropdown-item" href="trabajadores/tutela-ley-karin.html">Tutela (Ley Karin)</a></li>
+                                <li><a class="dropdown-item" href="trabajadores/cobro-finiquito.html">Cobro de Finiquito</a></li>
+                                <li><a class="dropdown-item" href="trabajadores/horas-extra.html">Horas Extra</a></li>
+                                <li>
+                                    <hr class="dropdown-divider">
+                                </li>
+                                <li><a class="dropdown-item" href="trabajadores/index.html">Ver todos...</a></li>
+                            </ul>
+                        </li>
+
+                        <li class="nav-item dropdown">
+                            <a class="nav-link dropdown-toggle" href="empleadores/index.html" id="navEmpleadores"
+                                role="button" data-bs-toggle="dropdown" aria-expanded="false">
+                                Empleadores
+                            </a>
+                            <ul class="dropdown-menu" aria-labelledby="navEmpleadores">
+                                <li><a class="dropdown-item" href="empleadores/index.html">Ver servicios Empleador</a></li>
+                            </ul>
+                        </li>
+
+                        <li class="nav-item">
+                            <a class="nav-link" href="nosotros.html">Nosotros</a>
+                        </li>
+
+                        <li class="nav-item">
+                            <a class="nav-link" href="casos-y-resultados.html">Casos de Éxito</a>
+                        </li>
+
+                        <li class="nav-item dropdown">
+                            <a class="nav-link dropdown-toggle" href="recursos/index.html" id="navRecursos" role="button"
+                                data-bs-toggle="dropdown" aria-expanded="false">
+                                Recursos
+                            </a>
+                            <ul class="dropdown-menu" aria-labelledby="navRecursos">
+                                <li><a class="dropdown-item" href="recursos/index.html">Blog y Artículos</a></li>
+                                <li><a class="dropdown-item" href="recursos/index.html#descargables">Descargables</a>
+                                </li>
+                            </ul>
+                        </li>
+
+                        <li class="nav-item">
+                            <a class="nav-link" href="contacto.html">Contacto</a>
+                        </li>
+                    </ul>
+
+                    <a href="contacto.html" class="btn btn-primary ms-lg-3 mt-3 mt-lg-0">Te asesoramos sin costo</a>
+                </div>
             </div>
         </div>
     </nav>
+
 
     <header class="py-5 bg-primary-soft">
         <div class="container">
             <div class="row g-5 align-items-center">
                 
                 <div class="col-lg-7">
-                    <h1 class="display-5">Autodespido o Despido Indirecto</h1>
-                    <p class="lead text-muted mt-3">Si tu empleador no cumple sus obligaciones (sueldo, cotizaciones), te ayudamos a salir y cobrar tus indemnizaciones.</p>
+                    <h1 class="display-5">Despido injustificado: defiende tus derechos laborales</h1>
+                    <p class="lead text-muted mt-3">Revisión de tu caso y cálculo de indemnizaciones. Te asesoramos sin costo alguno.</p>
                     
                     <div class="d-flex gap-3 mt-4">
                         <div class="p-3 bg-light rounded w-100">
                             <i class="fas fa-calendar-times fa-2x text-primary mb-2"></i>
                             <h4 class="h6 mb-0">Plazo para demandar</h4>
-                            <p class="mb-0"><strong>60 días hábiles</strong> (desde cese)</p>
+                            <p class="mb-0"><strong>60 días hábiles</strong></p>
                         </div>
                         <div class="p-3 bg-light rounded w-100">
                             <i class="fas fa-gavel fa-2x text-primary mb-2"></i>
-                            <h4 class="h6 mb-0">Recargo Legal</h4>
-                            <p class="mb-0"><strong>50% a 80%</strong></p>
+                            <h4 class="h6 mb-0">Instancia</h4>
+                            <p class="mb-0">Juzgado del Trabajo (JLT)</p>
                         </div>
                     </div>
                 </div>
 
                 <div class="col-lg-5" id="contacto-form">
                     <div class="card form-card p-4 shadow-sm">
-                        <h3 class="h4 text-center mb-3">Evalúa tu caso gratis [cite: 68]</h3>
+                        <h3 class="h4 text-center mb-3">Evalúa tu caso gratis</h3>
                         <form action="#" method="POST">
                             <div class="mb-3">
                                 <label for="nombre" class="form-label visually-hidden">Nombre</label>
@@ -136,7 +202,7 @@
                             <div class="form-check mb-3 small">
                                 <input class="form-check-input" type="checkbox" id="consentimiento" required>
                                 <label class="form-check-label text-muted" for="consentimiento">
-                                    Acepto la <a href="privacidad.html">política de privacidad</a> y <a href="terminos.html">términos</a>. [cite: 57, 70]
+                                    Acepto la <a href="privacidad.html">política de privacidad</a> y <a href="terminos.html">términos</a>.
                                 </label>
                             </div>
                             <div class="d-grid">
@@ -151,21 +217,21 @@
 
     <section class="py-5 bg-light">
         <div class="container col-lg-9">
-            <h2 class="text-center mb-4">¿Cuándo puedes Autodespedirte? [cite: 34]</h2>
-            <p class="text-center lead text-muted col-lg-10 mx-auto">El autodespido aplica cuando el empleador comete un incumplimiento grave. Las causales más comunes son:</p>
+            <h2 class="text-center mb-4">¿Estás frente a un despido injustificado?</h2>
+            <p class="text-center lead text-muted col-lg-10 mx-auto">Si te desvincularon por alguna de estas causales, tu despido podría ser injustificado y podrías tener derecho a indemnizaciones adicionales:</p>
             <div class="row mt-4">
                 <div class="col-md-6">
                     <ul class="list-signals">
-                        <li>No pago de remuneraciones (sueldo).</li>
-                        <li>No pago de cotizaciones previsionales.</li>
-                        <li>Acoso laboral o sexual (Ley Karin).</li>
+                        <li>Necesidades de la empresa (Art. 161).</li>
+                        <li>Incumplimiento grave de obligaciones.</li>
+                        <li>Faltas injustificadas.</li>
                     </ul>
                 </div>
                 <div class="col-md-6">
                     <ul class="list-signals">
-                        <li>Vulneración de derechos fundamentales.</li>
-                        <li>Cambio de funciones sin tu acuerdo.</li>
-                        <li>Incumplimiento grave de higiene y seguridad.</li>
+                        <li>No te entregaron carta de aviso.</li>
+                        <li>Los hechos de la carta son falsos.</li>
+                        <li>La causal invocada es incorrecta.</li>
                     </ul>
                 </div>
             </div>
@@ -176,17 +242,17 @@
         <div class="container">
             <div class="row align-items-center g-5">
                 <div class="col-lg-6">
-                    <img src="https://via.placeholder.com/600x400" alt="Trabajador redactando carta de autodespido" class="img-fluid rounded shadow">
+                    <img src="https://via.placeholder.com/600x400" alt="Abogado revisando documentos" class="img-fluid rounded shadow">
                     </div>
                 <div class="col-lg-6">
-                    <h2 class="mb-3">Qué Hacemos por Ti [cite: 35]</h2>
-                    <p>El autodespido es un proceso técnico. Un error en la carta puede hacerte perder el juicio. Te guiamos en todo.</p>
+                    <h2 class="mb-3">Qué Hacemos por Ti</h2>
+                    <p>Nuestro servicio de defensa por despido injustificado cubre todo el proceso, desde la evaluación inicial hasta la obtención de tu pago.</p>
                     <ul class="list-signals">
-                        <li><strong>Análisis de viabilidad</strong> y de la causal correcta.</li>
-                        <li><strong>Redacción de la Carta de Autodespido</strong> (requisito clave).</li>
-                        <li><strong>Envío de la carta</strong> al empleador y a la Dirección del Trabajo.</li>
-                        <li><strong>Redacción y presentación de la demanda</strong> judicial.</li>
-                        <li><strong>Representación y defensa</strong> en juicio para cobrar tus indemnizaciones.</li>
+                        <li><strong>Cálculo de indemnizaciones</strong> (años de servicio, mes de aviso, recargos legales).</li>
+                        <li><strong>Reclamo</strong> administrativo en la Dirección del Trabajo (DT).</li>
+                        <li><strong>Redacción y presentación de la demanda</strong> ante el Juzgado de Letras del Trabajo (JLT).</li>
+                        <li><strong>Representación y defensa</strong> en audiencias (preparatoria y de juicio).</li>
+                        <li><strong>Negociación</strong> y gestión de acuerdos o avenimientos.</li>
                     </ul>
                 </div>
             </div>
@@ -195,27 +261,27 @@
     
     <section class="py-5 bg-light">
         <div class="container col-lg-9">
-            <h2 class="text-center mb-5">Nuestro Proceso (3 Pasos) [cite: 36]</h2>
+            <h2 class="text-center mb-5">Nuestro Proceso (3 Pasos)</h2>
             <div class="row g-4 text-center">
                 <div class="col-md-4">
                     <div class="p-3">
-                        <i class="fas fa-check-double fa-3x text-primary mb-3"></i>
-                        <h3 class="h4">1. Análisis y Carta</h3>
-                        <p class="text-muted">Revisamos tu caso. Si es viable, redactamos y enviamos la carta de autodespido. (Dejas de trabajar).</p>
+                        <i class="fas fa-search fa-3x text-primary mb-3"></i>
+                        <h3 class="h4">1. Evaluación Gratuita</h3>
+                        <p class="text-muted">Revisamos tu carta, finiquito y antecedentes para confirmar la viabilidad de la demanda.</p>
                     </div>
                 </div>
                 <div class="col-md-4">
                     <div class="p-3">
                         <i class="fas fa-gavel fa-3x text-primary mb-3"></i>
                         <h3 class="h4">2. Demanda y Mediación</h3>
-                        <p class="text-muted">Presentamos la demanda ante el tribunal y te representamos en la mediación obligatoria.</p>
+                        <p class="text-muted">Presentamos la demanda y te representamos en la mediación obligatoria en la Dirección del Trabajo (DT).</p>
                     </div>
                 </div>
                 <div class="col-md-4">
                     <div class="p-3">
                         <i class="fas fa-hand-holding-usd fa-3x text-primary mb-3"></i>
                         <h3 class="h4">3. Juicio y Pago</h3>
-                        <p class="text-muted">Demostramos el incumplimiento del empleador en juicio para obtener el pago de todo lo adeudado más los recargos.</p>
+                        <p class="text-muted">Defendemos tu caso en el Juicio Laboral (JLT) o negociamos un acuerdo conveniente para asegurar tu pago.</p>
                     </div>
                 </div>
             </div>
@@ -224,21 +290,21 @@
 
     <section class="py-5">
         <div class="container col-lg-9">
-            <h2 class="text-center mb-4">Criterios Clave y Mini-Casos [cite: 37]</h2>
-            <p class="text-center lead text-muted col-lg-10 mx-auto">Estos son escenarios comunes de autodespido exitoso.</p>
+            <h2 class="text-center mb-4">Criterios Clave y Mini-Casos</h2>
+            <p class="text-center lead text-muted col-lg-10 mx-auto">Evitamos datos sensibles, pero estos son escenarios frecuentes que gestionamos.</p>
             <div class="row g-3 mt-4">
                 <div class="col-md-6">
                     <div class="card h-100 p-3 shadow-sm border-0 bg-light">
-                        <h4 class="h6 text-primary"><i class="fas fa-check-circle me-2"></i>Caso: No pago de cotizaciones (Lagunas)</h4>
-                        <p class="small text-muted mb-0"><strong>Situación:</strong> Empleador no pagó 3 meses de AFP y Salud.
-                        <br><strong>Resultado:</strong> Se consideró incumplimiento grave. Se ganó el juicio, obteniendo el 50% de recargo sobre los años de servicio.</p>
+                        <h4 class="h6 text-primary"><i class="fas fa-check-circle me-2"></i>Caso: Causal "Necesidades de la Empresa" mal fundada</h4>
+                        <p class="small text-muted mb-0"><strong>Situación:</strong> La empresa argumentó baja de productividad, pero contrató a un reemplazo al poco tiempo.
+                        <br><strong>Resultado:</strong> Se demostró que la causal era falsa, obteniendo el recargo del 30%.</p>
                     </div>
                 </div>
                 <div class="col-md-6">
                     <div class="card h-100 p-3 shadow-sm border-0 bg-light">
-                        <h4 class="h6 text-primary"><i class="fas fa-check-circle me-2"></i>Caso: Acoso laboral (Tutela)</h4>
-                        <p class="small text-muted mb-0"><strong>Situación:</strong> Jefatura directa realizaba hostigamientos constantes, probados por emails y testigos.
-                        <br><strong>Resultado:</strong> Autodespido por vulneración de derechos. Se obtuvo recargo del 80% más indemnización por daño moral.</p>
+                        <h4 class="h6 text-primary"><i class="fas fa-check-circle me-2"></i>Caso: Despido verbal sin carta</h4>
+                        <p class="small text-muted mb-0"><strong>Situación:</strong> El trabajador fue informado verbalmente que "no volviera más".
+                        <br><strong>Resultado:</strong> Esto se considera un despido injustificado. Se demandó y se obtuvo el pago completo de indemnizaciones y recargos.</p>
                     </div>
                 </div>
             </div>
@@ -247,41 +313,29 @@
 
     <section class="py-5 bg-light">
         <div class="container col-lg-8">
-            <h2 class="text-center mb-4">Dudas Frecuentes sobre Autodespido [cite: 38]</h2>
+            <h2 class="text-center mb-4">Dudas Frecuentes sobre Despidos</h2>
             <div class="accordion" id="faqServicio">
                 <div class="accordion-item">
                     <h2 class="accordion-header" id="faq1-h">
                         <button class="accordion-button" type="button" data-bs-toggle="collapse" data-bs-target="#faq1-c" aria-expanded="true" aria-controls="faq1-c">
-                            ¿Qué gano si me autodespido y gano el juicio?
+                            ¿Qué gano si demando y gano el juicio?
                         </button>
                     </h2>
                     <div id="faq1-c" class="accordion-collapse collapse show" aria-labelledby="faq1-h" data-bs-parent="#faqServicio">
                         <div class="accordion-body">
-                            Ganas el derecho a recibir tu indemnización por <strong>años de servicio</strong>, más el <strong>mes de aviso</strong>, y un <strong>recargo legal</strong> sobre los años de servicio. Este recargo es generalmente del <strong>50%</strong>, pero puede subir a <strong>80%</strong> si la causal es acoso o vulneración de derechos.
+                            Además de la indemnización por años de servicio y el mes de aviso (si corresponde), puedes obtener un <strong>recargo legal</strong> sobre la indemnización por años de servicio. Este recargo varía según la causal (ej. 30% por necesidades de la empresa, 50% o más por incumplimiento grave).
                         </div>
                     </div>
                 </div>
                 <div class="accordion-item">
                     <h2 class="accordion-header" id="faq2-h">
                         <button class="accordion-button collapsed" type="button" data-bs-toggle="collapse" data-bs-target="#faq2-c" aria-expanded="false" aria-controls="faq2-c">
-                            ¿Debo seguir yendo a trabajar después de enviar la carta?
+                            ¿Debo pagar algo si pierdo el juicio?
                         </button>
                     </h2>
                     <div id="faq2-c" class="accordion-collapse collapse" aria-labelledby="faq2-h" data-bs-parent="#faqServicio">
                         <div class="accordion-body">
-                            No. El autodespido pone término inmediato a la relación laboral desde el momento en que se envía la carta al empleador y a la Dirección del Trabajo. No debes seguir asistiendo.
-                        </div>
-                    </div>
-                </div>
-                 <div class="accordion-item">
-                    <h2 class="accordion-header" id="faq3-h">
-                        <button class="accordion-button collapsed" type="button" data-bs-toggle="collapse" data-bs-target="#faq3-c" aria-expanded="false" aria-controls="faq3-c">
-                            ¿Qué pasa si me autodespido y pierdo el juicio?
-                        </button>
-                    </h2>
-                    <div id="faq3-c" class="accordion-collapse collapse" aria-labelledby="faq3-h" data-bs-parent="#faqServicio">
-                        <div class="accordion-body">
-                            Si el tribunal considera que el incumplimiento no fue "grave" o no se probó, se entiende que la relación laboral terminó por "renuncia" del trabajador. En ese escenario, pierdes el derecho a las indemnizaciones (años de servicio y mes de aviso). Por eso la evaluación inicial gratuita es tan importante.
+                            Trabajamos con modalidades de honorarios flexibles. En muchos casos, nuestros honorarios están asociados al éxito (un porcentaje de lo que obtengamos). Si no ganamos, no pagas honorarios. Te explicaremos esto en detalle en la evaluación gratuita.
                         </div>
                     </div>
                 </div>
@@ -299,8 +353,8 @@
                 <div class="col-6 col-lg-2 offset-lg-1 mb-3">
                     <h5 class="h6">Servicios</h5>
                     <ul class="list-unstyled">
-                        <li><a href="hub-trabajadores.html" class="text-decoration-none text-muted">Trabajadores</a></li>
-                        <li><a href="hub-empleadores.html" class="text-decoration-none text-muted">Empleadores</a></li>
+                        <li><a href="trabajadores/index.html" class="text-decoration-none text-muted">Trabajadores</a></li>
+                        <li><a href="empleadores/index.html" class="text-decoration-none text-muted">Empleadores</a></li>
                     </ul>
                 </div>
                 <div class="col-6 col-lg-2 mb-3">
@@ -316,7 +370,7 @@
         </div>
     </footer>
 
-    <a href="https://api.whatsapp.com/send?phone=569XXXXXXXX&text=Hola%2C%20necesito%20asesor%C3%ADa%20por%20un%20autodespido." target="_blank" class="whatsapp-float" aria-label="Contactar por WhatsApp">
+    <a href="https://api.whatsapp.com/send?phone=569XXXXXXXX&text=Hola%2C%20necesito%20asesor%C3%ADa%20por%20un%20despido%20injustificado." target="_blank" class="whatsapp-float" aria-label="Contactar por WhatsApp">
         <i class="fab fa-whatsapp"></i>
     </a>
 

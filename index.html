@@ -78,14 +78,203 @@
             color: white;
             background-color: #128C7E;
         }
+
+        /* Nuevos estilos para el rediseño */
+        body.bg-light {
+            background-color: #f8f9fa !important;
+        }
+
+        .navbar-light .navbar-nav .nav-link {
+            color: #333;
+        }
+
+        .navbar-light .navbar-nav .nav-link.active {
+            color: var(--bs-primary);
+        }
+
+        .navbar-light .navbar-brand {
+            color: var(--bs-primary);
+        }
+
+        .btn-primary {
+            background-color: var(--bs-primary);
+            border-color: var(--bs-primary);
+        }
+
+        .btn-primary:hover {
+            background-color: #0b1e3b;
+            border-color: #0b1e3b;
+        }
+
+        .btn-secondary {
+            background-color: var(--bs-secondary);
+            border-color: var(--bs-secondary);
+        }
+
+        .btn-secondary:hover {
+            background-color: #e59400;
+            border-color: #e59400;
+        }
+
+        .hero-section {
+            background-color: var(--bs-primary);
+            color: white;
+            padding: 5rem 0;
+        }
+
+        .hero-section h1 {
+            font-size: 2.5rem;
+            margin-bottom: 1rem;
+        }
+
+        .hero-section p {
+            font-size: 1.2rem;
+            margin-bottom: 2rem;
+        }
+
+        .form-card {
+            background-color: #fff;
+            border-radius: 0.5rem;
+            box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+        }
+
+        .form-card .form-label {
+            font-weight: 500;
+        }
+
+        .form-card .form-control {
+            border-radius: 0.5rem;
+            box-shadow: none;
+            border: 1px solid #ced4da;
+        }
+
+        .form-card .form-control:focus {
+            border-color: var(--bs-primary);
+            box-shadow: 0 0 0 0.2rem rgba(13, 44, 84, 0.25);
+        }
+
+        .accordion-button {
+            font-weight: 500;
+            color: #333;
+        }
+
+        .accordion-button:not(.collapsed) {
+            color: var(--bs-primary);
+            background-color: rgba(13, 44, 84, 0.1);
+        }
+
+        footer {
+            background-color: #343a40;
+            color: #fff;
+        }
+
+        footer a {
+            color: rgba(255, 255, 255, 0.7);
+        }
+
+        footer a:hover {
+            color: rgba(255, 255, 255, 1);
+        }
+
+        /* Efecto hover para las cards de servicios */
+        #servicios .card {
+            position: relative;
+            transition: transform 0.3s ease, box-shadow 0.3s ease;
+            overflow: hidden;
+            /* Para contener el enlace estirado */
+        }
+
+        #servicios .card:hover {
+            transform: translateY(-5px);
+            box-shadow: 0 8px 20px rgba(0, 0, 0, 0.12) !important;
+        }
+
+        #servicios .card:hover .btn-outline-primary {
+            background-color: var(--bs-primary);
+            color: white;
+        }
+
+        #servicios .card .stretched-link::after {
+            position: absolute;
+            top: 0;
+            right: 0;
+            bottom: 0;
+            left: 0;
+            z-index: 1;
+            content: "";
+        }
+
+        #servicios .card:hover .fa-3x {
+            color: var(--bs-secondary) !important;
+        }
+
+        /* --- INICIO MEJORAS PROFESIONALES --- */
+
+        /* 1. Efecto de subrayado animado para la navegación */
+        .navbar-nav .nav-item {
+            margin: 0 0.5rem;
+            /* Aumenta el espaciado entre elementos */
+        }
+
+        .navbar-nav .nav-link {
+            position: relative;
+            padding-bottom: 8px;
+            transition: color 0.3s ease;
+        }
+
+       /* Subrayado animado para todos los links (usando ::before) */
+.navbar-nav .nav-link::before {
+    content: '';
+    position: absolute;
+    width: 100%;
+    height: 2px;
+    bottom: 0;
+    left: 0;
+    background-color: var(--bs-secondary);
+    transform: scaleX(0);
+    transform-origin: bottom right;
+    transition: transform 0.4s cubic-bezier(0.86, 0, 0.07, 1);
+}
+
+       .navbar-nav .nav-link:hover::before,
+.navbar-nav .nav-link.active::before {
+    transform: scaleX(1);
+    transform-origin: bottom left;
+}
+        .navbar-nav .nav-link:hover,
+        .navbar-nav .nav-link.active {
+            color: var(--bs-primary) !important;
+        }
+
+        /* 2. Interacciones y transiciones para botones */
+        .btn {
+            transition: transform 0.2s ease, box-shadow 0.2s ease;
+        }
+
+        .btn:hover {
+            transform: translateY(-2px);
+            box-shadow: 0 4px 10px rgba(0, 0, 0, 0.15);
+        }
+
+        /* 3. Animación para íconos de la sección de proceso */
+        #proceso .step-icon {
+            transition: transform 0.3s ease, background-color 0.3s ease;
+        }
+
+        #proceso .col-md-3:hover .step-icon {
+            transform: scale(1.1);
+            background-color: var(--bs-secondary) !important;
+        }
+
+        /* --- FIN MEJORAS PROFESIONALES --- */
     </style>
 </head>
 
-<body>
+<body class="bg-light">
 
     <nav class="navbar navbar-expand-lg navbar-light bg-white shadow-sm sticky-top">
         <div class="container">
-            <a class="navbar-brand" href="index.html">INNOVABOGADOS</a>
+            <a class="navbar-brand fw-bold" href="/">INNOVABOGADOS</a>
 
             <button class="navbar-toggler" type="button" data-bs-toggle="offcanvas" data-bs-target="#mobileNav"
                 aria-controls="mobileNav" aria-label="Toggle navigation">
@@ -95,7 +284,7 @@
             <div class="offcanvas offcanvas-end" tabindex="-1" id="mobileNav" aria-labelledby="mobileNavLabel">
 
                 <div class="offcanvas-header">
-                    <h5 class="offcanvas-title" id="mobileNavLabel">Menú</h5>
+                    <h5 class="offcanvas-title fw-bold" id="mobileNavLabel">Menú</h5>
                     <button type="button" class="btn-close" data-bs-dismiss="offcanvas" aria-label="Close"></button>
                 </div>
 
@@ -103,43 +292,40 @@
 
                     <ul class="navbar-nav ms-auto mb-2 mb-lg-0">
                         <li class="nav-item">
-                            <a class="nav-link" href="index.html">Inicio</a>
+                            <a class="nav-link active" href="/">Inicio</a>
                         </li>
 
                         <li class="nav-item dropdown">
-                            <a class="nav-link dropdown-toggle" href="hub-trabajadores.html" id="navTrabajadores"
+                            <a class="nav-link dropdown-toggle" href="trabajadores/index.html" id="navTrabajadores"
                                 role="button" data-bs-toggle="dropdown" aria-expanded="false">
                                 Trabajadores
                             </a>
                             <ul class="dropdown-menu" aria-labelledby="navTrabajadores">
-                                <li><a class="dropdown-item" href="servicio-template.html">Despido Injustificado</a>
+                                <li><a class="dropdown-item" href="trabajadores/despido-injustificado.html">Despido
+                                        Injustificado</a>
                                 </li>
-                                <li><a class="dropdown-item" href="autodespido.html">Autodespido</a></li>
-                                <li><a class="dropdown-item" href="#">Tutela (Ley Karin)</a></li>
-                                <li><a class="dropdown-item" href="#">Cobro de Finiquito</a></li>
-                                <li><a class="dropdown-item" href="#">Horas Extra</a></li>
+                                <li><a class="dropdown-item" href="trabajadores/autodespido.html">Autodespido</a></li>
+                                <li><a class="dropdown-item" href="trabajadores/tutela-ley-karin.html">Tutela (Ley
+                                        Karin)</a></li>
+                                <li><a class="dropdown-item" href="trabajadores/cobro-finiquito.html">Cobro de
+                                        Finiquito</a></li>
+                                <li><a class="dropdown-item" href="trabajadores/horas-extra.html">Horas Extra</a></li>
                                 <li>
                                     <hr class="dropdown-divider">
                                 </li>
-                                <li><a class="dropdown-item" href="hub-trabajadores.html">Ver todos...</a></li>
+                                <li><a class="dropdown-item" href="trabajadores/index.html"><strong>Ver todos
+                                            →</strong></a></li>
                             </ul>
                         </li>
 
                         <li class="nav-item dropdown">
-                            <a class="nav-link dropdown-toggle" href="hub-empleadores.html" id="navEmpleadores"
+                            <a class="nav-link dropdown-toggle" href="empleadores/index.html" id="navEmpleadores"
                                 role="button" data-bs-toggle="dropdown" aria-expanded="false">
                                 Empleadores
                             </a>
                             <ul class="dropdown-menu" aria-labelledby="navEmpleadores">
-                                <li><a class="dropdown-item" href="#">Cumplimiento y Auditorías</a></li>
-                                <li><a class="dropdown-item" href="#">Reglamentos Internos</a></li>
-                                <li><a class="dropdown-item" href="#">Desvinculaciones y Defensas</a></li>
-                                <li><a class="dropdown-item" href="#">Mediaciones DT</a></li>
-                                <li><a class="dropdown-item" href="#">Capacitación Ley Karin</a></li>
-                                <li>
-                                    <hr class="dropdown-divider">
+                                <li><a class="dropdown-item" href="empleadores/index.html">Servicios para Empleadores</a>
                                 </li>
-                                <li><a class="dropdown-item" href="hub-empleadores.html">Ver todos...</a></li>
                             </ul>
                         </li>
 
@@ -151,16 +337,8 @@
                             <a class="nav-link" href="casos-y-resultados.html">Casos de Éxito</a>
                         </li>
 
-                        <li class="nav-item dropdown">
-                            <a class="nav-link dropdown-toggle" href="recursos-blog.html" id="navRecursos" role="button"
-                                data-bs-toggle="dropdown" aria-expanded="false">
-                                Recursos
-                            </a>
-                            <ul class="dropdown-menu" aria-labelledby="navRecursos">
-                                <li><a class="dropdown-item" href="recursos-blog.html">Blog y Artículos</a></li>
-                                <li><a class="dropdown-item" href="recursos-blog.html#descargables">Descargables</a>
-                                </li>
-                            </ul>
+                        <li class="nav-item">
+                            <a class="nav-link" href="recursos/index.html">Recursos</a>
                         </li>
 
                         <li class="nav-item">
@@ -168,20 +346,47 @@
                         </li>
                     </ul>
 
-                    <a href="contacto.html" class="btn btn-primary ms-lg-3 mt-3 mt-lg-0">Te asesoramos sin costo</a>
+                    <a href="contacto.html" class="btn btn-primary ms-lg-3 mt-3 mt-lg-0">Evalúa tu caso</a>
                 </div>
             </div>
         </div>
     </nav>
 
-    <header class="hero-section py-5">
-        <div class="container text-center py-5">
-            <h1 class="display-4">Defensa y Asesoría Laboral en Chile</h1>
-            <p class="lead col-lg-8 mx-auto">Especialistas en despidos, autodespidos y cumplimiento normativo para
-                trabajadores y empresas.</p>
-            <div class="d-grid gap-2 d-sm-flex justify-content-sm-center mt-4">
-                <a href="#contacto" class="btn btn-primary btn-lg px-4 gap-3">Te asesoramos sin costo alguno</a>
-                <a href="#agenda" class="btn btn-outline-light btn-lg px-4">Agendar</a>
+    <header class="py-5 bg-primary-soft">
+        <div class="container">
+            <div class="row g-5 align-items-center">
+                <div class="col-lg-7">
+                    <h1 class="display-5 fw-bold">Asesoría Preventiva y Defensa para Empleadores</h1>
+                    <p class="lead text-muted">Aseguramos el cumplimiento normativo y defendemos sus intereses en
+                        materia laboral.</p>
+                    <div class="d-grid gap-2 d-sm-flex mt-4">
+                        <a href="empleadores/index.html" class="btn btn-primary btn-lg px-4">Nuestros Servicios</a>
+                        <a href="contacto.html" class="btn btn-outline-secondary btn-lg px-4">Contáctanos</a>
+                    </div>
+                </div>
+                <div class="col-lg-5">
+                    <div class="card form-card p-4 shadow">
+                        <h3 class="h4 text-center mb-4">Solicita una evaluación</h3>
+                        <form action="#" method="POST">
+                            <div class="mb-3">
+                                <label for="nombre" class="form-label visually-hidden">Nombre</label>
+                                <input type="text" class="form-control" id="nombre" placeholder="Nombre y Apellido"
+                                    required>
+                            </div>
+                            <div class="mb-3">
+                                <label for="email" class="form-label visually-hidden">Email</label>
+                                <input type="email" class="form-control" id="email" placeholder="Email de contacto"
+                                    required>
+                            </div>
+                            <div class="d-grid">
+                                <button type="submit" class="btn btn-secondary btn-lg">Quiero que me contacten</button>
+                            </div>
+                            <div class="form-text text-center small mt-3">
+                                Al enviar, aceptas nuestra <a href="privacidad.html">política de privacidad</a>.
+                            </div>
+                        </form>
+                    </div>
+                </div>
             </div>
         </div>
     </header>
@@ -190,52 +395,57 @@
         <div class="container">
             <div class="row text-center g-4">
                 <div class="col-md-3 col-6">
-                    <i class="fas fa-gavel fa-3x text-primary mb-2"></i>
-                    <h3 class="h5">+15</h3>
-                    <p class="text-muted">Años de experiencia</p>
+                    <i class="fas fa-gavel fa-3x text-primary mb-3"></i>
+                    <h3 class="h5 mb-1">+15 Años</h3>
+                    <p class="text-muted small">de experiencia</p>
                 </div>
                 <div class="col-md-3 col-6">
-                    <i class="fas fa-briefcase fa-3x text-primary mb-2"></i>
-                    <h3 class="h5">+800</h3>
-                    <p class="text-muted">Casos gestionados</p>
+                    <i class="fas fa-briefcase fa-3x text-primary mb-3"></i>
+                    <h3 class="h5 mb-1">+800 Casos</h3>
+                    <p class="text-muted small">gestionados</p>
                 </div>
                 <div class="col-md-3 col-6">
-                    <i class="fas fa-star fa-3x text-primary mb-2"></i>
-                    <h3 class="h5">4.9/5</h3>
-                    <p class="text-muted">Testimonios verificados</p>
+                    <i class="fas fa-star fa-3x text-primary mb-3"></i>
+                    <h3 class="h5 mb-1">4.9/5 Estrellas</h3>
+                    <p class="text-muted small">en testimonios</p>
                 </div>
                 <div class="col-md-3 col-6">
-                    <i class="fas fa-university fa-3x text-primary mb-2"></i>
-                    <h3 class="h5">Miembros</h3>
-                    <p class="text-muted">Colegio de Abogados</p>
+                    <i class="fas fa-university fa-3x text-primary mb-3"></i>
+                    <h3 class="h5 mb-1">Miembros</h3>
+                    <p class="text-muted small">del Colegio de Abogados</p>
                 </div>
             </div>
         </div>
     </section>
 
-    <section class="py-5 bg-light" id="servicios">
+    <section class="py-5 bg-white" id="servicios">
         <div class="container">
+            <div class="text-center col-lg-8 mx-auto mb-5">
+                <h2 class="h1">Áreas de Práctica</h2>
+                <p class="lead text-muted">Ofrecemos soluciones legales tanto para trabajadores como para empleadores,
+                    buscando siempre el mejor resultado.</p>
+            </div>
             <div class="row g-4">
                 <div class="col-lg-6">
-                    <div class="card h-100 shadow-sm border-0 p-4">
-                        <div class="card-body text-center">
-                            <i class="fas fa-user fa-3x text-primary mb-3"></i>
-                            <h2 class="h4">Para Trabajadores</h2>
-                            <p class="card-text">Defendemos tus derechos en casos de despido injustificado, autodespido,
-                                acoso laboral (Ley Karin) y más.</p>
-                            <a href="servicio-template.html" class="btn btn-outline-primary mt-3">Ver servicios de
-                                Trabajador</a>
+                    <div class="card h-100 shadow-sm border-0 p-4 text-center">
+                        <div class="card-body d-flex flex-column">
+                            <i class="fas fa-user-shield fa-3x text-primary mb-3" style="transition: color 0.3s ease;"></i>
+                            <h3 class="h4">Para Trabajadores</h3>
+                            <p class="card-text text-muted">Defendemos tus derechos en despidos, autodespidos, acoso
+                                laboral (Ley Karin), cobro de prestaciones y más.</p>
+                            <a href="trabajadores/index.html" class="btn btn-outline-primary mt-auto stretched-link">Conoce tus
+                                Derechos</a>
                         </div>
                     </div>
                 </div>
-                <div class="col-lg-6" id="empleadores">
-                    <div class="card h-100 shadow-sm border-0 p-4">
-                        <div class="card-body text-center">
-                            <i class="fas fa-building fa-3x text-primary mb-3"></i>
-                            <h2 class="h4">Para Empleadores</h2>
-                            <p class="card-text">Asesoría en cumplimiento, auditorías, reglamentos internos,
-                                desvinculaciones y defensas ante la DT.</p>
-                            <a href="#" class="btn btn-outline-primary mt-3">Ver servicios de Empleador</a>
+                <div class="col-lg-6">
+                    <div class="card h-100 shadow-sm border-0 p-4 text-center">
+                        <div class="card-body d-flex flex-column">
+                            <i class="fas fa-building-shield fa-3x text-primary mb-3" style="transition: color 0.3s ease;"></i>
+                            <h3 class="h4">Para Empleadores</h3>
+                            <p class="card-text text-muted">Asesoría en cumplimiento, auditorías, reglamentos,
+                                desvinculaciones y defensas ante la Dirección del Trabajo.</p>
+                            <a href="empleadores/index.html" class="btn btn-outline-primary mt-auto stretched-link">Protege tu Empresa</a>
                         </div>
                     </div>
                 </div>
@@ -243,45 +453,65 @@
         </div>
     </section>
 
-    <section class="py-5" id="nosotros">
+    <section class="py-5" id="proceso">
         <div class="container">
-            <h2 class="text-center mb-5">Cómo Trabajamos</h2>
+            <div class="text-center col-lg-8 mx-auto mb-5">
+                <h2 class="h1">Nuestro Proceso</h2>
+                <p class="lead text-muted">Simple, transparente y enfocado en resultados.</p>
+            </div>
             <div class="row text-center g-4">
                 <div class="col-md-3">
                     <div class="p-3">
-                        <h3 class="h1 text-primary">1</h3>
+                        <div class="d-flex align-items-center justify-content-center bg-primary text-white rounded-circle mx-auto mb-3 step-icon"
+                            style="width: 60px; height: 60px;">
+                            <span class="h4 mb-0">1</span>
+                        </div>
                         <h4 class="h5 mt-2">Evaluación Gratuita</h4>
-                        <p>Analizamos tu caso sin costo para definir la viabilidad.</p>
+                        <p class="text-muted small">Analizamos tu caso sin costo para definir la viabilidad y estrategia.
+                        </p>
                     </div>
                 </div>
                 <div class="col-md-3">
                     <div class="p-3">
-                        <h3 class="h1 text-primary">2</h3>
+                        <div class="d-flex align-items-center justify-content-center bg-primary text-white rounded-circle mx-auto mb-3 step-icon"
+                            style="width: 60px; height: 60px;">
+                            <span class="h4 mb-0">2</span>
+                        </div>
                         <h4 class="h5 mt-2">Estrategia Legal</h4>
-                        <p>Definimos el mejor camino a seguir (judicial o extrajudicial).</p>
+                        <p class="text-muted small">Definimos el mejor camino a seguir, sea judicial o extrajudicial.
+                        </p>
                     </div>
                 </div>
                 <div class="col-md-3">
                     <div class="p-3">
-                        <h3 class="h1 text-primary">3</h3>
-                        <h4 class="h5 mt-2">Acción</h4>
-                        <p>Redactamos y presentamos demandas, defensas o mediaciones.</p>
+                        <div class="d-flex align-items-center justify-content-center bg-primary text-white rounded-circle mx-auto mb-3 step-icon"
+                            style="width: 60px; height: 60px;">
+                            <span class="h4 mb-0">3</span>
+                        </div>
+                        <h4 class="h5 mt-2">Acción y Representación</h4>
+                        <p class="text-muted small">Redactamos y presentamos demandas, defensas o acuerdos.</p>
                     </div>
                 </div>
                 <div class="col-md-3">
                     <div class="p-3">
-                        <h3 class="h1 text-primary">4</h3>
-                        <h4 class="h5 mt-2">Seguimiento</h4>
-                        <p>Te mantenemos informado en cada etapa del proceso.</p>
+                        <div class="d-flex align-items-center justify-content-center bg-primary text-white rounded-circle mx-auto mb-3 step-icon"
+                            style="width: 60px; height: 60px;">
+                            <span class="h4 mb-0">4</span>
+                        </div>
+                        <h4 class="h5 mt-2">Seguimiento y Cierre</h4>
+                        <p class="text-muted small">Te mantenemos informado en cada etapa hasta la resolución del caso.
+                        </p>
                     </div>
                 </div>
             </div>
         </div>
     </section>
 
-    <section class="py-5 bg-light" id="recursos">
+    <section class="py-5 bg-white" id="faq">
         <div class="container col-lg-8">
-            <h2 class="text-center mb-4">Preguntas Frecuentes</h2>
+            <div class="text-center mb-5">
+                <h2 class="h1">Preguntas Frecuentes</h2>
+            </div>
             <div class="accordion" id="faqAccordion">
                 <div class="accordion-item">
                     <h2 class="accordion-header" id="headingOne">
@@ -309,7 +539,24 @@
                         data-bs-parent="#faqAccordion">
                         <div class="accordion-body">
                             El plazo general es de <strong>60 días hábiles</strong> desde la fecha del despido. Este
-                            plazo puede extenderse si presentas un reclamo en la Dirección del Trabajo.
+                            plazo puede extenderse si presentas un reclamo en la Dirección del Trabajo, pero es crucial
+                            actuar rápido.
+                        </div>
+                    </div>
+                </div>
+                <div class="accordion-item">
+                    <h2 class="accordion-header" id="headingThree">
+                        <button class="accordion-button collapsed" type="button" data-bs-toggle="collapse"
+                            data-bs-target="#collapseThree" aria-expanded="false" aria-controls="collapseThree">
+                            ¿Cobran un porcentaje o un monto fijo?
+                        </button>
+                    </h2>
+                    <div id="collapseThree" class="accordion-collapse collapse" aria-labelledby="headingThree"
+                        data-bs-parent="#faqAccordion">
+                        <div class="accordion-body">
+                            Depende del caso. Para trabajadores, generalmente trabajamos con un porcentaje de éxito sobre
+                            lo obtenido. Para empleadores, ofrecemos planes de asesoría mensual o cobros por gestión
+                            específica. Siempre lo transparentamos en la primera reunión.
                         </div>
                     </div>
                 </div>
@@ -317,48 +564,56 @@
         </div>
     </section>
 
-    <section class="py-5 hero-section" id="contacto">
+    <section class="py-5 bg-primary text-white" id="contacto">
         <div class="container text-center col-lg-8">
-            <h2 class="h1">¿Tienes dudas sobre tu situación laboral?</h2>
-            <p class="lead my-4">No dejes pasar los plazos. Recibe una evaluación gratuita de nuestros abogados expertos
-                hoy mismo.</p>
-            <a href="#" class="btn btn-light btn-lg px-5">Te asesoramos sin costo alguno</a>
+            <h2 class="h1 fw-bold">¿Necesitas asesoría experta?</h2>
+            <p class="lead my-4">No dejes pasar los plazos legales. Recibe una evaluación gratuita de nuestros abogados
+                hoy mismo y conoce tus opciones.</p>
+            <a href="contacto.html" class="btn btn-light btn-lg px-5">Contactar ahora</a>
         </div>
     </section>
 
-    <footer class="py-5">
+    <footer class="py-5 bg-dark text-white">
         <div class="container">
             <div class="row">
-                <div class="col-lg-4 mb-3">
-                    <a class="navbar-brand fs-4" href="index.html">INNOVABOGADOS</a>
-                    <p class="text-muted mt-2">Asesoría laboral experta en Chile.</p>
-                    <p class="text-muted small">Datos de contacto: <br>
-                        Email: contacto@innovabogados.cl <br>
-                        Teléfono: +56 2 1234 5678
-                    </p>
+                <div class="col-lg-4 mb-4 mb-lg-0">
+                    <a class="navbar-brand fs-4 text-white fw-bold" href="index.html">INNOVABOGADOS</a>
+                    <p class="text-white-50 mt-2">Asesoría laboral experta en Chile. © 2025</p>
                 </div>
                 <div class="col-6 col-lg-2 offset-lg-1 mb-3">
-                    <h5 class="h6">Servicios</h5>
+                    <h5 class="h6 text-white">Servicios</h5>
                     <ul class="list-unstyled">
-                        <li><a href="#" class="text-decoration-none text-muted">Trabajadores</a></li>
-                        <li><a href="#" class="text-decoration-none text-muted">Empleadores</a></li>
+                        <li><a href="trabajadores/index.html" class="text-decoration-none text-white-50">Trabajadores</a>
+                        </li>
+                        <li><a href="empleadores/index.html"
+                                class="text-decoration-none text-white-50">Empleadores</a></li>
                     </ul>
                 </div>
                 <div class="col-6 col-lg-2 mb-3">
-                    <h5 class="h6">Legal</h5>
+                    <h5 class="h6 text-white">Legal</h5>
                     <ul class="list-unstyled">
-                        <li><a href="#" class="text-decoration-none text-muted">Términos y Condiciones</a></li>
-                        <li><a href="#" class="text-decoration-none text-muted">Privacidad</a></li>
+                        <li><a href="privacidad.html" class="text-decoration-none text-white-50">Privacidad</a></li>
+                        <li><a href="terminos.html" class="text-decoration-none text-white-50">Términos</a></li>
+                        <li><a href="cookies.html" class="text-decoration-none text-white-50">Cookies</a></li>
                     </ul>
                 </div>
+                <div class="col-lg-3">
+                    <h5 class="h6 text-white">Contacto</h5>
+                    <ul class="list-unstyled text-white-50">
+                        <li><i class="fas fa-map-marker-alt me-2"></i> Santiago, Chile</li>
+                        <li><i class="fas fa-phone me-2"></i> (56) 2 1234 5678</li>
+                        <li><i class="fas fa-envelope me-2"></i> contacto@innovabogados.cl</li>
+                    </ul>
+                    <div class="mt-3">
+                        <a href="#" class="text-white me-3"><i class="fab fa-linkedin fa-lg"></i></a>
+                        <a href="#" class="text-white"><i class="fab fa-twitter fa-lg"></i></a>
+                    </div>
+                </div>
             </div>
-            <hr>
-            <p class="text-center text-muted small">&copy; 2025 Innovabogados. Todos los derechos reservados.</p>
         </div>
     </footer>
 
-    <a href="https://api.whatsapp.com/send?phone=569XXXXXXXX" target="_blank" class="whatsapp-float"
-        aria-label="Contactar por WhatsApp">
+    <a href="https://wa.me/56912345678" target="_blank" class="whatsapp-float" aria-label="Contactar por WhatsApp">
         <i class="fab fa-whatsapp"></i>
     </a>
 
