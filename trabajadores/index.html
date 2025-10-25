@@ -99,7 +99,8 @@
             z-index: 100;
         }
 
-        /* --- INICIO ESTILOS NAVEGACIÓN PROFESIONAL --- */
+        /* --- INICIO MEJORAS PROFESIONALES --- */
+        /* 1. Efecto de subrayado animado para la navegación */
         .navbar-nav .nav-item {
             margin: 0 0.5rem;
         }
@@ -132,6 +133,16 @@
         .navbar-nav .nav-link:hover,
         .navbar-nav .nav-link.active {
             color: var(--bs-primary) !important;
+        }
+
+        /* 2. Interacciones y transiciones para botones */
+        .btn {
+            transition: transform 0.2s ease, box-shadow 0.2s ease;
+        }
+
+        .btn:hover {
+            transform: translateY(-2px);
+            box-shadow: 0 4px 10px rgba(0, 0, 0, 0.15);
         }
         /* --- FIN ESTILOS NAVEGACIÓN PROFESIONAL --- */
     </style>
