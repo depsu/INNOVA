@@ -67,82 +67,48 @@
 
       <nav class="navbar navbar-expand-lg navbar-light bg-white shadow-sm sticky-top">
         <div class="container">
-            <a class="navbar-brand" href="index.html">INNOVABOGADOS</a>
-
-            <button class="navbar-toggler" type="button" data-bs-toggle="offcanvas" data-bs-target="#mobileNav"
-                aria-controls="mobileNav" aria-label="Toggle navigation">
+            <a class="navbar-brand fw-bold" href="../index.html">INNOVABOGADOS</a>
+            <button class="navbar-toggler" type="button" data-bs-toggle="offcanvas" data-bs-target="#mobileNav" aria-controls="mobileNav">
                 <span class="navbar-toggler-icon"></span>
             </button>
-
             <div class="offcanvas offcanvas-end" tabindex="-1" id="mobileNav" aria-labelledby="mobileNavLabel">
-
                 <div class="offcanvas-header">
-                    <h5 class="offcanvas-title" id="mobileNavLabel">Menú</h5>
+                    <h5 class="offcanvas-title fw-bold" id="mobileNavLabel">Menú</h5>
                     <button type="button" class="btn-close" data-bs-dismiss="offcanvas" aria-label="Close"></button>
                 </div>
-
                 <div class="offcanvas-body">
-
                     <ul class="navbar-nav ms-auto mb-2 mb-lg-0">
-                        <li class="nav-item">
-                            <a class="nav-link" href="index.html">Inicio</a>
-                        </li>
-
+                        <li class="nav-item"><a class="nav-link" href="../index.html">Inicio</a></li>
                         <li class="nav-item dropdown">
-                            <a class="nav-link dropdown-toggle" href="trabajadores/index.html" id="navTrabajadores"
-                                role="button" data-bs-toggle="dropdown" aria-expanded="false">
+                            <a class="nav-link dropdown-toggle active" href="index.html" id="navTrabajadores" role="button" data-bs-toggle="dropdown" aria-expanded="false">
                                 Trabajadores
                             </a>
                             <ul class="dropdown-menu" aria-labelledby="navTrabajadores">
-                                <li><a class="dropdown-item" href="trabajadores/despido-injustificado.html">Despido Injustificado</a>
-                                </li>
-                                <li><a class="dropdown-item" href="trabajadores/autodespido.html">Autodespido</a></li>
-                                <li><a class="dropdown-item" href="trabajadores/tutela-ley-karin.html">Tutela (Ley Karin)</a></li>
-                                <li><a class="dropdown-item" href="trabajadores/cobro-finiquito.html">Cobro de Finiquito</a></li>
-                                <li><a class="dropdown-item" href="trabajadores/horas-extra.html">Horas Extra</a></li>
-                                <li>
-                                    <hr class="dropdown-divider">
-                                </li>
-                                <li><a class="dropdown-item" href="trabajadores/index.html">Ver todos...</a></li>
+                                <li><a class="dropdown-item" href="despido-injustificado.html">Despido Injustificado</a></li>
+                                <li><a class="dropdown-item" href="autodespido.html">Autodespido</a></li>
+                                <li><a class="dropdown-item" href="tutela-ley-karin.html">Acoso Laboral (Ley Karin)</a></li>
+                                <li><a class="dropdown-item" href="cobro-finiquito.html">Cobro de Finiquito</a></li>
+                                <li><a class="dropdown-item" href="horas-extra.html">No pago de Horas Extra</a></li>
                             </ul>
                         </li>
-
                         <li class="nav-item dropdown">
-                            <a class="nav-link dropdown-toggle" href="empleadores/index.html" id="navEmpleadores"
-                                role="button" data-bs-toggle="dropdown" aria-expanded="false">
+                            <a class="nav-link dropdown-toggle" href="../empleadores/index.html" id="navEmpleadores" role="button" data-bs-toggle="dropdown" aria-expanded="false">
                                 Empleadores
                             </a>
                             <ul class="dropdown-menu" aria-labelledby="navEmpleadores">
-                                <li><a class="dropdown-item" href="empleadores/index.html">Ver servicios Empleador</a></li>
+                                <li><a class="dropdown-item" href="../empleadores/auditorias-laborales.html">Auditorías Laborales</a></li>
+                                <li><a class="dropdown-item" href="../empleadores/reglamentos-internos.html">Reglamentos Internos</a></li>
+                                <li><a class="dropdown-item" href="../empleadores/defensas-judiciales.html">Defensas Judiciales</a></li>
+                                <li><a class="dropdown-item" href="../empleadores/mediaciones-dt.html">Mediaciones en la DT</a></li>
+                                <li><a class="dropdown-item" href="../empleadores/capacitacion-ley-karin.html">Capacitación Ley Karin</a></li>
                             </ul>
                         </li>
-
-                        <li class="nav-item">
-                            <a class="nav-link" href="nosotros.html">Nosotros</a>
-                        </li>
-
-                        <li class="nav-item">
-                            <a class="nav-link" href="casos-y-resultados.html">Casos de Éxito</a>
-                        </li>
-
-                        <li class="nav-item dropdown">
-                            <a class="nav-link dropdown-toggle" href="recursos/index.html" id="navRecursos" role="button"
-                                data-bs-toggle="dropdown" aria-expanded="false">
-                                Recursos
-                            </a>
-                            <ul class="dropdown-menu" aria-labelledby="navRecursos">
-                                <li><a class="dropdown-item" href="recursos/index.html">Blog y Artículos</a></li>
-                                <li><a class="dropdown-item" href="recursos/index.html#descargables">Descargables</a>
-                                </li>
-                            </ul>
-                        </li>
-
-                        <li class="nav-item">
-                            <a class="nav-link" href="contacto.html">Contacto</a>
-                        </li>
+                        <li class="nav-item"><a class="nav-link" href="../nosotros.html">Nosotros</a></li>
+                        <li class="nav-item"><a class="nav-link" href="../casos-y-resultados.html">Casos y Resultados</a></li>
+                        <li class="nav-item"><a class="nav-link" href="../recursos/index.html">Recursos</a></li>
+                        <li class="nav-item"><a class="nav-link" href="../contacto.html">Contacto</a></li>
                     </ul>
-
-                    <a href="contacto.html" class="btn btn-primary ms-lg-3 mt-3 mt-lg-0">Te asesoramos sin costo</a>
+                    <a href="../contacto.html" class="btn btn-primary ms-lg-3 d-none d-lg-block">Te asesoramos sin costo</a>
                 </div>
             </div>
         </div>

@@ -54,20 +54,49 @@
 
     <nav class="navbar navbar-expand-lg navbar-light bg-white shadow-sm sticky-top">
         <div class="container">
-            <a class="navbar-brand" href="index.html">INNOVABOGADOS</a>
-            <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#mainNav" aria-controls="mainNav" aria-expanded="false" aria-label="Toggle navigation">
+            <a class="navbar-brand fw-bold" href="../index.html">INNOVABOGADOS</a>
+            <button class="navbar-toggler" type="button" data-bs-toggle="offcanvas" data-bs-target="#mobileNav" aria-controls="mobileNav">
                 <span class="navbar-toggler-icon"></span>
             </button>
-            <div class="collapse navbar-collapse" id="mainNav">
-                <ul class="navbar-nav ms-auto mb-2 mb-lg-0">
-                    <li class="nav-item"><a class="nav-link" href="index.html">Inicio</a></li>
-                    <li class="nav-item"><a class="nav-link" href="trabajadores/index.html">Trabajadores</a></li>
-                    <li class="nav-item"><a class="nav-link active" aria-current="page" href="empleadores/index.html">Empleadores</a></li>
-                    <li class="nav-item"><a class="nav-link" href="nosotros.html">Nosotros</a></li>
-                    <li class="nav-item"><a class="nav-link" href="recursos/index.html">Recursos</a></li>
-                    <li class="nav-item"><a class="nav-link" href="contacto.html">Contacto</a></li>
-                </ul>
-                <a href="contacto.html" class="btn btn-primary ms-lg-3">Te asesoramos sin costo</a>
+            <div class="offcanvas offcanvas-end" tabindex="-1" id="mobileNav" aria-labelledby="mobileNavLabel">
+                <div class="offcanvas-header">
+                    <h5 class="offcanvas-title fw-bold" id="mobileNavLabel">Menú</h5>
+                    <button type="button" class="btn-close" data-bs-dismiss="offcanvas" aria-label="Close"></button>
+                </div>
+                <div class="offcanvas-body">
+                    <ul class="navbar-nav ms-auto mb-2 mb-lg-0">
+                        <li class="nav-item"><a class="nav-link" href="../index.html">Inicio</a></li>
+                        <li class="nav-item dropdown">
+                            <a class="nav-link dropdown-toggle" href="../trabajadores/index.html" id="navTrabajadores" role="button" data-bs-toggle="dropdown" aria-expanded="false">
+                                Trabajadores
+                            </a>
+                            <ul class="dropdown-menu" aria-labelledby="navTrabajadores">
+                                <li><a class="dropdown-item" href="../trabajadores/despido-injustificado.html">Despido Injustificado</a></li>
+                                <li><a class="dropdown-item" href="../trabajadores/autodespido.html">Autodespido</a></li>
+                                <li><a class="dropdown-item" href="../trabajadores/tutela-ley-karin.html">Acoso Laboral (Ley Karin)</a></li>
+                                <li><a class="dropdown-item" href="../trabajadores/cobro-finiquito.html">Cobro de Finiquito</a></li>
+                                <li><a class="dropdown-item" href="../trabajadores/horas-extra.html">No pago de Horas Extra</a></li>
+                            </ul>
+                        </li>
+                        <li class="nav-item dropdown">
+                            <a class="nav-link dropdown-toggle active" href="index.html" id="navEmpleadores" role="button" data-bs-toggle="dropdown" aria-expanded="false">
+                                Empleadores
+                            </a>
+                            <ul class="dropdown-menu" aria-labelledby="navEmpleadores">
+                                <li><a class="dropdown-item" href="auditorias-laborales.html">Auditorías Laborales</a></li>
+                                <li><a class="dropdown-item" href="reglamentos-internos.html">Reglamentos Internos</a></li>
+                                <li><a class="dropdown-item" href="defensas-judiciales.html">Defensas Judiciales</a></li>
+                                <li><a class="dropdown-item" href="mediaciones-dt.html">Mediaciones en la DT</a></li>
+                                <li><a class="dropdown-item" href="capacitacion-ley-karin.html">Capacitación Ley Karin</a></li>
+                            </ul>
+                        </li>
+                        <li class="nav-item"><a class="nav-link" href="../nosotros.html">Nosotros</a></li>
+                        <li class="nav-item"><a class="nav-link" href="../casos-y-resultados.html">Casos y Resultados</a></li>
+                        <li class="nav-item"><a class="nav-link" href="../recursos/index.html">Recursos</a></li>
+                        <li class="nav-item"><a class="nav-link" href="../contacto.html">Contacto</a></li>
+                    </ul>
+                    <a href="../contacto.html" class="btn btn-primary ms-lg-3 d-none d-lg-block">Te asesoramos sin costo</a>
+                </div>
             </div>
         </div>
     </nav>
@@ -89,7 +118,7 @@
                             <i class="fas fa-clipboard-check fa-3x text-primary mb-3"></i>
                             <h3 class="h4">Cumplimiento y Auditorías</h3>
                             <p class="card-text">Revisamos sus contratos, anexos y liquidaciones para prevenir multas y demandas.</p>
-                            <a href="#" class="btn btn-outline-primary stretched-link mt-3">Saber más</a>
+                            <a href="auditorias-laborales.html" class="btn btn-outline-primary stretched-link mt-3">Saber más</a>
                         </div>
                     </div>
                 </div>
@@ -100,7 +129,7 @@
                             <i class="fas fa-file-alt fa-3x text-primary mb-3"></i>
                             <h3 class="h4">Reglamentos Internos</h3>
                             <p class="card-text">Redacción y actualización de Reglamentos de Orden, Higiene y Seguridad.</p>
-                            <a href="#" class="btn btn-outline-primary stretched-link mt-3">Saber más</a>
+                            <a href="reglamentos-internos.html" class="btn btn-outline-primary stretched-link mt-3">Saber más</a>
                         </div>
                     </div>
                 </div>
@@ -111,7 +140,7 @@
                             <i class="fas fa-user-minus fa-3x text-primary mb-3"></i>
                             <h3 class="h4">Desvinculaciones y Defensas</h3>
                             <p class="card-text">Asesoría en procesos de despido y defensa judicial ante demandas de tutela o despido.</p>
-                            <a href="#" class="btn btn-outline-primary stretched-link mt-3">Saber más</a>
+                            <a href="defensas-judiciales.html" class="btn btn-outline-primary stretched-link mt-3">Saber más</a>
                         </div>
                     </div>
                 </div>
@@ -122,7 +151,7 @@
                             <i class="fas fa-university fa-3x text-primary mb-3"></i>
                             <h3 class="h4">Mediaciones ante la DT</h3>
                             <p class="card-text">Representación en comparendos y mediaciones ante la Dirección del Trabajo.</p>
-                            <a href="#" class="btn btn-outline-primary stretched-link mt-3">Saber más</a>
+                            <a href="mediaciones-dt.html" class="btn btn-outline-primary stretched-link mt-3">Saber más</a>
                         </div>
                     </div>
                 </div>
@@ -133,7 +162,7 @@
                             <i class="fas fa-chalkboard-teacher fa-3x text-primary mb-3"></i>
                             <h3 class="h4">Capacitación Ley Karin</h3>
                             <p class="card-text">Implementación de protocolos y capacitación sobre la nueva ley de acoso laboral.</p>
-                            <a href="#" class="btn btn-outline-primary stretched-link mt-3">Saber más</a>
+                            <a href="capacitacion-ley-karin.html" class="btn btn-outline-primary stretched-link mt-3">Saber más</a>
                         </div>
                     </div>
                 </div>

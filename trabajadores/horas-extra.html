@@ -1,4 +1,238 @@
-*acá debería ver información con la misma estructura que en las otras páginas de trabajadores como por ejemplo en "despido-injustificado.html" o "autodespido.html"*
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    
+    <title>Cobro de Horas Extra - Abogados Laborales</title>
+    <meta name="description" content="¿Trabajaste horas extra y no te las pagaron? Te ayudamos a exigir el pago correcto de todo tu trabajo. Asesoría gratuita.">
+    
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/css/bootstrap.min.css" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Lora:wght@700&family=Montserrat:wght@400;500&display=swap" rel="stylesheet">
 
+    <style>
+        body { font-family: 'Montserrat', sans-serif; }
+        h1, h2, h3, h4, h5, h6, .navbar-brand { font-family: 'Lora', serif; font-weight: 700; }
+        :root {
+            --bs-primary: #0d2c54;
+            --bs-primary-rgb: 13, 44, 84;
+            --bs-secondary: #f0a500;
+        }
+        .btn-primary { background-color: var(--bs-primary); border: none; }
+        .text-primary { color: var(--bs-primary) !important; }
+        .bg-primary-soft { background-color: rgba(var(--bs-primary-rgb), 0.05); }
+        .list-signals { list-style: none; padding-left: 0; }
+        .list-signals li { position: relative; padding-left: 2.2rem; margin-bottom: 0.8rem; }
+        .list-signals li::before {
+            content: '\f058';
+            font-family: "Font Awesome 6 Free";
+            font-weight: 900;
+            color: var(--bs-secondary);
+            position: absolute;
+            left: 0;
+            top: 2px;
+            font-size: 1.2rem;
+        }
+        .form-card { background: #f8f9fa; border: none; border-radius: 8px; }
+        .whatsapp-float {
+            position: fixed;
+            bottom: 20px;
+            right: 20px;
+            background-color: #25D366;
+            color: white;
+            width: 60px;
+            height: 60px;
+            border-radius: 50%;
+            text-align: center;
+            font-size: 2.2rem;
+            line-height: 60px;
+            box-shadow: 0 2px 10px rgba(0,0,0,0.2);
+            z-index: 100;
+        }
+    </style>
+</head>
+<body>
 
-*pero con el contexto sobre las horas extra*
+    <nav class="navbar navbar-expand-lg navbar-light bg-white shadow-sm sticky-top">
+        <div class="container">
+            <a class="navbar-brand fw-bold" href="../index.html">INNOVABOGADOS</a>
+            <button class="navbar-toggler" type="button" data-bs-toggle="offcanvas" data-bs-target="#mobileNav" aria-controls="mobileNav">
+                <span class="navbar-toggler-icon"></span>
+            </button>
+            <div class="offcanvas offcanvas-end" tabindex="-1" id="mobileNav" aria-labelledby="mobileNavLabel">
+                <div class="offcanvas-header">
+                    <h5 class="offcanvas-title fw-bold" id="mobileNavLabel">Menú</h5>
+                    <button type="button" class="btn-close" data-bs-dismiss="offcanvas" aria-label="Close"></button>
+                </div>
+                <div class="offcanvas-body">
+                    <ul class="navbar-nav ms-auto mb-2 mb-lg-0">
+                        <li class="nav-item"><a class="nav-link" href="../index.html">Inicio</a></li>
+                        <li class="nav-item dropdown">
+                            <a class="nav-link dropdown-toggle active" href="index.html" id="navTrabajadores" role="button" data-bs-toggle="dropdown" aria-expanded="false">
+                                Trabajadores
+                            </a>
+                            <ul class="dropdown-menu" aria-labelledby="navTrabajadores">
+                                <li><a class="dropdown-item" href="despido-injustificado.html">Despido Injustificado</a></li>
+                                <li><a class="dropdown-item" href="autodespido.html">Autodespido</a></li>
+                                <li><a class="dropdown-item" href="tutela-ley-karin.html">Acoso Laboral (Ley Karin)</a></li>
+                                <li><a class="dropdown-item" href="cobro-finiquito.html">Cobro de Finiquito</a></li>
+                                <li><a class="dropdown-item active" href="horas-extra.html">No pago de Horas Extra</a></li>
+                            </ul>
+                        </li>
+                        <li class="nav-item dropdown">
+                            <a class="nav-link dropdown-toggle" href="../empleadores/index.html" id="navEmpleadores" role="button" data-bs-toggle="dropdown" aria-expanded="false">
+                                Empleadores
+                            </a>
+                            <ul class="dropdown-menu" aria-labelledby="navEmpleadores">
+                                <li><a class="dropdown-item" href="../empleadores/auditorias-laborales.html">Auditorías Laborales</a></li>
+                                <li><a class="dropdown-item" href="../empleadores/reglamentos-internos.html">Reglamentos Internos</a></li>
+                                <li><a class="dropdown-item" href="../empleadores/defensas-judiciales.html">Defensas Judiciales</a></li>
+                                <li><a class="dropdown-item" href="../empleadores/mediaciones-dt.html">Mediaciones en la DT</a></li>
+                                <li><a class="dropdown-item" href="../empleadores/capacitacion-ley-karin.html">Capacitación Ley Karin</a></li>
+                            </ul>
+                        </li>
+                        <li class="nav-item"><a class="nav-link" href="../nosotros.html">Nosotros</a></li>
+                        <li class="nav-item"><a class="nav-link" href="../casos-y-resultados.html">Casos y Resultados</a></li>
+                        <li class="nav-item"><a class="nav-link" href="../recursos/index.html">Recursos</a></li>
+                        <li class="nav-item"><a class="nav-link" href="../contacto.html">Contacto</a></li>
+                    </ul>
+                    <a href="../contacto.html" class="btn btn-primary ms-lg-3 d-none d-lg-block">Te asesoramos sin costo</a>
+                </div>
+            </div>
+        </div>
+    </nav>
+
+    <header class="py-5 bg-primary-soft">
+        <div class="container">
+            <div class="row g-5 align-items-center">
+                <div class="col-lg-7">
+                    <h1 class="display-5">Cobro de Horas Extra</h1>
+                    <p class="lead text-muted mt-3">Tu tiempo vale. Si trabajaste más allá de tu jornada y no te pagaron, te ayudamos a cobrar cada hora extra adeudada.</p>
+                    <div class="d-grid gap-2 d-sm-flex mt-4">
+                        <a href="#contacto-form" class="btn btn-primary btn-lg px-4">Calcular mis horas</a>
+                        <a href="https://api.whatsapp.com/send?phone=569XXXXXXXX&text=Hola%2C%20quiero%20cobrar%20mis%20horas%20extra." class="btn btn-outline-secondary btn-lg px-4">Contactar por WhatsApp</a>
+                    </div>
+                </div>
+                <div class="col-lg-5" id="contacto-form">
+                    <div class="card form-card p-4 shadow-sm">
+                        <h3 class="h4 text-center mb-3">Evaluación Gratuita</h3>
+                        <form action="#" method="POST">
+                            <div class="mb-3"><input type="text" class="form-control" placeholder="Nombre" required></div>
+                            <div class="mb-3"><input type="email" class="form-control" placeholder="Email" required></div>
+                            <div class="mb-3"><input type="tel" class="form-control" placeholder="Teléfono" required></div>
+                            <div class="mb-3"><textarea class="form-control" rows="3" placeholder="Ej: Trabajé 10 horas extra a la semana durante 3 meses y no me las pagaron..."></textarea></div>
+                            <div class="form-check mb-3 small">
+                                <input class="form-check-input" type="checkbox" id="consentimiento" required>
+                                <label class="form-check-label text-muted" for="consentimiento">Acepto la <a href="../privacidad.html">política de privacidad</a> y <a href="../terminos.html">términos</a>.</label>
+                            </div>
+                            <div class="d-grid"><button type="submit" class="btn btn-primary btn-lg">Solicitar Cobro</button></div>
+                        </form>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </header>
+
+    <section class="py-5">
+        <div class="container col-lg-9">
+            <h2 class="text-center mb-4">¿Cuándo puedes reclamar el pago?</h2>
+            <p class="text-center lead text-muted col-lg-10 mx-auto">Las horas extraordinarias deben ser pagadas con un recargo del 50%. Tienes derecho a cobrarlas si:</p>
+            <div class="row mt-4">
+                <div class="col-md-6">
+                    <ul class="list-signals">
+                        <li>Trabajaste más de tu jornada ordinaria (generalmente 45 horas semanales).</li>
+                        <li>Tu empleador te solicitó realizar trabajo extra.</li>
+                        <li>Las horas extra no aparecen en tu liquidación de sueldo.</li>
+                    </ul>
+                </div>
+                <div class="col-md-6">
+                    <ul class="list-signals">
+                        <li>El pago de las horas extra es inferior al legal (sueldo/hora + 50%).</li>
+                        <li>Existe un registro de asistencia que prueba tus horas (libro, sistema electrónico, etc.).</li>
+                        <li>Te despidieron y no te pagaron las horas extra en el finiquito.</li>
+                    </ul>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <section class="py-5 bg-light">
+        <div class="container col-lg-9">
+            <h2 class="text-center mb-5">¿Cómo te ayudamos a cobrar?</h2>
+            <div class="row g-4 text-center">
+                <div class="col-md-4">
+                    <div class="p-3">
+                        <i class="fas fa-file-invoice-dollar fa-3x text-primary mb-3"></i>
+                        <h3 class="h4">1. Recopilación</h3>
+                        <p class="text-muted">Reunimos las pruebas: registros de asistencia, correos, liquidaciones, etc., para acreditar las horas trabajadas.</p>
+                    </div>
+                </div>
+                <div class="col-md-4">
+                    <div class="p-3">
+                        <i class="fas fa-balance-scale fa-3x text-primary mb-3"></i>
+                        <h3 class="h4">2. Reclamo Formal</h3>
+                        <p class="text-muted">Presentamos un reclamo administrativo en la Dirección del Trabajo para intentar un acuerdo rápido.</p>
+                    </div>
+                </div>
+                <div class="col-md-4">
+                    <div class="p-3">
+                        <i class="fas fa-landmark fa-3x text-primary mb-3"></i>
+                        <h3 class="h4">3. Demanda Judicial</h3>
+                        <p class="text-muted">Si no hay acuerdo, demandamos en tribunales para que se ordene el pago total de lo adeudado.</p>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <section class="py-5">
+        <div class="container text-center col-lg-8">
+            <h2 class="h1">No regales tu trabajo</h2>
+            <p class="lead my-4">Cada hora de tu esfuerzo cuenta. Permítenos ayudarte a obtener la compensación justa que mereces. ¡Contáctanos!</p>
+            <a href="../contacto.html" class="btn btn-primary btn-lg px-5">Exigir mi pago</a>
+        </div>
+    </section>
+
+    <footer class="py-5 bg-dark text-white">
+        <div class="container">
+            <div class="row">
+                <div class="col-lg-4 mb-4 mb-lg-0">
+                    <a class="navbar-brand fs-4 text-white fw-bold" href="../index.html">INNOVABOGADOS</a>
+                    <p class="text-white-50 mt-2">Asesoría laboral experta en Chile. © 2025</p>
+                </div>
+                <div class="col-6 col-lg-2 offset-lg-1 mb-3">
+                    <h5 class="h6 text-white">Servicios</h5>
+                    <ul class="list-unstyled">
+                        <li><a href="index.html" class="text-decoration-none text-white-50">Trabajadores</a></li>
+                        <li><a href="../empleadores/index.html" class="text-decoration-none text-white-50">Empleadores</a></li>
+                    </ul>
+                </div>
+                <div class="col-6 col-lg-2 mb-3">
+                    <h5 class="h6 text-white">Legal</h5>
+                    <ul class="list-unstyled">
+                        <li><a href="../privacidad.html" class="text-decoration-none text-white-50">Privacidad</a></li>
+                        <li><a href="../terminos.html" class="text-decoration-none text-white-50">Términos</a></li>
+                        <li><a href="../cookies.html" class="text-decoration-none text-white-50">Cookies</a></li>
+                    </ul>
+                </div>
+                <div class="col-lg-3">
+                    <h5 class="h6 text-white">Contacto</h5>
+                    <ul class="list-unstyled text-white-50 small">
+                        <li><i class="fab fa-whatsapp me-2"></i> +56 9 XXXX XXXX</li>
+                        <li><i class="fas fa-envelope me-2"></i> contacto@innovabogados.cl</li>
+                    </ul>
+                </div>
+            </div>
+        </div>
+    </footer>
+
+    <a href="https://api.whatsapp.com/send?phone=569XXXXXXXX&text=Hola%2C%20necesito%20ayuda%20con%20el%20cobro%20de%20mis%20horas%20extra." target="_blank" class="whatsapp-float" aria-label="Contactar por WhatsApp">
+        <i class="fab fa-whatsapp"></i>
+    </a>
+
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/js/bootstrap.bundle.min.js"></script>
+</body>
+</html>
