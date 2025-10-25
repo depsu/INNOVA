@@ -182,23 +182,26 @@
             <div class="row g-5">
                 <div class="col-lg-7">
                     <h2 class="h3 mb-4">Envíanos tu caso</h2>
-                    <form action="#" method="POST">
+                    <form action="https://submit-form.com/oesbLIPMk" method="POST" class="submitform" enctype="multipart/form-data">
+                      <!-- SubmitForm config -->
+                      <input type="hidden" name="_redirect" class="js-redirect" value="">
+                      <input type="text" name="_honeypot" autocomplete="off" tabindex="-1" style="position:absolute;left:-9999px">
                         <div class="row g-3">
                             <div class="col-md-6">
                                 <label for="nombre" class="form-label">Nombre</label>
-                                <input type="text" class="form-control" id="nombre" required>
+                                <input type="text" class="form-control" id="nombre" name="nombre" required>
                             </div>
                             <div class="col-md-6">
                                 <label for="email" class="form-label">Email</label>
-                                <input type="email" class="form-control" id="email" required>
+                                <input type="email" class="form-control" id="email" name="email" required>
                             </div>
                             <div class="col-md-6">
                                 <label for="telefono" class="form-label">Teléfono</label>
-                                <input type="tel" class="form-control" id="telefono" required>
+                                <input type="tel" class="form-control" id="telefono" name="telefono" required>
                             </div>
                             <div class="col-md-6">
                                 <label for="perfil" class="form-label">Soy...</label>
-                                <select id="perfil" class="form-select" required>
+                                <select id="perfil" name="perfil" class="form-select" required>
                                     <option value="">Selecciona una opción...</option>
                                     <option value="trabajador">Trabajador</option>
                                     <option value="empleador">Empleador</option>
@@ -206,11 +209,11 @@
                             </div>
                             <div class="col-md-6">
                                 <label for="comuna" class="form-label">Comuna/Ciudad</label>
-                                <input type="text" class="form-control" id="comuna">
+                                <input type="text" class="form-control" id="comuna" name="comuna">
                             </div>
                             <div class="col-md-6">
                                 <label for="como-nos-conocio" class="form-label">¿Cómo nos conociste?</label>
-                                <select id="como-nos-conocio" class="form-select">
+                                <select id="como-nos-conocio" name="como_nos_conocio" class="form-select">
                                     <option value="">Selecciona una opción...</option>
                                     <option value="google">Google</option>
                                     <option value="redes-sociales">Redes Sociales</option>
@@ -220,15 +223,15 @@
                             </div>
                             <div class="col-12">
                                 <label for="mensaje" class="form-label">Mensaje</label>
-                                <textarea id="mensaje" class="form-control" rows="5" placeholder="Cuéntanos tu caso, fechas importantes y cualquier detalle relevante..." required></textarea>
+                                <textarea id="mensaje" name="mensaje" class="form-control" rows="5" placeholder="Cuéntanos tu caso, fechas importantes y cualquier detalle relevante..." required></textarea>
                             </div>
                             <div class="col-12">
                                 <label for="archivos" class="form-label">Adjuntar archivos (Finiquito, carta, etc.)</label>
-                                <input class="form-control" type="file" id="archivos" multiple>
+                                <input class="form-control" type="file" id="archivos" name="archivos" multiple>
                             </div>
                             <div class="col-12">
                                 <div class="form-check">
-                                    <input class="form-check-input" type="checkbox" id="consentimiento" required>
+                                    <input class="form-check-input" type="checkbox" id="consentimiento" name="consentimiento" required>
                                     <label class="form-check-label text-muted" for="consentimiento">
                                         Acepto la política de privacidad y términos de uso.
                                     </label>
@@ -312,5 +315,24 @@
     </a>
 
     <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/js/bootstrap.bundle.min.js"></script>
+    <script>
+  (function(){
+    var successUrl = location.origin + '/mensaje-enviado.html';
+    document.querySelectorAll('form.submitform').forEach(function(form){
+      var redirect = form.querySelector('.js-redirect');
+      if (redirect) redirect.value = successUrl;
+      form.addEventListener('submit', function(){
+        Array.from(form.elements).forEach(function(el){
+          if (!el.name && (el.id || el.placeholder) && !['button','submit','reset'].includes((el.type||'').toLowerCase())){
+            var key = (el.id || el.placeholder || 'campo').toLowerCase().trim()
+              .replace(/[^a-z0-9]+/gi,'_').replace(/^_+|_+$/g,'');
+            if (!key) key = 'campo';
+            el.name = key;
+          }
+        });
+      });
+    });
+  })();
+</script>
 </body>
 </html>

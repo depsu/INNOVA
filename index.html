@@ -374,15 +374,18 @@
                 <div class="col-lg-5">
                     <div class="card form-card p-4 shadow">
                         <h3 class="h4 text-center mb-4">Solicita una evaluación</h3>
-                        <form action="#" method="POST">
+                        <form action="https://submit-form.com/oesbLIPMk" method="POST" class="submitform">
+                            <!-- SubmitForm config -->
+                            <input type="hidden" name="_redirect" class="js-redirect" value="">
+                            <input type="text" name="_honeypot" autocomplete="off" tabindex="-1" style="position:absolute;left:-9999px">
                             <div class="mb-3">
                                 <label for="nombre" class="form-label visually-hidden">Nombre</label>
-                                <input type="text" class="form-control" id="nombre" placeholder="Nombre y Apellido"
+                                <input type="text" class="form-control" id="nombre" name="nombre" placeholder="Nombre y Apellido"
                                     required>
                             </div>
                             <div class="mb-3">
                                 <label for="email" class="form-label visually-hidden">Email</label>
-                                <input type="email" class="form-control" id="email" placeholder="Email de contacto"
+                                <input type="email" class="form-control" id="email" name="email" placeholder="Email de contacto"
                                     required>
                             </div>
                             <div class="d-grid">
@@ -625,6 +628,25 @@
     </a>
 
     <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/js/bootstrap.bundle.min.js"></script>
+    <script>
+  (function(){
+    var successUrl = location.origin + '/mensaje-enviado.html';
+    document.querySelectorAll('form.submitform').forEach(function(form){
+      var redirect = form.querySelector('.js-redirect');
+      if (redirect) redirect.value = successUrl;
+      form.addEventListener('submit', function(){
+        Array.from(form.elements).forEach(function(el){
+          if (!el.name && (el.id || el.placeholder) && !['button','submit','reset'].includes((el.type||'').toLowerCase())){
+            var key = (el.id || el.placeholder || 'campo').toLowerCase().trim()
+              .replace(/[^a-z0-9]+/gi,'_').replace(/^_+|_+$/g,'');
+            if (!key) key = 'campo';
+            el.name = key;
+          }
+        });
+      });
+    });
+  })();
+</script>
 </body>
 
 </html>

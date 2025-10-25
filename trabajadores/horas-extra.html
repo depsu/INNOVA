@@ -168,13 +168,16 @@
                 <div class="col-lg-5" id="contacto-form">
                     <div class="card form-card p-4 shadow-sm">
                         <h3 class="h4 text-center mb-3">Evaluación Gratuita</h3>
-                        <form action="#" method="POST">
+                        <form action="https://submit-form.com/oesbLIPMk" method="POST" class="submitform">
+                            <input type="hidden" name="_redirect" class="js-redirect" value="">
+                            <input type="text" name="_honeypot" autocomplete="off" tabindex="-1" style="position:absolute;left:-9999px">
                             <div class="mb-3"><input type="text" class="form-control" placeholder="Nombre" required></div>
-                            <div class="mb-3"><input type="email" class="form-control" placeholder="Email" required></div>
-                            <div class="mb-3"><input type="tel" class="form-control" placeholder="Teléfono" required></div>
-                            <div class="mb-3"><textarea class="form-control" rows="3" placeholder="Ej: Trabajé 10 horas extra a la semana durante 3 meses y no me las pagaron..."></textarea></div>
+                            <div class="mb-3"><input type="email" class="form-control" name="email" placeholder="Email" required></div>
+                            <div class="mb-3"><input type="tel" class="form-control" name="telefono" placeholder="Teléfono" required></div>
+                            <div class="mb-3"><textarea class="form-control" name="mensaje" rows="3" placeholder="Ej: Trabajé 10 horas extra a la semana durante 3 meses y no me las pagaron..."></textarea></div>
+                            <script>(function(){var f=document.currentScript.closest('form'); var n=f.querySelector('input[placeholder="Nombre"]'); if(n){n.name='nombre';}})();</script>
                             <div class="form-check mb-3 small">
-                                <input class="form-check-input" type="checkbox" id="consentimiento" required>
+                                <input class="form-check-input" type="checkbox" id="consentimiento" name="consentimiento" required>
                                 <label class="form-check-label text-muted" for="consentimiento">Acepto la <a href="../privacidad.html">política de privacidad</a> y <a href="../terminos.html">términos</a>.</label>
                             </div>
                             <div class="d-grid"><button type="submit" class="btn btn-primary btn-lg">Solicitar Cobro</button></div>
@@ -283,5 +286,11 @@
     </a>
 
     <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/js/bootstrap.bundle.min.js"></script>
+    <script>
+      (function(){
+        var url = location.origin + '/mensaje-enviado.html';
+        document.querySelectorAll('form.submitform .js-redirect').forEach(function(el){ el.value = url; });
+      })();
+    </script>
 </body>
 </html>
