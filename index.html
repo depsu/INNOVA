@@ -267,14 +267,19 @@
         }
 
         /* --- FIN MEJORAS PROFESIONALES --- */
+
+        /* Fix flicker on stretched-link inside cards (Áreas de Práctica) */
+    #servicios .card .stretched-link::after { z-index: 0 !important; }
+    #servicios .card { will-change: transform; backface-visibility: hidden; }
+    /* End fix */
     </style>
 </head>
 
 <body class="bg-light">
 
     <nav class="navbar navbar-expand-lg navbar-light bg-white shadow-sm sticky-top">
-        <div class="container">
-            <a class="navbar-brand fw-bold" href="/">INNOVABOGADOS</a>
+        <div class="container align-items-center">
+            <a class="navbar-brand fw-bold" href="/"><img src="/images/logo.jpeg" alt="INNOVABOGADOS" class="img-fluid" style="max-width: 170px;"></a>
 
             <button class="navbar-toggler" type="button" data-bs-toggle="offcanvas" data-bs-target="#mobileNav"
                 aria-controls="mobileNav" aria-label="Toggle navigation">
@@ -373,7 +378,7 @@
                 </div>
                 <div class="col-lg-5">
                     <div class="card form-card p-4 shadow">
-                        <h3 class="h4 text-center mb-4">Solicita una evaluación</h3>
+                        <h3 class="h4 text-center mb-4">Solicita una evaluación Gratis</h3>
                         <form action="https://submit-form.com/oesbLIPMk" method="POST" class="submitform">
                             <!-- SubmitForm config -->
                             <input type="hidden" name="_redirect" class="js-redirect" value="">
@@ -438,6 +443,9 @@
             <div class="row g-4">
                 <div class="col-lg-6">
                     <div class="card h-100 shadow-sm border-0 p-4 text-center">
+                        <div class="ratio ratio-16x9 mb-3">
+                            <img src="/images/trabajador.png" alt="Asesoría para trabajadores" class="rounded w-100 h-100" style="object-fit: cover;" loading="lazy">
+                        </div>
                         <div class="card-body d-flex flex-column">
                             <i class="fas fa-user-shield fa-3x text-primary mb-3" style="transition: color 0.3s ease;"></i>
                             <h3 class="h4">Para Trabajadores</h3>
@@ -450,6 +458,9 @@
                 </div>
                 <div class="col-lg-6">
                     <div class="card h-100 shadow-sm border-0 p-4 text-center">
+                        <div class="ratio ratio-16x9 mb-3">
+                            <img src="/images/empresas.png" alt="Asesoría para empresas">
+                        </div>
                         <div class="card-body d-flex flex-column">
                             <i class="fas fa-building-shield fa-3x text-primary mb-3" style="transition: color 0.3s ease;"></i>
                             <h3 class="h4">Para Empleadores</h3>
@@ -571,6 +582,9 @@
                     </div>
                 </div>
             </div>
+
+            <img src="/images/pensando.png" alt="Preguntas frecuentes" class="img-fluid mt-4 mx-auto d-block"
+                style="max-width: 400px;" loading="lazy">
         </div>
     </section>
 
