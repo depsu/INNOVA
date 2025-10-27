@@ -34,7 +34,7 @@
         }
 
         :root {
-            --bs-primary: #0d2c54;
+            --bs-primary: #d18600;
             --bs-primary-rgb: 13, 44, 84;
             --bs-secondary: #f0a500;
         }
@@ -61,6 +61,15 @@
             transition: transform 0.3s ease, box-shadow 0.3s ease;
             position: relative;
             overflow: hidden;
+            cursor: pointer;
+            color: inherit;
+            text-decoration: none;
+
+        }
+         .service-card *{
+    
+            text-decoration: none;
+
         }
 
         .service-card:hover {
@@ -144,6 +153,7 @@
             transform: translateY(-2px);
             box-shadow: 0 4px 10px rgba(0, 0, 0, 0.15);
         }
+
         /* --- FIN ESTILOS NAVEGACIÓN PROFESIONAL --- */
     </style>
 </head>
@@ -202,15 +212,22 @@
                                 Empleadores
                             </a>
                             <ul class="dropdown-menu" aria-labelledby="navEmpleadores">
-                                <li><a class="dropdown-item" href="../empleadores/auditorias-laborales.html">Auditorías Laborales</a></li>
-                                <li><a class="dropdown-item" href="../empleadores/reglamentos-internos.html">Reglamentos Internos</a></li>
-                                <li><a class="dropdown-item" href="../empleadores/defensas-judiciales.html">Defensas Judiciales</a></li>
-                                <li><a class="dropdown-item" href="../empleadores/mediaciones-dt.html">Mediaciones en la DT</a></li>
-                                <li><a class="dropdown-item" href="../empleadores/capacitacion-ley-karin.html">Capacitaciones Ley Karin</a></li>
+                                <li><a class="dropdown-item" href="../empleadores/auditorias-laborales.html">Auditorías
+                                        Laborales</a></li>
+                                <li><a class="dropdown-item" href="../empleadores/reglamentos-internos.html">Reglamentos
+                                        Internos</a></li>
+                                <li><a class="dropdown-item" href="../empleadores/defensas-judiciales.html">Defensas
+                                        Judiciales</a></li>
+                                <li><a class="dropdown-item" href="../empleadores/mediaciones-dt.html">Mediaciones en la
+                                        DT</a></li>
+                                <li><a class="dropdown-item"
+                                        href="../empleadores/capacitacion-ley-karin.html">Capacitaciones Ley Karin</a>
+                                </li>
                                 <li>
                                     <hr class="dropdown-divider">
                                 </li>
-                                <li><a class="dropdown-item" href="../empleadores/index.html"><strong>Ver todos →</strong></a></li>
+                                <li><a class="dropdown-item" href="../empleadores/index.html"><strong>Ver todos
+                                            →</strong></a></li>
                             </ul>
                         </li>
 
@@ -240,7 +257,8 @@
     <header class="py-5 bg-primary-soft">
         <div class="container text-center col-lg-8">
             <h1 class="display-5">Asesoría y Defensa para Trabajadores</h1>
-            <p class="lead text-muted">Protegemos tus derechos laborales. Conoce nuestros servicios especializados en despidos, autodespidos, acoso y más.</p>
+            <p class="lead text-muted">Protegemos tus derechos laborales. Conoce nuestros servicios especializados en
+                despidos, autodespidos, acoso y más.</p>
         </div>
     </header>
 
@@ -250,14 +268,14 @@
 
                 <div class="col">
                     <div class="card h-100 shadow-sm border-0 service-card">
-                        <div class="card-body p-4 text-center d-flex flex-column">
+                        <a class="card-body p-4 text-center d-flex flex-column" href="despido-injustificado.html">
                             <i class="fas fa-gavel fa-3x text-primary mb-3"></i>
                             <h3 class="h4">Despido Injustificado</h3>
                             <p class="card-text text-muted">Si te despidieron con una causal incorrecta o falsa (ej.
                                 "necesidades de la empresa"), demandamos el pago de tus indemnizaciones.</p>
-                            <a href="despido-injustificado.html" class="btn btn-outline-primary stretched-link mt-auto">Saber
-                                más</a>
-                        </div>
+                            <div class="btn btn-outline-primary stretched-link mt-auto">Saber
+                                más</div>
+                        </a>
                     </div>
                 </div>
 
@@ -268,7 +286,8 @@
                             <h3 class="h4">Autodespido</h3>
                             <p class="card-text text-muted">Si tu empleador incumple gravemente el contrato (ej. no pago
                                 de sueldo), te ayudamos a poner término a la relación laboral.</p>
-                            <a href="autodespido.html" class="btn btn-outline-primary stretched-link mt-auto">Saber más</a>
+                            <a href="autodespido.html" class="btn btn-outline-primary stretched-link mt-auto">Saber
+                                más</a>
                         </div>
                     </div>
                 </div>
@@ -306,7 +325,8 @@
                             <h3 class="h4">Horas Extra</h3>
                             <p class="card-text text-muted">Asesoría y demanda por el no pago de horas extraordinarias
                                 trabajadas y no remuneradas por tu empleador.</p>
-                            <a href="horas-extra.html" class="btn btn-outline-primary stretched-link mt-auto">Saber más</a>
+                            <a href="horas-extra.html" class="btn btn-outline-primary stretched-link mt-auto">Saber
+                                más</a>
                         </div>
                     </div>
                 </div>
@@ -355,11 +375,11 @@
 
     <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/js/bootstrap.bundle.min.js"></script>
     <script>
-  (function(){
-    var url = location.origin + '/mensaje-enviado.html';
-    document.querySelectorAll('form.submitform .js-redirect').forEach(function(el){ el.value = url; });
-  })();
-</script>
+        (function () {
+            var url = location.origin + '/mensaje-enviado.html';
+            document.querySelectorAll('form.submitform .js-redirect').forEach(function (el) { el.value = url; });
+        })();
+    </script>
 </body>
 
 </html>
