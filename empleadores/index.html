@@ -13,7 +13,6 @@
     <link href="https://fonts.googleapis.com/css2?family=Lora:wght@700&family=Montserrat:wght@400;500&display=swap" rel="stylesheet">
 
     <style>
-        /* Estilos consistentes con index.html */
         body { font-family: 'Montserrat', sans-serif; }
         h1, h2, h3, h4, h5, h6, .navbar-brand { font-family: 'Lora', serif; font-weight: 700; }
         :root {
@@ -26,7 +25,19 @@
         .bg-primary-soft { background-color: rgba(var(--bs-primary-rgb), 0.05); }
 
         .service-card {
-            transition: transform 0.2s ease, box-shadow 0.2s ease;
+            transition: transform 0.3s ease, box-shadow 0.3s ease;
+            position: relative;
+            overflow: hidden;
+            cursor: pointer;
+            color: inherit;
+            text-decoration: none;
+            z-index: 0;
+
+        }
+         .service-card *{
+    
+            text-decoration: none;
+
         }
         .service-card:hover {
             transform: translateY(-5px);
@@ -49,16 +60,16 @@
             z-index: 100;
         }
 
-        /* --- INICIO MEJORAS PROFESIONALES --- */
-        /* 1. Efecto de subrayado animado para la navegación */
+
         .navbar-nav .nav-item { margin: 0 0.5rem; }
         .navbar-nav .nav-link { position: relative; padding-bottom: 8px; transition: color 0.3s ease; }
         .navbar-nav .nav-link::before { content: ''; position: absolute; width: 100%; height: 2px; bottom: 0; left: 0; background-color: var(--bs-secondary); transform: scaleX(0); transform-origin: bottom right; transition: transform 0.4s cubic-bezier(0.86, 0, 0.07, 1); }
         .navbar-nav .nav-link:hover::before, .navbar-nav .nav-link.active::before { transform: scaleX(1); transform-origin: bottom left; }
         .navbar-nav .nav-link:hover, .navbar-nav .nav-link.active { color: var(--bs-primary) !important; }
-        /* 2. Interacciones y transiciones para botones */
         .btn { transition: transform 0.2s ease, box-shadow 0.2s ease; }
         .btn:hover { transform: translateY(-2px); box-shadow: 0 4px 10px rgba(0, 0, 0, 0.15); }
+
+    .service-card .btn:hover { transform: none; box-shadow: none; }
     </style>
 </head>
 <body>
@@ -163,56 +174,56 @@
                 
                 <div class="col">
                     <div class="card h-100 shadow-sm border-0 service-card">
-                        <div class="card-body p-4 text-center">
+                        <a class="card-body p-4 text-center d-flex flex-column" href="auditorias-laborales.html">
                             <i class="fas fa-clipboard-check fa-3x text-primary mb-3"></i>
                             <h3 class="h4">Cumplimiento y Auditorías</h3>
                             <p class="card-text">Revisamos sus contratos, anexos y liquidaciones para prevenir multas y demandas.</p>
-                            <a href="auditorias-laborales.html" class="btn btn-outline-primary stretched-link mt-3">Saber más</a>
-                        </div>
+                            <div class="btn btn-outline-primary mt-auto">Saber más</div>
+                        </a>
                     </div>
                 </div>
 
                 <div class="col">
                     <div class="card h-100 shadow-sm border-0 service-card">
-                        <div class="card-body p-4 text-center">
+                        <a class="card-body p-4 text-center d-flex flex-column" href="reglamentos-internos.html">
                             <i class="fas fa-file-alt fa-3x text-primary mb-3"></i>
                             <h3 class="h4">Reglamentos Internos</h3>
                             <p class="card-text">Redacción y actualización de Reglamentos de Orden, Higiene y Seguridad.</p>
-                            <a href="reglamentos-internos.html" class="btn btn-outline-primary stretched-link mt-3">Saber más</a>
-                        </div>
+                            <div class="btn btn-outline-primary mt-auto">Saber más</div>
+                        </a>
                     </div>
                 </div>
 
                 <div class="col">
                     <div class="card h-100 shadow-sm border-0 service-card">
-                        <div class="card-body p-4 text-center">
+                        <a class="card-body p-4 text-center d-flex flex-column" href="defensas-judiciales.html">
                             <i class="fas fa-user-minus fa-3x text-primary mb-3"></i>
                             <h3 class="h4">Desvinculaciones y Defensas</h3>
                             <p class="card-text">Asesoría en procesos de despido y defensa judicial ante demandas de tutela o despido.</p>
-                            <a href="defensas-judiciales.html" class="btn btn-outline-primary stretched-link mt-3">Saber más</a>
-                        </div>
+                            <div class="btn btn-outline-primary mt-auto">Saber más</div>
+                        </a>
                     </div>
                 </div>
                 
                 <div class="col">
                     <div class="card h-100 shadow-sm border-0 service-card">
-                        <div class="card-body p-4 text-center">
+                        <a class="card-body p-4 text-center d-flex flex-column" href="mediaciones-dt.html">
                             <i class="fas fa-university fa-3x text-primary mb-3"></i>
                             <h3 class="h4">Mediaciones ante la DT</h3>
                             <p class="card-text">Representación en comparendos y mediaciones ante la Dirección del Trabajo.</p>
-                            <a href="mediaciones-dt.html" class="btn btn-outline-primary stretched-link mt-3">Saber más</a>
-                        </div>
+                            <div class="btn btn-outline-primary mt-auto">Saber más</div>
+                        </a>
                     </div>
                 </div>
 
                 <div class="col">
                     <div class="card h-100 shadow-sm border-0 service-card">
-                        <div class="card-body p-4 text-center">
+                        <a class="card-body p-4 text-center d-flex flex-column" href="capacitacion-ley-karin.html">
                             <i class="fas fa-chalkboard-teacher fa-3x text-primary mb-3"></i>
                             <h3 class="h4">Capacitación Ley Karin</h3>
                             <p class="card-text">Implementación de protocolos y capacitación sobre la nueva ley de acoso laboral.</p>
-                            <a href="capacitacion-ley-karin.html" class="btn btn-outline-primary stretched-link mt-3">Saber más</a>
-                        </div>
+                            <div class="btn btn-outline-primary mt-auto">Saber más</div>
+                        </a>
                     </div>
                 </div>
 
