@@ -61,10 +61,13 @@
         body { font-family: 'Montserrat', sans-serif; }
         h1, h2, h3, h4, h5, h6, .navbar-brand { font-family: 'Lora', serif; font-weight: 700; }
         :root { --bs-primary: #d18600; --bs-primary-rgb: 214, 161, 4; --bs-secondary: #f0a500; }
-        .btn-primary { background-color: var(--bs-primary); border: none; }
+        .btn-primary { background-color: var(--bs-primary) !important; border: none; }
         .text-primary { color: var(--bs-primary) !important; }
-        .bg-primary-soft { background-color: rgba(var(--bs-primary-rgb), 0.05); }
-        .whatsapp-float {
+   .bg-primary-soft {
+            background: linear-gradient(rgba(0, 0, 0, 0.6), rgba(0, 0, 0, 0.6)), url('/banner-secundario-o.jpg') no-repeat center center;
+            background-size: cover;
+            color: white !important;
+        }        .whatsapp-float {
             position: fixed;
             bottom: 20px;
             right: 20px;
@@ -79,6 +82,8 @@
             box-shadow: 0 2px 10px rgba(0,0,0,0.2);
             z-index: 100;
         }
+
+        
     </style>
 </head>
 <body>
@@ -261,36 +266,36 @@
                     
                     <h4 class="h5">Información de Contacto</h4>
                     <ul class="list-unstyled">
-                        <li class="mb-3 d-flex">
-                            <i class="fas fa-phone fa-lg text-primary mt-2 me-3"></i>
+                        <li class="mb-3 d-flex align-items-center">
+                            <i class="fas fa-phone fa-lg text-primary me-3"></i>
                             <div>
                                 <strong>Teléfono</strong><br>
                                 <a href="tel:+56947166921" class="text-decoration-none">+56 9 4716 6921</a>
                             </div>
                         </li>
-                        <li class="mb-3 d-flex">
-                            <i class="fab fa-whatsapp fa-lg text-primary mt-2 me-3"></i>
+                        <li class="mb-3 d-flex align-items-center">
+                            <i class="fab fa-whatsapp fa-lg text-primary me-3"></i>
                             <div>
                                 <strong>WhatsApp</strong><br>
                                 <a href="https://wa.me/56947166921" target="_blank" class="text-decoration-none">+56 9 4716 6921</a>
                             </div>
                         </li>
-                        <li class="mb-3 d-flex">
-                            <i class="fas fa-envelope fa-lg text-primary mt-2 me-3"></i>
+                        <li class="mb-3 d-flex align-items-center">
+                            <i class="fas fa-envelope fa-lg text-primary me-3"></i>
                             <div>
                                 <strong>Email</strong><br>
                                 <a href="mailto:contacto@innovabogados.cl" class="text-decoration-none">contacto@innovabogados.cl</a>
                             </div>
                         </li>
-                        <li class="mb-3 d-flex">
-                            <i class="fas fa-clock fa-lg text-primary mt-2 me-3"></i>
+                        <li class="mb-3 d-flex align-items-center">
+                            <i class="fas fa-clock fa-lg text-primary me-3"></i>
                             <div>
                                 <strong>Horarios</strong><br>
                                 Lunes a Viernes de 09:00 a 18:00 hrs.
                             </div>
                         </li>
-                        <li class="mb-3 d-flex">
-                            <i class="fas fa-map-marker-alt fa-lg text-primary mt-2 me-3"></i>
+                        <li class="mb-3 d-flex align-items-center">
+                            <i class="fas fa-map-marker-alt fa-lg text-primary me-3"></i>
                             <div>
                                 <strong>Dirección</strong><br>
                                 San Sebastián 2750, Of. 603, Las Condes, Santiago

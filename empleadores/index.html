@@ -41,7 +41,7 @@
         }
 
         .btn-primary {
-            background-color: var(--bs-primary);
+            background-color: var(--bs-primary) !important;
             border: none;
         }
 
@@ -49,8 +49,10 @@
             color: var(--bs-primary) !important;
         }
 
-        .bg-primary-soft {
-            background-color: rgba(var(--bs-primary-rgb), 0.05);
+         .bg-primary-soft {
+            background: linear-gradient(rgba(0, 0, 0, 0.6), rgba(0, 0, 0, 0.6)), url('/banner-secundario-o.jpg') no-repeat center center;
+            background-size: cover;
+            color: white;
         }
 
 
@@ -78,7 +80,7 @@
 
    
         .card .btn {
-            background: #d18600;
+            background: #d18600 !important;
             border: none;
             color: white;
         }
@@ -118,7 +120,7 @@
             height: 2px;
             bottom: 0;
             left: 0;
-            background-color: var(--bs-primary);
+            background-color: var(--bs-primary) !important;
             transform: scaleX(0);
             transform-origin: bottom right;
             transition: transform 0.4s cubic-bezier(0.86, 0, 0.07, 1);
@@ -248,7 +250,7 @@
     <header class="py-5 bg-primary-soft">
         <div class="container text-center col-lg-8">
             <h1 class="display-5">Asesoría Preventiva y Defensa para Empleadores</h1>
-            <p class="lead text-muted">Aseguramos el cumplimiento normativo y defendemos sus intereses en materia
+            <p class="lead text-white">Aseguramos el cumplimiento normativo y defendemos sus intereses en materia
                 laboral.</p>
         </div>
     </header>
