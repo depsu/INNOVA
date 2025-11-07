@@ -34,21 +34,22 @@
 
         /* Color primario (sobrio) y acento */
         :root {
-            --bs-primary: #d18600;
-            /* Azul legal sobrio */
-            --bs-primary-rgb: 13, 44, 84;
-            --bs-secondary: #f0a500;
-            /* Acento llamativo */
+            --bs-primary: #d6a104;
+            /* Nuevo primario */
+            --bs-primary-rgb: 214, 161, 4;
+            --bs-secondary: #000000;
+            /* Nuevo secundario */
         }
 
         .btn-primary {
             background-color: var(--bs-primary);
-            border: none;
+            border-color: var(--bs-primary);
         }
 
         .btn-secondary {
             background-color: var(--bs-secondary);
-            border: none;
+            border-color: var(--bs-secondary);
+            color: white;
         }
 
         /* Hero Section */
@@ -193,10 +194,7 @@
             box-shadow: 0 8px 20px rgba(0, 0, 0, 0.12) !important;
         }
 
-        #servicios .card:hover .btn-outline-primary {
-            background-color: var(--bs-primary);
-            color: white;
-        }
+     
 
         #servicios .card .stretched-link::after {
             position: absolute;
@@ -208,9 +206,7 @@
             content: "";
         }
 
-        #servicios .card:hover .fa-3x {
-            color: var(--bs-secondary) !important;
-        }
+    
 
         /* --- INICIO MEJORAS PROFESIONALES --- */
 
@@ -284,6 +280,155 @@
         }
 
         /* End fix */
+
+        /* --- PALETA coherente (azul sobrio + dorado) --- */
+        :root {
+            --brand-primary: #d6a104;
+            /* nuevo primario */
+            --brand-accent: #d6a104;
+            /* dorado del logo */
+            --brand-secondary: #000000;
+            /* nuevo secundario */
+            --tint-gold: #fffaf0;
+            /* fondos internos cálidos */
+            --tint-blue: #eef4ff;
+            /* fondos internos fríos */
+            --ink: #1b1b1b;
+        }
+
+        :root {
+            --bs-primary: var(--brand-primary);
+            --bs-primary-rgb: 214, 161, 4;
+            --bs-secondary: var(--brand-secondary);
+        }
+
+        /* Botones */
+        .btn-primary, .btn-secondary {
+            background-color: var(--brand-primary);
+            border-color: var(--brand-primary);
+        }
+
+        .btn-primary:hover, .btn-secondary:hover {
+            background-color: #c09003;
+            border-color: #c09003;
+        }
+
+        .btn-outline-secondary {
+            color: var(--brand-accent);
+            border-color: var(--brand-accent);
+        }
+
+        .btn-outline-secondary:hover {
+            background: var(--brand-accent);
+            color: #fff;
+        }
+
+        /* Hero con más presencia y fondo suave */
+        .bg-primary-soft {
+            background: linear-gradient(180deg, rgba(214, 161, 4, .06), rgba(214, 161, 4, 0));
+        }
+
+        /* Títulos con subrayado dorado */
+        .section-title {
+            position: relative;
+            display: inline-block;
+        }
+
+        .section-title:after {
+            content: "";
+            position: absolute;
+            left: 0;
+            right: 0;
+            height: 4px;
+            bottom: -10px;
+            width: 120px;
+            background: var(--brand-accent);
+            border-radius: 2px;
+            margin: auto;
+        }
+
+        /* Cards de “Para Trabajadores/Empleadores” con color por dentro */
+        .card-colored {
+            border: 0;
+            box-shadow: 0 8px 24px rgba(0, 0, 0, .08);
+        }
+
+        .card-colored .card-body {
+            padding: 1.75rem;
+        }
+
+        .card-worker {
+            background-color: var(--brand-primary);
+            color: #fff;
+        }
+        .card-worker h3, .card-worker p {
+            color: #fff;
+        }
+        .card-worker .btn {
+            background-color: var(--brand-secondary);
+            color: #fff;
+            border-color: var(--brand-secondary);
+        }
+
+        .card-worker .btn:hover {
+            background-color: var(--brand-secondary) !important; /* Mantiene el color negro en hover */
+            border-color: var(--brand-secondary) !important;
+        }
+
+        .card-employer {
+            background-color: var(--brand-secondary);
+            color: #fff !important; /* Forzar color de texto */
+        }
+        .card-employer h3, .card-employer p {
+            color: #fff !important; /* Forzar color de texto */
+        }
+        .card-employer .btn {
+            background-color: var(--brand-primary);
+            color: #fff;
+            border-color: var(--brand-primary);
+        }
+        .card-employer:hover i {
+            transform: translateY(-3px);
+            color: #fff !important; /* Mantiene el icono blanco en hover */
+        }
+
+        .card-colored h3 {
+            color: var(--ink);
+        }
+
+        .card-colored .btn {
+            border-width: 2px;
+        }
+
+        /* Icono grande con transición */
+        .card-colored i {
+            transition: transform .25s ease;
+        }
+
+        .card-colored:hover i {
+            transform: translateY(-3px);
+        }
+
+        /* Pasos del proceso con “pastilla” dorada al hover */
+        #proceso .step-icon {
+            transition: transform .25s ease, background-color .25s ease;
+        }
+
+        #proceso .col-md-3:hover .step-icon {
+            background: var(--brand-accent) !important;
+            transform: scale(1.08);
+        }
+
+        /* FAQ con icono y bloque más legible */
+        #faq .faq-title i {
+            color: var(--brand-accent);
+            margin-right: .5rem;
+        }
+
+        #faq .accordion-button:not(.collapsed) {
+            color: var(--brand-primary);
+            background: rgba(214, 161, 4, .06);
+        }
     </style>
 </head>
 
@@ -387,18 +532,19 @@
         <div class="container">
             <div class="row g-5 align-items-center">
                 <div class="col-lg-7">
-                    <h1 class="display-5 fw-bold">Asesoría Preventiva y Defensa para Empleadores</h1>
-                    <p class="lead text-muted">Aseguramos el cumplimiento normativo y defendemos sus intereses en
-                        materia laboral.</p>
+                    <h1 class="display-5 fw-bold">Soluciones Laborales Estratégicas para <span class="d-inline d-lg-block">Trabajadores y Empresas</span>
+                    </h1>
+                    <p class="lead text-muted">Asesoría, defensa y prevención legal con enfoque humano y resultados
+                    reales.</p>
                     <div class="d-grid gap-2 d-sm-flex mt-4">
-                        <a href="empleadores/index.html" class="btn btn-primary btn-lg px-4">Nuestros Servicios</a>
-                        <a href="contacto.html" class="btn btn-outline-secondary btn-lg px-4">Contáctanos</a>
+                        <a href="trabajadores/index.html" class="btn btn-secondary btn-lg px-4">Conoce tus derechos</a>
+                        <a href="empleadores/index.html" class="btn btn-outline-secondary btn-lg px-4">Protege tu
+                        empresa</a>
                     </div>
                 </div>
+
                 <div class="col-lg-5">
                     <div class="card form-card p-4 shadow">
-                        <img src="/images/apuntando.png" alt="Elemento decorativo"
-                            style="position: absolute; top: -25px; right: -25px; width: 80px; z-index: 2;">
                         <h3 class="h4 text-center mb-4">Solicita una evaluación Gratis</h3>
                         <form action="https://submit-form.com/oesbLIPMk" method="POST" class="submitform">
                             <!-- SubmitForm config -->
@@ -430,7 +576,7 @@
 
     <section class="py-5">
         <div class="container">
-            <div class="row text-center g-4">
+            <div class="row text-center g-4 justify-content-center">
                 <div class="col-md-3 col-6">
                     <i class="fas fa-gavel fa-3x text-primary mb-3"></i>
                     <h3 class="h5 mb-1">+15 Años</h3>
@@ -444,13 +590,13 @@
                 <div class="col-md-3 col-6">
                     <i class="fas fa-star fa-3x text-primary mb-3"></i>
                     <h3 class="h5 mb-1">4.9/5 Estrellas</h3>
-                    <p class="text-muted small">en testimonios</p>
+                    <p class="text-muted small">en clientes satisfechos</p>
                 </div>
-                <div class="col-md-3 col-6">
+                <!-- <div class="col-md-3 col-6">
                     <i class="fas fa-university fa-3x text-primary mb-3"></i>
                     <h3 class="h5 mb-1">Miembros</h3>
                     <p class="text-muted small">del Colegio de Abogados</p>
-                </div>
+                </div> -->
             </div>
         </div>
     </section>
@@ -458,43 +604,37 @@
     <section class="py-5 bg-white" id="servicios">
         <div class="container">
             <div class="text-center col-lg-8 mx-auto mb-5">
-                <h2 class="h1">Áreas de Práctica</h2>
-                <p class="lead text-muted">Ofrecemos soluciones legales tanto para trabajadores como para empleadores,
-                    buscando siempre el mejor resultado.</p>
+                <h2 class="h1 section-title">Áreas de Práctica</h2>
+                <p class="lead text-muted mt-3">Ofrecemos soluciones legales tanto para trabajadores como para empleadores, con un enfoque en la defensa de tus derechos y la protección de tus intereses.</p>
             </div>
-            <div class="row g-4">
+            <div class="row g-4 px-lg-5 mx-lg-5">
                 <div class="col-lg-6">
-                    <a class="card h-100 shadow-sm border-0 p-4 text-center" href="trabajadores/index.html">
+                    <a class="card card-colored card-worker h-100 p-4 text-center text-decoration-none" href="trabajadores/index.html">
                         <div class="ratio ratio-16x9 mb-3">
-                            <img src="/images/trabajador.png" alt="Asesoría para trabajadores"
+                            <img src="/abogado 4.png" alt="Asesoría para trabajadores"
                                 class="rounded w-100 h-100" style="object-fit: cover;" loading="lazy">
                         </div>
                         <div class="card-body d-flex flex-column">
-                            <i class="fas fa-user-shield fa-3x text-primary mb-3"
-                                style="transition: color 0.3s ease;"></i>
+                            <i class="fas fa-scale-balanced fa-3x text-dark mb-3"></i>
                             <h3 class="h4">Para Trabajadores</h3>
-                            <p class="card-text text-muted">Defendemos tus derechos en despidos, autodespidos, acoso
-                                laboral (Ley Karin), cobro de prestaciones y más.</p>
-                            <div class="btn btn-outline-primary mt-auto stretched-link">Conoce tus
-                                Derechos</div>
+                            <p class="card-text text-muted">Despido, autodespido, acoso (Ley Karin), cobros y más.</p>
+                            <div class="btn btn-outline-primary mt-auto stretched-link">Conoce tus Derechos</div>
                         </div>
                     </a>
                 </div>
+
                 <div class="col-lg-6">
-                    <div class="card h-100 shadow-sm border-0 p-4 text-center">
+                    <a class="card card-colored card-employer h-100 p-4 text-center text-decoration-none" href="empleadores/index.html">
                         <div class="ratio ratio-16x9 mb-3">
-                            <img src="/images/empresas.png" alt="Asesoría para empresas">
+                            <img src="abogado5.png" alt="Asesoría para empleadores" class="rounded w-100 h-100" style="object-fit: cover;" loading="lazy">
                         </div>
                         <div class="card-body d-flex flex-column">
-                            <i class="fas fa-building-shield fa-3x text-primary mb-3"
-                                style="transition: color 0.3s ease;"></i>
+                            <i class="fas fa-building-columns fa-3x text-white mb-3"></i>
                             <h3 class="h4">Para Empleadores</h3>
-                            <p class="card-text text-muted">Asesoría en cumplimiento, auditorías, reglamentos,
-                                desvinculaciones y defensas ante la Dirección del Trabajo.</p>
-                            <a href="empleadores/index.html"
-                                class="btn btn-outline-primary mt-auto stretched-link">Protege tu Empresa</a>
+                            <p class="card-text">Cumplimiento, auditorías, reglamentos, desvinculaciones y defensas.</p>
+                            <div class="btn btn-outline-primary mt-auto stretched-link">Protege tu Empresa</div>
                         </div>
-                    </div>
+                    </a>
                 </div>
             </div>
         </div>
@@ -503,8 +643,8 @@
     <section class="py-5" id="proceso">
         <div class="container">
             <div class="text-center col-lg-8 mx-auto mb-5">
-                <h2 class="h1">Nuestro Proceso</h2>
-                <p class="lead text-muted">Simple, transparente y enfocado en resultados.</p>
+                <h2 class="h1 section-title">Nuestro Proceso</h2>
+                <p class="lead text-muted mt-4">Te acompañamos en cada paso, desde la evaluación inicial hasta la resolución de tu caso.</p>
             </div>
             <div class="row text-center g-4">
                 <div class="col-md-3">
@@ -558,61 +698,140 @@
     <section class="py-5 bg-white" id="faq">
         <div class="container col-lg-8">
             <div class="text-center mb-5">
-                <h2 class="h1">Preguntas Frecuentes</h2>
+                <h2 class="h1 section-title faq-title"><i class="fa-solid fa-scale-balanced"></i> Preguntas Frecuentes</h2>
             </div>
+
             <div class="accordion" id="faqAccordion">
+                <!-- 1 -->
                 <div class="accordion-item">
-                    <h2 class="accordion-header" id="headingOne">
-                        <button class="accordion-button" type="button" data-bs-toggle="collapse"
-                            data-bs-target="#collapseOne" aria-expanded="true" aria-controls="collapseOne">
+                    <h2 class="accordion-header" id="faq1-h">
+                        <button class="accordion-button" type="button" data-bs-toggle="collapse" data-bs-target="#faq1" aria-expanded="true" aria-controls="faq1">
                             ¿La primera consulta tiene costo?
                         </button>
                     </h2>
-                    <div id="collapseOne" class="accordion-collapse collapse show" aria-labelledby="headingOne"
-                        data-bs-parent="#faqAccordion">
+                    <div id="faq1" class="accordion-collapse collapse show" aria-labelledby="faq1-h" data-bs-parent="#faqAccordion">
                         <div class="accordion-body">
-                            No. Nuestra primera evaluación es <strong>totalmente gratuita</strong>. El objetivo es
-                            entender tu caso y explicarte con claridad si es viable y qué podemos conseguir.
+                            No. Nuestra primera evaluación es <strong>totalmente gratuita</strong>. Analizamos tu caso o la situación laboral de tu empresa sin compromiso. El objetivo es entregarte una orientación clara y realista sobre las alternativas legales y qué podemos conseguir.
                         </div>
                     </div>
                 </div>
+
+                <!-- 2 -->
                 <div class="accordion-item">
-                    <h2 class="accordion-header" id="headingTwo">
-                        <button class="accordion-button collapsed" type="button" data-bs-toggle="collapse"
-                            data-bs-target="#collapseTwo" aria-expanded="false" aria-controls="collapseTwo">
+                    <h2 class="accordion-header" id="faq2-h">
+                        <button class="accordion-button collapsed" type="button" data-bs-toggle="collapse" data-bs-target="#faq2" aria-expanded="false" aria-controls="faq2">
+                            ¿Atienden solo en Santiago o en todo Chile?
+                        </button>
+                    </h2>
+                    <div id="faq2" class="accordion-collapse collapse" aria-labelledby="faq2-h" data-bs-parent="#faqAccordion">
+                        <div class="accordion-body">
+                            Atendemos en <strong>todo Chile</strong>, de forma presencial u online. Podemos representar casos en cualquier tribunal laboral del país. Agendamos videollamadas y revisamos documentos digitalmente para tu comodidad.
+                        </div>
+                    </div>
+                </div>
+
+                <!-- 3 -->
+                <div class="accordion-item">
+                    <h2 class="accordion-header" id="faq3-h">
+                        <button class="accordion-button collapsed" type="button" data-bs-toggle="collapse" data-bs-target="#faq3" aria-expanded="false" aria-controls="faq3">
                             ¿Qué plazo tengo para demandar un despido injustificado?
                         </button>
                     </h2>
-                    <div id="collapseTwo" class="accordion-collapse collapse" aria-labelledby="headingTwo"
-                        data-bs-parent="#faqAccordion">
+                    <div id="faq3" class="accordion-collapse collapse" aria-labelledby="faq3-h" data-bs-parent="#faqAccordion">
                         <div class="accordion-body">
-                            El plazo general es de <strong>60 días hábiles</strong> desde la fecha del despido. Este
-                            plazo puede extenderse si presentas un reclamo en la Dirección del Trabajo, pero es crucial
-                            actuar rápido.
+                            El plazo es de <strong>60 días hábiles</strong> desde la fecha del despido (los sábados cuentan). Si presentas un reclamo ante la Inspección del Trabajo, ese plazo se <strong>suspende</strong> mientras dura la mediación.
                         </div>
                     </div>
                 </div>
+
+                <!-- 4 -->
                 <div class="accordion-item">
-                    <h2 class="accordion-header" id="headingThree">
-                        <button class="accordion-button collapsed" type="button" data-bs-toggle="collapse"
-                            data-bs-target="#collapseThree" aria-expanded="false" aria-controls="collapseThree">
+                    <h2 class="accordion-header" id="faq4-h">
+                        <button class="accordion-button collapsed" type="button" data-bs-toggle="collapse" data-bs-target="#faq4" aria-expanded="false" aria-controls="faq4">
+                            ¿Qué hago si me despidieron y no me pagaron el finiquito?
+                        </button>
+                    </h2>
+                    <div id="faq4" class="accordion-collapse collapse" aria-labelledby="faq4-h" data-bs-parent="#faqAccordion">
+                        <div class="accordion-body">
+                            No firmes ni aceptes montos sin asesoría. Revisamos tu carta de despido, liquidaciones y finiquito, y reclamamos los montos que <strong>legalmente corresponden</strong>.
+                        </div>
+                    </div>
+                </div>
+
+                <!-- 5 -->
+                <div class="accordion-item">
+                    <h2 class="accordion-header" id="faq5-h">
+                        <button class="accordion-button collapsed" type="button" data-bs-toggle="collapse" data-bs-target="#faq5" aria-expanded="false" aria-controls="faq5">
+                            ¿Qué puedo hacer si sufro acoso o maltrato laboral?
+                        </button>
+                    </h2>
+                    <div id="faq5" class="accordion-collapse collapse" aria-labelledby="faq5-h" data-bs-parent="#faqAccordion">
+                        <div class="accordion-body">
+                            Te asesoramos bajo la <strong>Ley Karin</strong>. Podemos presentar una <em>tutela laboral</em>, que puede incluir indemnización y reparación del daño moral.
+                        </div>
+                    </div>
+                </div>
+
+                <!-- 6 -->
+                <div class="accordion-item">
+                    <h2 class="accordion-header" id="faq6-h">
+                        <button class="accordion-button collapsed" type="button" data-bs-toggle="collapse" data-bs-target="#faq6" aria-expanded="false" aria-controls="faq6">
+                            ¿Qué es una auditoría laboral y por qué es importante para mi empresa?
+                        </button>
+                    </h2>
+                    <div id="faq6" class="accordion-collapse collapse" aria-labelledby="faq6-h" data-bs-parent="#faqAccordion">
+                        <div class="accordion-body">
+                            Es una revisión de contratos, liquidaciones, anexos y reglamentos internos. Permite <strong>prevenir multas</strong> y demandas. Recomendamos hacer una al menos <strong>una vez al año</strong> o antes de una fiscalización.
+                        </div>
+                    </div>
+                </div>
+
+                <!-- 7 -->
+                <div class="accordion-item">
+                    <h2 class="accordion-header" id="faq7-h">
+                        <button class="accordion-button collapsed" type="button" data-bs-toggle="collapse" data-bs-target="#faq7" aria-expanded="false" aria-controls="faq7">
+                            ¿Puedo despedir a un trabajador con licencia médica?
+                        </button>
+                    </h2>
+                    <div id="faq7" class="accordion-collapse collapse" aria-labelledby="faq7-h" data-bs-parent="#faqAccordion">
+                        <div class="accordion-body">
+                            Solo bajo causales específicas y justificadas. Un error puede terminar en <strong>nulidad del despido</strong> o demanda por vulneración de derechos. Te guiamos paso a paso antes de tomar cualquier medida.
+                        </div>
+                    </div>
+                </div>
+
+                <!-- 8 -->
+                <div class="accordion-item">
+                    <h2 class="accordion-header" id="faq8-h">
+                        <button class="accordion-button collapsed" type="button" data-bs-toggle="collapse" data-bs-target="#faq8" aria-expanded="false" aria-controls="faq8">
                             ¿Cobran un porcentaje o un monto fijo?
                         </button>
                     </h2>
-                    <div id="collapseThree" class="accordion-collapse collapse" aria-labelledby="headingThree"
-                        data-bs-parent="#faqAccordion">
+                    <div id="faq8" class="accordion-collapse collapse" aria-labelledby="faq8-h" data-bs-parent="#faqAccordion">
                         <div class="accordion-body">
-                            Depende del caso. Para trabajadores, generalmente trabajamos con un porcentaje de éxito
-                            sobre
-                            lo obtenido. Para empleadores, ofrecemos planes de asesoría mensual o cobros por gestión
-                            específica. Siempre lo transparentamos en la primera reunión.
+                            👩‍💼 <strong>Trabajadores:</strong> modalidad a resultado (<em>solo pagas si ganamos</em>).<br>
+                            🏢 <strong>Empresas:</strong> honorarios fijos o planes mensuales de asesoría preventiva.<br>
+                            Siempre recibirás una propuesta <strong>clara y transparente</strong>.
+                        </div>
+                    </div>
+                </div>
+
+                <!-- 9 -->
+                <div class="accordion-item">
+                    <h2 class="accordion-header" id="faq9-h">
+                        <button class="accordion-button collapsed" type="button" data-bs-toggle="collapse" data-bs-target="#faq9" aria-expanded="false" aria-controls="faq9">
+                            ¿Puedo agendar una reunión virtual?
+                        </button>
+                    </h2>
+                    <div id="faq9" class="accordion-collapse collapse" aria-labelledby="faq9-h" data-bs-parent="#faqAccordion">
+                        <div class="accordion-body">
+                            Sí. Agenda una videollamada gratuita o envíanos tu caso por WhatsApp. Respondemos en <strong>menos de 24 horas</strong> con una orientación inicial.
                         </div>
                     </div>
                 </div>
             </div>
 
-            <img src="/images/pensando.png" alt="Preguntas frecuentes" class="img-fluid mt-4 mx-auto d-block"
-                style="max-width: 400px;" loading="lazy">
+            <img src="/images/pensando.png" alt="Preguntas frecuentes" class="img-fluid mt-4 mx-auto d-block" style="max-width: 400px;" loading="lazy">
         </div>
     </section>
 
@@ -629,7 +848,7 @@
         <div class="container">
             <div class="row">
                 <div class="col-lg-4 mb-4 mb-lg-0">
-                    <a class="navbar-brand fs-4 text-white fw-bold" href="index.html">INNOVABOGADOS</a>
+                    <a class="navbar-brand fs-4 text-white fw-bold" href="index.html"><img src="/images/logo.jpeg" alt="INNOVABOGADOS" class="img-fluid" style="max-width: 170px;"></a>
                     <p class="text-white-50 mt-2">Asesoría laboral experta en Chile. © 2025</p>
                 </div>
                 <div class="col-6 col-lg-2 offset-lg-1 mb-3">
@@ -653,8 +872,8 @@
                 <div class="col-lg-3">
                     <h5 class="h6 text-white">Contacto</h5>
                     <ul class="list-unstyled text-white-50">
-                        <li><i class="fas fa-map-marker-alt me-2"></i> Santiago, Chile</li>
-                        <li><i class="fas fa-phone me-2"></i> (56) 2 1234 5678</li>
+                        <li><i class="fas fa-map-marker-alt me-2"></i> San Sebastián 2750, Of. 603, Las Condes, Santiago</li>
+                        <li><i class="fas fa-phone me-2"></i>+56 9 4716 6921</li>
                         <li><i class="fas fa-envelope me-2"></i> contacto@innovabogados.cl</li>
                     </ul>
                     <div class="mt-3">
@@ -666,7 +885,7 @@
         </div>
     </footer>
 
-    <a href="https://wa.me/56912345678" target="_blank" class="whatsapp-float" aria-label="Contactar por WhatsApp">
+    <a href="https://wa.me/56947166921" target="_blank" class="whatsapp-float" aria-label="Contactar por WhatsApp">
         <i class="fab fa-whatsapp"></i>
     </a>
 
