@@ -53,6 +53,8 @@
             z-index: 100;
         }
 
+        /* --- INICIO MEJORAS PROFESIONALES --- */
+        /* 1. Efecto de subrayado animado para la navegación */
         .navbar-nav .nav-item { margin: 0 0.5rem; }
         .navbar-nav .nav-link { position: relative; padding-bottom: 8px; transition: color 0.3s ease; }
         .navbar-nav .nav-link::before { content: ''; position: absolute; width: 100%; height: 2px; bottom: 0; left: 0; background-color: var(--bs-secondary); transform: scaleX(0); transform-origin: bottom right; transition: transform 0.4s cubic-bezier(0.86, 0, 0.07, 1); }
@@ -65,9 +67,10 @@
 </head>
 <body>
 
-    <nav class="navbar navbar-expand-lg navbar-light bg-white shadow-sm sticky-top">
-        <div class="container">
-            <a class="navbar-brand fw-bold" href="../">INNOVABOGADOS</a>
+    <nav class="navbar navbar-expand-xl navbar-light bg-white shadow-sm sticky-top">
+        <div class="container align-items-center">
+            <a class="navbar-brand fw-bold" href="../"><img src="../images/logo.jpeg" alt="INNOVABOGADOS" class="img-fluid"
+                    style="max-width: 170px;"></a>
 
             <button class="navbar-toggler" type="button" data-bs-toggle="offcanvas" data-bs-target="#mobileNav"
                 aria-controls="mobileNav" aria-label="Toggle navigation">
@@ -100,7 +103,7 @@
                                 <li><a class="dropdown-item" href="autodespido.html">Autodespido</a></li>
                                 <li><a class="dropdown-item" href="tutela-ley-karin.html">Tutela (Ley
                                         Karin)</a></li>
-                                <li><a class="dropdown-item active" href="cobro-finiquito.html">Cobro de
+                                <li><a class="dropdown-item" href="cobro-finiquito.html">Cobro de
                                         Finiquito</a></li>
                                 <li><a class="dropdown-item" href="horas-extra.html">Horas Extra</a></li>
                                 <li>
@@ -117,15 +120,21 @@
                                 Empleadores
                             </a>
                             <ul class="dropdown-menu" aria-labelledby="navEmpleadores">
-                                <li><a class="dropdown-item" href="../empleadores/auditorias-laborales.html">Auditorías Laborales</a></li>
-                                <li><a class="dropdown-item" href="../empleadores/reglamentos-internos.html">Reglamentos Internos</a></li>
-                                <li><a class="dropdown-item" href="../empleadores/defensas-judiciales.html">Defensas Judiciales</a></li>
-                                <li><a class="dropdown-item" href="../empleadores/mediaciones-dt.html">Mediaciones en la DT</a></li>
-                                <li><a class="dropdown-item" href="../empleadores/capacitacion-ley-karin.html">Capacitaciones Ley Karin</a></li>
+                                <li><a class="dropdown-item" href="../empleadores/auditorias-laborales.html">Auditorías
+                                        Laborales</a></li>
+                                <li><a class="dropdown-item" href="../empleadores/reglamentos-internos.html">Reglamentos
+                                        Internos</a></li>
+                                <li><a class="dropdown-item" href="../empleadores/defensas-judiciales.html">Defensas
+                                        Judiciales</a></li>
+                                <li><a class="dropdown-item" href="../empleadores/mediaciones-dt.html">Mediaciones en la
+                                        DT</a></li>
+                                <li><a class="dropdown-item"
+                                        href="../empleadores/capacitacion-ley-karin.html">Capacitaciones Ley Karin</a></li>
                                 <li>
                                     <hr class="dropdown-divider">
                                 </li>
-                                <li><a class="dropdown-item" href="../empleadores/index.html"><strong>Ver todos →</strong></a></li>
+                                <li><a class="dropdown-item" href="../empleadores/index.html"><strong>Ver todos
+                                            →</strong></a></li>
                             </ul>
                         </li>
 

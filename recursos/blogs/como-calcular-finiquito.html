@@ -29,27 +29,95 @@
 </head>
 <body>
 
-    <nav class="navbar navbar-expand-lg navbar-light bg-white shadow-sm sticky-top">
-        <div class="container">
-            <a class="navbar-brand fw-bold" href="../../">INNOVABOGADOS</a>
-            <button class="navbar-toggler" type="button" data-bs-toggle="offcanvas" data-bs-target="#mobileNav" aria-controls="mobileNav">
+    <nav class="navbar navbar-expand-xl navbar-light bg-white shadow-sm sticky-top">
+        <div class="container align-items-center">
+            <a class="navbar-brand fw-bold" href="../../"><img src="../../images/logo.jpeg" alt="INNOVABOGADOS" class="img-fluid"
+                    style="max-width: 170px;"></a>
+
+            <button class="navbar-toggler" type="button" data-bs-toggle="offcanvas" data-bs-target="#mobileNav"
+                aria-controls="mobileNav" aria-label="Toggle navigation">
                 <span class="navbar-toggler-icon"></span>
             </button>
-            <div class="offcanvas offcanvas-end" tabindex="-1" id="mobileNav">
+
+            <div class="offcanvas offcanvas-end" tabindex="-1" id="mobileNav" aria-labelledby="mobileNavLabel">
+
                 <div class="offcanvas-header">
-                    <h5 class="offcanvas-title fw-bold">Menú</h5>
-                    <button type="button" class="btn-close" data-bs-dismiss="offcanvas"></button>
+                    <h5 class="offcanvas-title fw-bold" id="mobileNavLabel">Menú</h5>
+                    <button type="button" class="btn-close" data-bs-dismiss="offcanvas" aria-label="Close"></button>
                 </div>
+
                 <div class="offcanvas-body">
+
                     <ul class="navbar-nav ms-auto mb-2 mb-lg-0">
-                        <li class="nav-item"><a class="nav-link" href="../../">Inicio</a></li>
-                        <li class="nav-item"><a class="nav-link" href="../../trabajadores/">Trabajadores</a></li>
-                        <li class="nav-item"><a class="nav-link" href="../../empleadores/">Empleadores</a></li>
-                        <li class="nav-item"><a class="nav-link" href="../../nosotros.html">Nosotros</a></li>
-                        <li class="nav-item"><a class="nav-link" href="../../casos-y-resultados.html">Casos de Éxito</a></li>
-                        <li class="nav-item"><a class="nav-link active" href="../">Recursos</a></li>
-                        <li class="nav-item"><a class="nav-link" href="../../contacto.html">Contacto</a></li>
+                        <li class="nav-item">
+                            <a class="nav-link" href="../../">Inicio</a>
+                        </li>
+
+                        <li class="nav-item dropdown">
+                            <a class="nav-link dropdown-toggle" href="../../trabajadores/index.html" id="navTrabajadores"
+                                role="button" data-bs-toggle="dropdown" aria-expanded="false">
+                                Trabajadores
+                            </a>
+                            <ul class="dropdown-menu" aria-labelledby="navTrabajadores">
+                                <li><a class="dropdown-item" href="../../trabajadores/despido-injustificado.html">Despido
+                                        Injustificado</a>
+                                </li>
+                                <li><a class="dropdown-item" href="../../trabajadores/autodespido.html">Autodespido</a></li>
+                                <li><a class="dropdown-item" href="../../trabajadores/tutela-ley-karin.html">Tutela (Ley
+                                        Karin)</a></li>
+                                <li><a class="dropdown-item" href="../../trabajadores/cobro-finiquito.html">Cobro de
+                                        Finiquito</a></li>
+                                <li><a class="dropdown-item" href="../../trabajadores/horas-extra.html">Horas Extra</a></li>
+                                <li>
+                                    <hr class="dropdown-divider">
+                                </li>
+                                <li><a class="dropdown-item" href="../../trabajadores/index.html"><strong>Ver todos
+                                            →</strong></a></li>
+                            </ul>
+                        </li>
+
+                        <li class="nav-item dropdown">
+                            <a class="nav-link dropdown-toggle" href="../../empleadores/index.html" id="navEmpleadores"
+                                role="button" data-bs-toggle="dropdown" aria-expanded="false">
+                                Empleadores
+                            </a>
+                            <ul class="dropdown-menu" aria-labelledby="navEmpleadores">
+                                <li><a class="dropdown-item" href="../../empleadores/auditorias-laborales.html">Auditorías
+                                        Laborales</a></li>
+                                <li><a class="dropdown-item" href="../../empleadores/reglamentos-internos.html">Reglamentos
+                                        Internos</a></li>
+                                <li><a class="dropdown-item" href="../../empleadores/defensas-judiciales.html">Defensas
+                                        Judiciales</a></li>
+                                <li><a class="dropdown-item" href="../../empleadores/mediaciones-dt.html">Mediaciones en la
+                                        DT</a></li>
+                                <li><a class="dropdown-item"
+                                        href="../../empleadores/capacitacion-ley-karin.html">Capacitaciones Ley Karin</a></li>
+                                <li>
+                                    <hr class="dropdown-divider">
+                                </li>
+                                <li><a class="dropdown-item" href="../../empleadores/index.html"><strong>Ver todos
+                                            →</strong></a></li>
+                            </ul>
+                        </li>
+
+                        <li class="nav-item">
+                            <a class="nav-link" href="../../nosotros.html">Nosotros</a>
+                        </li>
+
+                        <li class="nav-item">
+                            <a class="nav-link" href="../../casos-y-resultados.html">Casos de Éxito</a>
+                        </li>
+
+                        <li class="nav-item">
+                            <a class="nav-link active" href="../index.html">Recursos</a>
+                        </li>
+
+                        <li class="nav-item">
+                            <a class="nav-link" href="../../contacto.html">Contacto</a>
+                        </li>
                     </ul>
+
+                    <a href="../../contacto.html" class="btn btn-primary ms-lg-3 mt-3 mt-lg-0">Evalúa tu caso</a>
                 </div>
             </div>
         </div>
@@ -104,26 +172,31 @@
             <div class="row">
                 <div class="col-lg-4 mb-4 mb-lg-0">
                     <a class="navbar-brand fs-4 text-white fw-bold" href="../../index.html">INNOVABOGADOS</a>
-                    <p class="text-white-50 mt-2">Asesoría laboral experta en Chile. © 2025</p>
+                    <p class="text-muted">Tu aliado en la defensa de tus derechos laborales.</p>
                 </div>
-                <div class="col-6 col-lg-2 offset-lg-1 mb-3">
-                    <h5 class="h6 text-white">Legal</h5>
+                <div class="col-lg-4 mb-4 mb-lg-0">
+                    <h5 class="fw-bold">Enlaces Rápidos</h5>
                     <ul class="list-unstyled">
-                        <li><a href="../../terminos.html" class="text-decoration-none text-white-50">Términos</a></li>
-                        <li><a href="../../privacidad.html" class="text-decoration-none text-white-50">Privacidad</a></li>
+                        <li><a href="../../trabajadores/index.html" class="text-muted">Trabajadores</a></li>
+                        <li><a href="../../empleadores/index.html" class="text-muted">Empleadores</a></li>
+                        <li><a href="../../nosotros.html" class="text-muted">Nosotros</a></li>
+                        <li><a href="../../contacto.html" class="text-muted">Contacto</a></li>
                     </ul>
                 </div>
-                <div class="col-lg-3">
-                    <h5 class="h6 text-white">Contacto</h5>
-                    <ul class="list-unstyled text-white-50 small">
-                        <li><i class="fab fa-whatsapp me-2"></i> +56 9 XXXX XXXX</li>
-                        <li><i class="fas fa-envelope me-2"></i> contacto@innovabogados.cl</li>
-                    </ul>
+                <div class="col-lg-4 mb-4 mb-lg-0">
+                    <h5 class="fw-bold">Contáctanos</h5>
+                    <p class="text-muted"><i class="fas fa-map-marker-alt"></i> Dirección de la oficina</p>
+                    <p class="text-muted"><i class="fas fa-phone"></i> +56 9 1234 5678</p>
+                    <p class="text-muted"><i class="fas fa-envelope"></i> contacto@innovabogados.cl</p>
                 </div>
             </div>
-        </div>
-    </footer>
-
-    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/js/bootstrap.bundle.min.js"></script>
-</body>
-</html>
+            <div class="border-top pt-4 mt-4">
+                <div class="row">
+                    <div class="col-md-6">
+                        <p class="text-muted mb-0">&copy; 2024 Innovabogados. Todos los derechos reservados.</p>
+                    </div>
+                    <div class="col-md-6 text-md-end">
+                        <a href="../../politica-privacidad.html" class="text-muted">Política de privacidad</a>
+                        <span class="text-muted">|</span>
+                        <a href="../../terminos-y-condiciones.html" class="text-muted">Términos y condiciones</a>
+                    </div
