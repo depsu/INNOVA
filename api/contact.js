@@ -1,46 +1,64 @@
+// api/contact.js
 const nodemailer = require('nodemailer');
 
 module.exports = async (req, res) => {
   if (req.method !== 'POST') return res.status(405).json({ ok: false });
 
+  // === CREDENCIALES (SOLO PRUEBA) ===
+  const MAIL_USER = 'carolina.torres@innovabogados.cl';   // tu casilla en cPanel
+  const MAIL_PASS = 'carolina.torres1234';                // su contraseña
+  const SMTP_HOST = 'mail.innovabogados.cl';
+
   try {
-    const { name, email, phone, message } = req.body;
+    // Asegura parseo del body si llega como string
+    const body = typeof req.body === 'string' ? JSON.parse(req.body) : req.body;
+    const { name, email, phone, message } = body || {};
 
-    // ⚠️ SOLO PARA PRUEBA LOCAL. NO SUBAS ESTO AL REPO.
-    const MAIL_USER = 'carolina.torres@innovabogados.cl';   // tu casilla en cPanel
-    const MAIL_PASS = 'carolina.torres1234'; // contraseña de esa casilla
-
-    const transporter = nodemailer.createTransport({
-      host: 'mail.innovabogados.cl',
-      port: 465,          // 465 = SSL
-      secure: true,       // true si usas 465
+    // 1) Intento con 465 (SSL)
+    let transporter = nodemailer.createTransport({
+      host: SMTP_HOST,
+      port: 465,
+      secure: true,
       auth: { user: MAIL_USER, pass: MAIL_PASS },
+      // Si el certificado del hosting da problemas, descomenta para probar:
+      // tls: { rejectUnauthorized: false },
     });
 
-    // (Opcional) Verifica conexión SMTP y credenciales
-    await transporter.verify();
+    try {
+      await transporter.verify();
+    } catch (e) {
+      // 2) Fallback a 587 (STARTTLS)
+      transporter = nodemailer.createTransport({
+        host: SMTP_HOST,
+        port: 587,
+        secure: false,
+        requireTLS: true,
+        auth: { user: MAIL_USER, pass: MAIL_PASS },
+        // tls: { rejectUnauthorized: false },
+      });
+      await transporter.verify();
+    }
 
-    await transporter.sendMail({
-      from: `"Web Innovabogados" <${MAIL_USER}>`,       // el FROM debe ser la misma casilla
-      to: ['carolina.torres@innovabogados.cl', 'rivera.ale98@gmail.com'], // destinos
-      subject: `Nuevo mensaje – ${name}`,
+    const info = await transporter.sendMail({
+      from: `"Web Innovabogados" <${MAIL_USER}>`,     // from = misma cuenta autenticada
+      to: [
+        'carolina.torres@innovabogados.cl',
+        'rivera.ale98@gmail.com',
+      ],
+      subject: `Nuevo mensaje – ${name || 'Sin nombre'}`,
       text:
-`Nombre: ${name}
-Email: ${email}
+`Nombre: ${name || '-'}
+Email: ${email || '-'}
 Teléfono: ${phone || '-'}
 Mensaje:
-${message}`,
-      replyTo: email, // al responder, va al cliente
+${message || '-'}`,
+      replyTo: email || undefined, // al responder, va al cliente
     });
 
+    console.log('MAIL OK:', info.messageId);
     return res.status(200).json({ ok: true });
-  } catch (e) {
-    console.error('MAIL ERROR', {
-      message: e.message,
-      code: e.code,
-      command: e.command,
-      response: e.response,
-    });
-    return res.status(500).json({ ok: false, error: e.message });
+  } catch (err) {
+    console.error('MAIL ERROR:', err);
+    return res.status(500).json({ ok: false, error: String(err) });
   }
 };
