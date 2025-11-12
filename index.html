@@ -950,52 +950,54 @@
     </a>
 
     <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/js/bootstrap.bundle.min.js"></script>
-    <script>
-        (function () {
-            const form = document.getElementById('contact-form-hero');
-            if (!form) return;
+   <script>
+  (function() {
+    // 1. Busca el formulario por el ID que le dimos
+    const form = document.getElementById('contact-form-hero');
+    if (!form) return; // Si no encuentra el form, no hace nada
+    
+    const button = form.querySelector('button[type="submit"]');
+    const successUrl = '/mensaje-enviado.html'; // Tu página de "gracias"
 
-            const button = form.querySelector('button[type="submit"]');
-            const successUrl = '/mensaje-enviado.html'; // Tu página de "gracias"
+    // 2. Escucha el evento 'submit'
+    form.addEventListener('submit', async function(event) {
+      event.preventDefault(); // Evita que la página se recargue
 
-            form.addEventListener('submit', async function (event) {
-                event.preventDefault(); // Evita el envío normal
+      const originalButtonText = button.innerHTML;
+      button.disabled = true;
+      button.innerHTML = 'Enviando...';
 
-                const originalButtonText = button.innerHTML;
-                button.disabled = true;
-                button.innerHTML = 'Enviando...';
+      try {
+        // 3. Obtiene los datos del formulario (nombre y email)
+        const formData = new FormData(form);
+        const data = Object.fromEntries(formData.entries());
 
-                try {
-                    // Obtiene los datos como un objeto JSON
-                    const formData = new FormData(form);
-                    const data = Object.fromEntries(formData.entries());
+        // 4. Envía los datos a tu API de Vercel
+        const response = await fetch('/api/contact', {
+          method: 'POST',
+          headers: {
+            'Content-Type': 'application/json',
+          },
+          body: JSON.stringify(data),
+        });
 
-                    // Envía los datos a tu nueva API
-                    const response = await fetch('/api/contact', {
-                        method: 'POST',
-                        headers: {
-                            'Content-Type': 'application/json',
-                        },
-                        body: JSON.stringify(data),
-                    });
-
-                    if (response.ok) {
-                        // Si todo sale bien, redirige
-                        window.location.href = successUrl;
-                    } else {
-                        // Si hay un error del servidor
-                        throw new Error('Error en la respuesta del servidor');
-                    }
-                } catch (error) {
-                    // Si hay un error (red o servidor)
-                    console.error('Error al enviar formulario:', error);
-                    alert('Hubo un error al enviar tu mensaje. Por favor, intenta de nuevo.');
-                    button.disabled = false;
-                    button.innerHTML = originalButtonText;
-                }
-            });
-        })();
-    </script>
+        if (response.ok) {
+          // 5. Si todo sale bien, redirige a la página de éxito
+          window.location.href = successUrl;
+        } else {
+          // Si hay un error del servidor (ej. 500)
+          throw new Error('Error en la respuesta del servidor');
+        }
+      } catch (error) {
+        // 6. Si hay un error de red o del servidor
+        console.error('Error al enviar formulario:', error);
+        alert('Hubo un error al enviar tu mensaje. Por favor, intenta de nuevo.');
+        button.disabled = false;
+        button.innerHTML = originalButtonText;
+      }
+    });
+  })();
+</script>
 </body>
 
 </html>
