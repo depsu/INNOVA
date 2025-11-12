@@ -549,28 +549,71 @@
                 <div class="col-lg-5">
                     <div class="card form-card p-4 shadow">
                         <h3 class="h4 text-center mb-4">Solicita una evaluación Gratis</h3>
-                        <form action="https://submit-form.com/oesbLIPMk" method="POST" class="submitform">
-                            <!-- SubmitForm config -->
-                            <input type="hidden" name="_redirect" class="js-redirect" value="">
-                            <input type="text" name="_honeypot" autocomplete="off" tabindex="-1"
-                                style="position:absolute;left:-9999px">
-                            <div class="mb-3">
-                                <label for="nombre" class="form-label visually-hidden">Nombre</label>
-                                <input type="text" class="form-control" id="nombre" name="nombre"
-                                    placeholder="Nombre y Apellido" required>
-                            </div>
-                            <div class="mb-3">
-                                <label for="email" class="form-label visually-hidden">Email</label>
-                                <input type="email" class="form-control" id="email" name="email"
-                                    placeholder="Email de contacto" required>
-                            </div>
-                            <div class="d-grid">
-                                <button type="submit" class="btn btn-secondary btn-lg">Quiero que me contacten</button>
-                            </div>
-                            <div class="form-text text-center small mt-3">
-                                Al enviar, aceptas nuestra <a href="privacidad.html">política de privacidad</a>.
-                            </div>
-                        </form>
+                       <form id="contactForm" class="submitform" novalidate>
+  <!-- Honeypot anti-bot -->
+  <input type="text" name="_honeypot" autocomplete="off" tabindex="-1" style="position:absolute;left:-9999px">
+
+  <div class="mb-3">
+    <label for="nombre" class="form-label visually-hidden">Nombre</label>
+    <input type="text" class="form-control" id="nombre" name="nombre" placeholder="Nombre y Apellido" required>
+  </div>
+
+  <div class="mb-3">
+    <label for="email" class="form-label visually-hidden">Email</label>
+    <input type="email" class="form-control" id="email" name="email" placeholder="Email de contacto" required>
+  </div>
+
+  <div class="d-grid">
+    <button type="submit" class="btn btn-secondary btn-lg">Quiero que me contacten</button>
+  </div>
+
+  <p id="formMsg" class="form-text text-center small mt-3" aria-live="polite"></p>
+
+  <div class="form-text text-center small mt-3">
+    Al enviar, aceptas nuestra <a href="privacidad.html">política de privacidad</a>.
+  </div>
+</form>
+
+<script>
+const f = document.getElementById('contactForm');
+const msg = document.getElementById('formMsg');
+
+f.addEventListener('submit', async (e) => {
+  e.preventDefault();
+  msg.textContent = 'Enviando…';
+
+  const data = {
+    name: f.nombre.value.trim(),
+    email: f.email.value.trim(),
+    message: 'Solicitud de contacto desde el sitio',
+    phone: ''
+  };
+
+  // Honeypot: si está relleno, aborta silenciosamente
+  if (f.querySelector('[name="_honeypot"]').value) {
+    msg.textContent = 'Enviado.'; return;
+  }
+
+  try {
+    const res = await fetch('/api/contact', {
+      method: 'POST',
+      headers: {'Content-Type': 'application/json'},
+      body: JSON.stringify(data)
+    });
+
+    const json = await res.json();
+    if (json.ok) {
+      msg.textContent = '¡Gracias! Te contactaremos pronto.';
+      f.reset();
+    } else {
+      msg.textContent = 'No se pudo enviar. Intenta nuevamente.';
+    }
+  } catch (err) {
+    msg.textContent = 'Error de conexión. Intenta de nuevo.';
+  }
+});
+</script>
+
                     </div>
                 </div>
             </div>
