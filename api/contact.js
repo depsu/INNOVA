@@ -5,46 +5,71 @@ module.exports = async (req, res) => {
   if (req.method !== 'POST') return res.status(405).json({ ok: false });
 
   // === CREDENCIALES (SOLO PRUEBA) ===
-  const MAIL_USER = 'carolina.torres@innovabogados.cl';   // tu casilla en cPanel
-  const MAIL_PASS = 'carolina.torres1234';                // su contraseña
-  const SMTP_HOST = 'mail.innovabogados.cl';
+  const MAIL_USER = 'carolina.torres@innovabogados.cl';
+  const MAIL_PASS = 'carolina.torres1234';
+
+  // Usa el HOST DEL SERVIDOR cPanel si lo tienes (suele tener SSL válido)
+  // Ej: 10429host.dedicados.cl  (ajústalo si tu hosting te dio otro)
+  const SMTP_HOST = '10429host.dedicados.cl';  // <— PROBAR ESTE
+  const SMTP_HOST_ALT = 'mail.innovabogados.cl'; // <— fallback si lo anterior no existe
 
   try {
-    // Asegura parseo del body si llega como string
     const body = typeof req.body === 'string' ? JSON.parse(req.body) : req.body;
     const { name, email, phone, message } = body || {};
 
-    // 1) Intento con 465 (SSL)
+    // Intento A: 587 STARTTLS en hostname del servidor (más compatible en Vercel)
     let transporter = nodemailer.createTransport({
       host: SMTP_HOST,
-      port: 465,
-      secure: true,
+      port: 587,
+      secure: false,
+      requireTLS: true,
       auth: { user: MAIL_USER, pass: MAIL_PASS },
-      // Si el certificado del hosting da problemas, descomenta para probar:
-      // tls: { rejectUnauthorized: false },
+      // Si el certificado no cuadra con el host, fuerza SNI:
+      tls: { servername: SMTP_HOST },
     });
 
     try {
       await transporter.verify();
-    } catch (e) {
-      // 2) Fallback a 587 (STARTTLS)
+    } catch (e1) {
+      // Intento B: mismo 587 pero contra mail.tu-dominio
       transporter = nodemailer.createTransport({
-        host: SMTP_HOST,
+        host: SMTP_HOST_ALT,
         port: 587,
         secure: false,
         requireTLS: true,
         auth: { user: MAIL_USER, pass: MAIL_PASS },
-        // tls: { rejectUnauthorized: false },
+        tls: { servername: SMTP_HOST_ALT },
       });
-      await transporter.verify();
+      try {
+        await transporter.verify();
+      } catch (e2) {
+        // Intento C: 465 SSL contra hostname del servidor
+        transporter = nodemailer.createTransport({
+          host: SMTP_HOST,
+          port: 465,
+          secure: true,
+          auth: { user: MAIL_USER, pass: MAIL_PASS },
+          tls: { servername: SMTP_HOST },
+        });
+        try {
+          await transporter.verify();
+        } catch (e3) {
+          // Intento D (último recurso de test): ignora validación SSL (NO dejar en prod)
+          transporter = nodemailer.createTransport({
+            host: SMTP_HOST_ALT,
+            port: 465,
+            secure: true,
+            auth: { user: MAIL_USER, pass: MAIL_PASS },
+            tls: { servername: SMTP_HOST_ALT, rejectUnauthorized: false },
+          });
+          await transporter.verify(); // si falla aquí, devolvemos el error abajo
+        }
+      }
     }
 
     const info = await transporter.sendMail({
-      from: `"Web Innovabogados" <${MAIL_USER}>`,     // from = misma cuenta autenticada
-      to: [
-        'carolina.torres@innovabogados.cl',
-        'rivera.ale98@gmail.com',
-      ],
+      from: `"Web Innovabogados" <${MAIL_USER}>`,
+      to: ['carolina.torres@innovabogados.cl', 'rivera.ale98@gmail.com'],
       subject: `Nuevo mensaje – ${name || 'Sin nombre'}`,
       text:
 `Nombre: ${name || '-'}
@@ -52,11 +77,10 @@ Email: ${email || '-'}
 Teléfono: ${phone || '-'}
 Mensaje:
 ${message || '-'}`,
-      replyTo: email || undefined, // al responder, va al cliente
+      replyTo: email || undefined,
     });
 
-    console.log('MAIL OK:', info.messageId);
-    return res.status(200).json({ ok: true });
+    return res.status(200).json({ ok: true, id: info.messageId });
   } catch (err) {
     console.error('MAIL ERROR:', err);
     return res.status(500).json({ ok: false, error: String(err) });
