@@ -194,7 +194,7 @@
             box-shadow: 0 8px 20px rgba(0, 0, 0, 0.12) !important;
         }
 
-     
+
 
         #servicios .card .stretched-link::after {
             position: absolute;
@@ -206,7 +206,7 @@
             content: "";
         }
 
-    
+
 
         /* --- INICIO MEJORAS PROFESIONALES --- */
 
@@ -303,12 +303,14 @@
         }
 
         /* Botones */
-        .btn-primary, .btn-secondary {
+        .btn-primary,
+        .btn-secondary {
             background-color: var(--brand-primary);
             border-color: var(--brand-primary);
         }
 
-        .btn-primary:hover, .btn-secondary:hover {
+        .btn-primary:hover,
+        .btn-secondary:hover {
             background-color: #c09003;
             border-color: #c09003;
         }
@@ -327,12 +329,13 @@
         .bg-primary-soft {
             background: linear-gradient(180deg, rgba(214, 161, 4, .06), rgba(214, 161, 4, 0));
         }
-        
-           .bg-primary-soft {
+
+        .bg-primary-soft {
             background: url('/abogadobanner1.png') no-repeat center center;
             background-size: cover;
             color: white;
         }
+
         /* Títulos con subrayado dorado */
         .section-title {
             position: relative;
@@ -366,9 +369,12 @@
             background-color: var(--brand-primary);
             color: #fff;
         }
-        .card-worker h3, .card-worker p {
+
+        .card-worker h3,
+        .card-worker p {
             color: #fff;
         }
+
         .card-worker .btn {
             background-color: var(--brand-secondary);
             color: #fff;
@@ -376,25 +382,33 @@
         }
 
         .card-worker .btn:hover {
-            background-color: var(--brand-secondary) !important; /* Mantiene el color negro en hover */
+            background-color: var(--brand-secondary) !important;
+            /* Mantiene el color negro en hover */
             border-color: var(--brand-secondary) !important;
         }
 
         .card-employer {
             background-color: var(--brand-secondary);
-            color: #fff !important; /* Forzar color de texto */
+            color: #fff !important;
+            /* Forzar color de texto */
         }
-        .card-employer h3, .card-employer p {
-            color: #fff !important; /* Forzar color de texto */
+
+        .card-employer h3,
+        .card-employer p {
+            color: #fff !important;
+            /* Forzar color de texto */
         }
+
         .card-employer .btn {
             background-color: var(--brand-primary);
             color: #fff;
             border-color: var(--brand-primary);
         }
+
         .card-employer:hover i {
             transform: translateY(-3px);
-            color: #fff !important; /* Mantiene el icono blanco en hover */
+            color: #fff !important;
+            /* Mantiene el icono blanco en hover */
         }
 
         .card-colored h3 {
@@ -537,82 +551,48 @@
         <div class="container">
             <div class="row g-5 align-items-center">
                 <div class="col-lg-7">
-                    <h1 class="display-5 fw-bold">Asesoría laboral para <span class="d-inline d-lg-block">Trabajadores y Empresas</span>
+                    <h1 class="display-5 fw-bold">Asesoría laboral para <span class="d-inline d-lg-block">Trabajadores y
+                            Empresas</span>
                     </h1>
                     <div class="d-grid gap-2 d-sm-flex mt-4">
                         <a href="trabajadores/index.html" class="btn btn-secondary btn-lg px-4">Conoce tus derechos</a>
                         <a href="empleadores/index.html" class="btn btn-outline-secondary btn-lg px-4">Protege tu
-                        empresa</a>
+                            empresa</a>
                     </div>
                 </div>
 
                 <div class="col-lg-5">
                     <div class="card form-card p-4 shadow">
                         <h3 class="h4 text-center mb-4">Solicita una evaluación Gratis</h3>
-                       <form id="contactForm" class="submitform" novalidate>
-  <!-- Honeypot anti-bot -->
-  <input type="text" name="_honeypot" autocomplete="off" tabindex="-1" style="position:absolute;left:-9999px">
+                       <form action="https://submit-form.com/oesbLIPMk" method="POST" class="submitform">
+                            <!-- Honeypot anti-bot -->
+                            <input type="text" name="_honeypot" autocomplete="off" tabindex="-1"
+                                style="position:absolute;left:-9999px">
 
-  <div class="mb-3">
-    <label for="nombre" class="form-label visually-hidden">Nombre</label>
-    <input type="text" class="form-control" id="nombre" name="nombre" placeholder="Nombre y Apellido" required>
-  </div>
+                            <div class="mb-3">
+                                <label for="nombre" class="form-label visually-hidden">Nombre</label>
+                                <input type="text" class="form-control" id="nombre" name="nombre"
+                                    placeholder="Nombre y Apellido" required>
+                            </div>
 
-  <div class="mb-3">
-    <label for="email" class="form-label visually-hidden">Email</label>
-    <input type="email" class="form-control" id="email" name="email" placeholder="Email de contacto" required>
-  </div>
+                            <div class="mb-3">
+                                <label for="email" class="form-label visually-hidden">Email</label>
+                                <input type="email" class="form-control" id="email" name="email"
+                                    placeholder="Email de contacto" required>
+                            </div>
 
-  <div class="d-grid">
-    <button type="submit" class="btn btn-secondary btn-lg">Quiero que me contacten</button>
-  </div>
+                            <div class="d-grid">
+                                <button type="submit" class="btn btn-secondary btn-lg">Quiero que me contacten</button>
+                            </div>
 
-  <p id="formMsg" class="form-text text-center small mt-3" aria-live="polite"></p>
+                            <p id="formMsg" class="form-text text-center small mt-3" aria-live="polite"></p>
 
-  <div class="form-text text-center small mt-3">
-    Al enviar, aceptas nuestra <a href="privacidad.html">política de privacidad</a>.
-  </div>
-</form>
+                            <div class="form-text text-center small mt-3">
+                                Al enviar, aceptas nuestra <a href="privacidad.html">política de privacidad</a>.
+                            </div>
+                        </form>
 
-<script>
-const f = document.getElementById('contactForm');
-const msg = document.getElementById('formMsg');
-
-f.addEventListener('submit', async (e) => {
-  e.preventDefault();
-  msg.textContent = 'Enviando…';
-
-  const data = {
-    name: f.nombre.value.trim(),
-    email: f.email.value.trim(),
-    message: 'Solicitud de contacto desde el sitio',
-    phone: ''
-  };
-
-  // Honeypot: si está relleno, aborta silenciosamente
-  if (f.querySelector('[name="_honeypot"]').value) {
-    msg.textContent = 'Enviado.'; return;
-  }
-
-  try {
-    const res = await fetch('/api/contact', {
-      method: 'POST',
-      headers: {'Content-Type': 'application/json'},
-      body: JSON.stringify(data)
-    });
-
-    const json = await res.json();
-    if (json.ok) {
-      msg.textContent = '¡Gracias! Te contactaremos pronto.';
-      f.reset();
-    } else {
-      msg.textContent = 'No se pudo enviar. Intenta nuevamente.';
-    }
-  } catch (err) {
-    msg.textContent = 'Error de conexión. Intenta de nuevo.';
-  }
-});
-</script>
+                       
 
                     </div>
                 </div>
@@ -651,14 +631,16 @@ f.addEventListener('submit', async (e) => {
         <div class="container">
             <div class="text-center col-lg-8 mx-auto mb-5">
                 <h2 class="h1 section-title">Áreas de Práctica</h2>
-                <p class="lead text-muted mt-3">Ofrecemos soluciones legales tanto para trabajadores como para empleadores, con un enfoque en la defensa de tus derechos y la protección de tus intereses.</p>
+                <p class="lead text-muted mt-3">Ofrecemos soluciones legales tanto para trabajadores como para
+                    empleadores, con un enfoque en la defensa de tus derechos y la protección de tus intereses.</p>
             </div>
             <div class="row g-4 px-lg-5 mx-lg-5">
                 <div class="col-lg-6">
-                    <a class="card card-colored card-worker h-100 p-4 text-center text-decoration-none" href="trabajadores/index.html">
+                    <a class="card card-colored card-worker h-100 p-4 text-center text-decoration-none"
+                        href="trabajadores/index.html">
                         <div class="ratio ratio-16x9 mb-3">
-                            <img src="/abogado 4.png" alt="Asesoría para trabajadores"
-                                class="rounded w-100 h-100" style="object-fit: cover;" loading="lazy">
+                            <img src="/abogado 4.png" alt="Asesoría para trabajadores" class="rounded w-100 h-100"
+                                style="object-fit: cover;" loading="lazy">
                         </div>
                         <div class="card-body d-flex flex-column">
                             <i class="fas fa-scale-balanced fa-3x text-dark mb-3"></i>
@@ -670,9 +652,11 @@ f.addEventListener('submit', async (e) => {
                 </div>
 
                 <div class="col-lg-6">
-                    <a class="card card-colored card-employer h-100 p-4 text-center text-decoration-none" href="empleadores/index.html">
+                    <a class="card card-colored card-employer h-100 p-4 text-center text-decoration-none"
+                        href="empleadores/index.html">
                         <div class="ratio ratio-16x9 mb-3">
-                            <img src="abogado7.png" alt="Asesoría para empleadores" class="rounded w-100 h-100" style="object-fit: cover;" loading="lazy">
+                            <img src="abogado7.png" alt="Asesoría para empleadores" class="rounded w-100 h-100"
+                                style="object-fit: cover;" loading="lazy">
                         </div>
                         <div class="card-body d-flex flex-column">
                             <i class="fas fa-building-columns fa-3x text-white mb-3"></i>
@@ -690,7 +674,8 @@ f.addEventListener('submit', async (e) => {
         <div class="container">
             <div class="text-center col-lg-8 mx-auto mb-5">
                 <h2 class="h1 section-title">Nuestro Proceso</h2>
-                <p class="lead text-muted mt-4">Te acompañamos en cada paso, desde la evaluación inicial hasta la resolución de tu caso.</p>
+                <p class="lead text-muted mt-4">Te acompañamos en cada paso, desde la evaluación inicial hasta la
+                    resolución de tu caso.</p>
             </div>
             <div class="row text-center g-4">
                 <div class="col-md-3">
@@ -744,20 +729,25 @@ f.addEventListener('submit', async (e) => {
     <section class="py-5 bg-white" id="faq">
         <div class="container col-lg-8">
             <div class="text-center mb-5">
-                <h2 class="h1 section-title faq-title"><i class="fa-solid fa-scale-balanced"></i> Preguntas Frecuentes</h2>
+                <h2 class="h1 section-title faq-title"><i class="fa-solid fa-scale-balanced"></i> Preguntas Frecuentes
+                </h2>
             </div>
 
             <div class="accordion" id="faqAccordion">
                 <!-- 1 -->
                 <div class="accordion-item">
                     <h2 class="accordion-header" id="faq1-h">
-                        <button class="accordion-button" type="button" data-bs-toggle="collapse" data-bs-target="#faq1" aria-expanded="true" aria-controls="faq1">
+                        <button class="accordion-button" type="button" data-bs-toggle="collapse" data-bs-target="#faq1"
+                            aria-expanded="true" aria-controls="faq1">
                             ¿La primera consulta tiene costo?
                         </button>
                     </h2>
-                    <div id="faq1" class="accordion-collapse collapse show" aria-labelledby="faq1-h" data-bs-parent="#faqAccordion">
+                    <div id="faq1" class="accordion-collapse collapse show" aria-labelledby="faq1-h"
+                        data-bs-parent="#faqAccordion">
                         <div class="accordion-body">
-                            No. Nuestra primera evaluación es <strong>totalmente gratuita</strong>. Analizamos tu caso o la situación laboral de tu empresa sin compromiso. El objetivo es entregarte una orientación clara y realista sobre las alternativas legales y qué podemos conseguir.
+                            No. Nuestra primera evaluación es <strong>totalmente gratuita</strong>. Analizamos tu caso o
+                            la situación laboral de tu empresa sin compromiso. El objetivo es entregarte una orientación
+                            clara y realista sobre las alternativas legales y qué podemos conseguir.
                         </div>
                     </div>
                 </div>
@@ -765,13 +755,17 @@ f.addEventListener('submit', async (e) => {
                 <!-- 2 -->
                 <div class="accordion-item">
                     <h2 class="accordion-header" id="faq2-h">
-                        <button class="accordion-button collapsed" type="button" data-bs-toggle="collapse" data-bs-target="#faq2" aria-expanded="false" aria-controls="faq2">
+                        <button class="accordion-button collapsed" type="button" data-bs-toggle="collapse"
+                            data-bs-target="#faq2" aria-expanded="false" aria-controls="faq2">
                             ¿Atienden solo en Santiago o en todo Chile?
                         </button>
                     </h2>
-                    <div id="faq2" class="accordion-collapse collapse" aria-labelledby="faq2-h" data-bs-parent="#faqAccordion">
+                    <div id="faq2" class="accordion-collapse collapse" aria-labelledby="faq2-h"
+                        data-bs-parent="#faqAccordion">
                         <div class="accordion-body">
-                            Atendemos en <strong>todo Chile</strong>, de forma presencial u online. Podemos representar casos en cualquier tribunal laboral del país. Agendamos videollamadas y revisamos documentos digitalmente para tu comodidad.
+                            Atendemos en <strong>todo Chile</strong>, de forma presencial u online. Podemos representar
+                            casos en cualquier tribunal laboral del país. Agendamos videollamadas y revisamos documentos
+                            digitalmente para tu comodidad.
                         </div>
                     </div>
                 </div>
@@ -779,13 +773,17 @@ f.addEventListener('submit', async (e) => {
                 <!-- 3 -->
                 <div class="accordion-item">
                     <h2 class="accordion-header" id="faq3-h">
-                        <button class="accordion-button collapsed" type="button" data-bs-toggle="collapse" data-bs-target="#faq3" aria-expanded="false" aria-controls="faq3">
+                        <button class="accordion-button collapsed" type="button" data-bs-toggle="collapse"
+                            data-bs-target="#faq3" aria-expanded="false" aria-controls="faq3">
                             ¿Qué plazo tengo para demandar un despido injustificado?
                         </button>
                     </h2>
-                    <div id="faq3" class="accordion-collapse collapse" aria-labelledby="faq3-h" data-bs-parent="#faqAccordion">
+                    <div id="faq3" class="accordion-collapse collapse" aria-labelledby="faq3-h"
+                        data-bs-parent="#faqAccordion">
                         <div class="accordion-body">
-                            El plazo es de <strong>60 días hábiles</strong> desde la fecha del despido (los sábados cuentan). Si presentas un reclamo ante la Inspección del Trabajo, ese plazo se <strong>suspende</strong> mientras dura la mediación.
+                            El plazo es de <strong>60 días hábiles</strong> desde la fecha del despido (los sábados
+                            cuentan). Si presentas un reclamo ante la Inspección del Trabajo, ese plazo se
+                            <strong>suspende</strong> mientras dura la mediación.
                         </div>
                     </div>
                 </div>
@@ -793,13 +791,16 @@ f.addEventListener('submit', async (e) => {
                 <!-- 4 -->
                 <div class="accordion-item">
                     <h2 class="accordion-header" id="faq4-h">
-                        <button class="accordion-button collapsed" type="button" data-bs-toggle="collapse" data-bs-target="#faq4" aria-expanded="false" aria-controls="faq4">
+                        <button class="accordion-button collapsed" type="button" data-bs-toggle="collapse"
+                            data-bs-target="#faq4" aria-expanded="false" aria-controls="faq4">
                             ¿Qué hago si me despidieron y no me pagaron el finiquito?
                         </button>
                     </h2>
-                    <div id="faq4" class="accordion-collapse collapse" aria-labelledby="faq4-h" data-bs-parent="#faqAccordion">
+                    <div id="faq4" class="accordion-collapse collapse" aria-labelledby="faq4-h"
+                        data-bs-parent="#faqAccordion">
                         <div class="accordion-body">
-                            No firmes ni aceptes montos sin asesoría. Revisamos tu carta de despido, liquidaciones y finiquito, y reclamamos los montos que <strong>legalmente corresponden</strong>.
+                            No firmes ni aceptes montos sin asesoría. Revisamos tu carta de despido, liquidaciones y
+                            finiquito, y reclamamos los montos que <strong>legalmente corresponden</strong>.
                         </div>
                     </div>
                 </div>
@@ -807,13 +808,16 @@ f.addEventListener('submit', async (e) => {
                 <!-- 5 -->
                 <div class="accordion-item">
                     <h2 class="accordion-header" id="faq5-h">
-                        <button class="accordion-button collapsed" type="button" data-bs-toggle="collapse" data-bs-target="#faq5" aria-expanded="false" aria-controls="faq5">
+                        <button class="accordion-button collapsed" type="button" data-bs-toggle="collapse"
+                            data-bs-target="#faq5" aria-expanded="false" aria-controls="faq5">
                             ¿Qué puedo hacer si sufro acoso o maltrato laboral?
                         </button>
                     </h2>
-                    <div id="faq5" class="accordion-collapse collapse" aria-labelledby="faq5-h" data-bs-parent="#faqAccordion">
+                    <div id="faq5" class="accordion-collapse collapse" aria-labelledby="faq5-h"
+                        data-bs-parent="#faqAccordion">
                         <div class="accordion-body">
-                            Te asesoramos bajo la <strong>Ley Karin</strong>. Podemos presentar una <em>tutela laboral</em>, que puede incluir indemnización y reparación del daño moral.
+                            Te asesoramos bajo la <strong>Ley Karin</strong>. Podemos presentar una <em>tutela
+                                laboral</em>, que puede incluir indemnización y reparación del daño moral.
                         </div>
                     </div>
                 </div>
@@ -821,13 +825,17 @@ f.addEventListener('submit', async (e) => {
                 <!-- 6 -->
                 <div class="accordion-item">
                     <h2 class="accordion-header" id="faq6-h">
-                        <button class="accordion-button collapsed" type="button" data-bs-toggle="collapse" data-bs-target="#faq6" aria-expanded="false" aria-controls="faq6">
+                        <button class="accordion-button collapsed" type="button" data-bs-toggle="collapse"
+                            data-bs-target="#faq6" aria-expanded="false" aria-controls="faq6">
                             ¿Qué es una auditoría laboral y por qué es importante para mi empresa?
                         </button>
                     </h2>
-                    <div id="faq6" class="accordion-collapse collapse" aria-labelledby="faq6-h" data-bs-parent="#faqAccordion">
+                    <div id="faq6" class="accordion-collapse collapse" aria-labelledby="faq6-h"
+                        data-bs-parent="#faqAccordion">
                         <div class="accordion-body">
-                            Es una revisión de contratos, liquidaciones, anexos y reglamentos internos. Permite <strong>prevenir multas</strong> y demandas. Recomendamos hacer una al menos <strong>una vez al año</strong> o antes de una fiscalización.
+                            Es una revisión de contratos, liquidaciones, anexos y reglamentos internos. Permite
+                            <strong>prevenir multas</strong> y demandas. Recomendamos hacer una al menos <strong>una vez
+                                al año</strong> o antes de una fiscalización.
                         </div>
                     </div>
                 </div>
@@ -835,13 +843,17 @@ f.addEventListener('submit', async (e) => {
                 <!-- 7 -->
                 <div class="accordion-item">
                     <h2 class="accordion-header" id="faq7-h">
-                        <button class="accordion-button collapsed" type="button" data-bs-toggle="collapse" data-bs-target="#faq7" aria-expanded="false" aria-controls="faq7">
+                        <button class="accordion-button collapsed" type="button" data-bs-toggle="collapse"
+                            data-bs-target="#faq7" aria-expanded="false" aria-controls="faq7">
                             ¿Puedo despedir a un trabajador con licencia médica?
                         </button>
                     </h2>
-                    <div id="faq7" class="accordion-collapse collapse" aria-labelledby="faq7-h" data-bs-parent="#faqAccordion">
+                    <div id="faq7" class="accordion-collapse collapse" aria-labelledby="faq7-h"
+                        data-bs-parent="#faqAccordion">
                         <div class="accordion-body">
-                            Solo bajo causales específicas y justificadas. Un error puede terminar en <strong>nulidad del despido</strong> o demanda por vulneración de derechos. Te guiamos paso a paso antes de tomar cualquier medida.
+                            Solo bajo causales específicas y justificadas. Un error puede terminar en <strong>nulidad
+                                del despido</strong> o demanda por vulneración de derechos. Te guiamos paso a paso antes
+                            de tomar cualquier medida.
                         </div>
                     </div>
                 </div>
@@ -849,14 +861,18 @@ f.addEventListener('submit', async (e) => {
                 <!-- 8 -->
                 <div class="accordion-item">
                     <h2 class="accordion-header" id="faq8-h">
-                        <button class="accordion-button collapsed" type="button" data-bs-toggle="collapse" data-bs-target="#faq8" aria-expanded="false" aria-controls="faq8">
+                        <button class="accordion-button collapsed" type="button" data-bs-toggle="collapse"
+                            data-bs-target="#faq8" aria-expanded="false" aria-controls="faq8">
                             ¿Cobran un porcentaje o un monto fijo?
                         </button>
                     </h2>
-                    <div id="faq8" class="accordion-collapse collapse" aria-labelledby="faq8-h" data-bs-parent="#faqAccordion">
+                    <div id="faq8" class="accordion-collapse collapse" aria-labelledby="faq8-h"
+                        data-bs-parent="#faqAccordion">
                         <div class="accordion-body">
-                            👩‍💼 <strong>Trabajadores:</strong> modalidad a resultado (<em>solo pagas si ganamos</em>).<br>
-                            🏢 <strong>Empresas:</strong> honorarios fijos o planes mensuales de asesoría preventiva.<br>
+                            👩‍💼 <strong>Trabajadores:</strong> modalidad a resultado (<em>solo pagas si
+                                ganamos</em>).<br>
+                            🏢 <strong>Empresas:</strong> honorarios fijos o planes mensuales de asesoría
+                            preventiva.<br>
                             Siempre recibirás una propuesta <strong>clara y transparente</strong>.
                         </div>
                     </div>
@@ -865,19 +881,23 @@ f.addEventListener('submit', async (e) => {
                 <!-- 9 -->
                 <div class="accordion-item">
                     <h2 class="accordion-header" id="faq9-h">
-                        <button class="accordion-button collapsed" type="button" data-bs-toggle="collapse" data-bs-target="#faq9" aria-expanded="false" aria-controls="faq9">
+                        <button class="accordion-button collapsed" type="button" data-bs-toggle="collapse"
+                            data-bs-target="#faq9" aria-expanded="false" aria-controls="faq9">
                             ¿Puedo agendar una reunión virtual?
                         </button>
                     </h2>
-                    <div id="faq9" class="accordion-collapse collapse" aria-labelledby="faq9-h" data-bs-parent="#faqAccordion">
+                    <div id="faq9" class="accordion-collapse collapse" aria-labelledby="faq9-h"
+                        data-bs-parent="#faqAccordion">
                         <div class="accordion-body">
-                            Sí. Agenda una videollamada gratuita o envíanos tu caso por WhatsApp. Respondemos en <strong>menos de 24 horas</strong> con una orientación inicial.
+                            Sí. Agenda una videollamada gratuita o envíanos tu caso por WhatsApp. Respondemos en
+                            <strong>menos de 24 horas</strong> con una orientación inicial.
                         </div>
                     </div>
                 </div>
             </div>
 
-            <img src="/abogado1.png" alt="Preguntas frecuentes" class="img-fluid mt-4 mx-auto d-block" style="max-width: 400px;border-radius: 15px;" loading="lazy">
+            <img src="/abogado1.png" alt="Preguntas frecuentes" class="img-fluid mt-4 mx-auto d-block"
+                style="max-width: 400px;border-radius: 15px;" loading="lazy">
         </div>
     </section>
 
@@ -894,7 +914,8 @@ f.addEventListener('submit', async (e) => {
         <div class="container">
             <div class="row">
                 <div class="col-lg-4 mb-4 mb-lg-0">
-                    <a class="navbar-brand fs-4 text-white fw-bold" href="index.html"><img src="/images/logo.jpeg" alt="INNOVABOGADOS" class="img-fluid" style="max-width: 170px;"></a>
+                    <a class="navbar-brand fs-4 text-white fw-bold" href="index.html"><img src="/images/logo.jpeg"
+                            alt="INNOVABOGADOS" class="img-fluid" style="max-width: 170px;"></a>
                     <p class="text-white-50 mt-2">Asesoría laboral experta en Chile. © 2025</p>
                 </div>
                 <div class="col-6 col-lg-2 offset-lg-1 mb-3">
@@ -918,7 +939,8 @@ f.addEventListener('submit', async (e) => {
                 <div class="col-lg-3">
                     <h5 class="h6 text-white">Contacto</h5>
                     <ul class="list-unstyled text-white-50">
-                        <li><i class="fas fa-map-marker-alt me-2"></i> San Sebastián 2750, Of. 603, Las Condes, Santiago</li>
+                        <li><i class="fas fa-map-marker-alt me-2"></i> San Sebastián 2750, Of. 603, Las Condes, Santiago
+                        </li>
                         <li><i class="fas fa-phone me-2"></i>+56 9 4716 6921</li>
                         <li><i class="fas fa-envelope me-2"></i> contacto@innovabogados.cl</li>
                     </ul>
