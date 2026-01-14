@@ -1,31 +1,67 @@
 <!DOCTYPE html>
 <html lang="es">
+
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    
+
     <title>Defensas Judiciales para Empleadores - Abogados Laborales</title>
-    <meta name="description" content="Defensa especializada para empresas ante demandas por despido injustificado, tutela de derechos fundamentales, cobro de prestaciones y más.">
-    
+    <meta name="description"
+        content="Defensa especializada para empresas ante demandas por despido injustificado, tutela de derechos fundamentales, cobro de prestaciones y más.">
+
     <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/css/bootstrap.min.css" rel="stylesheet">
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css">
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-    <link href="https://fonts.googleapis.com/css2?family=Lora:wght@700&family=Montserrat:wght@400;500&display=swap" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css2?family=Lora:wght@700&family=Montserrat:wght@400;500&display=swap"
+        rel="stylesheet">
 
     <style>
-        body { font-family: 'Montserrat', sans-serif; }
-        h1, h2, h3, h4, h5, h6, .navbar-brand { font-family: 'Lora', serif; font-weight: 700; }
+        body {
+            font-family: 'Montserrat', sans-serif;
+        }
+
+        h1,
+        h2,
+        h3,
+        h4,
+        h5,
+        h6,
+        .navbar-brand {
+            font-family: 'Lora', serif;
+            font-weight: 700;
+        }
+
         :root {
             --bs-primary: #d18600;
             --bs-primary-rgb: 214, 161, 4;
             --bs-secondary: #f0a500;
         }
-        .btn-primary { background-color: var(--bs-primary) !important; border: none; }
-        .text-primary { color: var(--bs-primary) !important; }
-        .bg-primary-soft { background-color: rgba(var(--bs-primary-rgb), 0.05); }
-        .list-signals { list-style: none; padding-left: 0; }
-        .list-signals li { position: relative; padding-left: 2.2rem; margin-bottom: 0.8rem; }
+
+        .btn-primary {
+            background-color: var(--bs-primary) !important;
+            border: none;
+        }
+
+        .text-primary {
+            color: var(--bs-primary) !important;
+        }
+
+        .bg-primary-soft {
+            background-color: rgba(var(--bs-primary-rgb), 0.05);
+        }
+
+        .list-signals {
+            list-style: none;
+            padding-left: 0;
+        }
+
+        .list-signals li {
+            position: relative;
+            padding-left: 2.2rem;
+            margin-bottom: 0.8rem;
+        }
+
         .list-signals li::before {
             content: '\f058';
             font-family: "Font Awesome 6 Free";
@@ -36,7 +72,13 @@
             top: 2px;
             font-size: 1.2rem;
         }
-        .form-card { background: #f8f9fa; border: none; border-radius: 8px; }
+
+        .form-card {
+            background: #f8f9fa;
+            border: none;
+            border-radius: 8px;
+        }
+
         .whatsapp-float {
             position: fixed;
             bottom: 20px;
@@ -49,37 +91,78 @@
             text-align: center;
             font-size: 2.2rem;
             line-height: 60px;
-            box-shadow: 0 2px 10px rgba(0,0,0,0.2);
+            box-shadow: 0 2px 10px rgba(0, 0, 0, 0.2);
             z-index: 100;
         }
 
         /* --- INICIO MEJORAS PROFESIONALES --- */
         /* 1. Efecto de subrayado animado para la navegación */
-        .navbar-nav .nav-item { margin: 0 0.5rem; }
-        .navbar-nav .nav-link { position: relative; padding-bottom: 8px; transition: color 0.3s ease; }
-        .navbar-nav .nav-link::before { content: ''; position: absolute; width: 100%; height: 2px; bottom: 0; left: 0; background-color: var(--bs-secondary); transform: scaleX(0); transform-origin: bottom right; transition: transform 0.4s cubic-bezier(0.86, 0, 0.07, 1); }
-        .navbar-nav .nav-link:hover::before, .navbar-nav .nav-link.active::before { transform: scaleX(1); transform-origin: bottom left; }
-        .navbar-nav .nav-link:hover, .navbar-nav .nav-link.active { color: var(--bs-primary) !important; }
-        /* 2. Interacciones y transiciones para botones */
-        .btn { transition: transform 0.2s ease, box-shadow 0.2s ease; }
-        .btn:hover { transform: translateY(-2px); box-shadow: 0 4px 10px rgba(0, 0, 0, 0.15); }
-    </style>
-    <!-- Google tag (gtag.js) -->
-    <script async src="https://www.googletagmanager.com/gtag/js?id=AW-17870976814"></script>
-    <script>
-      window.dataLayer = window.dataLayer || [];
-      function gtag(){dataLayer.push(arguments);}
-      gtag('js', new Date());
+        .navbar-nav .nav-item {
+            margin: 0 0.5rem;
+        }
 
-      gtag('config', 'AW-17870976814');
-    </script>
+        .navbar-nav .nav-link {
+            position: relative;
+            padding-bottom: 8px;
+            transition: color 0.3s ease;
+        }
+
+        .navbar-nav .nav-link::before {
+            content: '';
+            position: absolute;
+            width: 100%;
+            height: 2px;
+            bottom: 0;
+            left: 0;
+            background-color: var(--bs-secondary);
+            transform: scaleX(0);
+            transform-origin: bottom right;
+            transition: transform 0.4s cubic-bezier(0.86, 0, 0.07, 1);
+        }
+
+        .navbar-nav .nav-link:hover::before,
+        .navbar-nav .nav-link.active::before {
+            transform: scaleX(1);
+            transform-origin: bottom left;
+        }
+
+        .navbar-nav .nav-link:hover,
+        .navbar-nav .nav-link.active {
+            color: var(--bs-primary) !important;
+        }
+
+        /* 2. Interacciones y transiciones para botones */
+        .btn {
+            transition: transform 0.2s ease, box-shadow 0.2s ease;
+        }
+
+        .btn:hover {
+            transform: translateY(-2px);
+            box-shadow: 0 4px 10px rgba(0, 0, 0, 0.15);
+        }
+    </style>
+    <!-- Google Tag Manager -->
+    <script>(function (w, d, s, l, i) {
+            w[l] = w[l] || []; w[l].push({
+                'gtm.start':
+                    new Date().getTime(), event: 'gtm.js'
+            }); var f = d.getElementsByTagName(s)[0],
+                j = d.createElement(s), dl = l != 'dataLayer' ? '&l=' + l : ''; j.async = true; j.src =
+                    'https://www.googletagmanager.com/gtm.js?id=' + i + dl; f.parentNode.insertBefore(j, f);
+        })(window, document, 'script', 'dataLayer', 'GTM-MN5NKVL8');</script>
+    <!-- End Google Tag Manager -->
 </head>
+
 <body>
+    <!-- Google Tag Manager (noscript) -->
+    <noscript><iframe src="https://www.googletagmanager.com/ns.html?id=GTM-MN5NKVL8" height="0" width="0"
+            style="display:none;visibility:hidden"></iframe></noscript>
+    <!-- End Google Tag Manager (noscript) -->
 
     <nav class="navbar navbar-expand-xl navbar-light bg-white shadow-sm sticky-top">
         <div class="container align-items-center">
-            <a class="navbar-brand fw-bold" href="../"><img src="../images/logo.jpeg" alt="INNOVABOGADOS" class="img-fluid"
-                    style="max-width: 170px;"></a>
+            <a class="navbar-brand fw-bold" href="../"><img src="../images/logo.jpeg" alt="INNOVABOGADOS"
+                    class="img-fluid" style="max-width: 170px;"></a>
 
             <button class="navbar-toggler" type="button" data-bs-toggle="offcanvas" data-bs-target="#mobileNav"
                 aria-controls="mobileNav" aria-label="Toggle navigation">
@@ -124,8 +207,8 @@
                         </li>
 
                         <li class="nav-item dropdown">
-                            <a class="nav-link dropdown-toggle active" href="./" id="navEmpleadores"
-                                role="button" data-bs-toggle="dropdown" aria-expanded="false">
+                            <a class="nav-link dropdown-toggle active" href="./" id="navEmpleadores" role="button"
+                                data-bs-toggle="dropdown" aria-expanded="false">
                                 Empleadores
                             </a>
                             <ul class="dropdown-menu" aria-labelledby="navEmpleadores">
@@ -137,8 +220,8 @@
                                         Judiciales</a></li>
                                 <li><a class="dropdown-item" href="mediaciones-dt">Mediaciones en la
                                         DT</a></li>
-                                <li><a class="dropdown-item"
-                                        href="capacitacion-ley-karin">Capacitaciones Ley Karin</a></li>
+                                <li><a class="dropdown-item" href="capacitacion-ley-karin">Capacitaciones Ley Karin</a>
+                                </li>
                                 <li>
                                     <hr class="dropdown-divider">
                                 </li>
@@ -175,10 +258,12 @@
             <div class="row g-5 align-items-center">
                 <div class="col-lg-7">
                     <h1 class="display-5">Defensa Judicial y Desvinculaciones</h1>
-                    <p class="lead text-muted mt-3">Protegemos los intereses de su empresa en juicios laborales y lo asesoramos para realizar procesos de desvinculación correctos y seguros.</p>
+                    <p class="lead text-muted mt-3">Protegemos los intereses de su empresa en juicios laborales y lo
+                        asesoramos para realizar procesos de desvinculación correctos y seguros.</p>
                     <div class="d-grid gap-2 d-sm-flex mt-4">
                         <a href="#contacto-form" class="btn btn-primary btn-lg px-4">Solicitar Defensa</a>
-                        <a href="https://api.whatsapp.com/send?phone=56947166921&text=Hola%2C%20he%20sido%20demandado%20y%20necesito%20defensa%20laboral." class="btn btn-outline-secondary btn-lg px-4">Contactar por WhatsApp</a>
+                        <a href="https://api.whatsapp.com/send?phone=56947166921&text=Hola%2C%20he%20sido%20demandado%20y%20necesito%20defensa%20laboral."
+                            class="btn btn-outline-secondary btn-lg px-4">Contactar por WhatsApp</a>
                     </div>
                 </div>
                 <div class="col-lg-5" id="contacto-form">
@@ -187,16 +272,26 @@
                         <form action="https://submit-form.com/oesbLIPMk" method="POST" class="submitform">
                             <!-- SubmitForm config -->
                             <input type="hidden" name="_redirect" class="js-redirect" value="">
-                            <input type="text" name="_honeypot" autocomplete="off" tabindex="-1" style="position:absolute;left:-9999px">
-                            <div class="mb-3"><input type="text" class="form-control" name="empresa" placeholder="Nombre de la Empresa" required></div>
-                            <div class="mb-3"><input type="email" class="form-control" name="email" placeholder="Email de Contacto" required></div>
-                            <div class="mb-3"><input type="tel" class="form-control" name="telefono" placeholder="Teléfono" required></div>
-                            <div class="mb-3"><textarea class="form-control" name="mensaje" rows="3" placeholder="Ej: Recibí una demanda por despido injustificado..."></textarea></div>
+                            <input type="text" name="_honeypot" autocomplete="off" tabindex="-1"
+                                style="position:absolute;left:-9999px">
+                            <div class="mb-3"><input type="text" class="form-control" name="empresa"
+                                    placeholder="Nombre de la Empresa" required></div>
+                            <div class="mb-3"><input type="email" class="form-control" name="email"
+                                    placeholder="Email de Contacto" required></div>
+                            <div class="mb-3"><input type="tel" class="form-control" name="telefono"
+                                    placeholder="Teléfono" required></div>
+
+                            <div class="mb-3"><textarea class="form-control" name="mensaje" rows="3"
+                                    placeholder="Ej: Recibí una demanda por despido injustificado..."></textarea></div>
                             <div class="form-check mb-3 small">
-                                <input class="form-check-input" type="checkbox" id="consentimiento" name="consentimiento" required>
-                                <label class="form-check-label text-muted" for="consentimiento">Acepto la <a href="../privacidad">política de privacidad</a> y <a href="../terminos">términos</a>.</label>
+                                <input class="form-check-input" type="checkbox" id="consentimiento"
+                                    name="consentimiento" required>
+                                <label class="form-check-label text-muted" for="consentimiento">Acepto la <a
+                                        href="../privacidad">política de privacidad</a> y <a
+                                        href="../terminos">términos</a>.</label>
                             </div>
-                            <div class="d-grid"><button type="submit" class="btn btn-primary btn-lg">Contactar Abogado</button></div>
+                            <div class="d-grid"><button type="submit" class="btn btn-primary btn-lg">Contactar
+                                    Abogado</button></div>
                         </form>
                     </div>
                 </div>
@@ -207,7 +302,8 @@
     <section class="py-5">
         <div class="container col-lg-9">
             <h2 class="text-center mb-4">Nuestra Experiencia en Defensa Laboral</h2>
-            <p class="text-center lead text-muted col-lg-10 mx-auto">Representamos a empleadores en una amplia gama de juicios laborales, buscando siempre la mejor estrategia para su negocio:</p>
+            <p class="text-center lead text-muted col-lg-10 mx-auto">Representamos a empleadores en una amplia gama de
+                juicios laborales, buscando siempre la mejor estrategia para su negocio:</p>
             <div class="row mt-4">
                 <div class="col-md-6">
                     <ul class="list-signals">
@@ -221,8 +317,8 @@
                         <li>Juicios por Cobro de Prestaciones e Indemnizaciones.</li>
                         <li>Defensa ante Prácticas Antisindicales.</li>
                         <li>Asesoría y redacción de cartas de despido para
+                </div>
             </div>
-        </div>
     </section>
 
     <section class="py-5 bg-light">
@@ -233,21 +329,24 @@
                     <div class="p-3">
                         <i class="fas fa-search fa-3x text-primary mb-3"></i>
                         <h3 class="h4">1. Análisis del Caso</h3>
-                        <p class="text-muted">Estudiamos la demanda, los hechos y las pruebas para evaluar las fortalezas y debilidades de su posición.</p>
+                        <p class="text-muted">Estudiamos la demanda, los hechos y las pruebas para evaluar las
+                            fortalezas y debilidades de su posición.</p>
                     </div>
                 </div>
                 <div class="col-md-4">
                     <div class="p-3">
                         <i class="fas fa-gavel fa-3x text-primary mb-3"></i>
                         <h3 class="h4">2. Contestación y Defensa</h3>
-                        <p class="text-muted">Preparamos una sólida contestación a la demanda y lo representamos en todas las audiencias judiciales.</p>
+                        <p class="text-muted">Preparamos una sólida contestación a la demanda y lo representamos en
+                            todas las audiencias judiciales.</p>
                     </div>
                 </div>
                 <div class="col-md-4">
                     <div class="p-3">
                         <i class="fas fa-handshake fa-3x text-primary mb-3"></i>
                         <h3 class="h4">3. Negociación y Cierre</h3>
-                        <p class="text-muted">Buscamos activamente acuerdos favorables (conciliaciones) para evitar juicios largos y costosos cuando es conveniente.</p>
+                        <p class="text-muted">Buscamos activamente acuerdos favorables (conciliaciones) para evitar
+                            juicios largos y costosos cuando es conveniente.</p>
                     </div>
                 </div>
             </div>
@@ -257,7 +356,8 @@
     <section class="py-5">
         <div class="container text-center col-lg-8">
             <h2 class="h1">Proteja su empresa</h2>
-            <p class="lead my-4">Una demanda laboral no es el fin del mundo si cuenta con la defensa adecuada. Contáctenos de inmediato, los plazos son breves.</p>
+            <p class="lead my-4">Una demanda laboral no es el fin del mundo si cuenta con la defensa adecuada.
+                Contáctenos de inmediato, los plazos son breves.</p>
             <a href="../contacto" class="btn btn-primary btn-lg px-5">Obtener Defensa Legal</a>
         </div>
     </section>
@@ -266,14 +366,14 @@
         <div class="container">
             <div class="row">
                 <div class="col-lg-4 mb-4 mb-lg-0">
-                    <a class="navbar-brand fs-4 text-white fw-bold" href="/"><img src="/images/logo.jpeg" alt="INNOVABOGADOS" class="img-fluid" style="max-width: 170px;"></a>
+                    <a class="navbar-brand fs-4 text-white fw-bold" href="/"><img src="/images/logo.jpeg"
+                            alt="INNOVABOGADOS" class="img-fluid" style="max-width: 170px;"></a>
                     <p class="text-white-50 mt-2">Asesoría laboral experta en Chile. © 2025</p>
                 </div>
                 <div class="col-6 col-lg-2 offset-lg-1 mb-3">
                     <h5 class="h6 text-white">Servicios</h5>
                     <ul class="list-unstyled">
-                        <li><a href="/trabajadores/"
-                                class="text-decoration-none text-white-50">Trabajadores</a>
+                        <li><a href="/trabajadores/" class="text-decoration-none text-white-50">Trabajadores</a>
                         </li>
                         <li><a href="/empleadores/" class="text-decoration-none text-white-50">Empleadores</a>
                         </li>
@@ -290,7 +390,8 @@
                 <div class="col-lg-3">
                     <h5 class="h6 text-white">Contacto</h5>
                     <ul class="list-unstyled text-white-50">
-                        <li><i class="fas fa-map-marker-alt me-2"></i> San Sebastián 2750, Of. 603, Las Condes, Santiago</li>
+                        <li><i class="fas fa-map-marker-alt me-2"></i> San Sebastián 2750, Of. 603, Las Condes, Santiago
+                        </li>
                         <li><i class="fas fa-phone me-2"></i>+56 9 4716 6921</li>
                         <li><i class="fas fa-envelope me-2"></i> contacto@innovabogados.cl</li>
                     </ul>
@@ -303,16 +404,18 @@
         </div>
     </footer>
 
-    <a href="https://api.whatsapp.com/send?phone=56947166921&text=Hola%2C%20necesito%20defensa%20laboral%20para%20mi%20empresa." target="_blank" class="whatsapp-float" aria-label="Contactar por WhatsApp">
+    <a href="https://api.whatsapp.com/send?phone=56947166921&text=Hola%2C%20necesito%20defensa%20laboral%20para%20mi%20empresa."
+        target="_blank" class="whatsapp-float" aria-label="Contactar por WhatsApp">
         <i class="fab fa-whatsapp"></i>
     </a>
 
     <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/js/bootstrap.bundle.min.js"></script>
     <script>
-      (function(){
-        var url = location.origin + '/mensaje-enviado.html';
-        document.querySelectorAll('form.submitform .js-redirect').forEach(function(el){ el.value = url; });
-      })();
+        (function () {
+            var url = location.origin + '/mensaje-enviado.html';
+            document.querySelectorAll('form.submitform .js-redirect').forEach(function (el) { el.value = url; });
+        })();
     </script>
 </body>
+
 </html>

@@ -1,37 +1,63 @@
 <!DOCTYPE html>
 <html lang="es">
+
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Casos y Resultados - Innovabogados</title>
-    
+
     <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/css/bootstrap.min.css" rel="stylesheet">
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css">
-    
+
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-    <link href="https://fonts.googleapis.com/css2?family=Lora:wght@700&family=Montserrat:wght@400;500&display=swap" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css2?family=Lora:wght@700&family=Montserrat:wght@400;500&display=swap"
+        rel="stylesheet">
 
     <style>
-        body { font-family: 'Montserrat', sans-serif; }
-        h1, h2, h3, h4, h5, h6, .navbar-brand { font-family: 'Lora', serif; font-weight: 700; }
+        body {
+            font-family: 'Montserrat', sans-serif;
+        }
+
+        h1,
+        h2,
+        h3,
+        h4,
+        h5,
+        h6,
+        .navbar-brand {
+            font-family: 'Lora', serif;
+            font-weight: 700;
+        }
+
         :root {
             --bs-primary: #d6a104;
             --bs-primary-rgb: 214, 161, 4;
             --bs-secondary: #000000;
         }
-        .btn-primary { background-color: var(--bs-primary) !important; border: none; }
-        .text-primary { color: var(--bs-primary) !important; }
-        .bg-primary-soft { background-color: rgba(var(--bs-primary-rgb), 0.05); }
+
+        .btn-primary {
+            background-color: var(--bs-primary) !important;
+            border: none;
+        }
+
+        .text-primary {
+            color: var(--bs-primary) !important;
+        }
+
+        .bg-primary-soft {
+            background-color: rgba(var(--bs-primary-rgb), 0.05);
+        }
 
         .case-card {
             transition: transform 0.2s ease, box-shadow 0.2s ease;
         }
+
         .case-card:hover {
             transform: translateY(-5px);
-            box-shadow: 0 .5rem 1rem rgba(0,0,0,.15)!important;
+            box-shadow: 0 .5rem 1rem rgba(0, 0, 0, .15) !important;
         }
-        
+
         .whatsapp-float {
             position: fixed;
             bottom: 20px;
@@ -44,7 +70,7 @@
             text-align: center;
             font-size: 2.2rem;
             line-height: 60px;
-            box-shadow: 0 2px 10px rgba(0,0,0,0.2);
+            box-shadow: 0 2px 10px rgba(0, 0, 0, 0.2);
             z-index: 100;
         }
 
@@ -62,7 +88,7 @@
             transition: color 0.3s ease;
         }
 
-       /* Subrayado animado para todos los links (usando ::before) */
+        /* Subrayado animado para todos los links (usando ::before) */
         .navbar-nav .nav-link::before {
             content: '';
             position: absolute;
@@ -76,11 +102,12 @@
             transition: transform 0.4s cubic-bezier(0.86, 0, 0.07, 1);
         }
 
-       .navbar-nav .nav-link:hover::before,
+        .navbar-nav .nav-link:hover::before,
         .navbar-nav .nav-link.active::before {
             transform: scaleX(1);
             transform-origin: bottom left;
         }
+
         .navbar-nav .nav-link:hover,
         .navbar-nav .nav-link.active {
             color: var(--bs-primary) !important;
@@ -99,14 +126,19 @@
     <!-- Google tag (gtag.js) -->
     <script async src="https://www.googletagmanager.com/gtag/js?id=AW-17870976814"></script>
     <script>
-      window.dataLayer = window.dataLayer || [];
-      function gtag(){dataLayer.push(arguments);}
-      gtag('js', new Date());
+        window.dataLayer = window.dataLayer || [];
+        function gtag() { dataLayer.push(arguments); }
+        gtag('js', new Date());
 
-      gtag('config', 'AW-17870976814');
+        gtag('config', 'AW-17870976814');
     </script>
 </head>
+
 <body>
+    <!-- Google Tag Manager (noscript) -->
+    <noscript><iframe src="https://www.googletagmanager.com/ns.html?id=GTM-MN5NKVL8" height="0" width="0"
+            style="display:none;visibility:hidden"></iframe></noscript>
+    <!-- End Google Tag Manager (noscript) -->
 
     <nav class="navbar navbar-expand-xl navbar-light bg-white shadow-sm sticky-top">
         <div class="container align-items-center">
@@ -133,8 +165,8 @@
                         </li>
 
                         <li class="nav-item dropdown">
-                            <a class="nav-link dropdown-toggle" href="trabajadores/" id="navTrabajadores"
-                                role="button" data-bs-toggle="dropdown" aria-expanded="false">
+                            <a class="nav-link dropdown-toggle" href="trabajadores/" id="navTrabajadores" role="button"
+                                data-bs-toggle="dropdown" aria-expanded="false">
                                 Trabajadores
                             </a>
                             <ul class="dropdown-menu" aria-labelledby="navTrabajadores">
@@ -156,8 +188,8 @@
                         </li>
 
                         <li class="nav-item dropdown">
-                            <a class="nav-link dropdown-toggle" href="empleadores/" id="navEmpleadores"
-                                role="button" data-bs-toggle="dropdown" aria-expanded="false">
+                            <a class="nav-link dropdown-toggle" href="empleadores/" id="navEmpleadores" role="button"
+                                data-bs-toggle="dropdown" aria-expanded="false">
                                 Empleadores
                             </a>
                             <ul class="dropdown-menu" aria-labelledby="navEmpleadores">
@@ -169,8 +201,8 @@
                                         Judiciales</a></li>
                                 <li><a class="dropdown-item" href="empleadores/mediaciones-dt">Mediaciones en la
                                         DT</a></li>
-                                <li><a class="dropdown-item"
-                                        href="empleadores/capacitacion-ley-karin">Capacitaciones Ley Karin</a></li>
+                                <li><a class="dropdown-item" href="empleadores/capacitacion-ley-karin">Capacitaciones
+                                        Ley Karin</a></li>
                                 <li>
                                     <hr class="dropdown-divider">
                                 </li>
@@ -212,14 +244,17 @@
     <section class="py-5">
         <div class="container">
             <div class="row row-cols-1 row-cols-md-2 row-cols-lg-3 g-4">
-                
+
                 <div class="col">
                     <div class="card h-100 shadow-sm border-0 case-card">
                         <div class="card-body p-4">
                             <span class="badge bg-secondary mb-2">Despido Injustificado</span>
                             <h3 class="h5 card-title">Recargo del 30% por "Necesidades de la Empresa"</h3>
-                            <p class="card-text small text-muted"><strong>Situación:</strong> Cliente despedido por Art. 161, pero la empresa no pudo probar en juicio la reestructuración que alegaba.</p>
-                            <p class="card-text small text-muted"><strong>Resultado:</strong> Se obtuvo el pago de la indemnización por años de servicio más el recargo legal del 30%, además del mes de aviso.</p>
+                            <p class="card-text small text-muted"><strong>Situación:</strong> Cliente despedido por Art.
+                                161, pero la empresa no pudo probar en juicio la reestructuración que alegaba.</p>
+                            <p class="card-text small text-muted"><strong>Resultado:</strong> Se obtuvo el pago de la
+                                indemnización por años de servicio más el recargo legal del 30%, además del mes de
+                                aviso.</p>
                             <a href="despido-injustificado" class="btn btn-outline-primary btn-sm mt-3">Ver servicio</a>
                         </div>
                     </div>
@@ -230,8 +265,11 @@
                         <div class="card-body p-4">
                             <span class="badge bg-secondary mb-2">Autodespido</span>
                             <h3 class="h5 card-title">No pago de cotizaciones previsionales</h3>
-                            <p class="card-text small text-muted"><strong>Situación:</strong> Empleador no pagó cotizaciones por 4 meses consecutivos. Trabajador se autodespidió y solicitó el pago de sus cotizaciones.</p>
-                            <p class="card-text small text-muted"><strong>Resultado:</strong> Se logró el pago total de las cotizaciones adeudadas, evitando multas y recargos.</p>
+                            <p class="card-text small text-muted"><strong>Situación:</strong> Empleador no pagó
+                                cotizaciones por 4 meses consecutivos. Trabajador se autodespidió y solicitó el pago de
+                                sus cotizaciones.</p>
+                            <p class="card-text small text-muted"><strong>Resultado:</strong> Se logró el pago total de
+                                las cotizaciones adeudadas, evitando multas y recargos.</p>
                             <a href="autodespido" class="btn btn-outline-primary btn-sm mt-3">Ver servicio</a>
                         </div>
                     </div>
@@ -242,8 +280,10 @@
                         <div class="card-body p-4">
                             <span class="badge bg-secondary mb-2">Tutela (Ley Karin)</span>
                             <h3 class="h5 card-title">Acoso Laboral y Despido</h3>
-                            <p class="card-text small text-muted"><strong>Situación:</strong> Trabajador sufrió acoso laboral y fue despedido sin justificación. Se invocó la Ley Karin.</p>
-                            <p class="card-text small text-muted"><strong>Resultado:</strong> Se obtuvo la nulidad del despido, reintegración del trabajador y pago de indemnización por daño moral.</p>
+                            <p class="card-text small text-muted"><strong>Situación:</strong> Trabajador sufrió acoso
+                                laboral y fue despedido sin justificación. Se invocó la Ley Karin.</p>
+                            <p class="card-text small text-muted"><strong>Resultado:</strong> Se obtuvo la nulidad del
+                                despido, reintegración del trabajador y pago de indemnización por daño moral.</p>
                             <a href="tutela-ley-karin" class="btn btn-outline-primary btn-sm mt-3">Ver servicio</a>
                         </div>
                     </div>
@@ -254,8 +294,10 @@
                         <div class="card-body p-4">
                             <span class="badge bg-secondary mb-2">Cobro de Finiquito</span>
                             <h3 class="h5 card-title">Indemnización y Finiquito</h3>
-                            <p class="card-text small text-muted"><strong>Situación:</strong> Trabajador desvinculado sin pago de indemnización ni finiquito. Se reclamó el pago correspondiente.</p>
-                            <p class="card-text small text-muted"><strong>Resultado:</strong> Se logró el pago de la indemnización por años de servicio y el finiquito completo.</p>
+                            <p class="card-text small text-muted"><strong>Situación:</strong> Trabajador desvinculado
+                                sin pago de indemnización ni finiquito. Se reclamó el pago correspondiente.</p>
+                            <p class="card-text small text-muted"><strong>Resultado:</strong> Se logró el pago de la
+                                indemnización por años de servicio y el finiquito completo.</p>
                             <a href="cobro-finiquito" class="btn btn-outline-primary btn-sm mt-3">Ver servicio</a>
                         </div>
                     </div>
@@ -266,8 +308,10 @@
                         <div class="card-body p-4">
                             <span class="badge bg-secondary mb-2">Horas Extra</span>
                             <h3 class="h5 card-title">No pago de horas extras</h3>
-                            <p class="card-text small text-muted"><strong>Situación:</strong> Trabajador realizaba horas extras que no fueron pagadas por el empleador.</p>
-                            <p class="card-text small text-muted"><strong>Resultado:</strong> Se obtuvo el pago de las horas extras con el recargo correspondiente.</p>
+                            <p class="card-text small text-muted"><strong>Situación:</strong> Trabajador realizaba horas
+                                extras que no fueron pagadas por el empleador.</p>
+                            <p class="card-text small text-muted"><strong>Resultado:</strong> Se obtuvo el pago de las
+                                horas extras con el recargo correspondiente.</p>
                             <a href="horas-extra" class="btn btn-outline-primary btn-sm mt-3">Ver servicio</a>
                         </div>
                     </div>
@@ -281,14 +325,14 @@
         <div class="container">
             <div class="row">
                 <div class="col-lg-4 mb-4 mb-lg-0">
-                    <a class="navbar-brand fs-4 text-white fw-bold" href="/"><img src="/images/logo.jpeg" alt="INNOVABOGADOS" class="img-fluid" style="max-width: 170px;"></a>
+                    <a class="navbar-brand fs-4 text-white fw-bold" href="/"><img src="/images/logo.jpeg"
+                            alt="INNOVABOGADOS" class="img-fluid" style="max-width: 170px;"></a>
                     <p class="text-white-50 mt-2">Asesoría laboral experta en Chile. © 2025</p>
                 </div>
                 <div class="col-6 col-lg-2 offset-lg-1 mb-3">
                     <h5 class="h6 text-white">Servicios</h5>
                     <ul class="list-unstyled">
-                        <li><a href="/trabajadores/"
-                                class="text-decoration-none text-white-50">Trabajadores</a>
+                        <li><a href="/trabajadores/" class="text-decoration-none text-white-50">Trabajadores</a>
                         </li>
                         <li><a href="/empleadores/" class="text-decoration-none text-white-50">Empleadores</a>
                         </li>
@@ -305,7 +349,8 @@
                 <div class="col-lg-3">
                     <h5 class="h6 text-white">Contacto</h5>
                     <ul class="list-unstyled text-white-50">
-                        <li><i class="fas fa-map-marker-alt me-2"></i> San Sebastián 2750, Of. 603, Las Condes, Santiago</li>
+                        <li><i class="fas fa-map-marker-alt me-2"></i> San Sebastián 2750, Of. 603, Las Condes, Santiago
+                        </li>
                         <li><i class="fas fa-phone me-2"></i>+56 9 4716 6921</li>
                         <li><i class="fas fa-envelope me-2"></i> contacto@innovabogados.cl</li>
                     </ul>
@@ -324,4 +369,5 @@
 
     <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/js/bootstrap.bundle.min.js"></script>
 </body>
+
 </html>
