@@ -4,29 +4,67 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Nosotros - Innovabogados</title>
+    <title>Página no encontrada - Innovabogados</title>
+
     <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/css/bootstrap.min.css" rel="stylesheet">
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css">
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
     <link href="https://fonts.googleapis.com/css2?family=Lora:wght@700&family=Montserrat:wght@400;500&display=swap"
         rel="stylesheet">
-    <style>
-        /* --- INICIO MEJORAS PROFESIONALES --- */
 
-        /* 1. Efecto de subrayado animado para la navegación */
+    <style>
+        /* Estilos personalizados */
+        body {
+            font-family: 'Montserrat', sans-serif;
+            background-color: #f8f9fa;
+        }
+
+        h1,
+        h2,
+        h3,
+        h4,
+        h5,
+        h6,
+        .navbar-brand,
+        .display-1 {
+            font-family: 'Lora', serif;
+            font-weight: 700;
+        }
+
+        :root {
+            --bs-primary: #d18600;
+            --bs-primary-rgb: 214, 161, 4;
+            --bs-secondary: #000000;
+            --ink: #1b1b1b;
+        }
+
+        .btn-primary {
+            background-color: var(--bs-primary) !important;
+            border-color: var(--bs-primary);
+        }
+
+        .btn-primary:hover {
+            background-color: #c09003 !important;
+            border-color: #c09003 !important;
+        }
+
+        .text-primary {
+            color: var(--bs-primary) !important;
+        }
+
+        /* Navbar Styles from index.html */
         .navbar-nav .nav-item {
             margin: 0 0.5rem;
-            /* Aumenta el espaciado entre elementos */
         }
 
         .navbar-nav .nav-link {
             position: relative;
             padding-bottom: 8px;
             transition: color 0.3s ease;
+            color: #333;
         }
 
-        /* Subrayado animado para todos los links (usando ::before) */
         .navbar-nav .nav-link::before {
             content: '';
             position: absolute;
@@ -34,7 +72,7 @@
             height: 2px;
             bottom: 0;
             left: 0;
-            background-color: var(--bs-secondary);
+            background-color: var(--bs-primary) !important;
             transform: scaleX(0);
             transform-origin: bottom right;
             transition: transform 0.4s cubic-bezier(0.86, 0, 0.07, 1);
@@ -51,50 +89,25 @@
             color: var(--bs-primary) !important;
         }
 
-        /* 2. Interacciones y transiciones para botones */
-        .btn {
-            transition: transform 0.2s ease, box-shadow 0.2s ease;
+        .navbar-brand img {
+            max-width: 170px;
         }
 
-        .btn:hover {
-            transform: translateY(-2px);
-            box-shadow: 0 4px 10px rgba(0, 0, 0, 0.15);
+        /* Footer */
+        footer {
+            background-color: #343a40;
+            color: #fff;
         }
 
-        body {
-            font-family: 'Montserrat', sans-serif;
+        footer a {
+            color: rgba(255, 255, 255, 0.7);
         }
 
-        h1,
-        h2,
-        h3,
-        h4,
-        h5,
-        h6,
-        .navbar-brand {
-            font-family: 'Lora', serif;
-            font-weight: 700;
+        footer a:hover {
+            color: rgba(255, 255, 255, 1);
         }
 
-        :root {
-            --bs-primary: #d18600;
-            --bs-primary-rgb: 214, 161, 4;
-            --bs-secondary: #f0a500;
-        }
-
-        .btn-primary {
-            background-color: var(--bs-primary) !important;
-            border: none;
-        }
-
-        .text-primary {
-            color: var(--bs-primary) !important;
-        }
-
-        .bg-primary-soft {
-            background-color: rgba(var(--bs-primary-rgb), 0.05);
-        }
-
+        /* WhatsApp Float */
         .whatsapp-float {
             position: fixed;
             bottom: 20px;
@@ -109,6 +122,25 @@
             line-height: 60px;
             box-shadow: 0 2px 10px rgba(0, 0, 0, 0.2);
             z-index: 100;
+        }
+
+        .whatsapp-float:hover {
+            color: white;
+            background-color: #128C7E;
+        }
+
+        /* Error Page Specifics */
+        .error-section {
+            padding: 5rem 0;
+            min-height: 60vh;
+            display: flex;
+            align-items: center;
+        }
+
+        .error-icon {
+            font-size: 5rem;
+            color: var(--bs-primary);
+            margin-bottom: 1.5rem;
         }
     </style>
     <!-- Google Tag Manager -->
@@ -131,8 +163,8 @@
 
     <nav class="navbar navbar-expand-xl navbar-light bg-white shadow-sm sticky-top">
         <div class="container align-items-center">
-            <a class="navbar-brand fw-bold" href="/"><img src="/images/logo.jpeg" alt="INNOVABOGADOS" class="img-fluid"
-                    style="max-width: 170px;"></a>
+            <a class="navbar-brand fw-bold" href="/"><img src="/images/logo.jpeg" alt="INNOVABOGADOS"
+                    class="img-fluid"></a>
 
             <button class="navbar-toggler" type="button" data-bs-toggle="offcanvas" data-bs-target="#mobileNav"
                 aria-controls="mobileNav" aria-label="Toggle navigation">
@@ -140,146 +172,91 @@
             </button>
 
             <div class="offcanvas offcanvas-end" tabindex="-1" id="mobileNav" aria-labelledby="mobileNavLabel">
-
                 <div class="offcanvas-header">
                     <h5 class="offcanvas-title fw-bold" id="mobileNavLabel">Menú</h5>
                     <button type="button" class="btn-close" data-bs-dismiss="offcanvas" aria-label="Close"></button>
                 </div>
-
                 <div class="offcanvas-body">
-
                     <ul class="navbar-nav ms-auto mb-2 mb-lg-0">
                         <li class="nav-item">
                             <a class="nav-link" href="/">Inicio</a>
                         </li>
-
                         <li class="nav-item dropdown">
-                            <a class="nav-link dropdown-toggle" href="trabajadores/" id="navTrabajadores" role="button"
+                            <a class="nav-link dropdown-toggle" href="/trabajadores/" id="navTrabajadores" role="button"
                                 data-bs-toggle="dropdown" aria-expanded="false">
                                 Trabajadores
                             </a>
                             <ul class="dropdown-menu" aria-labelledby="navTrabajadores">
-                                <li><a class="dropdown-item" href="trabajadores/despido-injustificado">Despido
-                                        Injustificado</a>
-                                </li>
-                                <li><a class="dropdown-item" href="trabajadores/autodespido">Autodespido</a></li>
-                                <li><a class="dropdown-item" href="trabajadores/tutela-ley-karin">Tutela (Ley
+                                <li><a class="dropdown-item" href="/trabajadores/despido-injustificado">Despido
+                                        Injustificado</a></li>
+                                <li><a class="dropdown-item" href="/trabajadores/autodespido">Autodespido</a></li>
+                                <li><a class="dropdown-item" href="/trabajadores/tutela-ley-karin">Tutela (Ley
                                         Karin)</a></li>
-                                <li><a class="dropdown-item" href="trabajadores/cobro-finiquito">Cobro de
-                                        Finiquito</a></li>
-                                <li><a class="dropdown-item" href="trabajadores/horas-extra">Horas Extra</a></li>
+                                <li><a class="dropdown-item" href="/trabajadores/cobro-finiquito">Cobro de Finiquito</a>
+                                </li>
+                                <li><a class="dropdown-item" href="/trabajadores/horas-extra">Horas Extra</a></li>
                                 <li>
                                     <hr class="dropdown-divider">
                                 </li>
-                                <li><a class="dropdown-item" href="trabajadores/"><strong>Ver todos
-                                            →</strong></a></li>
+                                <li><a class="dropdown-item" href="/trabajadores/"><strong>Ver todos →</strong></a></li>
                             </ul>
                         </li>
-
                         <li class="nav-item dropdown">
-                            <a class="nav-link dropdown-toggle" href="empleadores/" id="navEmpleadores" role="button"
+                            <a class="nav-link dropdown-toggle" href="/empleadores/" id="navEmpleadores" role="button"
                                 data-bs-toggle="dropdown" aria-expanded="false">
                                 Empleadores
                             </a>
                             <ul class="dropdown-menu" aria-labelledby="navEmpleadores">
-                                <li><a class="dropdown-item" href="empleadores/auditorias-laborales">Auditorías
+                                <li><a class="dropdown-item" href="/empleadores/auditorias-laborales">Auditorías
                                         Laborales</a></li>
-                                <li><a class="dropdown-item" href="empleadores/reglamentos-internos">Reglamentos
+                                <li><a class="dropdown-item" href="/empleadores/reglamentos-internos">Reglamentos
                                         Internos</a></li>
-                                <li><a class="dropdown-item" href="empleadores/defensas-judiciales">Defensas
+                                <li><a class="dropdown-item" href="/empleadores/defensas-judiciales">Defensas
                                         Judiciales</a></li>
-                                <li><a class="dropdown-item" href="empleadores/mediaciones-dt">Mediaciones en la
-                                        DT</a></li>
-                                <li><a class="dropdown-item" href="empleadores/capacitacion-ley-karin">Capacitaciones
+                                <li><a class="dropdown-item" href="/empleadores/mediaciones-dt">Mediaciones en la DT</a>
+                                </li>
+                                <li><a class="dropdown-item" href="/empleadores/capacitacion-ley-karin">Capacitaciones
                                         Ley Karin</a></li>
                                 <li>
                                     <hr class="dropdown-divider">
                                 </li>
-                                <li><a class="dropdown-item" href="empleadores/"><strong>Ver todos
-                                            →</strong></a></li>
+                                <li><a class="dropdown-item" href="/empleadores/"><strong>Ver todos →</strong></a></li>
                             </ul>
                         </li>
-
                         <li class="nav-item">
-                            <a class="nav-link active" href="nosotros">Nosotros</a>
+                            <a class="nav-link" href="/nosotros">Nosotros</a>
                         </li>
-
                         <li class="nav-item">
-                            <a class="nav-link" href="casos-y-resultados">Casos de Éxito</a>
+                            <a class="nav-link" href="/casos-y-resultados">Casos de Éxito</a>
                         </li>
-
                         <li class="nav-item">
-                            <a class="nav-link" href="recursos/">Recursos</a>
+                            <a class="nav-link" href="/recursos/">Recursos</a>
                         </li>
-
                         <li class="nav-item">
-                            <a class="nav-link" href="contacto">Contacto</a>
+                            <a class="nav-link" href="/contacto">Contacto</a>
                         </li>
                     </ul>
-
-                    <a href="contacto" class="btn btn-primary ms-lg-3 mt-3 mt-lg-0">Evalúa tu caso</a>
+                    <a href="/contacto" class="btn btn-primary ms-lg-3 mt-3 mt-lg-0">Evalúa tu caso</a>
                 </div>
             </div>
         </div>
     </nav>
 
-    <section class="py-5">
-        <div class="container">
-            <div class="row g-5 align-items-center">
-                <div class="col-lg-5">
-                    <img src="/abogado 2.png" class="img-fluid rounded-circle shadow" alt="Perfil Abogada Líder">
-                </div>
-                <div class="col-lg-7">
-                    <h1 class="display-5">Somos un Estudio Enfocado 100% en Derecho Laboral</h1>
-                    <p class="lead text-muted">Entendemos que los problemas laborales generan angustia e incertidumbre.
-                        Nuestro propósito es entregar una asesoría legal clara, profesional y empática, buscando la
-                        mejor estrategia para defender tus intereses, ya seas trabajador o empleador.</p>
-                    <p></p>
-                    <p>Creemos en la justicia laboral y trabajamos con dedicación para que nuestros clientes obtengan
-                        los resultados que merecen.</p>
-                </div>
-            </div>
-        </div>
-    </section>
-
-    <section class="py-5 bg-primary-soft">
-        <div class="container col-lg-10">
-            <h2 class="text-center mb-5">Honorarios Claros y Flexibles</h2>
-            <div class="row g-4 text-center">
-                <div class="col-md-4">
-                    <div class="card h-100 p-3 shadow-sm border-0">
-                        <i class="fas fa-percentage fa-3x text-primary my-3"></i>
-                        <h3 class="h4">A Resultado (Éxito)</h3>
-                        <p>Para casos de trabajadores (despidos, autodespidos), nuestros honorarios son un porcentaje de
-                            lo que obtengamos. Si no ganas, no pagas.</p>
-                    </div>
-                </div>
-                <div class="col-md-4">
-                    <div class="card h-100 p-3 shadow-sm border-0">
-                        <i class="fas fa-balance-scale-right fa-3x text-primary my-3"></i>
-                        <h3 class="h4">Mixto</h3>
-                        <p>Combinamos un pago inicial fijo (costos operacionales) con un porcentaje menor al éxito del
-                            juicio o negociación.</p>
-                    </div>
-                </div>
-                <div class="col-md-4">
-                    <div class="card h-100 p-3 shadow-sm border-0">
-                        <i class="fas fa-file-invoice fa-3x text-primary my-3"></i>
-                        <h3 class="h4">Fijo</h3>
-                        <p>Para asesorías a empleadores (reglamentos, auditorías, defensas) y redacción de documentos.
-                            Un valor único y transparente.</p>
+    <section class="error-section">
+        <div class="container text-center">
+            <div class="row justify-content-center">
+                <div class="col-lg-8">
+                    <i class="fas fa-search error-icon"></i>
+                    <h1 class="display-1 fw-bold text-primary">404</h1>
+                    <h2 class="mb-4">Página no encontrada</h2>
+                    <p class="lead text-muted mb-5">Lo sentimos, la página que estás buscando no existe, ha sido movida
+                        o la dirección es incorrecta.</p>
+                    <div class="d-grid gap-2 d-sm-flex justify-content-sm-center">
+                        <a href="/" class="btn btn-primary btn-lg px-4 gap-3">Volver al Inicio</a>
+                        <a href="/contacto" class="btn btn-outline-secondary btn-lg px-4">Contactar Soporte</a>
                     </div>
                 </div>
             </div>
-        </div>
-    </section>
-
-    <section class="py-5" style="background-color: #d18600; color: white;">
-        <div class="container text-center col-lg-8">
-            <h2 class="h1">Evaluemos tu caso</h2>
-            <p class="lead my-4">La primera consulta es siempre gratuita. Hablemos hoy para definir la mejor estrategia
-                para tu situación.</p>
-            <a href="contacto" class="btn btn-light btn-lg px-5">Te asesoramos sin costo alguno</a>
         </div>
     </section>
 
@@ -294,10 +271,8 @@
                 <div class="col-6 col-lg-2 offset-lg-1 mb-3">
                     <h5 class="h6 text-white">Servicios</h5>
                     <ul class="list-unstyled">
-                        <li><a href="/trabajadores/" class="text-decoration-none text-white-50">Trabajadores</a>
-                        </li>
-                        <li><a href="/empleadores/" class="text-decoration-none text-white-50">Empleadores</a>
-                        </li>
+                        <li><a href="/trabajadores/" class="text-decoration-none text-white-50">Trabajadores</a></li>
+                        <li><a href="/empleadores/" class="text-decoration-none text-white-50">Empleadores</a></li>
                     </ul>
                 </div>
                 <div class="col-6 col-lg-2 mb-3">
