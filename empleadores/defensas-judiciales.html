@@ -5,142 +5,562 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
 
-    <title>Defensas Judiciales para Empleadores - Abogados Laborales</title>
+    <title>Defensa Judicial para Empresas y Pymes | Abogados Laborales Patronales</title>
     <meta name="description"
-        content="Defensa especializada para empresas ante demandas por despido injustificado, tutela de derechos fundamentales, cobro de prestaciones y más.">
+        content="Expertos en contestación de demandas laborales, defensas ante la Inspección del Trabajo y juicios de tutela. 0% conflicto de interés: Solo defendemos empresas.">
 
     <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/css/bootstrap.min.css" rel="stylesheet">
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css">
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-    <link href="https://fonts.googleapis.com/css2?family=Lora:wght@700&family=Montserrat:wght@400;500&display=swap"
+    <link href="https://fonts.googleapis.com/css2?family=Lora:wght@700&family=Montserrat:wght@400;600;700&display=swap"
         rel="stylesheet">
 
     <style>
+        :root {
+            --bs-primary: #d18600;
+            --bs-primary-dark: #b17200;
+            --bs-secondary: #333333;
+            /* Removed Blue Tint */
+            --bs-light: #f8f9fa;
+            --alert-red: #e74c3c;
+            --surface-color: #ffffff;
+        }
+
         body {
             font-family: 'Montserrat', sans-serif;
+            color: #444;
+            background-color: #fcfcfc;
+            overflow-x: hidden;
         }
 
         h1,
         h2,
         h3,
         h4,
-        h5,
-        h6,
-        .navbar-brand {
+        .serif-font {
             font-family: 'Lora', serif;
-            font-weight: 700;
+            color: var(--bs-secondary);
         }
 
-        :root {
-            --bs-primary: #d18600;
-            --bs-primary-rgb: 214, 161, 4;
-            --bs-secondary: #f0a500;
+        /* Visually Appealing Utilities */
+        .shadow-soft {
+            box-shadow: 0 10px 40px -10px rgba(0, 0, 0, 0.08);
         }
 
+        .shadow-hover {
+            transition: transform 0.3s ease, box-shadow 0.3s ease;
+        }
+
+        .shadow-hover:hover {
+            transform: translateY(-5px);
+            box-shadow: 0 20px 40px -10px rgba(0, 0, 0, 0.12);
+        }
+
+        /* Urgency Bar */
+        .urgency-bar {
+            background: linear-gradient(90deg, #c0392b, #e74c3c);
+            color: white;
+            padding: 10px 0;
+            font-size: 0.9rem;
+            font-weight: 600;
+            letter-spacing: 0.5px;
+        }
+
+        /* Buttons */
         .btn-primary {
             background-color: var(--bs-primary) !important;
             border: none;
+            font-weight: 600;
+            padding: 12px 28px;
+            letter-spacing: 0.5px;
+            border-radius: 6px;
+            transition: all 0.3s ease;
+            box-shadow: 0 4px 15px rgba(209, 134, 0, 0.3);
         }
 
-        .text-primary {
-            color: var(--bs-primary) !important;
+        .btn-primary:hover {
+            background-color: var(--bs-primary-dark) !important;
+            transform: translateY(-2px);
+            box-shadow: 0 8px 25px rgba(209, 134, 0, 0.4);
         }
 
-        .bg-primary-soft {
-            background-color: rgba(var(--bs-primary-rgb), 0.05);
+        .btn-outline-primary {
+            color: var(--bs-primary);
+            border-color: var(--bs-primary);
+            font-weight: 600;
         }
 
-        .list-signals {
-            list-style: none;
-            padding-left: 0;
+        .btn-outline-primary:hover {
+            background-color: var(--bs-primary);
+            color: white;
         }
 
-        .list-signals li {
+        /* Hero Section */
+        .hero-section {
+            background: linear-gradient(135deg, #fffbf2 0%, #fff 100%);
+            border-bottom: 1px solid rgba(0, 0, 0, 0.05);
+            padding-top: 5rem;
+            padding-bottom: 5rem;
+        }
+
+        .trust-box {
+            background: rgba(255, 255, 255, 0.95);
+            backdrop-filter: blur(10px);
+            border-left: 5px solid var(--bs-primary);
+        }
+
+        /* Service Cards */
+        .service-card {
+            background: white;
+            border: 1px solid rgba(0, 0, 0, 0.05);
+            border-radius: 12px;
+            padding: 2.5rem 2rem;
+            height: 100%;
             position: relative;
-            padding-left: 2.2rem;
-            margin-bottom: 0.8rem;
+            overflow: hidden;
         }
 
-        .list-signals li::before {
-            content: '\f058';
-            font-family: "Font Awesome 6 Free";
-            font-weight: 900;
-            color: var(--bs-secondary);
+        .service-card::after {
+            content: '';
             position: absolute;
+            bottom: 0;
             left: 0;
-            top: 2px;
-            font-size: 1.2rem;
+            width: 100%;
+            height: 3px;
+            background: var(--bs-primary);
+            transform: scaleX(0);
+            transition: transform 0.3s ease;
+            transform-origin: left;
         }
 
-        .form-card {
-            background: #f8f9fa;
-            border: none;
+        .service-card:hover::after {
+            transform: scaleX(1);
+        }
+
+        .icon-circle {
+            width: 80px;
+            height: 80px;
+            background: rgba(209, 134, 0, 0.1);
+            border-radius: 50%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            margin: 0 auto 1.5rem;
+            color: var(--bs-primary);
+            transition: all 0.3s ease;
+        }
+
+        .service-card:hover .icon-circle {
+            background: var(--bs-primary);
+            color: white;
+        }
+
+        /* Trust Bar */
+        .trust-bar {
+            background-color: #f8f9fa;
+            border-top: 1px solid #eee;
+            border-bottom: 1px solid #eee;
+        }
+
+        .trust-item {
+            opacity: 0.6;
+            transition: opacity 0.3s;
+            font-weight: 600;
+            font-size: 0.9rem;
+            color: #6c757d;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            gap: 10px;
+        }
+
+        .trust-item:hover {
+            opacity: 1;
+            color: var(--bs-primary);
+        }
+
+        /* Form Section */
+        .form-section {
+            background-color: #fff;
+            position: relative;
+        }
+
+        .form-wrapper {
+            background: #ffffff;
+            border-radius: 16px;
+            border: 1px solid rgba(0, 0, 0, 0.08);
+            position: relative;
+            overflow: hidden;
+        }
+
+        .form-header-badge {
+            background: var(--bs-primary);
+            color: white;
+            text-align: center;
+            padding: 8px;
+            font-size: 0.85rem;
+            font-weight: 700;
+            letter-spacing: 1px;
+            text-transform: uppercase;
+        }
+
+        .form-control {
+            border: 1px solid #e0e0e0;
+            padding: 12px 15px;
+            font-size: 0.95rem;
             border-radius: 8px;
         }
 
-        .whatsapp-float {
-            position: fixed;
-            bottom: 20px;
-            right: 20px;
-            background-color: #25D366;
+        .form-control:focus {
+            border-color: var(--bs-primary);
+            box-shadow: 0 0 0 4px rgba(209, 134, 0, 0.1);
+        }
+
+        .notificado-alert {
+            background: #fff8e1;
+            border: 1px solid #ffe082;
+            border-radius: 8px;
+            padding: 15px;
+        }
+
+        /* Footer */
+        footer {
+            background-color: #1a252f;
+            color: rgba(255, 255, 255, 0.7);
+            font-size: 0.9rem;
+        }
+
+        footer a {
+            color: rgba(255, 255, 255, 0.7);
+            text-decoration: none;
+            transition: color 0.2s;
+        }
+
+        footer a:hover {
             color: white;
-            width: 60px;
-            height: 60px;
-            border-radius: 50%;
-            text-align: center;
-            font-size: 2.2rem;
-            line-height: 60px;
-            box-shadow: 0 2px 10px rgba(0, 0, 0, 0.2);
-            z-index: 100;
         }
 
-        /* --- INICIO MEJORAS PROFESIONALES --- */
-        /* 1. Efecto de subrayado animado para la navegación */
-        .navbar-nav .nav-item {
-            margin: 0 0.5rem;
+
+
+        /* Enforce Mustard Primary */
+        .text-primary {
+            color: #d18600 !important;
         }
 
-        .navbar-nav .nav-link {
+        .bg-primary {
+            background-color: #d18600 !important;
+        }
+
+        /* Icons special handling */
+        .phone-icon {
+            color: #0d6efd !important;
+        }
+
+        /* Blue for phone only */
+
+        @media (max-width: 768px) {
+            .urgency-text {
+                font-size: 0.75rem;
+                line-height: 1.3;
+            }
+
+            .urgency-bar {
+                padding: 8px 15px;
+            }
+        }
+
+        .trust-title {
+            font-size: 0.75rem;
+            font-weight: 700;
+            letter-spacing: 2px;
+            text-transform: uppercase;
+            color: #999;
             position: relative;
-            padding-bottom: 8px;
-            transition: color 0.3s ease;
+            display: inline-block;
+            margin-bottom: 2rem;
         }
 
-        .navbar-nav .nav-link::before {
+        .trust-title::before,
+        .trust-title::after {
+            content: "";
+            position: absolute;
+            top: 50%;
+            width: 40px;
+            height: 1px;
+            background-color: #e0e0e0;
+        }
+
+        .trust-title::before {
+            right: 100%;
+            margin-right: 15px;
+        }
+
+        .trust-title::after {
+            left: 100%;
+            margin-left: 15px;
+        }
+
+
+
+        /* Conversion Features Styles */
+        .grayscale {
+            filter: grayscale(100%);
+            transition: 0.3s;
+        }
+
+        .grayscale:hover {
+            filter: grayscale(0%);
+        }
+
+        #wa-badge {
+            animation: pulse-red 2s infinite;
+        }
+
+        @keyframes pulse-red {
+            0% {
+                transform: translate(-50%, -50%) scale(1);
+            }
+
+            50% {
+                transform: translate(-50%, -50%) scale(1.2);
+            }
+
+            100% {
+                transform: translate(-50%, -50%) scale(1);
+            }
+        }
+
+        /* Desktop WhatsApp Button */
+        @media (max-width: 767px) {
+            .wa-container {
+                display: none !important;
+            }
+        }
+
+        .wa-container {
+            position: fixed;
+            bottom: 25px;
+            right: 25px;
+            z-index: 9999;
+            display: flex;
+            align-items: center;
+            flex-direction: row-reverse;
+        }
+
+        .whatsapp-float {
+            background: #25D366;
+            color: white;
+            width: 65px;
+            height: 65px;
+            border-radius: 50%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-size: 32px;
+            box-shadow: 0 4px 20px rgba(37, 211, 102, 0.4);
+            transition: transform 0.3s cubic-bezier(0.175, 0.885, 0.32, 1.275);
+            position: relative;
+            text-decoration: none;
+        }
+
+        .whatsapp-float:hover {
+            transform: scale(1.1);
+            color: white;
+        }
+
+        /* Dynamic Message Bubble */
+        .wa-message-bubble {
+            background: white;
+            padding: 10px 18px;
+            border-radius: 12px;
+            box-shadow: 0 10px 25px rgba(0, 0, 0, 0.1);
+            margin-right: 15px;
+            font-size: 0.85rem;
+            font-weight: 600;
+            color: #333;
+            position: relative;
+            white-space: nowrap;
+            opacity: 0;
+            transform: translateX(20px);
+            transition: all 0.5s ease;
+            pointer-events: none;
+        }
+
+        .wa-message-bubble.show {
+            opacity: 1;
+            transform: translateX(0);
+        }
+
+        .wa-message-bubble::after {
             content: '';
             position: absolute;
-            width: 100%;
-            height: 2px;
-            bottom: 0;
-            left: 0;
-            background-color: var(--bs-secondary);
-            transform: scaleX(0);
-            transform-origin: bottom right;
-            transition: transform 0.4s cubic-bezier(0.86, 0, 0.07, 1);
+            right: -8px;
+            top: 50%;
+            transform: translateY(-50%);
+            border-top: 8px solid transparent;
+            border-bottom: 8px solid transparent;
+            border-left: 8px solid white;
         }
 
-        .navbar-nav .nav-link:hover::before,
-        .navbar-nav .nav-link.active::before {
-            transform: scaleX(1);
-            transform-origin: bottom left;
+        /* Desktop Notification Badge */
+        #wa-desktop-badge {
+            position: absolute;
+            top: -2px;
+            right: -2px;
+            background: #e74c3c;
+            color: white;
+            width: 22px;
+            height: 22px;
+            border-radius: 50%;
+            font-size: 12px;
+            font-weight: 700;
+            display: none;
+            align-items: center;
+            justify-content: center;
+            border: 2px solid white;
+            animation: pulse-red 2s infinite;
         }
 
-        .navbar-nav .nav-link:hover,
-        .navbar-nav .nav-link.active {
-            color: var(--bs-primary) !important;
+        /* Stats Section Premium */
+        .bg-stats {
+            background: linear-gradient(135deg, #15202b 0%, #1a252f 100%);
+            position: relative;
         }
 
-        /* 2. Interacciones y transiciones para botones */
-        .btn {
-            transition: transform 0.2s ease, box-shadow 0.2s ease;
+        .stat-item {
+            position: relative;
+            padding: 1rem;
         }
 
-        .btn:hover {
-            transform: translateY(-2px);
-            box-shadow: 0 4px 10px rgba(0, 0, 0, 0.15);
+        .stat-icon {
+            color: var(--bs-primary);
+        }
+
+        .counter-number {
+            font-size: 3.5rem;
+            font-weight: 700;
+            font-family: 'Lora', serif;
+            color: var(--bs-primary);
+            line-height: 1.2;
+            display: block;
+            text-shadow: 0 2px 10px rgba(0, 0, 0, 0.3);
+        }
+
+        .stat-label {
+            font-size: 0.85rem;
+            font-weight: 600;
+            letter-spacing: 1px;
+            text-transform: uppercase;
+            color: rgba(255, 255, 255, 0.6);
+        }
+
+        @media (min-width: 768px) {
+            .stat-divider::after {
+                content: '';
+                position: absolute;
+                right: 0;
+                top: 20%;
+                height: 60%;
+                width: 1px;
+                background: linear-gradient(to bottom, transparent, rgba(255, 255, 255, 0.1), transparent);
+            }
+        }
+
+        @media (max-width: 991px) {
+            .hero-section {
+                padding-top: 3rem;
+                padding-bottom: 3rem;
+                text-align: center;
+            }
+
+            .hero-btns {
+                justify-content: center !important;
+            }
+        }
+
+        /* Form Highlight Animation */
+        @keyframes highlight-pulse {
+            0% {
+                box-shadow: 0 0 0 0 rgba(209, 134, 0, 0.4);
+                border-color: var(--bs-primary);
+            }
+
+            70% {
+                box-shadow: 0 0 0 20px rgba(209, 134, 0, 0);
+                border-color: var(--bs-primary);
+            }
+
+            100% {
+                box-shadow: 0 0 0 0 rgba(209, 134, 0, 0);
+                border-color: #e0e0e0;
+            }
+        }
+
+        .form-highlight-active {
+            animation: highlight-pulse 1.5s ease-out infinite;
+        }
+
+        /* Interactive Cards */
+        .service-card {
+            cursor: pointer;
+        }
+
+        /* Mobile Sticky Footer Transitions - Only visible on Mobile */
+        @media (max-width: 767px) {
+            #mobile-sticky-footer {
+                display: block !important;
+                /* Control visibility via transform */
+                transform: translateY(110%);
+                transition: transform 0.6s cubic-bezier(0.16, 1, 0.3, 1);
+                /* Ultra smooth entry */
+                box-shadow: 0 -10px 30px rgba(0, 0, 0, 0.15) !important;
+            }
+
+            #mobile-sticky-footer.show {
+                transform: translateY(0);
+            }
+
+            /* Message Container for perfect centering */
+            #footer-message-container {
+                height: 25px;
+                display: flex;
+                align-items: center;
+                justify-content: center;
+                overflow: hidden;
+                margin-bottom: 4px;
+            }
+
+            #footer-message {
+                font-size: 0.75rem;
+                font-weight: 700;
+                text-transform: uppercase;
+                letter-spacing: 0.5px;
+                transition: opacity 0.4s ease, transform 0.4s ease;
+                opacity: 1;
+                transform: translateY(0);
+            }
+        }
+
+        /* Prevent display on desktop even if ID is strong */
+        @media (min-width: 768px) {
+            #mobile-sticky-footer {
+                display: none !important;
+            }
+        }
+
+        /* Text Animation Classes */
+        .text-fade-out {
+            opacity: 0 !important;
+            transform: translateY(-10px) !important;
+        }
+
+        .text-fade-in {
+            opacity: 0;
+            transform: translateY(10px);
         }
     </style>
+
     <!-- Google Tag Manager -->
     <script>(function (w, d, s, l, i) {
             w[l] = w[l] || []; w[l].push({
@@ -154,269 +574,622 @@
 </head>
 
 <body>
-    <!-- Google Tag Manager (noscript) -->
-    <noscript><iframe src="https://www.googletagmanager.com/ns.html?id=GTM-MN5NKVL8" height="0" width="0"
-            style="display:none;visibility:hidden"></iframe></noscript>
-    <!-- End Google Tag Manager (noscript) -->
 
-    <nav class="navbar navbar-expand-xl navbar-light bg-white shadow-sm sticky-top">
-        <div class="container align-items-center">
-            <a class="navbar-brand fw-bold" href="../"><img src="../images/logo.jpeg" alt="INNOVABOGADOS"
-                    class="img-fluid" style="max-width: 170px;"></a>
+    <!-- Barra de Urgencia -->
+    <div class="urgency-bar text-center">
+        <div class="container">
+            <div class="d-inline-flex align-items-center urgency-text">
+                <i class="fas fa-exclamation-triangle me-2"></i>
+                <span><strong>ATENCIÓN EMPLEADOR:</strong> Los plazos para contestar una demanda laboral son fatales. No
+                    pierda su derecho a defensa.</span>
+            </div>
+        </div>
+    </div>
 
-            <button class="navbar-toggler" type="button" data-bs-toggle="offcanvas" data-bs-target="#mobileNav"
-                aria-controls="mobileNav" aria-label="Toggle navigation">
-                <span class="navbar-toggler-icon"></span>
-            </button>
-
-            <div class="offcanvas offcanvas-end" tabindex="-1" id="mobileNav" aria-labelledby="mobileNavLabel">
-
-                <div class="offcanvas-header">
-                    <h5 class="offcanvas-title fw-bold" id="mobileNavLabel">Menú</h5>
-                    <button type="button" class="btn-close" data-bs-dismiss="offcanvas" aria-label="Close"></button>
-                </div>
-
-                <div class="offcanvas-body">
-
-                    <ul class="navbar-nav ms-auto mb-2 mb-lg-0">
-                        <li class="nav-item">
-                            <a class="nav-link" href="../">Inicio</a>
-                        </li>
-
-                        <li class="nav-item dropdown">
-                            <a class="nav-link dropdown-toggle" href="../trabajadores/" id="navTrabajadores"
-                                role="button" data-bs-toggle="dropdown" aria-expanded="false">
-                                Trabajadores
-                            </a>
-                            <ul class="dropdown-menu" aria-labelledby="navTrabajadores">
-                                <li><a class="dropdown-item" href="../trabajadores/despido-injustificado">Despido
-                                        Injustificado</a>
-                                </li>
-                                <li><a class="dropdown-item" href="../trabajadores/autodespido">Autodespido</a></li>
-                                <li><a class="dropdown-item" href="../trabajadores/tutela-ley-karin">Tutela (Ley
-                                        Karin)</a></li>
-                                <li><a class="dropdown-item" href="../trabajadores/cobro-finiquito">Cobro de
-                                        Finiquito</a></li>
-                                <li><a class="dropdown-item" href="../trabajadores/horas-extra">Horas Extra</a></li>
-                                <li>
-                                    <hr class="dropdown-divider">
-                                </li>
-                                <li><a class="dropdown-item" href="../trabajadores/"><strong>Ver todos
-                                            →</strong></a></li>
-                            </ul>
-                        </li>
-
-                        <li class="nav-item dropdown">
-                            <a class="nav-link dropdown-toggle active" href="./" id="navEmpleadores" role="button"
-                                data-bs-toggle="dropdown" aria-expanded="false">
-                                Empleadores
-                            </a>
-                            <ul class="dropdown-menu" aria-labelledby="navEmpleadores">
-                                <li><a class="dropdown-item" href="auditorias-laborales">Auditorías
-                                        Laborales</a></li>
-                                <li><a class="dropdown-item" href="reglamentos-internos">Reglamentos
-                                        Internos</a></li>
-                                <li><a class="dropdown-item" href="defensas-judiciales">Defensas
-                                        Judiciales</a></li>
-                                <li><a class="dropdown-item" href="mediaciones-dt">Mediaciones en la
-                                        DT</a></li>
-                                <li><a class="dropdown-item" href="capacitacion-ley-karin">Capacitaciones Ley Karin</a>
-                                </li>
-                                <li>
-                                    <hr class="dropdown-divider">
-                                </li>
-                                <li><a class="dropdown-item" href="./"><strong>Ver todos
-                                            →</strong></a></li>
-                            </ul>
-                        </li>
-
-                        <li class="nav-item">
-                            <a class="nav-link" href="../nosotros">Nosotros</a>
-                        </li>
-
-                        <li class="nav-item">
-                            <a class="nav-link" href="../casos-y-resultados">Casos de Éxito</a>
-                        </li>
-
-                        <li class="nav-item">
-                            <a class="nav-link" href="../recursos/">Recursos</a>
-                        </li>
-
-                        <li class="nav-item">
-                            <a class="nav-link" href="../contacto">Contacto</a>
-                        </li>
-                    </ul>
-
-                    <a href="../contacto" class="btn btn-primary ms-lg-3 mt-3 mt-lg-0">Evalúa tu caso</a>
-                </div>
+    <!-- Navegación Simplificada -->
+    <nav class="navbar navbar-expand-lg navbar-light bg-white sticky-top shadow-sm py-3">
+        <div class="container">
+            <a class="navbar-brand" href="../">
+                <img src="../images/logo.jpeg" alt="INNOVABOGADOS" style="max-height: 50px; width: auto;">
+            </a>
+            <div class="ms-auto d-flex align-items-center">
+                <a href="tel:+56930931860" class="me-4 text-decoration-none text-dark d-none d-md-block fw-bold">
+                    <i class="fas fa-phone-alt phone-icon me-2"></i>+56 9 3093 1860
+                </a>
+                <a href="#contacto-form" class="btn btn-outline-primary btn-sm px-4 rounded-pill"
+                    onclick="scrollToForm(event)">Solicitar Defensa</a>
             </div>
         </div>
     </nav>
 
-    <header class="py-5 bg-primary-soft">
-        <div class="container">
-            <div class="row g-5 align-items-center">
+    <!-- Hero Section -->
+    <header class="hero-section">
+        <div class="container text-center text-lg-start">
+            <div class="row align-items-center gy-5">
                 <div class="col-lg-7">
-                    <h1 class="display-5">Defensa Judicial y Desvinculaciones</h1>
-                    <p class="lead text-muted mt-3">Protegemos los intereses de su empresa en juicios laborales y lo
-                        asesoramos para realizar procesos de desvinculación correctos y seguros.</p>
-                    <div class="d-grid gap-2 d-sm-flex mt-4">
-                        <a href="#contacto-form" class="btn btn-primary btn-lg px-4">Solicitar Defensa</a>
-                        <a href="https://wa.me/56930931860?text=Hola%2C%20he%20sido%20demandado%20y%20necesito%20defensa%20laboral."
-                            class="btn btn-outline-secondary btn-lg px-4">Contactar por WhatsApp</a>
+                    <div class="d-inline-block bg-white border rounded-pill px-3 py-1 mb-4 shadow-sm">
+                        <small class="fw-bold tracking-wide text-danger"><i class="fas fa-shield-alt"></i> DEFENSA
+                            PATRONAL INMEDIATA</small>
+                    </div>
+                    <h1 class="display-4 fw-bold mb-4 lh-tight">
+                        ¿Su empresa recibió una demanda laboral o fiscalización?
+                    </h1>
+                    <h2 class="h4 text-muted mb-5 pe-lg-5 fw-normal">
+                        Evaluamos su riesgo y diseñamos su defensa en <strong>menos de 2 horas</strong>. Proteja su
+                        patrimonio y evite pagos excesivos hoy.
+                    </h2>
+                    <div class="d-flex flex-wrap gap-3 hero-btns">
+                        <!-- Mobile Call Button -->
+                        <a href="tel:+56930931860" class="btn btn-primary btn-lg shadow-soft px-4 d-lg-none">
+                            <i class="fas fa-phone-alt me-2"></i> HABLAR CON UN ABOGADO AHORA
+                        </a>
+                        <!-- Desktop WhatsApp Button -->
+                        <a href="https://wa.me/56930931860?text=Hola%2C%20necesito%20defensa%20laboral%20urgente%20para%20mi%20empresa."
+                            target="_blank" class="btn btn-primary btn-lg shadow-soft px-4 d-none d-lg-inline-block">
+                            <i class="fab fa-whatsapp me-2"></i> HABLAR CON UN ABOGADO AHORA
+                        </a>
+                        <a href="#contacto-form" class="btn btn-outline-dark btn-lg px-4" onclick="scrollToForm(event)">
+                            SOLICITAR EVALUACIÓN DE CASO
+                        </a>
                     </div>
                 </div>
-                <div class="col-lg-5" id="contacto-form">
-                    <div class="card form-card p-4 shadow-sm">
-                        <h3 class="h4 text-center mb-3">Urgencia Legal</h3>
-                        <form action="https://submit-form.com/oesbLIPMk" method="POST" class="submitform">
-                            <!-- SubmitForm config -->
-                            <input type="hidden" name="_redirect" class="js-redirect" value="">
-                            <input type="text" name="_honeypot" autocomplete="off" tabindex="-1"
-                                style="position:absolute;left:-9999px">
-                            <div class="mb-3"><input type="text" class="form-control" name="empresa"
-                                    placeholder="Nombre de la Empresa" required></div>
-                            <div class="mb-3"><input type="email" class="form-control" name="email"
-                                    placeholder="Email de Contacto" required></div>
-                            <div class="mb-3"><input type="tel" class="form-control" name="telefono"
-                                    placeholder="Teléfono" required></div>
 
-                            <div class="mb-3"><textarea class="form-control" name="mensaje" rows="3"
-                                    placeholder="Ej: Recibí una demanda por despido injustificado..."></textarea></div>
-                            <div class="form-check mb-3 small">
-                                <input class="form-check-input" type="checkbox" id="consentimiento"
-                                    name="consentimiento" required>
-                                <label class="form-check-label text-muted" for="consentimiento">Acepto la <a
-                                        href="../privacidad">política de privacidad</a> y <a
-                                        href="../terminos">términos</a>.</label>
+                <div class="col-lg-5">
+                    <div class="trust-box p-4 p-md-5 rounded-3 shadow-soft">
+                        <h3 class="h4 fw-bold mb-4 serif-font">¿Por qué InnovAbogados?</h3>
+                        <div class="d-flex mb-3 align-items-center">
+                            <i class="fas fa-check-circle text-primary me-3 fa-lg"></i>
+                            <div>
+                                <h5 class="fw-bold fs-6 mb-1">Especialistas en Litigio Patronal</h5>
+                                <p class="small text-muted mb-0">No somos generalistas. Sabemos cómo desarticular
+                                    demandas laborales.</p>
                             </div>
-                            <div class="d-grid"><button type="submit" class="btn btn-primary btn-lg">Contactar
-                                    Abogado</button></div>
-                        </form>
+                        </div>
+                        <div class="d-flex mb-3 align-items-center">
+                            <i class="fas fa-check-circle text-primary me-3 fa-lg"></i>
+                            <div>
+                                <h5 class="fw-bold fs-6 mb-1">100% Pro-Empresa</h5>
+                                <p class="small text-muted mb-0">Nunca representamos trabajadores, garantizando lealtad
+                                    total a sus intereses.</p>
+                            </div>
+                        </div>
+                        <div class="d-flex align-items-center">
+                            <i class="fas fa-check-circle text-primary me-3 fa-lg"></i>
+                            <div>
+                                <h5 class="fw-bold fs-6 mb-1">Visión de Negocio</h5>
+                                <p class="small text-muted mb-0">Priorizamos el costo-beneficio: peleamos cuando se debe
+                                    y negociamos cuando conviene.</p>
+                            </div>
+                        </div>
                     </div>
                 </div>
             </div>
         </div>
     </header>
 
-    <section class="py-5">
-        <div class="container col-lg-9">
-            <h2 class="text-center mb-4">Nuestra Experiencia en Defensa Laboral</h2>
-            <p class="text-center lead text-muted col-lg-10 mx-auto">Representamos a empleadores en una amplia gama de
-                juicios laborales, buscando siempre la mejor estrategia para su negocio:</p>
-            <div class="row mt-4">
-                <div class="col-md-6">
-                    <ul class="list-signals">
-                        <li>Demandas por Despido Injustificado, Indebido o Improcedente.</li>
-                        <li>Procedimientos de Tutela de Derechos Fundamentales.</li>
-                        <li>Demandas por Enfermedades Profesionales o Accidentes del Trabajo.</li>
-                    </ul>
-                </div>
-                <div class="col-md-6">
-                    <ul class="list-signals">
-                        <li>Juicios por Cobro de Prestaciones e Indemnizaciones.</li>
-                        <li>Defensa ante Prácticas Antisindicales.</li>
-                        <li>Asesoría y redacción de cartas de despido para
-                </div>
-            </div>
-    </section>
-
-    <section class="py-5 bg-light">
-        <div class="container col-lg-9">
-            <h2 class="text-center mb-5">Nuestra Estrategia de Defensa</h2>
-            <div class="row g-4 text-center">
-                <div class="col-md-4">
-                    <div class="p-3">
-                        <i class="fas fa-search fa-3x text-primary mb-3"></i>
-                        <h3 class="h4">1. Análisis del Caso</h3>
-                        <p class="text-muted">Estudiamos la demanda, los hechos y las pruebas para evaluar las
-                            fortalezas y debilidades de su posición.</p>
-                    </div>
-                </div>
-                <div class="col-md-4">
-                    <div class="p-3">
-                        <i class="fas fa-gavel fa-3x text-primary mb-3"></i>
-                        <h3 class="h4">2. Contestación y Defensa</h3>
-                        <p class="text-muted">Preparamos una sólida contestación a la demanda y lo representamos en
-                            todas las audiencias judiciales.</p>
-                    </div>
-                </div>
-                <div class="col-md-4">
-                    <div class="p-3">
-                        <i class="fas fa-handshake fa-3x text-primary mb-3"></i>
-                        <h3 class="h4">3. Negociación y Cierre</h3>
-                        <p class="text-muted">Buscamos activamente acuerdos favorables (conciliaciones) para evitar
-                            juicios largos y costosos cuando es conveniente.</p>
-                    </div>
-                </div>
-            </div>
-        </div>
-    </section>
-
-    <section class="py-5">
-        <div class="container text-center col-lg-8">
-            <h2 class="h1">Proteja su empresa</h2>
-            <p class="lead my-4">Una demanda laboral no es el fin del mundo si cuenta con la defensa adecuada.
-                Contáctenos de inmediato, los plazos son breves.</p>
-            <a href="../contacto" class="btn btn-primary btn-lg px-5">Obtener Defensa Legal</a>
-        </div>
-    </section>
-
-    <footer class="py-5 bg-dark text-white">
+    <!-- Social Proof Section -->
+    <section class="py-5 bg-white">
         <div class="container">
-            <div class="row">
-                <div class="col-lg-4 mb-4 mb-lg-0">
-                    <a class="navbar-brand fs-4 text-white fw-bold" href="/"><img src="/images/logo.jpeg"
-                            alt="INNOVABOGADOS" class="img-fluid" style="max-width: 170px;"></a>
-                    <p class="text-white-50 mt-2">Asesoría laboral experta en Chile. © 2025</p>
+            <div class="text-center mb-5">
+                <h2 class="fw-bold">Resultados Reales para Nuestros Clientes</h2>
+                <p class="text-muted">Casos donde evitamos el impacto financiero en la empresa.</p>
+            </div>
+            <div class="row g-4">
+                <div class="col-md-6">
+                    <div class="p-4 border rounded-3 h-100 bg-light">
+                        <span class="badge bg-success mb-2">Caso de Éxito: Retail</span>
+                        <h4 class="fw-bold">Multa Millonaria Inminente</h4>
+                        <p class="small text-muted italic">"Empresa enfrentaba multa de 60 UTM por supuestas
+                            infracciones
+                            de seguridad."</p>
+                        <p class="mb-0"><strong>Resultado:</strong> Logramos la <b>rebaja total (100%)</b> de la multa
+                            mediante una defensa administrativa estratégica ante la DT.</p>
+                    </div>
                 </div>
-                <div class="col-6 col-lg-2 offset-lg-1 mb-3">
-                    <h5 class="h6 text-white">Servicios</h5>
-                    <ul class="list-unstyled">
-                        <li><a href="/trabajadores/" class="text-decoration-none text-white-50">Trabajadores</a>
-                        </li>
-                        <li><a href="/empleadores/" class="text-decoration-none text-white-50">Empleadores</a>
-                        </li>
-                    </ul>
-                </div>
-                <div class="col-6 col-lg-2 mb-3">
-                    <h5 class="h6 text-white">Legal</h5>
-                    <ul class="list-unstyled">
-                        <li><a href="/privacidad" class="text-decoration-none text-white-50">Privacidad</a></li>
-                        <li><a href="/terminos" class="text-decoration-none text-white-50">Términos</a></li>
-                        <li><a href="/cookies" class="text-decoration-none text-white-50">Cookies</a></li>
-                    </ul>
-                </div>
-                <div class="col-lg-3">
-                    <h5 class="h6 text-white">Contacto</h5>
-                    <ul class="list-unstyled text-white-50">
-                        <li><i class="fas fa-map-marker-alt me-2"></i> San Sebastián 2750, Of. 603, Las Condes, Santiago
-                        </li>
-                        <li><i class="fas fa-phone me-2"></i>+56 9 3093 1860‬</li>
-                        <li><i class="fas fa-envelope me-2"></i> contacto@innovabogados.cl</li>
-                        <p class="text-white-50 small">Desarrollado por <a href="https://paginasfast.cl"
-                                class="text-white-50 text-decoration-none" target="_blank">PaginasFast.cl</a></p>
-                    </ul>
-                    <div class="mt-3">
-                        <a href="#" class="text-white me-3"><i class="fab fa-linkedin fa-lg"></i></a>
-                        <a href="#" class="text-white"><i class="fab fa-twitter fa-lg"></i></a>
+                <div class="col-md-6">
+                    <div class="p-4 border rounded-3 h-100 bg-light">
+                        <span class="badge bg-success mb-2">Caso de Éxito: Construcción</span>
+                        <h4 class="fw-bold">Demanda por Autodespido</h4>
+                        <p class="small text-muted italic">"Trabajador exigía indemnización de $15.000.000 alegando
+                            acoso."</p>
+                        <p class="mb-0"><strong>Resultado:</strong> Desestimamos la tutela laboral en juicio, reduciendo
+                            el pago a <b>$0</b> por concepto de indemnización adicional.</p>
                     </div>
                 </div>
             </div>
+        </div>
+    </section>
+
+    <!-- Trust Bar (Industry) -->
+    <div class="trust-bar py-4">
+        <div class="container">
+            <div class="text-center">
+                <span class="trust-title">EXPERIENCIA COMPROBADA EN INDUSTRIAS CLAVE</span>
+            </div>
+            <div class="row justify-content-center g-4 text-center">
+                <div class="col-6 col-md-3 trust-item">
+                    <i class="fas fa-hard-hat fa-2x"></i> <span>CONSTRUCCIÓN</span>
+                </div>
+                <div class="col-6 col-md-3 trust-item">
+                    <i class="fas fa-shopping-cart fa-2x"></i> <span>RETAIL Y COMERCIO</span>
+                </div>
+                <div class="col-6 col-md-3 trust-item">
+                    <i class="fas fa-truck fa-2x"></i> <span>TRANSPORTE</span>
+                </div>
+                <div class="col-6 col-md-3 trust-item">
+                    <i class="fas fa-laptop-code fa-2x"></i> <span>TECNOLOGÍA</span>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <!-- Servicios -->
+    <section class="py-5">
+        <div class="container py-lg-4">
+            <div class="text-center mb-5 mx-auto col-lg-8">
+                <h2 class="fw-bold mb-3">Nuestras Áreas de Práctica</h2>
+                <p class="text-muted fs-5">Intervención legal experta en las etapas críticas del conflicto laboral.</p>
+            </div>
+            <div class="row g-4">
+                <!-- Card 1 -->
+                <div class="col-md-4">
+                    <div class="service-card shadow-hover text-center" onclick="openServiceModal('demandas')">
+                        <div class="icon-circle">
+                            <i class="fas fa-file-contract fa-2x"></i>
+                        </div>
+                        <h3 class="h4 fw-bold mb-3">Contestación de Demandas</h3>
+                        <p class="text-muted">Respuesta técnica y contundente a demandas por despido injustificado,
+                            nulidad y cobro de prestaciones. El primer escrito es clave.</p>
+                    </div>
+                </div>
+                <!-- Card 2 -->
+                <div class="col-md-4">
+                    <div class="service-card shadow-hover text-center" onclick="openServiceModal('juicios')">
+                        <div class="icon-circle">
+                            <i class="fas fa-gavel fa-2x"></i>
+                        </div>
+                        <h3 class="h4 fw-bold mb-3">Juicios del Trabajo</h3>
+                        <p class="text-muted">Representación en Audiencias Preparatorias y de Juicio. Litigamos
+                            agresivamente para desestimar pretensiones o reducir montos.</p>
+                    </div>
+                </div>
+                <!-- Card 3 -->
+                <div class="col-md-4">
+                    <div class="service-card shadow-hover text-center" onclick="openServiceModal('administrativa')">
+                        <div class="icon-circle">
+                            <i class="fas fa-building fa-2x"></i>
+                        </div>
+                        <h3 class="h4 fw-bold mb-3">Defensa Administrativa (DT)</h3>
+                        <p class="text-muted">Asistencia a comparendos ante la Inspección del Trabajo y reclamación
+                            judicial de multas administrativas improcedentes.</p>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <section class="py-5 bg-stats text-white">
+        <div class="container py-4">
+            <div class="row g-4">
+                <div class="col-6 col-md-3 stat-divider">
+                    <div class="stat-item text-center">
+                        <i class="fas fa-building fa-2x mb-3 stat-icon"></i>
+                        <div class="counter-number counter" data-target="150">0</div>
+                        <div class="stat-label">Empresas Defendidas</div>
+                    </div>
+                </div>
+                <div class="col-6 col-md-3 stat-divider">
+                    <div class="stat-item text-center">
+                        <i class="fas fa-gavel fa-2x mb-3 stat-icon"></i>
+                        <div class="counter-number counter" data-target="500">0</div>
+                        <div class="stat-label">Juicios Ganados</div>
+                    </div>
+                </div>
+                <div class="col-6 col-md-3 stat-divider">
+                    <div class="stat-item text-center">
+                        <i class="fas fa-briefcase fa-2x mb-3 stat-icon"></i>
+                        <div class="counter-number counter" data-target="12">0</div>
+                        <div class="stat-label">Años de Trayectoria</div>
+                    </div>
+                </div>
+                <div class="col-6 col-md-3">
+                    <div class="stat-item text-center">
+                        <i class="fas fa-file-invoice-dollar fa-2x mb-3 stat-icon"></i>
+                        <div class="counter-number counter" data-target="85">0</div>
+                        <div class="stat-label">% Ahorro Promedio</div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Formulario Section -->
+    <section class="form-section py-5" id="contacto-form">
+        <div class="container col-lg-8 col-xl-7">
+            <div class="form-wrapper shadow-soft">
+                <div class="form-header-badge">CANAL DE ATENCIÓN PRIORITARIA PARA EMPRESAS</div>
+                <div class="p-4 p-md-5">
+                    <div class="text-center mb-4">
+                        <h2 class="fw-bold mb-2 serif-font">Evaluación Preliminar de Caso</h2>
+                        <p class="text-muted">Complete el formulario y un abogado senior revisará los antecedentes de
+                            inmediato.</p>
+                    </div>
+
+                    <form action="https://submit-form.com/oesbLIPMk" method="POST" class="submitform needs-validation">
+                        <input type="hidden" name="_redirect" class="js-redirect" value="">
+
+                        <div class="row g-3">
+                            <div class="col-md-6">
+                                <label class="form-label fw-bold small text-secondary">Nombre de Contacto</label>
+                                <input type="text" class="form-control" name="nombre" required
+                                    placeholder="Ej: Juan Pérez">
+                            </div>
+                            <div class="col-md-6">
+                                <label class="form-label fw-bold small text-secondary">Empresa Representada <span
+                                        class="text-danger">*</span></label>
+                                <input type="text" class="form-control" name="empresa" required
+                                    placeholder="Razón Social">
+                            </div>
+                            <div class="col-md-6">
+                                <label class="form-label fw-bold small text-secondary">Correo Corporativo</label>
+                                <input type="email" class="form-control" name="email" required
+                                    placeholder="email@empresa.com">
+                            </div>
+                            <div class="col-md-6">
+                                <label class="form-label fw-bold small text-secondary">Teléfono / WhatsApp <span
+                                        class="text-muted fw-normal fst-italic">(Opcional)</span></label>
+                                <input type="tel" class="form-control" name="telefono" placeholder="+56 9...">
+                            </div>
+
+                            <div class="col-12 mt-4">
+                                <div class="notificado-alert d-flex align-items-start gap-3">
+                                    <div class="form-check form-switch pt-1">
+                                        <input class="form-check-input" type="checkbox" name="notificado_judicialmente"
+                                            id="notificado" value="Si"
+                                            style="width: 3em; height: 1.5em; cursor: pointer;">
+                                    </div>
+                                    <div>
+                                        <label class="form-check-label fw-bold text-dark cursor-pointer"
+                                            for="notificado" style="cursor: pointer;">
+                                            ¿YA FUE NOTIFICADO JUDICIALMENTE?
+                                        </label>
+                                        <p class="mb-0 small text-muted lh-sm mt-1">Marque esta casilla si ya recibió la
+                                            demanda. Esto activará una revisión de plazos fatales inmediata.</p>
+                                    </div>
+                                </div>
+                            </div>
+
+                            <div class="col-12 mt-4">
+                                <div class="d-grid">
+                                    <button type="submit" class="btn btn-primary btn-lg shadow-hover py-3">SOLICITAR
+                                        EVALUACIÓN SIN COSTO</button>
+                                </div>
+                                <p class="text-center text-muted small mt-3 mb-0">
+                                    <i class="fas fa-lock me-1"></i> Sus datos están protegidos por secreto profesional
+                                    abogado-cliente.
+                                </p>
+                            </div>
+                        </div>
+                    </form>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Footer -->
+    <footer class="py-5">
+        <div class="container text-center">
+            <a href="../" class="d-inline-block mb-4">
+                <img src="../images/logo.jpeg" alt="INNOVABOGADOS"
+                    style="max-height: 50px; width: auto; filter: brightness(0.9);">
+            </a>
+            <ul class="list-inline mb-4">
+                <li class="list-inline-item mx-3"><a href="../" class="small fw-bold">INICIO</a></li>
+                <li class="list-inline-item mx-3"><a href="../trabajadores/" class="small fw-bold">TRABAJADORES</a></li>
+                <li class="list-inline-item mx-3"><a href="./"
+                        class="small fw-bold text-white text-decoration-underline">EMPRESAS</a></li>
+                <li class="list-inline-item mx-3"><a href="../contacto" class="small fw-bold">CONTACTO</a></li>
+            </ul>
+            <hr class="border-secondary col-lg-8 mx-auto opacity-25 mb-4">
+            <div class="row justify-content-center small text-white-50">
+                <div class="col-auto">
+                    © 2026 InnovAbogados. Todos los derechos reservados.
+                </div>
+                <div class="col-auto">
+                    <a href="../privacidad">Política de Privacidad</a> | <a href="../terminos">Términos de Servicio</a>
+                </div>
+            </div>
+            <p class="mt-4 mb-0 text-white-50" style="font-size: 0.75rem;">San Sebastián 2750, Of. 603, Las Condes,
+                Santiago.</p>
         </div>
     </footer>
 
-    <a href="https://wa.me/56930931860?text=Hola%2C%20necesito%20defensa%20laboral%20para%20mi%20empresa."
-        target="_blank" class="whatsapp-float" aria-label="Contactar por WhatsApp">
-        <i class="fab fa-whatsapp"></i>
-    </a>
+    <!-- WhatsApp Button -->
+    <!-- WhatsApp Button Desktop -->
+    <div class="wa-container">
+        <a href="https://wa.me/56930931860?text=Hola%2C%20necesito%20defensa%20laboral%20urgente%20para%20mi%20empresa."
+            target="_blank" class="whatsapp-float" id="wa-anchor">
+            <i class="fab fa-whatsapp"></i>
+            <span id="wa-desktop-badge">1</span>
+        </a>
+        <div class="wa-message-bubble" id="wa-bubble">
+            ¿Dudas con una demanda? Escríbenos.
+        </div>
+    </div>
 
     <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/js/bootstrap.bundle.min.js"></script>
+
     <script>
-        (function () {
-            var url = location.origin + '/mensaje-enviado.html';
-            document.querySelectorAll('form.submitform .js-redirect').forEach(function (el) { el.value = url; });
-        })();
+        const counters = document.querySelectorAll('.counter');
+        const speed = 200;
+
+        const startCounters = () => {
+            counters.forEach(counter => {
+                const updateCount = () => {
+                    const target = +counter.getAttribute('data-target');
+                    const count = +counter.innerText;
+                    const inc = target / speed;
+
+                    if (count < target) {
+                        counter.innerText = Math.ceil(count + inc);
+                        setTimeout(updateCount, 15);
+                    } else {
+                        counter.innerText = target + (counter.parentElement.innerText.includes('%') ? '%' : '+');
+                    }
+                };
+                updateCount();
+            });
+        };
+
+        // Detectar scroll para iniciar animación
+        const observer = new IntersectionObserver((entries) => {
+            if (entries[0].isIntersecting) {
+                startCounters();
+                observer.disconnect(); // Se ejecuta solo una vez
+            }
+        }, { threshold: 0.5 });
+
+        observer.observe(document.querySelector('.bg-stats'));
+
+        // Mobile Sticky Footer Logic (Professional)
+        document.addEventListener('DOMContentLoaded', function () {
+            const footer = document.getElementById('mobile-sticky-footer');
+            const msgElement = document.getElementById('footer-message');
+            const badge = document.getElementById('wa-badge');
+
+            // 1. Optimized Messages for Employers
+            const mobileMessages = [
+                "¿Le notificaron una demanda?",
+                "Evaluación de riesgo en 2 horas",
+                "Proteja el patrimonio de su empresa",
+                "Estrategia de defensa 100% patronal",
+                "Hable ahora con un Abogado Senior"
+            ];
+
+            let currentMsgIndex = 0;
+            let cycleStarted = false;
+            let messageInterval;
+
+            // 2. Smooth Message Rotation
+            function rotateMessages() {
+                msgElement.classList.add('text-fade-out');
+
+                setTimeout(() => {
+                    currentMsgIndex = (currentMsgIndex + 1) % mobileMessages.length;
+                    msgElement.innerText = mobileMessages[currentMsgIndex];
+                    msgElement.classList.remove('text-fade-out');
+                    msgElement.classList.add('text-fade-in');
+
+                    // Force reflow
+                    msgElement.offsetWidth;
+                    msgElement.classList.remove('text-fade-in');
+                }, 400); // Synced with CSS transition
+            }
+
+            // 3. Scroll Logic
+            window.addEventListener('scroll', function () {
+                // Activate on first scroll > 20px
+                if (window.scrollY > 20 && !cycleStarted) {
+                    footer.classList.add('show');
+                    cycleStarted = true;
+
+                    // Start message cycle (4.5s per message)
+                    messageInterval = setInterval(rotateMessages, 4500);
+
+                    // Start notification logic
+                    startNotificationLogic();
+                }
+            });
+
+            function startNotificationLogic() {
+                // Notification 1
+                setTimeout(() => {
+                    if (badge) {
+                        badge.style.display = 'block';
+                        badge.innerText = '1';
+                    }
+                }, 5000);
+
+                // Notification 2
+                setTimeout(() => {
+                    if (badge) badge.innerText = '2';
+                }, 15000);
+            }
+        });
+
+        // Desktop WhatsApp Logic
+        const waBubble = document.getElementById('wa-bubble');
+        const waBadge = document.getElementById('wa-desktop-badge');
+        const waMessages = [
+            "¿Dudas legales? Chat directo aquí.",
+            "Evaluación gratuita por WhatsApp.",
+            "Defensa inmediata: Habla con un abogado.",
+            "¿Le notificaron una demanda? Escríbanos."
+        ];
+
+        let msgIndex = 0;
+
+        // 1. Show bubble after 3s
+        setTimeout(() => {
+            if (waBubble) waBubble.classList.add('show');
+        }, 3000);
+
+        // 2. Rotate messages every 6s (with 500ms fade)
+        setInterval(() => {
+            if (waBubble) {
+                waBubble.classList.remove('show');
+                setTimeout(() => {
+                    msgIndex = (msgIndex + 1) % waMessages.length;
+                    waBubble.innerText = waMessages[msgIndex];
+                    waBubble.classList.add('show');
+                }, 500);
+            }
+        }, 6000);
+
+        // 3. Desktop Notification 1 (5s)
+        setTimeout(() => {
+            if (waBadge) {
+                waBadge.style.display = 'flex';
+                waBadge.innerText = '1';
+            }
+        }, 5000);
+
+        // 4. Desktop Notification 2 (15s)
+        setTimeout(() => {
+            if (waBadge) waBadge.innerText = '2';
+        }, 15000);
+
+        // Remove badge on click
+        const waAnchor = document.getElementById('wa-anchor');
+        if (waAnchor) {
+            waAnchor.addEventListener('click', () => {
+                if (waBadge) waBadge.style.display = 'none';
+            });
+        }
+    </script>
+
+    <div id="mobile-sticky-footer" class="d-md-none fixed-bottom bg-white border-top p-2" style="z-index: 1050;">
+        <div class="container">
+            <div id="footer-message-container">
+                <div id="footer-message" class="text-primary text-center">
+                    ¿Le notificaron una demanda?
+                </div>
+            </div>
+
+            <div class="row g-2">
+                <div class="col-4">
+                    <a href="tel:+56930931860" class="btn btn-dark w-100 py-2 shadow-sm">
+                        <i class="fas fa-phone-alt"></i> <span style="font-size: 0.85rem;">Llamar</span>
+                    </a>
+                </div>
+                <div class="col-8">
+                    <a href="https://wa.me/56930931860?text=Hola%2C%20necesito%20defensa%20laboral%20urgente."
+                        class="btn btn-success w-100 py-2 position-relative shadow-sm" id="wa-sticky">
+                        <i class="fab fa-whatsapp"></i> <span style="font-size: 0.85rem;">Defensa Inmediata</span>
+                        <span id="wa-badge"
+                            class="position-absolute top-0 start-100 translate-middle badge rounded-pill bg-danger"
+                            style="display: none; border: 2px solid white;">1</span>
+                    </a>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <!-- Service Details Modal -->
+    <div class="modal fade" id="serviceModal" tabindex="-1" aria-hidden="true" style="z-index: 10000;">
+        <div class="modal-dialog modal-dialog-centered">
+            <div class="modal-content border-0 shadow-lg">
+                <div class="modal-header bg-light border-0">
+                    <h5 class="modal-title fw-bold text-secondary" id="serviceModalLabel">Detalles del Servicio</h5>
+                    <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+                </div>
+                <div class="modal-body p-4 text-center">
+                    <div class="mb-4 text-primary">
+                        <i id="modalIcon" class="fas fa-gavel fa-3x"></i>
+                    </div>
+                    <h3 id="modalTitle" class="fw-bold mb-3">Título del Servicio</h3>
+                    <p id="modalDesc" class="text-muted mb-4">Descripción del servicio.</p>
+
+                    <div class="d-grid gap-2">
+                        <a href="https://wa.me/56930931860?text=Hola..." target="_blank"
+                            class="btn btn-success py-2 fw-bold">
+                            <i class="fab fa-whatsapp me-2"></i> CONSULTAR POR WHATSAPP
+                        </a>
+                        <a href="tel:+56930931860" class="btn btn-dark py-2 fw-bold">
+                            <i class="fas fa-phone-alt me-2"></i> LLAMAR AHORA
+                        </a>
+                        <button onclick="scrollToFormFromModal()" class="btn btn-outline-primary py-2 fw-bold">
+                            IR AL FORMULARIO
+                        </button>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <script>
+        // Service Data
+        const serviceData = {
+            'demandas': {
+                title: "Contestación de Demandas",
+                desc: "Si su empresa fue notificada, el reloj corre. Redactamos la contestación con estrategia probada para nulidad o reducción de montos.",
+                icon: "fa-file-contract"
+            },
+            'juicios': {
+                title: "Juicios del Trabajo",
+                desc: "Defensa experta en audiencia preparatoria y de juicio. No deje que un mal manejo legal le cueste millones a su empresa.",
+                icon: "fa-gavel"
+            },
+            'administrativa': {
+                title: "Defensa Administrativa (DT)",
+                desc: "Representación en comparendos y reclamación de multas. Evite sanciones injustas de la Inspección del Trabajo.",
+                icon: "fa-building"
+            }
+        };
+
+        const serviceModal = new bootstrap.Modal(document.getElementById('serviceModal'));
+
+        function openServiceModal(serviceKey) {
+            const data = serviceData[serviceKey];
+            if (data) {
+                document.getElementById('serviceModalLabel').innerText = "Detalle de Servicio";
+                document.getElementById('modalTitle').innerText = data.title;
+                document.getElementById('modalDesc').innerText = data.desc;
+                document.getElementById('modalIcon').className = `fas ${data.icon} fa-3x`;
+                serviceModal.show();
+            }
+        }
+
+        function scrollToForm(e) {
+            if (e) e.preventDefault();
+            const formSection = document.querySelector('#contacto-form');
+            const formWrapper = document.querySelector('.form-wrapper');
+
+            formSection.scrollIntoView({ behavior: 'smooth' });
+
+            // Wait for scroll to finish mostly, then animate
+            setTimeout(() => {
+                formWrapper.classList.add('form-highlight-active');
+                setTimeout(() => {
+                    formWrapper.classList.remove('form-highlight-active');
+                }, 2000);
+            }, 500);
+        }
+
+        // Set Redirect URL dynamically to the success page
+        const redirectInput = document.querySelector('.js-redirect');
+        if (redirectInput) {
+            // Resolves '../mensaje-enviado.html' relative to current page to get absolute URL
+            redirectInput.value = new URL('../mensaje-enviado.html', window.location.href).href;
+        }
+
+        function scrollToFormFromModal() {
+            serviceModal.hide();
+            // Allow modal to close before scrolling
+            setTimeout(() => {
+                scrollToForm(null);
+            }, 300);
+        }
     </script>
 </body>
 
