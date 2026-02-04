@@ -17,6 +17,9 @@
     <link
         href="https://fonts.googleapis.com/css2?family=Cinzel:wght@400;600;700&family=Manrope:wght@300;400;500;700&display=swap"
         rel="stylesheet">
+    <!-- Preload LCP Image para Performance -->
+    <link rel="preload" as="image"
+        href="https://images.unsplash.com/photo-1497366216548-37526070297c?auto=format&fit=crop&q=80&w=1920">
 
     <style>
         :root {
@@ -229,6 +232,8 @@
             box-shadow: 0 30px 60px -12px rgba(0, 0, 0, 0.8);
             border-top: 5px solid var(--gold-main);
             position: relative;
+            /* Transición suave para cuando entra/sale la animación */
+            transition: all 0.6s cubic-bezier(0.25, 0.8, 0.25, 1);
         }
 
         /* Importante: Dentro del formulario blanco, forzamos texto oscuro */
@@ -290,37 +295,89 @@
             color: var(--navy-deep);
         }
 
-        /* --- MARQUESINA --- */
-        .marquee-container {
-            background: #000;
-            padding: 12px 0;
-            overflow: hidden;
-            white-space: nowrap;
-            border-top: 1px solid #333;
-            border-bottom: 1px solid #333;
+        /* --- BARRA EXPERTISE ESTÁTICA (Reemplaza a la marquesina superior) --- */
+        .expertise-bar {
+            background: #020617;
+            /* Fondo muy oscuro, casi negro */
+            border-bottom: 1px solid rgba(255, 255, 255, 0.05);
+            padding: 1.5rem 0;
+            position: relative;
+            z-index: 10;
         }
 
-        .marquee-content {
-            display: inline-block;
-            animation: scroll 30s linear infinite;
+        /* --- BARRA EXPERTISE (GRILLA ESTRUCTURADA) --- */
+        .expertise-bar {
+            background: #0f172a;
+            /* Mismo fondo dark del sitio */
+            border-bottom: 1px solid rgba(255, 255, 255, 0.05);
+            padding: 1.5rem 0;
         }
 
-        .marquee-item {
-            color: #94a3b8;
-            margin: 0 30px;
-            font-weight: 600;
+        .expertise-grid {
+            display: grid;
+            /* Móvil: 2 columnas iguales */
+            grid-template-columns: repeat(2, 1fr);
+            gap: 1rem;
+            /* Espacio entre elementos */
+            align-items: center;
+        }
+
+        /* Escritorio: 6 columnas iguales en una sola línea */
+        @media (min-width: 992px) {
+            .expertise-grid {
+                grid-template-columns: repeat(6, 1fr);
+                gap: 0;
+                /* Quitamos gap para usar bordes si se quiere, o mantener limpieza */
+            }
+        }
+
+        .expertise-item {
+            display: flex;
+            flex-direction: column;
+            /* Icono arriba, texto abajo para centrar mejor */
+            align-items: center;
+            justify-content: center;
+            text-align: center;
+            padding: 10px;
+            color: var(--text-muted-light);
+            font-size: 0.75rem;
+            font-weight: 700;
             text-transform: uppercase;
-            letter-spacing: 2px;
-            font-size: 0.85rem;
+            letter-spacing: 1px;
+            transition: all 0.3s ease;
+            border-radius: 6px;
         }
 
-        @keyframes scroll {
-            0% {
-                transform: translateX(0);
+        /* Icono */
+        .expertise-item i {
+            color: var(--gold-main);
+            font-size: 1.5rem;
+            margin-bottom: 8px;
+            /* Espacio entre icono y texto */
+            opacity: 0.8;
+            transition: 0.3s;
+        }
+
+        /* Hover Effect: Se ilumina sutilmente el fondo */
+        .expertise-item:hover {
+            background: rgba(255, 255, 255, 0.03);
+            color: white;
+            transform: translateY(-3px);
+        }
+
+        .expertise-item:hover i {
+            opacity: 1;
+            transform: scale(1.1);
+        }
+
+        /* Ajuste para escritorio: Línea separadora sutil entre elementos */
+        @media (min-width: 992px) {
+            .expertise-item {
+                border-right: 1px solid rgba(255, 255, 255, 0.05);
             }
 
-            100% {
-                transform: translateX(-50%);
+            .expertise-item:last-child {
+                border-right: none;
             }
         }
 
@@ -637,6 +694,247 @@
                 transform: translateX(0);
             }
         }
+
+        /* 1. Animación One-Time (Solo al llegar desde el botón - Movimiento Único) */
+        @keyframes form-jump-glow {
+            0% {
+                transform: scale(1);
+            }
+
+            50% {
+                transform: scale(1.02);
+                box-shadow: 0 0 50px rgba(212, 175, 55, 0.6);
+                border-color: var(--gold-main);
+            }
+
+            100% {
+                transform: scale(1);
+            }
+        }
+
+        .form-pulse-trigger {
+            animation: form-jump-glow 1s cubic-bezier(0.175, 0.885, 0.32, 1.275);
+        }
+
+        /* 2. Estado Activo Estático (Mientras se usa) - SOLO BRILLO FUERTE */
+        .form-float-wrapper:focus-within {
+            border-color: var(--gold-main);
+            box-shadow: 0 0 50px rgba(212, 175, 55, 0.65);
+            /* Brillo mucho más intenso */
+        }
+
+        /* --- BOTÓN FLOTANTE ESCRITORIO --- */
+        #desktop-cta {
+            position: fixed;
+            bottom: 30px;
+            left: 50%;
+            /* Centrado horizontal exacto, desplazado hacia abajo para ocultarlo inicialmente */
+            transform: translate(-50%, 100px);
+            z-index: 990;
+            /* Debajo del modal, pero sobre el contenido */
+
+            background: linear-gradient(135deg, var(--gold-main), var(--gold-hover));
+            color: white;
+            border: none;
+            padding: 12px 35px;
+            border-radius: 50px;
+            /* Diseño muy redondo (Pill) */
+
+            font-weight: 700;
+            font-size: 0.95rem;
+            letter-spacing: 0.5px;
+            text-transform: uppercase;
+            box-shadow: 0 10px 25px rgba(0, 0, 0, 0.4);
+
+            opacity: 0;
+            pointer-events: none;
+            /* No clickeable mientras está oculto */
+            transition: all 0.6s cubic-bezier(0.19, 1, 0.22, 1);
+            /* Entrada muy suave */
+        }
+
+        /* Estado Visible */
+        #desktop-cta.show {
+            transform: translate(-50%, 0);
+            /* Sube a su posición */
+            opacity: 1;
+            pointer-events: all;
+        }
+
+        /* Hover Effect */
+        #desktop-cta:hover {
+            transform: translate(-50%, -5px);
+            /* Flota un poco al pasar el mouse */
+            box-shadow: 0 15px 35px rgba(212, 175, 55, 0.6);
+            /* Resplandor dorado */
+        }
+
+        /* --- CARRUSEL FADE PROFESIONAL --- */
+        .fade-carousel-wrapper {
+            display: grid;
+            grid-template-areas: "stack";
+            /* Apilar todo en una celda */
+            position: relative;
+            min-height: 400px;
+            /* Altura mínima segura */
+        }
+
+        .fade-slide {
+            grid-area: stack;
+            /* Todos ocupan el mismo espacio */
+            opacity: 0;
+            transform: scale(0.95);
+            transition: opacity 0.8s ease, transform 0.8s ease;
+            pointer-events: none;
+            /* No clickeable si está oculto */
+            z-index: 1;
+        }
+
+        .fade-slide.active {
+            opacity: 1;
+            transform: scale(1);
+            pointer-events: all;
+            z-index: 2;
+        }
+
+        /* Barra de Progreso */
+        .carousel-progress-track {
+            position: absolute;
+            bottom: 0;
+            left: 0;
+            width: 100%;
+            height: 4px;
+            background: rgba(255, 255, 255, 0.1);
+            border-radius: 0 0 10px 10px;
+            /* Bordes inferiores redondeados */
+            overflow: hidden;
+            z-index: 10;
+        }
+
+        .carousel-progress-bar {
+            height: 100%;
+            background: var(--gold-main);
+            width: 0%;
+            /* La animación se controla vía JS/Clases para reiniciar */
+        }
+
+        /* Animación de carga (5 segundos) */
+        .animate-progress {
+            animation: progressFill 5s linear forwards;
+        }
+
+        @keyframes progressFill {
+            from {
+                width: 0%;
+            }
+
+            to {
+                width: 100%;
+            }
+        }
+
+        /* Pausar al pasar el mouse (Tanto la barra como el cambio) */
+        .fade-carousel-wrapper:hover .carousel-progress-bar {
+            animation-play-state: paused;
+        }
+
+        /* --- ESTILOS SECCIÓN FAQ PREMIUM --- */
+
+        /* Decoración Imagen Abogado */
+        .gold-frame {
+            position: absolute;
+            top: 25px;
+            left: -25px;
+            width: 100%;
+            height: 100%;
+            border: 3px solid var(--gold-main);
+            z-index: 1;
+            border-radius: 12px;
+            opacity: 0.4;
+            transition: all 0.3s ease;
+        }
+
+        .lawyer-image-wrapper:hover .gold-frame {
+            top: 15px;
+            left: -15px;
+            opacity: 0.8;
+        }
+
+        /* ACORDEÓN PERSONALIZADO DARK */
+        .custom-accordion .accordion-item {
+            background-color: var(--navy-deep);
+            /* Fondo oscuro para los items */
+            border: 1px solid rgba(255, 255, 255, 0.08);
+            margin-bottom: 1rem;
+            border-radius: 8px !important;
+            overflow: hidden;
+            transition: all 0.3s ease;
+        }
+
+        /* Botón del acordeón (Estado inactivo) */
+        .custom-accordion .accordion-button {
+            background-color: var(--navy-deep);
+            color: var(--text-white);
+            font-weight: 600;
+            font-size: 1.05rem;
+            padding: 1.2rem 1.5rem;
+            box-shadow: none;
+            /* Quitar sombra azul por defecto de Bootstrap */
+        }
+
+        /* Botón del acordeón (Estado ACTIVO/Abierto) */
+        .custom-accordion .accordion-button:not(.collapsed) {
+            color: var(--gold-main);
+            /* Texto dorado al abrir */
+            background-color: rgba(212, 175, 55, 0.08);
+            /* Fondo dorado muy sutil */
+            box-shadow: inset 0 -1px 0 rgba(212, 175, 55, 0.2);
+            /* Línea separadora dorada */
+        }
+
+        /* Borde del item cuando está activo */
+        .custom-accordion .accordion-item:has(.accordion-button:not(.collapsed)) {
+            border-color: rgba(212, 175, 55, 0.5);
+        }
+
+        /* Cuerpo del acordeón (La respuesta) */
+        .custom-accordion .accordion-body {
+            color: var(--text-muted-light);
+            background-color: var(--navy-deep);
+            border-top: none;
+            padding: 1.5rem;
+            line-height: 1.8;
+        }
+
+        /* Personalización del icono de flecha */
+        .custom-accordion .accordion-button::after {
+            /* Hacemos la flecha blanca por defecto usando filtros */
+            filter: brightness(0) invert(1);
+            transition: transform 0.3s ease, filter 0.3s ease;
+            width: 1.5rem;
+            height: 1.5rem;
+            background-size: 1.5rem;
+        }
+
+        /* Flecha cuando está activo (La volvemos dorada y la rotamos) */
+        .custom-accordion .accordion-button:not(.collapsed)::after {
+            /* Filtro mágico para volverla dorada (aprox #d4af37) */
+            filter: brightness(0) saturate(100%) invert(74%) sepia(61%) saturate(437%) hue-rotate(3deg) brightness(94%) contrast(89%);
+            transform: rotate(-180deg);
+        }
+
+        /* --- MEJORAS ACCESIBILIDAD (Lighthouse) --- */
+        footer ul li a {
+            display: inline-block;
+            padding: 10px 0;
+            /* Aumentar target size para móviles */
+        }
+
+        .copyright-text {
+            opacity: 0.9 !important;
+            /* Mejorar contraste (era 0.5) */
+            color: #cbd5e1 !important;
+        }
     </style>
 
     <script>(function (w, d, s, l, i) {
@@ -658,14 +956,14 @@
 
     <header id="smart-header">
 
-        <div class="urgency-bar text-center">
+        <!-- <div class="urgency-bar text-center">
             <div class="container">
                 <div class="d-flex justify-content-center align-items-center gap-2">
                     <i class="fas fa-exclamation-triangle"></i>
                     <span class="text-truncate"><strong>ATENCIÓN EMPLEADOR:</strong> Plazos fatales en curso.</span>
                 </div>
             </div>
-        </div>
+        </div> -->
 
         <nav class="navbar navbar-expand-lg">
             <div class="container">
@@ -679,7 +977,7 @@
                 </a>
 
                 <button class="navbar-toggler bg-light" type="button" data-bs-toggle="collapse"
-                    data-bs-target="#navbarNav">
+                    data-bs-target="#navbarNav" aria-label="Abrir menú de navegación">
                     <span class="navbar-toggler-icon"></span>
                 </button>
 
@@ -798,21 +1096,47 @@
         </div>
     </header>
 
-    <div class="marquee-container">
-        <div class="marquee-content">
-            <span class="marquee-item"><i class="fas fa-hard-hat me-2"></i>Construcción</span>
-            <span class="marquee-item"><i class="fas fa-shopping-bag me-2"></i>Retail y Comercio</span>
-            <span class="marquee-item"><i class="fas fa-truck me-2"></i>Transporte</span>
-            <span class="marquee-item"><i class="fas fa-laptop-code me-2"></i>Tecnología</span>
-            <span class="marquee-item"><i class="fas fa-utensils me-2"></i>Gastronomía</span>
-            <span class="marquee-item"><i class="fas fa-industry me-2"></i>Industria</span>
-            <span class="marquee-item"><i class="fas fa-hard-hat me-2"></i>Construcción</span>
-            <span class="marquee-item"><i class="fas fa-shopping-bag me-2"></i>Retail</span>
+    <div class="expertise-bar">
+        <div class="container">
+            <div class="expertise-grid">
+
+                <div class="expertise-item">
+                    <i class="fas fa-hard-hat"></i>
+                    <span>Construcción</span>
+                </div>
+
+                <div class="expertise-item">
+                    <i class="fas fa-shopping-bag"></i>
+                    <span>Retail</span>
+                </div>
+
+                <div class="expertise-item">
+                    <i class="fas fa-truck"></i>
+                    <span>Transporte</span>
+                </div>
+
+                <div class="expertise-item">
+                    <i class="fas fa-laptop-code"></i>
+                    <span>Tecnología</span>
+                </div>
+
+                <div class="expertise-item">
+                    <i class="fas fa-industry"></i>
+                    <span>Industria</span>
+                </div>
+
+                <div class="expertise-item">
+                    <i class="fas fa-utensils"></i>
+                    <span>Gastronomía</span>
+                </div>
+
+            </div>
         </div>
     </div>
 
-    <section id="casos" class="py-5">
+    <section id="casos" class="py-5" style="position: relative; overflow: hidden;">
         <div class="container py-lg-4">
+
             <div class="text-center mb-5 mx-auto col-lg-8" data-aos="fade-up">
                 <span class="text-uppercase fw-bold small text-light-custom" style="letter-spacing: 2px;">Track
                     Record</span>
@@ -820,35 +1144,74 @@
                 <p class="text-light-custom">Casos donde evitamos el impacto financiero en la empresa.</p>
             </div>
 
-            <div class="row g-4">
-                <div class="col-md-6" data-aos="fade-up" data-aos-delay="100">
-                    <div class="card-dark p-4">
-                        <div class="d-flex justify-content-between align-items-start mb-3">
-                            <span
-                                class="badge bg-success bg-opacity-25 text-success border border-success">RETAIL</span>
-                            <i class="fas fa-check-circle text-success"></i>
+            <div class="row justify-content-center">
+                <div class="col-lg-8 col-xl-7">
+
+                    <div class="fade-carousel-wrapper" id="reviewsCarousel">
+
+                        <div class="fade-slide active">
+                            <div class="card-dark p-5 text-center h-100 position-relative">
+                                <div class="d-inline-flex align-items-center justify-content-center gap-2 mb-4">
+                                    <span
+                                        class="badge bg-success text-white border border-success px-3 py-2">RETAIL</span>
+                                </div>
+                                <h3 class="h2 fw-bold text-white mb-3">Multa Millonaria Inminente</h3>
+                                <p class="text-light-custom fst-italic fs-5 mb-4">"Empresa enfrentaba multa de 60 UTM
+                                    por supuestas infracciones de seguridad e higiene."</p>
+                                <hr class="border-secondary opacity-25 mx-auto w-50 mb-4">
+                                <div class="d-flex justify-content-center align-items-center gap-3">
+                                    <i class="fas fa-check-circle text-success fa-2x"></i>
+                                    <div class="text-start">
+                                        <p class="mb-0 text-white small fw-bold text-uppercase opacity-50">Resultado</p>
+                                        <p class="mb-0 text-white fw-bold fs-5">Rebaja total (100%)</p>
+                                    </div>
+                                </div>
+                            </div>
                         </div>
-                        <h4 class="fw-bold text-white mb-2">Multa Millonaria Inminente</h4>
-                        <p class="text-light-custom fst-italic small">"Empresa enfrentaba multa de 60 UTM por supuestas
-                            infracciones."</p>
-                        <hr class="border-secondary opacity-25">
-                        <p class="mb-0 text-white small"><strong>Resultado:</strong> Rebaja total (100%) mediante
-                            defensa administrativa estratégica.</p>
-                    </div>
-                </div>
-                <div class="col-md-6" data-aos="fade-up" data-aos-delay="200">
-                    <div class="card-dark p-4">
-                        <div class="d-flex justify-content-between align-items-start mb-3">
-                            <span
-                                class="badge bg-success bg-opacity-25 text-success border border-success">CONSTRUCCIÓN</span>
-                            <i class="fas fa-check-circle text-success"></i>
+
+                        <div class="fade-slide">
+                            <div class="card-dark p-5 text-center h-100 position-relative">
+                                <div class="d-inline-flex align-items-center justify-content-center gap-2 mb-4">
+                                    <span
+                                        class="badge bg-warning text-dark border border-warning px-3 py-2">CONSTRUCCIÓN</span>
+                                </div>
+                                <h3 class="h2 fw-bold text-white mb-3">Demanda por Autodespido</h3>
+                                <p class="text-light-custom fst-italic fs-5 mb-4">"Trabajador exigía indemnización de
+                                    $15.000.000 alegando acoso laboral y nulidad."</p>
+                                <hr class="border-secondary opacity-25 mx-auto w-50 mb-4">
+                                <div class="d-flex justify-content-center align-items-center gap-3">
+                                    <i class="fas fa-gavel text-warning fa-2x"></i>
+                                    <div class="text-start">
+                                        <p class="mb-0 text-white small fw-bold text-uppercase opacity-50">Resultado</p>
+                                        <p class="mb-0 text-white fw-bold fs-5">Pago $0 (Juicio Ganado)</p>
+                                    </div>
+                                </div>
+                            </div>
                         </div>
-                        <h4 class="fw-bold text-white mb-2">Demanda por Autodespido</h4>
-                        <p class="text-light-custom fst-italic small">"Trabajador exigía indemnización de $15M alegando
-                            acoso."</p>
-                        <hr class="border-secondary opacity-25">
-                        <p class="mb-0 text-white small"><strong>Resultado:</strong> Desestimación de tutela. Pago $0
-                            por indemnización adicional.</p>
+
+                        <div class="fade-slide">
+                            <div class="card-dark p-5 text-center h-100 position-relative">
+                                <div class="d-inline-flex align-items-center justify-content-center gap-2 mb-4">
+                                    <span class="badge bg-info text-dark border border-info px-3 py-2">TRANSPORTE</span>
+                                </div>
+                                <h3 class="h2 fw-bold text-white mb-3">Tutela de Derechos</h3>
+                                <p class="text-light-custom fst-italic fs-5 mb-4">"Sindicato demandó por prácticas
+                                    antisindicales solicitando multas gravísimas."</p>
+                                <hr class="border-secondary opacity-25 mx-auto w-50 mb-4">
+                                <div class="d-flex justify-content-center align-items-center gap-3">
+                                    <i class="fas fa-shield-alt text-info fa-2x"></i>
+                                    <div class="text-start">
+                                        <p class="mb-0 text-white small fw-bold text-uppercase opacity-50">Resultado</p>
+                                        <p class="mb-0 text-white fw-bold fs-5">Demanda Rechazada</p>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+
+                        <div class="carousel-progress-track">
+                            <div class="carousel-progress-bar"></div>
+                        </div>
+
                     </div>
                 </div>
             </div>
@@ -981,6 +1344,121 @@
         </div>
     </section>
 
+    <section id="faq" class="py-5" style="background: var(--navy-card); border-top: 1px solid rgba(255,255,255,0.05);">
+        <div class="container py-lg-5">
+            <div class="row align-items-center gy-5">
+
+                <!-- Columna Imagen (Oculta en móvil d-none, visible en escritorio d-lg-block) -->
+                <div class="col-lg-5 d-none d-lg-block" data-aos="fade-right">
+                    <div class="lawyer-image-wrapper text-center text-lg-start">
+                        <div class="position-relative d-inline-block">
+                            <img src="https://images.unsplash.com/photo-1556157382-97eda2d62296?auto=format&fit=crop&q=80&w=600&h=700"
+                                width="600" height="700" style="object-fit: cover;" alt="Abogado Senior InnovAbogados"
+                                class="img-fluid rounded-3 shadow-lg position-relative z-2 border border-secondary border-opacity-25">
+                            <div class="gold-frame"></div>
+                        </div>
+                        <div class="mt-4 ps-lg-4">
+                            <h4 class="font-serif fw-bold mb-1 text-white">Respaldo Legal Senior</h4>
+                            <p class="text-light-custom small mb-0" style="max-width: 400px;">
+                                <i class="fas fa-quote-left text-warning me-2 opacity-50"></i>
+                                No delegamos su defensa en procuradores. Su caso será liderado por expertos en litigio
+                                patronal de alta complejidad.
+                            </p>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="col-lg-7" data-aos="fade-left" data-aos-delay="200">
+                    <div class="ps-lg-5">
+                        <span class="text-uppercase fw-bold small text-light-custom" style="letter-spacing: 2px;">Dudas
+                            Frecuentes</span>
+                        <h2 class="display-6 fw-bold mt-2 mb-5 text-white font-serif">Claridad inmediata ante la
+                            incertidumbre.</h2>
+
+                        <div class="accordion custom-accordion" id="faqAccordion">
+
+                            <div class="accordion-item">
+                                <h2 class="accordion-header">
+                                    <button class="accordion-button font-serif" type="button" data-bs-toggle="collapse"
+                                        data-bs-target="#faq1" aria-expanded="true">
+                                        ¿Cuánto tiempo exacto tengo para contestar la demanda?
+                                    </button>
+                                </h2>
+                                <div id="faq1" class="accordion-collapse collapse show" data-bs-parent="#faqAccordion">
+                                    <div class="accordion-body">
+                                        Es crítico. En Procedimiento de Aplicación General tiene <strong>15 días
+                                            hábiles</strong> antes de la Audiencia Preparatoria. En Procedimiento
+                                        Monitorio son solo <strong>10 días hábiles</strong> desde la notificación. <span
+                                            class="text-warning">No contestar a tiempo implica perder el juicio
+                                            automáticamente.</span> Contáctenos hoy mismo.
+                                    </div>
+                                </div>
+                            </div>
+
+                            <div class="accordion-item">
+                                <h2 class="accordion-header">
+                                    <button class="accordion-button collapsed font-serif" type="button"
+                                        data-bs-toggle="collapse" data-bs-target="#faq2">
+                                        ¿Solo defienden empresas o también trabajadores?
+                                    </button>
+                                </h2>
+                                <div id="faq2" class="accordion-collapse collapse" data-bs-parent="#faqAccordion">
+                                    <div class="accordion-body">
+                                        <strong>Defensa 100% Patronal.</strong> Tenemos una política estricta de 0%
+                                        conflicto de interés. No asesoramos a trabajadores ni sindicatos. Toda nuestra
+                                        estrategia está enfocada exclusivamente en proteger el patrimonio y la
+                                        continuidad operacional de la empresa.
+                                    </div>
+                                </div>
+                            </div>
+
+                            <div class="accordion-item">
+                                <h2 class="accordion-header">
+                                    <button class="accordion-button collapsed font-serif" type="button"
+                                        data-bs-toggle="collapse" data-bs-target="#faq3">
+                                        ¿Cómo funciona la evaluación gratuita de mi caso?
+                                    </button>
+                                </h2>
+                                <div id="faq3" class="accordion-collapse collapse" data-bs-parent="#faqAccordion">
+                                    <div class="accordion-body">
+                                        Es simple y rápida. 1) Nos envía la demanda (si la tiene). 2) Un abogado senior
+                                        analiza los riesgos y la viabilidad de defensa en máx. 2 horas. 3) Le entregamos
+                                        un pre-informe estratégico y una propuesta de honorarios <strong>sin costo ni
+                                            compromiso</strong> para usted.
+                                    </div>
+                                </div>
+                            </div>
+
+                            <div class="accordion-item">
+                                <h2 class="accordion-header">
+                                    <button class="accordion-button collapsed font-serif" type="button"
+                                        data-bs-toggle="collapse" data-bs-target="#faq4">
+                                        La Inspección del Trabajo me citó a comparendo, ¿debo ir con abogado?
+                                    </button>
+                                </h2>
+                                <div id="faq4" class="accordion-collapse collapse" data-bs-parent="#faqAccordion">
+                                    <div class="accordion-body">
+                                        Absolutamente recomendable. Lo que se diga (o no se diga) en la instancia
+                                        administrativa ante la DT queda en acta y <strong>será usado en su contra en un
+                                            futuro juicio</strong>. Asistir con representación legal experta evita
+                                        errores no forzados que cuestan millones después.
+                                    </div>
+                                </div>
+                            </div>
+
+                        </div>
+                        <div class="mt-4">
+                            <a href="#contacto-form" onclick="scrollToForm(event)" class="fw-bold text-decoration-none"
+                                style="color: var(--gold-main); letter-spacing: 1px;">
+                                ¿TIENE OTRA DUDA URGENTE? HABLEMOS <i class="fas fa-arrow-right ms-2"></i>
+                            </a>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
     <footer class="py-5 bg-black">
         <div class="container text-center text-md-start">
             <div class="row gy-4">
@@ -1009,7 +1487,7 @@
                 </div>
             </div>
             <div
-                class="border-top border-secondary border-opacity-10 mt-5 pt-4 text-center small text-light-custom opacity-50">
+                class="border-top border-secondary border-opacity-10 mt-5 pt-4 text-center small text-light-custom copyright-text">
                 &copy; 2026 InnovAbogados. Todos los derechos reservados.
             </div>
         </div>
@@ -1017,7 +1495,7 @@
 
     <div class="wa-widget-wrapper d-none d-lg-flex">
         <a href="https://wa.me/56930931860?text=Hola%2C%20necesito%20defensa%20laboral%20urgente." target="_blank"
-            class="wa-float-btn" id="wa-anchor">
+            rel="noopener noreferrer" class="wa-float-btn" id="wa-anchor" aria-label="Contactar por WhatsApp">
             <i class="fab fa-whatsapp"></i>
             <span class="wa-badge" id="wa-desktop-badge">1</span>
         </a>
@@ -1034,14 +1512,14 @@
 
             <div class="row g-2 align-items-center">
                 <div class="col-3">
-                    <a href="tel:+56930931860"
+                    <a href="tel:+56930931860" aria-label="Llamar directamente"
                         class="btn btn-dark w-100 py-2 shadow-sm border border-secondary border-opacity-25">
                         <i class="fas fa-phone-alt"></i>
                     </a>
                 </div>
 
                 <div class="col-9">
-                    <a href="https://wa.me/56930931860?text=Urgencia"
+                    <a href="https://wa.me/56930931860?text=Urgencia" target="_blank" rel="noopener noreferrer"
                         class="btn btn-whatsapp-mobile w-100 py-2 fw-bold shadow-sm d-flex justify-content-center align-items-center gap-2">
                         <i class="fab fa-whatsapp fa-lg"></i>
                         <span>DEFENSA INMEDIATA</span>
@@ -1068,6 +1546,10 @@
         </div>
     </div>
 
+    <button id="desktop-cta" class="d-none d-lg-block" onclick="scrollToForm(event)">
+        <i class="fas fa-file-contract me-2"></i> Solicita evaluación sin costo
+    </button>
+
     <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/js/bootstrap.bundle.min.js"></script>
     <script src="https://unpkg.com/aos@2.3.1/dist/aos.js"></script>
 
@@ -1081,12 +1563,34 @@
         });
 
         // 2. Smooth Scroll to Form
+        // 2. Smooth Scroll to Form
         function scrollToForm(e) {
             if (e) e.preventDefault();
-            const form = document.getElementById('contacto-form');
+
+            const formWrapper = document.getElementById('contacto-form');
+            const inputEmpresa = document.querySelector('input[name="empresa"]');
             const navHeight = document.querySelector('.navbar').offsetHeight;
-            const targetPosition = form.getBoundingClientRect().top + window.scrollY - navHeight - 80;
+
+            // 1. Scroll Suave
+            // Ajustamos -100px para que el formulario quede bien centrado visualmente y no tapado por el header
+            const targetPosition = formWrapper.getBoundingClientRect().top + window.scrollY - navHeight - 50;
             window.scrollTo({ top: targetPosition, behavior: "smooth" });
+
+            // 2. Efectos Visuales
+            setTimeout(() => {
+                // A. Disparar Animación de "Llegada" (Movimiento 1 vez)
+                formWrapper.classList.add('form-pulse-trigger');
+
+                // B. Activar Estado Persistente (Focus) - Esto activa el brillo estático CSS
+                if (inputEmpresa) {
+                    inputEmpresa.focus({ preventScroll: true });
+                }
+
+                // C. Limpiar clase de animación (para terminar el movimiento)
+                setTimeout(() => {
+                    formWrapper.classList.remove('form-pulse-trigger');
+                }, 1000);
+            }, 600);
         }
 
         // 3. Counter Animation
@@ -1230,7 +1734,57 @@
 
             lastScrollTop = scrollTop;
         });
+
+        // --- LOGICA BOTÓN FLOTANTE ESCRITORIO ---
+        const desktopCta = document.getElementById('desktop-cta');
+        const heroSection = document.querySelector('.hero');
+
+        window.addEventListener('scroll', () => {
+            if (!heroSection) return;
+
+            // Calculamos cuándo el Hero ya casi no es visible
+            const triggerPoint = heroSection.offsetHeight - 100;
+
+            if (window.scrollY > triggerPoint) {
+                desktopCta.classList.add('show');
+            } else {
+                desktopCta.classList.remove('show');
+            }
+        });
+        // --- LOGICA CARRUSEL FADE ---
+        document.addEventListener('DOMContentLoaded', () => {
+            const slides = document.querySelectorAll('.fade-slide');
+            const progressBar = document.querySelector('.carousel-progress-bar');
+            let currentIndex = 0;
+
+            if (slides.length > 0 && progressBar) {
+
+                // Función para cambiar slide
+                const changeSlide = () => {
+                    // 1. Quitar activo actual
+                    slides[currentIndex].classList.remove('active');
+
+                    // 2. Calcular siguiente
+                    currentIndex = (currentIndex + 1) % slides.length;
+
+                    // 3. Activar siguiente
+                    slides[currentIndex].classList.add('active');
+
+                    // 4. Reiniciar barra de progreso (Truco para reiniciar animación CSS)
+                    progressBar.classList.remove('animate-progress');
+                    void progressBar.offsetWidth; // Forzar reflow (reinicio mágico)
+                    progressBar.classList.add('animate-progress');
+                };
+
+                // Iniciar la primera animación
+                progressBar.classList.add('animate-progress');
+
+                // Escuchar cuando la barra termine de llenarse
+                progressBar.addEventListener('animationend', changeSlide);
+            }
+        });
     </script>
+
 </body>
 
 </html>
