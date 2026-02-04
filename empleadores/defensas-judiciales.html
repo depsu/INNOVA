@@ -48,9 +48,14 @@
             font-family: 'Manrope', sans-serif;
             background-color: var(--navy-deep);
             color: var(--text-body);
-            /* Color base mucho más claro */
-            overflow-x: hidden;
+
+            /* BLOQUEO TOTAL DE MOVIMIENTO HORIZONTAL */
             width: 100%;
+            max-width: 100vw;
+            /* Asegura que no pase del viewport */
+            overflow-x: hidden;
+            /* Corta cualquier cosa que intente salir por los lados */
+            position: relative;
         }
 
         h1,
@@ -384,35 +389,165 @@
             }
         }
 
-        /* --- TARJETAS SERVICIOS & CASOS (Mejorado Contraste) --- */
+        /* --- TARJETAS SERVICIOS ESTABILIZADAS --- */
+        /* --- TARJETAS SERVICIOS ESTABILIZADAS --- */
         .card-dark {
             background: var(--navy-card);
-            /* Fondo ligeramente más claro que el body */
+
+            /* TRUCO 1: El borde siempre existe, aunque sea casi invisible */
             border: 1px solid rgba(255, 255, 255, 0.08);
+
             border-radius: 10px;
             padding: 2rem;
             height: 100%;
-            transition: 0.3s;
+            transition: all 0.3s ease;
             box-shadow: 0 4px 20px rgba(0, 0, 0, 0.2);
+
+            /* TRUCO 2: Evita el pixel-jitter (temblor) al renderizar */
+            transform: translateZ(0);
+            backface-visibility: hidden;
+            will-change: transform, box-shadow;
+            /* Le avisa al navegador que esto cambiará */
         }
 
         .card-dark:hover {
             background: #253248;
-            /* Highlight al pasar mouse */
+            /* Solo cambiamos el color, NO el grosor */
             border-color: var(--gold-main);
-            transform: translateY(-5px);
+
+            /* Animación limpia */
+            transform: translateY(-5px) translateZ(0);
+            box-shadow: 0 15px 30px rgba(0, 0, 0, 0.3);
         }
 
+        /* Asegura que el icono no cambie el tamaño de la caja */
         .icon-gold {
             color: var(--gold-main);
             font-size: 2rem;
             margin-bottom: 1.5rem;
+            display: inline-block;
+            /* Estabilidad */
         }
 
-        /* --- ESTADISTICAS --- */
-        .bg-stats {
-            background: #020617;
-            border-top: 1px solid rgba(255, 255, 255, 0.05);
+
+        /* --- STATS PREMIUM STYLES --- */
+
+        /* 1. Fondo de brillo que sigue al mouse */
+        .stats-glow-bg {
+            position: absolute;
+            width: 400px;
+            height: 400px;
+            border-radius: 50%;
+            background: radial-gradient(circle, rgba(212, 175, 55, 0.25) 0%, rgba(212, 175, 55, 0.08) 40%, rgba(0, 0, 0, 0) 70%);
+            pointer-events: none;
+            z-index: 0;
+            transform: translate(-50%, -50%);
+            transition: opacity 0.3s ease;
+            opacity: 0;
+            /* Oculto por defecto, se muestra al entrar el mouse */
+        }
+
+        #stats-section:hover .stats-glow-bg {
+            opacity: 1;
+        }
+
+        /* 2. Texto Dorado Metálico (CORREGIDO) */
+        .text-gradient-gold {
+            /* Definimos el gradiente dorado fuerte */
+            background: linear-gradient(135deg, #FFF5C3 0%, #94783E 25%, #F8B500 50%, #FCCD4D 75%, #FFF5C3 100%);
+            background-size: 200% auto;
+            /* Para que el brillo se note más */
+
+            /* Recorte del fondo al texto */
+            -webkit-background-clip: text;
+            background-clip: text;
+
+            /* Hacemos el texto transparente para que se vea el fondo */
+            -webkit-text-fill-color: transparent;
+            color: transparent;
+
+            /* IMPORTANTÍSIMO PARA QUE SE VEA: */
+            display: inline-block;
+            /* Hace que el gradiente se ajuste al texto, no a la caja */
+            font-weight: 800 !important;
+            /* Letra muy gruesa para ver el oro */
+            text-shadow: none;
+            /* Quitamos sombra para que no ensucie el gradiente */
+        }
+
+        /* 3. Iconos y Textos */
+        .stat-icon {
+            font-size: 1.5rem;
+            color: var(--gold-main);
+            /* Siempre dorado */
+            opacity: 0.8;
+        }
+
+        .stat-label {
+            font-size: 0.75rem;
+            text-transform: uppercase;
+            letter-spacing: 1.5px;
+            color: var(--text-muted-light);
+            font-weight: 600;
+            margin-top: 5px;
+        }
+
+        /* Stat Card Interactivo */
+        .stat-card {
+            cursor: pointer;
+            transition: all 0.3s ease;
+            background: rgba(255, 255, 255, 0.01);
+            border-radius: 12px;
+            border: 1px solid transparent;
+        }
+
+        .stat-card:hover {
+            background: rgba(255, 255, 255, 0.05);
+            border-color: rgba(212, 175, 55, 0.2);
+            transform: translateY(-5px);
+            box-shadow: 0 10px 30px rgba(0, 0, 0, 0.3);
+        }
+
+        .stat-card:hover .stat-label {
+            color: white;
+        }
+
+        /* 4. Separadores Verticales (Lineas finas) */
+        .stat-divider {
+            position: absolute;
+            right: 0;
+            top: 20%;
+            height: 60%;
+            width: 1px;
+            background: linear-gradient(to bottom, transparent, rgba(255, 255, 255, 0.15), transparent);
+        }
+
+        /* 5. Caja CTA Inferior */
+        .stats-cta-box {
+            background: rgba(255, 255, 255, 0.03);
+            border: 1px solid rgba(255, 255, 255, 0.08);
+            backdrop-filter: blur(5px);
+            transition: transform 0.3s ease, border-color 0.3s ease;
+        }
+
+        .stats-cta-box:hover {
+            transform: translateY(-3px);
+            border-color: rgba(212, 175, 55, 0.3);
+            box-shadow: 0 10px 30px rgba(0, 0, 0, 0.2);
+        }
+
+        /* Botón borde dorado */
+        .btn-outline-gold {
+            border: 1px solid var(--gold-main);
+            color: var(--gold-main);
+            background: transparent;
+            transition: all 0.3s ease;
+        }
+
+        .btn-outline-gold:hover {
+            background: var(--gold-main);
+            color: white;
+            box-shadow: 0 0 15px rgba(212, 175, 55, 0.4);
         }
 
         /* --- WHATSAPP WIDGET & BUBBLE (Diseño Completo) --- */
@@ -945,6 +1080,223 @@
             /* Mejorar contraste (era 0.5) */
             color: #cbd5e1 !important;
         }
+
+        /* --- ESTILOS SECCIÓN CONTACTO FINAL --- */
+
+        .icon-circle-small {
+            width: 40px;
+            height: 40px;
+            border-radius: 50%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-size: 1.1rem;
+        }
+
+        .bg-gold {
+            background-color: var(--gold-main);
+        }
+
+        /* Efecto Hover para los botones grandes */
+        .group-hover-effect {
+            transition: all 0.3s ease;
+            background: rgba(255, 255, 255, 0.02);
+            /* Fondo muy sutil */
+        }
+
+        .group-hover-effect:hover {
+            background: rgba(255, 255, 255, 0.08);
+            transform: translateX(5px);
+            /* Desplazamiento a la derecha */
+        }
+
+        .group-hover-effect:hover i.fa-chevron-right {
+            transform: translateX(5px);
+            transition: transform 0.3s ease;
+        }
+
+        /* --- ESTILOS FOOTER PREMIUM --- */
+        .letter-spacing-2 {
+            letter-spacing: 2px;
+        }
+
+        .footer-links li {
+            margin-bottom: 12px;
+        }
+
+        .footer-links a {
+            color: #94a3b8;
+            /* Gris azulado suave */
+            text-decoration: none;
+            font-size: 0.9rem;
+            transition: all 0.3s ease;
+        }
+
+        .footer-links a:hover,
+        .hover-gold:hover {
+            color: var(--gold-main) !important;
+            padding-left: 5px;
+            /* Pequeño desplazamiento al hover */
+        }
+
+        /* Botones Sociales */
+        .social-btn {
+            width: 36px;
+            height: 36px;
+            border-radius: 50%;
+            background: rgba(255, 255, 255, 0.05);
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            color: white;
+            text-decoration: none;
+            transition: 0.3s;
+        }
+
+        .social-btn:hover {
+            background: var(--gold-main);
+            color: white;
+            transform: translateY(-3px);
+        }
+
+        /* Backlink Desarrollador */
+        .developer-link {
+            color: #cbd5e1;
+            text-decoration: none;
+            font-weight: 700;
+            /* Destaca un poco más el nombre */
+            border-bottom: 1px dotted rgba(255, 255, 255, 0.3);
+            /* Sutil subrayado */
+            transition: color 0.3s ease, border-color 0.3s ease;
+        }
+
+        .developer-link:hover {
+            color: #fff;
+            border-bottom-color: #fff;
+        }
+
+        /* Ajuste Footer Móvil para compensar Sticky */
+        @media (max-width: 991px) {
+            footer {
+                padding-bottom: 150px !important;
+                /* Espacio extra para que no lo tape el sticky */
+            }
+        }
+
+
+        /* --- BOTÓN HAMBURGUESA PREMIUM --- */
+        .custom-toggler {
+            border: none;
+            padding: 10px;
+            background: transparent !important;
+            /* Quita el fondo blanco */
+            box-shadow: none !important;
+            /* Quita el resplandor azul al clic */
+            display: flex;
+            flex-direction: column;
+            justify-content: center;
+            align-items: center;
+            gap: 6px;
+            /* Espacio entre líneas */
+            width: 45px;
+            height: 45px;
+            cursor: pointer;
+        }
+
+        /* Las líneas del menú */
+        .custom-toggler span {
+            display: block;
+            width: 28px;
+            height: 2px;
+            background-color: var(--gold-main);
+            /* Color Dorado */
+            border-radius: 2px;
+            transition: all 0.4s cubic-bezier(0.68, -0.55, 0.27, 1.55);
+            /* Animación elástica */
+            transform-origin: center;
+        }
+
+        /* --- ESTADO ABIERTO (Cuando NO tiene la clase .collapsed) --- */
+
+        /* Línea superior: baja y rota 45 grados */
+        .custom-toggler:not(.collapsed) span:nth-child(1) {
+            transform: translateY(8px) rotate(45deg);
+            background-color: #fff;
+            /* Opcional: cambia a blanco al abrir */
+        }
+
+        /* Línea del medio: desaparece hacia la derecha */
+        .custom-toggler:not(.collapsed) span:nth-child(2) {
+            opacity: 0;
+            transform: translateX(10px);
+        }
+
+        /* Línea inferior: sube y rota -45 grados */
+        .custom-toggler:not(.collapsed) span:nth-child(3) {
+            transform: translateY(-8px) rotate(-45deg);
+            background-color: #fff;
+            /* Opcional: cambia a blanco al abrir */
+        }
+
+        /* Hover Effect */
+        .custom-toggler:hover span {
+            background-color: #fff;
+            /* Se ilumina al pasar el dedo/mouse */
+        }
+
+        .hover-scale {
+            transition: transform 0.3s ease, border-color 0.3s ease;
+            cursor: pointer;
+        }
+
+        .hover-scale:hover {
+            transform: scale(1.02);
+            border-color: var(--gold-main);
+            box-shadow: 0 10px 40px rgba(0, 0, 0, 0.4);
+        }
+
+        /* --- EFECTO GLOW PARA TARJETAS (.card-dark) --- */
+
+        /* Aseguramos que la tarjeta contenga el brillo */
+        .card-dark {
+            position: relative;
+            overflow: hidden !important;
+            /* Vital para que el brillo no se salga */
+            z-index: 1;
+            /* Para contexto de apilamiento */
+        }
+
+        /* El elemento de brillo en sí - Specificity increased to override .card-dark > * */
+        .card-dark .card-mouse-glow {
+            position: absolute;
+            width: 600px;
+            /* Tamaño del haz de luz */
+            height: 600px;
+            background: radial-gradient(circle, rgba(212, 175, 55, 0.15) 0%, rgba(212, 175, 55, 0.02) 40%, rgba(0, 0, 0, 0) 70%);
+            border-radius: 50%;
+            pointer-events: none;
+            /* Permite hacer clic a través del brillo */
+            transform: translate(-50%, -50%);
+            /* Centra el brillo en el cursor */
+            opacity: 0;
+            transition: opacity 0.4s ease;
+            /* Entrada/salida suave */
+            z-index: 0;
+            /* Detrás del texto */
+            mix-blend-mode: screen;
+            /* Mezcla premium con el fondo oscuro */
+        }
+
+        /* Mostrar brillo al pasar el mouse */
+        .card-dark:hover .card-mouse-glow {
+            opacity: 1;
+        }
+
+        /* Asegurar que el contenido (texto/iconos) esté SOBRE el brillo */
+        .card-dark>* {
+            position: relative;
+            z-index: 2;
+        }
     </style>
 
     <script>(function (w, d, s, l, i) {
@@ -986,9 +1338,11 @@
                     </div>
                 </a>
 
-                <button class="navbar-toggler bg-light" type="button" data-bs-toggle="collapse"
-                    data-bs-target="#navbarNav" aria-label="Abrir menú de navegación">
-                    <span class="navbar-toggler-icon"></span>
+                <button class="navbar-toggler custom-toggler collapsed" type="button" data-bs-toggle="collapse"
+                    data-bs-target="#navbarNav" aria-controls="navbarNav" aria-expanded="false" aria-label="Abrir menú">
+                    <span></span>
+                    <span></span>
+                    <span></span>
                 </button>
 
                 <div class="collapse navbar-collapse" id="navbarNav">
@@ -1036,7 +1390,8 @@
                         <a href="#contacto-form" onclick="scrollToForm(event)" class="btn btn-gold btn-lg shadow-lg">
                             SOLICITAR EVALUACIÓN
                         </a>
-                        <a href="https://wa.me/56930931860" class="btn btn-outline-light-custom btn-lg">
+                        <a href="https://wa.me/56930931860"
+                            class="btn btn-outline-light-custom btn-lg d-inline-flex align-items-center">
                             <i class="fab fa-whatsapp me-2"></i> HABLAR AHORA
                         </a>
                     </div>
@@ -1166,14 +1521,18 @@
                     <div class="fade-carousel-wrapper" id="reviewsCarousel">
 
                         <div class="fade-slide active">
-                            <div class="card-dark p-5 text-center h-100 position-relative">
+                            <div class="card-dark p-5 text-center h-100 position-relative cursor-pointer hover-scale"
+                                onclick="openCaseModal(this)" data-title="Multa Millonaria Inminente"
+                                data-desc="Logramos anular 3 multas de la Inspección del Trabajo por supuestas infracciones de seguridad, ahorrando 60 UTM a la empresa."
+                                data-wa="Hola, tengo multas de la Inspección del Trabajo y necesito defensa.">
+
                                 <div class="d-inline-flex align-items-center justify-content-center gap-2 mb-4">
                                     <span
-                                        class="badge bg-success text-white border border-success px-3 py-2">RETAIL</span>
+                                        class="badge bg-success bg-opacity-25 text-success border border-success px-3 py-2">RETAIL</span>
                                 </div>
                                 <h3 class="h2 fw-bold text-white mb-3">Multa Millonaria Inminente</h3>
                                 <p class="text-light-custom fst-italic fs-5 mb-4">"Empresa enfrentaba multa de 60 UTM
-                                    por supuestas infracciones de seguridad e higiene."</p>
+                                    por supuestas infracciones de seguridad."</p>
                                 <hr class="border-secondary opacity-25 mx-auto w-50 mb-4">
                                 <div class="d-flex justify-content-center align-items-center gap-3">
                                     <i class="fas fa-check-circle text-success fa-2x"></i>
@@ -1182,18 +1541,24 @@
                                         <p class="mb-0 text-white fw-bold fs-5">Rebaja total (100%)</p>
                                     </div>
                                 </div>
+                                <div class="mt-4 text-warning small fw-bold"><i class="fas fa-hand-pointer me-1"></i>
+                                    Ver Detalle del Caso</div>
                             </div>
                         </div>
 
                         <div class="fade-slide">
-                            <div class="card-dark p-5 text-center h-100 position-relative">
+                            <div class="card-dark p-5 text-center h-100 position-relative cursor-pointer hover-scale"
+                                onclick="openCaseModal(this)" data-title="Demanda por Autodespido"
+                                data-desc="Trabajador alegó incumplimiento grave para autodespedirse. Demostramos en juicio que los hechos eran falsos. Costo para la empresa: $0."
+                                data-wa="Hola, recibí una demanda por autodespido y necesito asesoría.">
+
                                 <div class="d-inline-flex align-items-center justify-content-center gap-2 mb-4">
                                     <span
-                                        class="badge bg-warning text-dark border border-warning px-3 py-2">CONSTRUCCIÓN</span>
+                                        class="badge bg-warning bg-opacity-25 text-warning border border-warning px-3 py-2">CONSTRUCCIÓN</span>
                                 </div>
                                 <h3 class="h2 fw-bold text-white mb-3">Demanda por Autodespido</h3>
-                                <p class="text-light-custom fst-italic fs-5 mb-4">"Trabajador exigía indemnización de
-                                    $15.000.000 alegando acoso laboral y nulidad."</p>
+                                <p class="text-light-custom fst-italic fs-5 mb-4">"Trabajador exigía $15M alegando acoso
+                                    y nulidad del despido."</p>
                                 <hr class="border-secondary opacity-25 mx-auto w-50 mb-4">
                                 <div class="d-flex justify-content-center align-items-center gap-3">
                                     <i class="fas fa-gavel text-warning fa-2x"></i>
@@ -1202,17 +1567,24 @@
                                         <p class="mb-0 text-white fw-bold fs-5">Pago $0 (Juicio Ganado)</p>
                                     </div>
                                 </div>
+                                <div class="mt-4 text-warning small fw-bold"><i class="fas fa-hand-pointer me-1"></i>
+                                    Ver Detalle del Caso</div>
                             </div>
                         </div>
 
                         <div class="fade-slide">
-                            <div class="card-dark p-5 text-center h-100 position-relative">
+                            <div class="card-dark p-5 text-center h-100 position-relative cursor-pointer hover-scale"
+                                onclick="openCaseModal(this)" data-title="Tutela de Derechos"
+                                data-desc="Sindicato acusó prácticas antisindicales. Mediante prueba documental sólida, logramos que el tribunal rechazara la demanda íntegramente."
+                                data-wa="Hola, tengo un conflicto con el sindicato y necesito defensa.">
+
                                 <div class="d-inline-flex align-items-center justify-content-center gap-2 mb-4">
-                                    <span class="badge bg-info text-dark border border-info px-3 py-2">TRANSPORTE</span>
+                                    <span
+                                        class="badge bg-info bg-opacity-25 text-info border border-info px-3 py-2">TRANSPORTE</span>
                                 </div>
                                 <h3 class="h2 fw-bold text-white mb-3">Tutela de Derechos</h3>
                                 <p class="text-light-custom fst-italic fs-5 mb-4">"Sindicato demandó por prácticas
-                                    antisindicales solicitando multas gravísimas."</p>
+                                    antisindicales solicitando multas."</p>
                                 <hr class="border-secondary opacity-25 mx-auto w-50 mb-4">
                                 <div class="d-flex justify-content-center align-items-center gap-3">
                                     <i class="fas fa-shield-alt text-info fa-2x"></i>
@@ -1221,6 +1593,60 @@
                                         <p class="mb-0 text-white fw-bold fs-5">Demanda Rechazada</p>
                                     </div>
                                 </div>
+                                <div class="mt-4 text-warning small fw-bold"><i class="fas fa-hand-pointer me-1"></i>
+                                    Ver Detalle del Caso</div>
+                            </div>
+                        </div>
+
+                        <div class="fade-slide">
+                            <div class="card-dark p-5 text-center h-100 position-relative cursor-pointer hover-scale"
+                                onclick="openCaseModal(this)" data-title="Acoso Laboral (Ley Karin)"
+                                data-desc="Implementamos defensa preventiva ante denuncia de acoso. La investigación interna bien hecha evitó el juicio y la multa."
+                                data-wa="Hola, tengo una denuncia por Ley Karin y necesito asesoría urgente.">
+
+                                <div class="d-inline-flex align-items-center justify-content-center gap-2 mb-4">
+                                    <span
+                                        class="badge bg-primary bg-opacity-25 text-primary border border-primary px-3 py-2">TECNOLOGÍA</span>
+                                </div>
+                                <h3 class="h2 fw-bold text-white mb-3">Denuncia Ley Karin</h3>
+                                <p class="text-light-custom fst-italic fs-5 mb-4">"Gerente fue acusado falsamente de
+                                    acoso sexual para forzar indemnización."</p>
+                                <hr class="border-secondary opacity-25 mx-auto w-50 mb-4">
+                                <div class="d-flex justify-content-center align-items-center gap-3">
+                                    <i class="fas fa-user-shield text-primary fa-2x"></i>
+                                    <div class="text-start">
+                                        <p class="mb-0 text-white small fw-bold text-uppercase opacity-50">Resultado</p>
+                                        <p class="mb-0 text-white fw-bold fs-5">Desestimado sin juicio</p>
+                                    </div>
+                                </div>
+                                <div class="mt-4 text-warning small fw-bold"><i class="fas fa-hand-pointer me-1"></i>
+                                    Ver Detalle del Caso</div>
+                            </div>
+                        </div>
+
+                        <div class="fade-slide">
+                            <div class="card-dark p-5 text-center h-100 position-relative cursor-pointer hover-scale"
+                                onclick="openCaseModal(this)" data-title="Accidente Laboral"
+                                data-desc="Defensa ante demanda civil por accidente. Acreditamos que la empresa cumplió todos los protocolos de seguridad (ODI, Reglamento)."
+                                data-wa="Hola, tuve un accidente laboral en la empresa y me están demandando.">
+
+                                <div class="d-inline-flex align-items-center justify-content-center gap-2 mb-4">
+                                    <span
+                                        class="badge bg-danger bg-opacity-25 text-danger border border-danger px-3 py-2">INDUSTRIA</span>
+                                </div>
+                                <h3 class="h2 fw-bold text-white mb-3">Indemnización Perjuicios</h3>
+                                <p class="text-light-custom fst-italic fs-5 mb-4">"Ex-trabajador demandó $80M por
+                                    supuesto accidente laboral."</p>
+                                <hr class="border-secondary opacity-25 mx-auto w-50 mb-4">
+                                <div class="d-flex justify-content-center align-items-center gap-3">
+                                    <i class="fas fa-hard-hat text-danger fa-2x"></i>
+                                    <div class="text-start">
+                                        <p class="mb-0 text-white small fw-bold text-uppercase opacity-50">Resultado</p>
+                                        <p class="mb-0 text-white fw-bold fs-5">Empresa absuelta</p>
+                                    </div>
+                                </div>
+                                <div class="mt-4 text-warning small fw-bold"><i class="fas fa-hand-pointer me-1"></i>
+                                    Ver Detalle del Caso</div>
                             </div>
                         </div>
 
@@ -1337,26 +1763,105 @@
         </div>
     </section>
 
-    <section class="py-5 bg-stats">
-        <div class="container py-3">
-            <div class="row text-center g-4">
-                <div class="col-6 col-md-3">
-                    <div class="display-4 fw-bold font-serif text-white counter" data-target="150">0</div>
-                    <div class="small text-uppercase text-light-custom letter-spacing-1 mt-1">Empresas</div>
+    <section id="stats-section" class="py-5 position-relative overflow-hidden"
+        style="background: linear-gradient(180deg, #020617 0%, #0f172a 100%); border-top: 1px solid rgba(255,255,255,0.05);">
+
+        <div class="stats-glow-bg" id="stats-glow"></div>
+
+        <div class="container position-relative z-1 py-3">
+            <div class="row g-4 justify-content-center">
+
+                <div class="col-6 col-lg-4">
+                    <div class="stat-card text-center p-4 h-100" onclick="openStatModal(this)"
+                        data-title="Empresas Blindadas"
+                        data-desc="Hemos protegido el patrimonio de más de 150 empresas frente a demandas injustificadas, evitando quiebras y pérdidas millonarias."
+                        data-wa="Hola, me interesa saber cómo blindar legalmente a mi empresa.">
+                        <i class="fas fa-building stat-icon mb-3"></i>
+                        <div class="display-4 fw-bolder font-serif text-gradient-gold counter" data-target="150">0</div>
+                        <div class="stat-label">Empresas Blindadas</div>
+
+                    </div>
                 </div>
-                <div class="col-6 col-md-3">
-                    <div class="display-4 fw-bold font-serif text-white counter" data-target="500">0</div>
-                    <div class="small text-uppercase text-light-custom letter-spacing-1 mt-1">Juicios</div>
+
+                <div class="col-6 col-lg-4">
+                    <div class="stat-card text-center p-4 h-100" onclick="openStatModal(this)"
+                        data-title="Juicios Ganados"
+                        data-desc="Nuestro récord en tribunales nos avala. Litigamos agresivamente para desestimar tutelas, despidos injustificados y nulidades."
+                        data-wa="Hola, tengo un juicio laboral en curso y necesito defensa experta.">
+                        <i class="fas fa-gavel stat-icon mb-3"></i>
+                        <div class="display-4 fw-bolder font-serif text-gradient-gold counter" data-target="500">0</div>
+                        <div class="stat-label">Juicios Ganados</div>
+
+                    </div>
                 </div>
-                <div class="col-6 col-md-3">
-                    <div class="display-4 fw-bold font-serif text-white counter" data-target="85">0</div>
-                    <div class="small text-uppercase text-light-custom letter-spacing-1 mt-1">% Ahorro</div>
+
+                <div class="col-6 col-lg-4">
+                    <div class="stat-card text-center p-4 h-100" onclick="openStatModal(this)"
+                        data-title="% Ahorro en Condenas"
+                        data-desc="El objetivo no es solo ganar, es pagar menos. Reducimos en promedio un 85% los montos demandados originalmente por los trabajadores."
+                        data-wa="Hola, quiero evaluar el riesgo financiero de una demanda laboral.">
+                        <i class="fas fa-chart-line stat-icon mb-3"></i>
+                        <div class="display-4 fw-bolder font-serif text-gradient-gold counter" data-target="85">0</div>
+                        <div class="stat-label">% Ahorro Promedio</div>
+
+                    </div>
                 </div>
-                <div class="col-6 col-md-3">
-                    <div class="display-4 fw-bold font-serif text-white">24h</div>
-                    <div class="small text-uppercase text-light-custom letter-spacing-1 mt-1">Respuesta Máx.</div>
+
+                <div class="col-6 col-lg-4">
+                    <div class="stat-card text-center p-4 h-100" onclick="openStatModal(this)"
+                        data-title="Respuesta Inmediata"
+                        data-desc="En derecho laboral los plazos son fatales. Garantizamos una evaluación de riesgo y estrategia en menos de 24 horas hábiles."
+                        data-wa="Hola, necesito una respuesta urgente por plazos fatales.">
+                        <i class="fas fa-clock stat-icon mb-3"></i>
+                        <div class="display-4 fw-bolder font-serif text-gradient-gold">24h</div>
+                        <div class="stat-label">Respuesta Máxima</div>
+
+                    </div>
+                </div>
+
+                <div class="col-6 col-lg-4">
+                    <div class="stat-card text-center p-4 h-100" onclick="openStatModal(this)"
+                        data-title="100% Lealtad Patronal"
+                        data-desc="Cero conflicto de interés. A diferencia de otros estudios, nosotros JAMÁS defendemos trabajadores. Estamos 100% del lado de la empresa."
+                        data-wa="Hola, busco un abogado exclusivo para empresas.">
+                        <i class="fas fa-handshake stat-icon mb-3"></i>
+                        <div class="display-4 fw-bolder font-serif text-gradient-gold">100%</div>
+                        <div class="stat-label">Solo Empresas</div>
+
+                    </div>
+                </div>
+
+                <div class="col-6 col-lg-4">
+                    <div class="stat-card text-center p-4 h-100" onclick="openStatModal(this)"
+                        data-title="Experiencia Senior"
+                        data-desc="Más de una década dedicados exclusivamente al derecho laboral corporativo. Conocemos el criterio de los jueces al detalle."
+                        data-wa="Hola, necesito asesoría de un abogado senior con experiencia.">
+                        <i class="fas fa-medal stat-icon mb-3"></i>
+                        <div class="display-4 fw-bolder font-serif text-gradient-gold counter" data-target="12">0</div>
+                        <div class="stat-label">Años de Trayectoria</div>
+
+                    </div>
+                </div>
+
+            </div>
+
+            <div class="row mt-5">
+                <div class="col-lg-8 mx-auto text-center" data-aos="fade-up" data-aos-delay="300">
+                    <div
+                        class="stats-cta-box p-4 rounded-3 d-flex flex-column flex-md-row align-items-center justify-content-between gap-3">
+                        <div class="text-md-start">
+                            <h5 class="text-white mb-1 fw-bold">No sea parte de la estadística de multas.</h5>
+                            <p class="mb-0 text-light-custom small">Únase a las empresas que protegen su patrimonio con
+                                nosotros.</p>
+                        </div>
+                        <a href="#contacto-form" onclick="scrollToForm(event)"
+                            class="btn btn-outline-gold px-4 py-2 fw-bold text-nowrap">
+                            EVALUAR MI RIESGO <i class="fas fa-arrow-right ms-2"></i>
+                        </a>
+                    </div>
                 </div>
             </div>
+
         </div>
     </section>
 
@@ -1475,36 +1980,198 @@
         </div>
     </section>
 
-    <footer class="py-5 bg-black">
-        <div class="container text-center text-md-start">
-            <div class="row gy-4">
-                <div class="col-md-4">
-                    <h5 class="font-serif text-white fw-bold mb-3">INNOV<span
-                            style="color: var(--gold-main);">ABOGADOS</span></h5>
-                    <p class="small text-light-custom">Firma boutique especializada en la defensa corporativa y litigio
-                        laboral estratégico en Chile.</p>
+    <section class="py-5 position-relative"
+        style="background: linear-gradient(to bottom, #0f172a, #020617); border-top: 1px solid rgba(255,255,255,0.05);">
+
+        <div
+            style="position: absolute; left: 0; top: 0; width: 100%; height: 100%; background-image: radial-gradient(circle at 0% 50%, rgba(212, 175, 55, 0.05), transparent 50%); pointer-events: none;">
+        </div>
+
+        <div class="container py-lg-4 position-relative z-1">
+            <div class="row align-items-center gy-5">
+
+                <div class="col-lg-5" data-aos="fade-right">
+                    <span class="text-uppercase fw-bold small text-warning letter-spacing-2">Atención Inmediata</span>
+                    <h2 class="display-5 fw-bold text-white mt-2 mb-4 font-serif">No deje que el plazo venza.</h2>
+                    <p class="text-light-custom fs-5 mb-4 fw-light">
+                        Cada hora cuenta en un litigio laboral. Si tiene dudas sobre cómo proceder, hable directamente
+                        con un socio del estudio ahora mismo.
+                    </p>
+
+                    <div class="d-flex flex-column gap-3 mt-5">
+                        <a href="tel:+56930931860"
+                            class="btn btn-outline-gold py-3 px-4 d-flex align-items-center justify-content-between group-hover-effect">
+                            <span class="d-flex align-items-center gap-3">
+                                <span class="icon-circle-small bg-gold text-white"><i
+                                        class="fas fa-phone-alt"></i></span>
+                                <span class="text-start">
+                                    <span class="d-block small text-uppercase text-white-50 fw-bold"
+                                        style="font-size: 0.7rem;">Llamada Directa</span>
+                                    <span class="d-block fw-bold fs-5 text-white">+56 9 3093 1860</span>
+                                </span>
+                            </span>
+                            <i class="fas fa-chevron-right text-warning"></i>
+                        </a>
+
+                        <a href="https://wa.me/56930931860?text=Hola,%20quisiera%20agendar%20una%20revisión%20de%20caso."
+                            class="btn btn-outline-light-custom py-3 px-4 d-flex align-items-center justify-content-between group-hover-effect"
+                            style="border-color: #25D366;">
+                            <span class="d-flex align-items-center gap-3">
+                                <span class="icon-circle-small text-white" style="background: #25D366;"><i
+                                        class="fab fa-whatsapp"></i></span>
+                                <span class="text-start">
+                                    <span class="d-block small text-uppercase text-white-50 fw-bold"
+                                        style="font-size: 0.7rem;">Chat Abogados</span>
+                                    <span class="d-block fw-bold fs-5 text-white">WhatsApp Prioritario</span>
+                                </span>
+                            </span>
+                            <i class="fas fa-chevron-right text-white"></i>
+                        </a>
+                    </div>
                 </div>
-                <div class="col-md-4 text-center">
-                    <h6 class="text-white text-uppercase small fw-bold mb-3">Enlaces</h6>
-                    <ul class="list-unstyled small">
-                        <li><a href="../" class="text-decoration-none text-light-custom hover-gold">Inicio</a></li>
-                        <li><a href="../trabajadores/"
-                                class="text-decoration-none text-light-custom hover-gold">Trabajadores</a></li>
-                        <li><a href="#contacto-form"
-                                class="text-decoration-none text-light-custom hover-gold">Contacto</a></li>
+
+                <div class="col-lg-6 offset-lg-1" data-aos="fade-left">
+                    <div class="form-float-wrapper p-4 p-md-5" style="border-top: 5px solid var(--gold-main);">
+                        <div class="mb-4">
+                            <h3 class="h4 fw-bold mb-1 font-serif text-dark">Escríbanos su caso</h3>
+                            <p class="small text-muted mb-0">Déjenos un mensaje detallado y le responderemos con una
+                                estrategia preliminar.</p>
+                        </div>
+
+                        <form action="https://submit-form.com/oesbLIPMk" method="POST">
+                            <input type="hidden" name="origen" value="formulario_footer">
+                            <input type="hidden" name="_redirect" class="js-redirect" value="">
+
+                            <div class="row g-2 mb-3">
+                                <div class="col-12">
+                                    <label class="form-label small fw-bold text-dark">Empresa</label>
+                                    <input type="text" name="empresa" class="form-control bg-light border-light-subtle"
+                                        placeholder="Razón Social" required>
+                                </div>
+                                <div class="col-6">
+                                    <label class="form-label small fw-bold text-dark">Nombre</label>
+                                    <input type="text" name="nombre" class="form-control bg-light border-light-subtle"
+                                        placeholder="Su nombre" required>
+                                </div>
+                                <div class="col-6">
+                                    <label class="form-label small fw-bold text-dark">Teléfono</label>
+                                    <input type="tel" name="telefono" class="form-control bg-light border-light-subtle"
+                                        placeholder="+56 9..." required>
+                                </div>
+                                <div class="col-12">
+                                    <label class="form-label small fw-bold text-dark">Email</label>
+                                    <input type="email" name="email" class="form-control bg-light border-light-subtle"
+                                        placeholder="contacto@empresa.com" required>
+                                </div>
+                                <div class="col-12">
+                                    <label class="form-label small fw-bold text-dark">Comentarios / Detalles</label>
+                                    <textarea name="comentario" class="form-control bg-light border-light-subtle"
+                                        rows="3"
+                                        placeholder="Describa brevemente la situación (opcional)..."></textarea>
+                                </div>
+                            </div>
+
+                            <button type="submit" class="btn btn-gold w-100 py-3 shadow-sm fw-bold">
+                                ENVIAR CONSULTA
+                            </button>
+
+                            <p class="text-center small text-muted mt-3 mb-0" style="font-size: 0.7rem;">
+                                <i class="fas fa-shield-alt me-1"></i> Información confidencial bajo secreto
+                                profesional.
+                            </p>
+                        </form>
+                    </div>
+                </div>
+
+            </div>
+        </div>
+    </section>
+
+    <footer style="background: #020617; border-top: 1px solid rgba(255, 255, 255, 0.05); padding-top: 80px;">
+        <div class="container">
+            <div class="row gy-5 justify-content-between">
+
+                <div class="col-lg-4 col-md-12">
+                    <a href="../" class="d-block mb-4 text-decoration-none">
+                        <div class="d-flex flex-column lh-1">
+                            <span class="font-serif fs-3 fw-bold text-white">INNOV<span
+                                    style="color: var(--gold-main);">ABOGADOS</span></span>
+                            <span class="text-uppercase text-white-50"
+                                style="font-size: 0.65rem; letter-spacing: 3px;">Defensa Patronal</span>
+                        </div>
+                    </a>
+                    <p class="text-light-custom small opacity-75 mb-4" style="line-height: 1.8; max-width: 300px;">
+                        Protegemos el patrimonio de su empresa con estrategias legales agresivas y técnicas. Litigio
+                        experto sin conflicto de interés.
+                    </p>
+                    <div class="d-flex gap-3">
+                        <a href="#" class="social-btn"><i class="fab fa-linkedin-in"></i></a>
+                        <a href="#" class="social-btn"><i class="fab fa-instagram"></i></a>
+                    </div>
+                </div>
+
+                <div class="col-lg-2 col-6">
+                    <h6 class="text-white text-uppercase small fw-bold mb-4 letter-spacing-2">Estudio</h6>
+                    <ul class="list-unstyled footer-links">
+                        <li><a href="../">Inicio</a></li>
+                        <li><a href="#servicios">Áreas de Práctica</a></li>
+                        <li><a href="#casos">Casos de Éxito</a></li>
+                        <li><a href="#faq">Preguntas Frecuentes</a></li>
                     </ul>
                 </div>
-                <div class="col-md-4 text-md-end">
-                    <h6 class="text-white text-uppercase small fw-bold mb-3">Contacto</h6>
-                    <p class="small text-light-custom mb-1"><i class="fas fa-map-marker-alt me-2"></i> San Sebastián
-                        2750, Las Condes</p>
-                    <p class="small text-light-custom mb-1"><i class="fas fa-envelope me-2"></i>
-                        contacto@innovabogados.cl</p>
+
+                <div class="col-lg-2 col-6">
+                    <h6 class="text-white text-uppercase small fw-bold mb-4 letter-spacing-2">Legal</h6>
+                    <ul class="list-unstyled footer-links">
+                        <li><a href="../privacidad">Privacidad</a></li>
+                        <li><a href="../terminos">Términos</a></li>
+                        <li><a href="../trabajadores/">Portal Trabajadores</a></li>
+                    </ul>
+                </div>
+
+                <div class="col-lg-3 col-md-12">
+                    <h6 class="text-white text-uppercase small fw-bold mb-4 letter-spacing-2">Contacto</h6>
+                    <ul class="list-unstyled text-light-custom small mb-4">
+                        <li class="mb-3 d-flex align-items-center gap-2">
+                            <i class="fas fa-map-marker-alt text-warning"></i>
+                            <span>San Sebastián 2750, Of. 603,<br>Las Condes, Santiago.</span>
+                        </li>
+                        <li class="mb-3 d-flex align-items-center gap-2">
+                            <i class="fas fa-phone text-warning"></i>
+                            <a href="tel:+56930931860" class="text-white text-decoration-none hover-gold">+56 9 3093
+                                1860</a>
+                        </li>
+                        <li class="d-flex align-items-center gap-2">
+                            <i class="fas fa-envelope text-warning"></i>
+                            <a href="mailto:contacto@innovabogados.cl"
+                                class="text-white text-decoration-none hover-gold">contacto@innovabogados.cl</a>
+                        </li>
+                    </ul>
+
+                    <a href="#contacto-form" onclick="scrollToForm(event)"
+                        class="btn btn-outline-light w-100 py-2 font-serif" style="font-size: 0.9rem;">
+                        Agendar Reunión
+                    </a>
                 </div>
             </div>
-            <div
-                class="border-top border-secondary border-opacity-10 mt-5 pt-4 text-center small text-light-custom copyright-text">
-                &copy; 2026 InnovAbogados. Todos los derechos reservados.
+
+            <hr class="border-secondary opacity-10 mt-5 mb-4">
+
+            <div class="row align-items-center py-3 pb-5">
+                <div class="col-md-6 text-center text-md-start mb-3 mb-md-0">
+                    <p class="small text-white-50 mb-0" style="font-size: 0.75rem;">
+                        &copy; 2026 InnovAbogados. Todos los derechos reservados.
+                    </p>
+                </div>
+                <div class="col-md-6 text-center text-md-end">
+                    <p class="small text-white-50 mb-0 d-inline-flex align-items-center gap-1"
+                        style="font-size: 0.75rem;">
+                        <i class="fas fa-code fa-xs"></i> Desarrollado por
+                        <a href="https://paginasfast.cl/" target="_blank" rel="noopener" class="developer-link">
+                            PaginasFast.cl
+                        </a>
+                    </p>
+                </div>
             </div>
         </div>
     </footer>
@@ -1520,7 +2187,7 @@
         </div>
     </div>
 
-    <div id="mobile-sticky-footer" class="d-lg-none fixed-bottom p-3">
+    <div id="mobile-sticky-footer" class="d-lg-none fixed-bottom p-3 pt-2">
         <div class="container">
             <div id="footer-message-container">
                 <small id="footer-message" class="fw-bold text-uppercase">¿Le notificaron una demanda?</small>
@@ -1546,6 +2213,51 @@
         </div>
     </div>
 
+
+    <div class="modal fade" id="caseModal" tabindex="-1" aria-hidden="true" style="backdrop-filter: blur(10px);">
+        <div class="modal-dialog modal-dialog-centered">
+            <div class="modal-content border border-secondary border-opacity-25 shadow-lg"
+                style="background: #0f172a; color: white;">
+
+                <div class="modal-header border-bottom border-secondary border-opacity-10">
+                    <h5 class="modal-title font-serif text-warning" id="caseModalTitle">Título del Caso</h5>
+                    <button type="button" class="btn-close btn-close-white" data-bs-dismiss="modal"
+                        aria-label="Close"></button>
+                </div>
+
+                <div class="modal-body p-4 text-center">
+                    <div class="mb-4">
+                        <i class="fas fa-trophy text-gradient-gold" style="font-size: 3rem;"></i>
+                    </div>
+
+                    <p class="fs-5 text-light-custom mb-4" id="caseModalDesc" style="line-height: 1.6;">
+                        Descripción del caso...
+                    </p>
+
+                    <hr class="border-secondary opacity-25 my-4">
+
+                    <p class="small text-white text-uppercase fw-bold mb-3">¿Su empresa enfrenta algo similar?</p>
+
+                    <div class="d-grid gap-3">
+                        <a href="#" id="caseModalWa" target="_blank"
+                            class="btn btn-success py-3 fw-bold d-flex align-items-center justify-content-center gap-2"
+                            style="background: #25D366; border: none; box-shadow: 0 4px 15px rgba(37,211,102,0.3);">
+                            <i class="fab fa-whatsapp fa-lg"></i> CONSULTAR ESTE CASO
+                        </a>
+
+                        <a href="tel:+56930931860" class="btn btn-outline-light-custom py-2">
+                            <i class="fas fa-phone-alt me-2"></i> Llamar Ahora
+                        </a>
+
+                        <button onclick="closeCaseModalAndScroll()"
+                            class="btn btn-link text-warning text-decoration-none small">
+                            Prefiero solicitar evaluación por escrito
+                        </button>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
     <div class="modal fade" id="serviceModal" tabindex="-1" aria-hidden="true" style="backdrop-filter: blur(5px);">
         <div class="modal-dialog modal-dialog-centered">
             <div class="modal-content bg-dark border border-secondary border-opacity-25 text-white shadow-lg">
@@ -1557,6 +2269,44 @@
                     <i id="modalIcon" class="fas fa-gavel fa-3x mb-3 text-warning"></i>
                     <p id="modalDesc" class="text-white-50"></p>
                     <button onclick="closeModalAndScroll()" class="btn btn-gold w-100 mt-3">COTIZAR AHORA</button>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <!-- Modal Estadísticas Dinámico -->
+    <div class="modal fade" id="statModal" tabindex="-1" aria-hidden="true" style="backdrop-filter: blur(8px);">
+        <div class="modal-dialog modal-dialog-centered">
+            <div class="modal-content border border-secondary border-opacity-25 text-white shadow-lg"
+                style="background: #0f172a;">
+
+                <div class="modal-header border-bottom border-secondary border-opacity-10">
+                    <h5 class="modal-title font-serif text-warning" id="statModalTitle">Título</h5>
+                    <button type="button" class="btn-close btn-close-white" data-bs-dismiss="modal"
+                        aria-label="Close"></button>
+                </div>
+
+                <div class="modal-body p-4 text-center">
+                    <div class="mb-4">
+                        <p class="fs-5 text-light-custom" id="statModalDesc">Descripción...</p>
+                    </div>
+
+                    <div class="d-grid gap-3">
+                        <a href="#" id="statModalWa" target="_blank" rel="noopener noreferrer"
+                            class="btn btn-success py-3 fw-bold d-flex align-items-center justify-content-center gap-2"
+                            style="background: #25D366; border: none;">
+                            <i class="fab fa-whatsapp fa-lg"></i> CONSULTAR AHORA
+                        </a>
+
+                        <a href="tel:+56930931860" class="btn btn-outline-light-custom py-2">
+                            <i class="fas fa-phone-alt me-2"></i> Llamada Directa
+                        </a>
+
+                        <button onclick="closeStatModalAndScroll()"
+                            class="btn btn-link text-warning text-decoration-none small">
+                            Prefiero llenar el formulario
+                        </button>
+                    </div>
                 </div>
             </div>
         </div>
@@ -1631,7 +2381,7 @@
                 observer.disconnect();
             }
         });
-        const stats = document.querySelector('.bg-stats');
+        const stats = document.querySelector('.counter')?.closest('section');
         if (stats) observer.observe(stats);
 
         // 4. Modal Logic
@@ -1710,9 +2460,11 @@
         // Notificación roja badge
         setTimeout(() => { if (waBadge) waBadge.innerText = '2'; }, 10000);
 
-        // 7. Redirect Setup
-        const redir = document.querySelector('.js-redirect');
-        if (redir) redir.value = new URL('../mensaje-enviado.html', window.location.href).href;
+        // 7. Redirect Setup (Reemplaza el código anterior por este)
+        const redirects = document.querySelectorAll('.js-redirect'); // Usamos querySelectorAll
+        redirects.forEach(input => {
+            input.value = new URL('../mensaje-enviado.html', window.location.href).href;
+        });
 
         // --- SMART HEADER LOGIC ---
         let lastScrollTop = 0;
@@ -1750,6 +2502,35 @@
 
             lastScrollTop = scrollTop;
         });
+
+        // --- LOGICA MODAL CASOS DE ÉXITO ---
+        const caseModal = new bootstrap.Modal(document.getElementById('caseModal'));
+
+        function openCaseModal(card) {
+            // 1. Extraer datos
+            const title = card.getAttribute('data-title');
+            const desc = card.getAttribute('data-desc');
+            const waMsg = card.getAttribute('data-wa');
+            const phone = "56930931860";
+
+            // 2. Inyectar datos
+            document.getElementById('caseModalTitle').innerText = title;
+            document.getElementById('caseModalDesc').innerText = desc;
+
+            // 3. Configurar WhatsApp
+            const waBtn = document.getElementById('caseModalWa');
+            waBtn.href = `https://wa.me/${phone}?text=${encodeURIComponent(waMsg)}`;
+
+            // 4. Mostrar
+            caseModal.show();
+        }
+
+        function closeCaseModalAndScroll() {
+            caseModal.hide();
+            setTimeout(() => {
+                scrollToForm(null);
+            }, 300);
+        }
 
         // --- LOGICA BOTÓN FLOTANTE ESCRITORIO ---
         const desktopCta = document.getElementById('desktop-cta');
@@ -1826,6 +2607,77 @@
                 // Escuchar cuando la barra termine de llenarse
                 progressBar.addEventListener('animationend', changeSlide);
             }
+        });
+
+        // --- EFECTO GLOW QUE SIGUE AL MOUSE ---
+        const statsSection = document.getElementById('stats-section');
+        const statsGlow = document.getElementById('stats-glow');
+
+        if (statsSection && statsGlow) {
+            statsSection.addEventListener('mousemove', (e) => {
+                const rect = statsSection.getBoundingClientRect();
+                const x = e.clientX - rect.left;
+                const y = e.clientY - rect.top;
+
+                statsGlow.style.left = x + 'px';
+                statsGlow.style.top = y + 'px';
+            });
+        }
+
+        // --- LOGICA MODAL ESTADÍSTICAS ---
+        const statModal = new bootstrap.Modal(document.getElementById('statModal'));
+
+        function openStatModal(card) {
+            // 1. Extraer datos de la tarjeta clickeada
+            const title = card.getAttribute('data-title');
+            const desc = card.getAttribute('data-desc');
+            const waMsg = card.getAttribute('data-wa');
+            const phone = "56930931860"; // Tu número
+
+            // 2. Inyectar datos en el modal
+            document.getElementById('statModalTitle').innerText = title;
+            document.getElementById('statModalDesc').innerText = desc;
+
+            // 3. Configurar enlace WhatsApp dinámico
+            const waBtn = document.getElementById('statModalWa');
+            waBtn.href = `https://wa.me/${phone}?text=${encodeURIComponent(waMsg)}`;
+
+            // 4. Mostrar Modal
+            statModal.show();
+        }
+
+        function closeStatModalAndScroll() {
+            statModal.hide();
+            // Esperar que cierre el modal para hacer scroll
+            setTimeout(() => {
+                scrollToForm(null);
+            }, 300);
+        }
+
+        document.addEventListener("DOMContentLoaded", function () {
+            // Seleccionamos todas las tarjetas oscuras (Servicios y Casos)
+            const cards = document.querySelectorAll('.card-dark');
+
+            cards.forEach(card => {
+                // 1. Crear e inyectar el elemento de brillo dinámicamente
+                const glow = document.createElement('div');
+                glow.classList.add('card-mouse-glow');
+                card.prepend(glow);
+
+                // 2. Evento para mover el brillo
+                card.addEventListener('mousemove', (e) => {
+                    // Obtenemos la posición de la tarjeta en la pantalla
+                    const rect = card.getBoundingClientRect();
+
+                    // Calculamos X e Y relativos a la tarjeta (no a la pantalla)
+                    const x = e.clientX - rect.left;
+                    const y = e.clientY - rect.top;
+
+                    // Movemos el brillo
+                    glow.style.left = `${x}px`;
+                    glow.style.top = `${y}px`;
+                });
+            });
         });
     </script>
 
