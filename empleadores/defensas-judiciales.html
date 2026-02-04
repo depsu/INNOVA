@@ -346,6 +346,9 @@
             letter-spacing: 1px;
             transition: all 0.3s ease;
             border-radius: 6px;
+            text-decoration: none;
+            /* Quitamos subrayado de enlace */
+            cursor: pointer;
         }
 
         /* Icono */
@@ -534,6 +537,13 @@
 
         #mobile-sticky-footer.show {
             transform: translateY(0);
+        }
+
+        /* Clase auxiliar para ocultar el footer forzosamente */
+        #mobile-sticky-footer.force-hide {
+            transform: translateY(110%) !important;
+            opacity: 0;
+            pointer-events: none;
         }
 
         /* Contenedor del mensaje centrado */
@@ -1100,35 +1110,41 @@
         <div class="container">
             <div class="expertise-grid">
 
-                <div class="expertise-item">
+                <a href="https://wa.me/56930931860?text=Hola,%20necesito%20un%20abogado%20laboral%20para%20el%20rubro%20de%20Construcción"
+                    target="_blank" rel="noopener noreferrer" class="expertise-item">
                     <i class="fas fa-hard-hat"></i>
                     <span>Construcción</span>
-                </div>
+                </a>
 
-                <div class="expertise-item">
+                <a href="https://wa.me/56930931860?text=Hola,%20necesito%20un%20abogado%20laboral%20para%20el%20rubro%20de%20Retail"
+                    target="_blank" rel="noopener noreferrer" class="expertise-item">
                     <i class="fas fa-shopping-bag"></i>
                     <span>Retail</span>
-                </div>
+                </a>
 
-                <div class="expertise-item">
+                <a href="https://wa.me/56930931860?text=Hola,%20necesito%20un%20abogado%20laboral%20para%20el%20rubro%20de%20Transporte"
+                    target="_blank" rel="noopener noreferrer" class="expertise-item">
                     <i class="fas fa-truck"></i>
                     <span>Transporte</span>
-                </div>
+                </a>
 
-                <div class="expertise-item">
+                <a href="https://wa.me/56930931860?text=Hola,%20necesito%20un%20abogado%20laboral%20para%20el%20rubro%20de%20Tecnología"
+                    target="_blank" rel="noopener noreferrer" class="expertise-item">
                     <i class="fas fa-laptop-code"></i>
                     <span>Tecnología</span>
-                </div>
+                </a>
 
-                <div class="expertise-item">
+                <a href="https://wa.me/56930931860?text=Hola,%20necesito%20un%20abogado%20laboral%20para%20el%20rubro%20de%20Industria"
+                    target="_blank" rel="noopener noreferrer" class="expertise-item">
                     <i class="fas fa-industry"></i>
                     <span>Industria</span>
-                </div>
+                </a>
 
-                <div class="expertise-item">
+                <a href="https://wa.me/56930931860?text=Hola,%20necesito%20un%20abogado%20laboral%20para%20el%20rubro%20de%20Gastronomía"
+                    target="_blank" rel="noopener noreferrer" class="expertise-item">
                     <i class="fas fa-utensils"></i>
                     <span>Gastronomía</span>
-                </div>
+                </a>
 
             </div>
         </div>
@@ -1751,6 +1767,34 @@
                 desktopCta.classList.remove('show');
             }
         });
+
+        // --- LOGICA OCULTAR STICKY FOOTER EN FORMULARIO ---
+        // Objetivo: Que los botones flotantes no molesten cuando el usuario ya está en el formulario.
+
+        const stickyFooter = document.getElementById('mobile-sticky-footer');
+        const mainForm = document.getElementById('contacto-form');
+
+        if (stickyFooter && mainForm) {
+
+            const observerOptions = {
+                root: null, // Viewport
+                threshold: 0.1 // Se activa cuando al menos el 10% del formulario es visible
+            };
+
+            const formObserver = new IntersectionObserver((entries) => {
+                entries.forEach(entry => {
+                    if (entry.isIntersecting) {
+                        // El usuario está viendo el formulario -> OCULTAR footer
+                        stickyFooter.classList.add('force-hide');
+                    } else {
+                        // El usuario salió del formulario -> MOSTRAR footer (si corresponde por scroll)
+                        stickyFooter.classList.remove('force-hide');
+                    }
+                });
+            }, observerOptions);
+
+            formObserver.observe(mainForm);
+        }
         // --- LOGICA CARRUSEL FADE ---
         document.addEventListener('DOMContentLoaded', () => {
             const slides = document.querySelectorAll('.fade-slide');
