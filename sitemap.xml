@@ -70,12 +70,22 @@
     <priority>0.80</priority>
   </url>
   <url>
+    <loc>https://www.innovabogados.cl/trabajadores/demanda-por-despido-indirecto</loc>
+    <lastmod>2026-07-30</lastmod>
+    <priority>0.80</priority>
+  </url>
+  <url>
     <loc>https://www.innovabogados.cl/trabajadores/despido-injustificado</loc>
     <lastmod>2026-07-30</lastmod>
     <priority>0.80</priority>
   </url>
   <url>
     <loc>https://www.innovabogados.cl/trabajadores/horas-extra</loc>
+    <lastmod>2026-07-30</lastmod>
+    <priority>0.80</priority>
+  </url>
+  <url>
+    <loc>https://www.innovabogados.cl/trabajadores/indemnizacion-por-autodespido</loc>
     <lastmod>2026-07-30</lastmod>
     <priority>0.80</priority>
   </url>
@@ -102,6 +112,11 @@
   </url>
   <url>
     <loc>https://www.innovabogados.cl/empleadores/mediaciones-dt</loc>
+    <lastmod>2026-07-30</lastmod>
+    <priority>0.80</priority>
+  </url>
+  <url>
+    <loc>https://www.innovabogados.cl/empleadores/reglamento-interno-de-trabajo-chile</loc>
     <lastmod>2026-07-30</lastmod>
     <priority>0.80</priority>
   </url>
