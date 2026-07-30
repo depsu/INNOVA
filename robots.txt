@@ -2,4 +2,4 @@ User-agent: *
 Allow: /
 
 # Sitemaps
-Sitemap: https://innovabogados.cl/sitemap.xml
+Sitemap: https://www.innovabogados.cl/sitemap.xml

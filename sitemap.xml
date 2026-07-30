@@ -1,142 +1,164 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">
-  <!-- Páginas Principales -->
+  <!-- Páginas principales -->
   <url>
-    <loc>https://innovabogados.cl/</loc>
-    <lastmod>2026-01-15</lastmod>
+    <loc>https://www.innovabogados.cl/</loc>
+    <lastmod>2026-07-30</lastmod>
     <priority>1.00</priority>
   </url>
   <url>
-    <loc>https://innovabogados.cl/nosotros</loc>
-    <lastmod>2026-01-15</lastmod>
-    <priority>0.80</priority>
-  </url>
-  <url>
-    <loc>https://innovabogados.cl/casos-y-resultados</loc>
-    <lastmod>2026-01-15</lastmod>
+    <loc>https://www.innovabogados.cl/casos-y-resultados</loc>
+    <lastmod>2026-07-30</lastmod>
     <priority>0.90</priority>
   </url>
   <url>
-    <loc>https://innovabogados.cl/contacto</loc>
-    <lastmod>2026-01-15</lastmod>
+    <loc>https://www.innovabogados.cl/contacto</loc>
+    <lastmod>2026-07-30</lastmod>
     <priority>0.80</priority>
   </url>
   <url>
-    <loc>https://innovabogados.cl/recursos/</loc>
-    <lastmod>2026-01-15</lastmod>
+    <loc>https://www.innovabogados.cl/cookies</loc>
+    <lastmod>2026-07-30</lastmod>
+    <priority>0.30</priority>
+  </url>
+  <url>
+    <loc>https://www.innovabogados.cl/nosotros</loc>
+    <lastmod>2026-07-30</lastmod>
+    <priority>0.80</priority>
+  </url>
+  <url>
+    <loc>https://www.innovabogados.cl/privacidad</loc>
+    <lastmod>2026-07-30</lastmod>
+    <priority>0.30</priority>
+  </url>
+  <url>
+    <loc>https://www.innovabogados.cl/terminos</loc>
+    <lastmod>2026-07-30</lastmod>
+    <priority>0.30</priority>
+  </url>
+  <!-- Landing de defensa laboral -->
+  <url>
+    <loc>https://www.innovabogados.cl/defensa-laboral</loc>
+    <lastmod>2026-07-30</lastmod>
+    <priority>0.70</priority>
+  </url>
+  <!-- Hubs de servicios -->
+  <url>
+    <loc>https://www.innovabogados.cl/empleadores</loc>
+    <lastmod>2026-07-30</lastmod>
     <priority>0.85</priority>
   </url>
-
-  <!-- Secciones de Servicios -->
   <url>
-    <loc>https://innovabogados.cl/trabajadores/</loc>
-    <lastmod>2026-01-15</lastmod>
+    <loc>https://www.innovabogados.cl/recursos</loc>
+    <lastmod>2026-07-30</lastmod>
     <priority>0.85</priority>
   </url>
   <url>
-    <loc>https://innovabogados.cl/empleadores/</loc>
-    <lastmod>2026-01-15</lastmod>
+    <loc>https://www.innovabogados.cl/trabajadores</loc>
+    <lastmod>2026-07-30</lastmod>
     <priority>0.85</priority>
   </url>
-
-  <!-- Blogs y Casos de Éxito -->
+  <!-- Servicios para trabajadores -->
   <url>
-    <loc>https://innovabogados.cl/recursos/blogs/accidentes-trayecto-trabajadores-terreno</loc>
-    <lastmod>2026-07-22</lastmod>
+    <loc>https://www.innovabogados.cl/trabajadores/autodespido</loc>
+    <lastmod>2026-07-30</lastmod>
     <priority>0.80</priority>
   </url>
   <url>
-    <loc>https://innovabogados.cl/recursos/blogs/contratos-pymes-creativas-turismo</loc>
-    <lastmod>2026-07-22</lastmod>
+    <loc>https://www.innovabogados.cl/trabajadores/cobro-finiquito</loc>
+    <lastmod>2026-07-30</lastmod>
     <priority>0.80</priority>
   </url>
   <url>
-    <loc>https://innovabogados.cl/recursos/blogs/caso-destape-rapido</loc>
-    <lastmod>2026-01-15</lastmod>
+    <loc>https://www.innovabogados.cl/trabajadores/despido-injustificado</loc>
+    <lastmod>2026-07-30</lastmod>
     <priority>0.80</priority>
   </url>
   <url>
-    <loc>https://innovabogados.cl/recursos/blogs/caso-chile-electrico</loc>
-    <lastmod>2026-01-15</lastmod>
+    <loc>https://www.innovabogados.cl/trabajadores/horas-extra</loc>
+    <lastmod>2026-07-30</lastmod>
     <priority>0.80</priority>
   </url>
   <url>
-    <loc>https://innovabogados.cl/recursos/blogs/caso-automatiza-web</loc>
-    <lastmod>2026-01-15</lastmod>
+    <loc>https://www.innovabogados.cl/trabajadores/tutela-ley-karin</loc>
+    <lastmod>2026-07-30</lastmod>
+    <priority>0.80</priority>
+  </url>
+  <!-- Servicios para empleadores -->
+  <url>
+    <loc>https://www.innovabogados.cl/empleadores/auditorias-laborales</loc>
+    <lastmod>2026-07-30</lastmod>
     <priority>0.80</priority>
   </url>
   <url>
-    <loc>https://innovabogados.cl/recursos/blogs/caso-paginas-fast</loc>
-    <lastmod>2026-01-15</lastmod>
+    <loc>https://www.innovabogados.cl/empleadores/capacitacion-ley-karin</loc>
+    <lastmod>2026-07-30</lastmod>
     <priority>0.80</priority>
   </url>
   <url>
-    <loc>https://innovabogados.cl/recursos/blogs/guia-ley-karin</loc>
-    <lastmod>2026-01-15</lastmod>
+    <loc>https://www.innovabogados.cl/empleadores/defensas-judiciales</loc>
+    <lastmod>2026-07-30</lastmod>
+    <priority>0.80</priority>
+  </url>
+  <url>
+    <loc>https://www.innovabogados.cl/empleadores/mediaciones-dt</loc>
+    <lastmod>2026-07-30</lastmod>
+    <priority>0.80</priority>
+  </url>
+  <url>
+    <loc>https://www.innovabogados.cl/empleadores/reglamentos-internos</loc>
+    <lastmod>2026-07-30</lastmod>
+    <priority>0.80</priority>
+  </url>
+  <!-- Recursos, guías y casos -->
+  <url>
+    <loc>https://www.innovabogados.cl/recursos/blogs/accidentes-trayecto-trabajadores-terreno</loc>
+    <lastmod>2026-07-30</lastmod>
     <priority>0.75</priority>
   </url>
   <url>
-    <loc>https://innovabogados.cl/recursos/blogs/como-calcular-finiquito</loc>
-    <lastmod>2026-01-15</lastmod>
+    <loc>https://www.innovabogados.cl/recursos/blogs/caso-automatiza-web</loc>
+    <lastmod>2026-07-30</lastmod>
     <priority>0.75</priority>
   </url>
   <url>
-    <loc>https://innovabogados.cl/recursos/blogs/despido-necesidades-empresa</loc>
-    <lastmod>2026-01-15</lastmod>
+    <loc>https://www.innovabogados.cl/recursos/blogs/caso-chile-electrico</loc>
+    <lastmod>2026-07-30</lastmod>
     <priority>0.75</priority>
   </url>
-
-  <!-- Servicios Específicos Trabajadores -->
   <url>
-    <loc>https://innovabogados.cl/trabajadores/despido-injustificado</loc>
-    <lastmod>2026-01-15</lastmod>
-    <priority>0.80</priority>
+    <loc>https://www.innovabogados.cl/recursos/blogs/caso-destape-rapido</loc>
+    <lastmod>2026-07-30</lastmod>
+    <priority>0.75</priority>
   </url>
   <url>
-    <loc>https://innovabogados.cl/trabajadores/autodespido</loc>
-    <lastmod>2026-01-15</lastmod>
-    <priority>0.80</priority>
+    <loc>https://www.innovabogados.cl/recursos/blogs/caso-paginas-fast</loc>
+    <lastmod>2026-07-30</lastmod>
+    <priority>0.75</priority>
   </url>
   <url>
-    <loc>https://innovabogados.cl/trabajadores/tutela-ley-karin</loc>
-    <lastmod>2026-01-15</lastmod>
-    <priority>0.80</priority>
+    <loc>https://www.innovabogados.cl/recursos/blogs/como-calcular-finiquito</loc>
+    <lastmod>2026-07-30</lastmod>
+    <priority>0.75</priority>
   </url>
   <url>
-    <loc>https://innovabogados.cl/trabajadores/cobro-finiquito</loc>
-    <lastmod>2026-01-15</lastmod>
-    <priority>0.80</priority>
+    <loc>https://www.innovabogados.cl/recursos/blogs/contratos-pymes-creativas-turismo</loc>
+    <lastmod>2026-07-30</lastmod>
+    <priority>0.75</priority>
   </url>
   <url>
-    <loc>https://innovabogados.cl/trabajadores/horas-extra</loc>
-    <lastmod>2026-01-15</lastmod>
-    <priority>0.80</priority>
-  </url>
-
-  <!-- Servicios Específicos Empleadores -->
-  <url>
-    <loc>https://innovabogados.cl/empleadores/auditorias-laborales</loc>
-    <lastmod>2026-01-15</lastmod>
-    <priority>0.80</priority>
+    <loc>https://www.innovabogados.cl/recursos/blogs/despido-necesidades-empresa</loc>
+    <lastmod>2026-07-30</lastmod>
+    <priority>0.75</priority>
   </url>
   <url>
-    <loc>https://innovabogados.cl/empleadores/reglamentos-internos</loc>
-    <lastmod>2026-01-15</lastmod>
-    <priority>0.80</priority>
+    <loc>https://www.innovabogados.cl/recursos/blogs/guia-ley-karin</loc>
+    <lastmod>2026-07-30</lastmod>
+    <priority>0.75</priority>
   </url>
   <url>
-    <loc>https://innovabogados.cl/empleadores/defensas-judiciales</loc>
-    <lastmod>2026-01-15</lastmod>
-    <priority>0.80</priority>
-  </url>
-  <url>
-    <loc>https://innovabogados.cl/empleadores/mediaciones-dt</loc>
-    <lastmod>2026-01-15</lastmod>
-    <priority>0.80</priority>
-  </url>
-  <url>
-    <loc>https://innovabogados.cl/empleadores/capacitacion-ley-karin</loc>
-    <lastmod>2026-01-15</lastmod>
-    <priority>0.80</priority>
+    <loc>https://www.innovabogados.cl/recursos/blogs/normativa-sanitaria-camiones-limpiafosas</loc>
+    <lastmod>2026-07-30</lastmod>
+    <priority>0.75</priority>
   </url>
 </urlset>
