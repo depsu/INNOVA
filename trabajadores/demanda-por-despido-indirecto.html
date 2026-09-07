@@ -701,6 +701,10 @@
             });
         })();
     </script>
+<script>
+/* dixdy-origen-lead: la página que envió el formulario va al inicio del asunto del correo y como campo "pagina" (DIXDY 2026-09-07) */
+(function(){try{var h=location.host.replace(/^www\./,''),r=location.pathname.replace(/\.html$/,'').replace(/\/$/,''),e=r?h+r:h+' (portada)';document.querySelectorAll('form').forEach(function(f){var a=f.getAttribute('action')||'',n=/submit-form\.com/.test(a)?'_email.subject':(/formsubmit\.co/.test(a)?'_subject':'');if(!n)return;var s=f.querySelector('input[name="'+n+'"]');if(!s){s=document.createElement('input');s.type='hidden';s.name=n;s.value='Nuevo mensaje del formulario';f.appendChild(s);}if(s.value.indexOf('[')!==0)s.value='['+e+'] '+s.value;var p=f.querySelector('input[name="pagina"]');if(!p){p=document.createElement('input');p.type='hidden';p.name='pagina';f.appendChild(p);}if(!p.value)p.value=location.href;});}catch(_){}})();
+</script>
 </body>
 
 </html>
